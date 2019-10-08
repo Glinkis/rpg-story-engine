@@ -2,7 +2,9 @@ import compression from "compression"
 import express from "express"
 
 const app = express()
-const port = process.env.PORT || 5000
+
+// Compress responses.
+app.use(compression({ threshold: 8 }))
 
 const obj = {
   key0: "value0",
@@ -15,5 +17,4 @@ app.get("/", (req, res) => {
   res.send(JSON.stringify(obj, null, 2))
 })
 
-app.use(compression({ threshold: 8 }))
-app.listen(port)
+app.listen(process.env.PORT || 5000)
