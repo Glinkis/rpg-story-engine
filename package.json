@@ -10,7 +10,7 @@
     "start": "ts-node server"
   },
   "dependencies": {
-    "@types/compression": "^1.0.1",
+    "@types/compression": "1.0.1",
     "@types/express": "4.17.1",
     "@types/node": "12.7.11",
     "compression": "1.7.4",
