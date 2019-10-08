@@ -1,5 +1,4 @@
 import express from "express"
-import { Pool } from "pg"
 
 const app = express()
 
@@ -7,7 +6,8 @@ app.get("/", (req, res) => {
   res.send("Success!")
 })
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
+const port = process.env.PORT || 5000
+
+app.listen(port, () => {
+  console.log(`server listening on port: ${port}`)
 })
