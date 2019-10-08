@@ -1,4 +1,4 @@
-export enum WEALTH {
+export const enum WEALTH {
   KINGLY,
   ARISTOCRATIC,
   WEALTHY,
@@ -9,7 +9,7 @@ export enum WEALTH {
   DESTITUTE,
 }
 
-export enum SIZE {
+export const enum SIZE {
   CAVERNOUS,
   HUGE,
   QUITE_LARGE,
@@ -22,7 +22,7 @@ export enum SIZE {
   EXTREMELY_CRAMPED,
 }
 
-export enum CLEANLINESS {
+export const enum CLEANLINESS {
   FASTIDIOUS,
   VERY_TIDY,
   TIDY,
@@ -34,7 +34,7 @@ export enum CLEANLINESS {
   DANGEROUSLY_MESSY,
 }
 
-export enum EXPERTISE {
+export const enum EXPERTISE {
   MASTERFUL,
   EXCEPTIONAL,
   SUPERIOR_QUALITY,
@@ -46,7 +46,7 @@ export enum EXPERTISE {
   BLATANTLY_AMATEUR,
 }
 
-export enum ACTIVITY {
+export const enum ACTIVITY {
   EXTREMELY_BUSY,
   VERY_BUSY,
   RATHER_BUSY,
