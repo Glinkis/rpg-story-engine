@@ -1,11 +1,16 @@
 import express from "express"
 import { pool } from "../client/database"
+import enums from "./enums"
 
 const app = express()
 const port = process.env.PORT || 5000
 
 app.get("/", (req, res) => {
   res.send("Success!")
+})
+
+app.get("/enums", (req, res) => {
+  res.send(enums)
 })
 
 app.get("/db", async (req, res) => {
