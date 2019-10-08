@@ -1,0 +1,13 @@
+{
+  "name": "rpg-story-engine",
+  "version": "1.0.0",
+  "description": "A role-playing story generation engine.",
+  "repository": "https://github.com/Glinkis/rpg-story-engine.git",
+  "author": "Victor Glindås <glinkis@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "prettier": "1.18.2",
+    "typescript": "3.6.3"
+  }
+}
