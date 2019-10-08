@@ -15,5 +15,5 @@ app.get("/", (req, res) => {
   res.send(JSON.stringify(obj, null, 2))
 })
 
-app.use(compression())
+app.use(compression({ threshold: 8 }))
 app.listen(port)
