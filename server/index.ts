@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/enums", (req, res) => {
-  res.send(enums)
+  res.send(JSON.stringify(enums, null, 2))
 })
 
 app.get("/db", async (req, res) => {
