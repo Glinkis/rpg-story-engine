@@ -7,7 +7,7 @@ export const pool = new Pool({
 
 const createTest = `
   CREATE TABLE IF NOT EXISTS test(
-    id INT PRIMARY KEY NOT NULL,
+    id INT PRIMARY KEY NOT NULL
   );
 `
 
