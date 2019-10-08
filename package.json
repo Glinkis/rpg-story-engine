@@ -12,9 +12,7 @@
   "dependencies": {
     "@types/express": "4.17.1",
     "@types/node": "12.7.11",
-    "@types/pg": "7.11.2",
     "express": "4.17.1",
-    "pg": "7.12.1",
     "prettier": "1.18.2",
     "ts-node": "8.4.1",
     "typescript": "3.6.3"
