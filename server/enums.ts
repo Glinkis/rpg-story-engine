@@ -46,7 +46,7 @@ export const enum EXPERTISE {
   BLATANTLY_AMATEUR,
 }
 
-export const enum ACTIVITY {
+export enum ACTIVITY {
   EXTREMELY_BUSY,
   VERY_BUSY,
   RATHER_BUSY,
