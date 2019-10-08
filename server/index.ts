@@ -1,6 +1,6 @@
 import express from "express"
 import { pool } from "../client/database"
-import enums from "./enums"
+import * as enums from "./enums"
 
 const app = express()
 const port = process.env.PORT || 5000
