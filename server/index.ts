@@ -15,12 +15,9 @@ app.get("/db", async (req, res) => {
 
     res.send(result ? result.rows : null)
     client.release()
-  } catch (err) {
-    console.error(err)
-    res.send("Error " + err)
+  } catch (error) {
+    res.send(error)
   }
 })
 
-app.listen(port, () => {
-  console.log(`server listening on port: ${port}`)
-})
+app.listen(port)
