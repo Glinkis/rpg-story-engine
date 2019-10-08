@@ -11,10 +11,9 @@ app.get("/", (req, res) => {
 app.get("/db", async (req, res) => {
   try {
     const client = await pool.connect()
-    const result = await client.query("SELECT * FROM TEST")
-    client.release()
-
+    const result = await client.query("SELECT * FROM test")
     res.send(result ? result.rows : null)
+    client.release()
   } catch (error) {
     res.send(error)
   }

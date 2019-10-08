@@ -5,26 +5,16 @@ export const pool = new Pool({
   ssl: true,
 })
 
-const selectTest = `
-  SELECT * FROM TEST
-`
-
 const createTest = `
-  CREATE TABLE TEST(
-    ID INT PRIMARY KEY NOT NULL,
+  CREATE TABLE IF NOT EXISTS test(
+    id INT PRIMARY KEY NOT NULL,
   );
 `
 
 async function setup() {
   try {
     const client = await pool.connect()
-    const selectedTest = await client.query(selectTest)
-
-    if (!selectedTest) {
-      const createdTest = await client.query(createTest)
-      console.log(createdTest)
-    }
-
+    await client.query(createTest)
     client.release()
   } catch (error) {
     console.error(error)
