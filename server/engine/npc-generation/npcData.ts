@@ -430,34 +430,34 @@ export const npcData = {
     },
     festival: {
       probability: 5,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         return true
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.festival function")
-        const placement = setup.npcData.lifeEvents.festival.placement.seededrandom()
-        const foodTrait = setup.npcData.lifeEvents.festival.foodTrait.seededrandom()
-        const flowerTrait = setup.npcData.lifeEvents.festival.flowerTrait.seededrandom()
-        const fruit = setup.flora.fruit.fruitP.seededrandom()
-        const vegetable = setup.flora.vegetable.vegetableP.seededrandom()
-        const flower = setup.flora.flower.stemP.seededrandom()
-        const festivalDid = setup.npcData.lifeEvents.festival.festivalDid.seededrandom()
+        const placement = randomValue(npcData.lifeEvents.festival.placement)
+        const foodTrait = randomValue(npcData.lifeEvents.festival.foodTrait)
+        const flowerTrait = randomValue(npcData.lifeEvents.festival.flowerTrait)
+        const fruit = randomValue(setup.flora.fruit.fruitP)
+        const vegetable = randomValue(setup.flora.vegetable.vegetableP)
+        const flower = randomValue(setup.flora.flower.stemP)
+        const festivalDid = randomValue(npcData.lifeEvents.festival.festivalDid)
         if (random(100) > 70) {
-          return [
-            ["I won", "I got"].seededrandom() +
+          return randomValue([
+            randomValue(["I won", "I got"]) +
               " " +
               placement +
               " at " +
-              [
+              randomValue([
                 "a garden festival",
                 "a farmer's market",
                 "an agriculture festival",
                 "a garden tournament",
-              ].seededrandom() +
+              ]) +
               " for my " +
               foodTrait +
               " " +
-              [fruit, vegetable].seededrandom() +
+              randomValue([fruit, vegetable]) +
               ".",
             randomValue(["I won", "I got"]) +
               " " +
@@ -498,15 +498,15 @@ export const npcData = {
               " " +
               flower +
               ". " +
-              [
+              randomValue([
                 "I think they won",
                 "If I recall correctly, they got",
                 "At the end of the festival they won ",
-              ].seededrandom() +
+              ]) +
               " " +
               placement +
               " in the growers competition.",
-          ].seededrandom
+          ])
         } else {
           return [
             [
@@ -932,16 +932,16 @@ export const npcData = {
     },
     lostChild: {
       probability: 3,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         return true
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.lostChild function")
-        const treeType = setup.flora.tree.typeArticle.seededrandom()
-        const location = setup.npcData.lifeEvents.lostChild.location.seededrandom()
-        const time = setup.npcData.lifeEvents.lostChild.time.seededrandom()
-        const finder = setup.npcData.lifeEvents.lostChild.finder.seededrandom()
-        const ending = setup.npcData.lifeEvents.lostChild.ending.seededrandom()
+        const treeType = randomValue(setup.flora.tree.typeArticle)
+        const location = randomValue(npcData.lifeEvents.lostChild.location)
+        const time = randomValue(npcData.lifeEvents.lostChild.time)
+        const finder = randomValue(npcData.lifeEvents.lostChild.finder)
+        const ending = randomValue(npcData.lifeEvents.lostChild.ending)
         return (
           ["when I was young", "as a young child", "while I was still a kid"].seededrandom() +
           " I got lost in " +
@@ -1023,12 +1023,12 @@ export const npcData = {
     },
     pilgrimage: {
       probability: 5,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         if (setup.townData.professions[npc.profession].sector === "religion" || random(100) > 75) {
           return true
         } else return false
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.pilgrimage function")
         const prefix = setup.npcData.lifeEvents.pilgrimage.prefix.seededrandom()
         const location = setup.npcData.lifeEvents.pilgrimage.location.seededrandom()
@@ -1082,10 +1082,10 @@ export const npcData = {
     },
     meetFriendNPC: {
       probability: 8,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         return true
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.meetFriendNPC function")
         if (random(100) > 50) {
           console.log("Finding an already existing friend!")
@@ -1111,7 +1111,7 @@ export const npcData = {
         setup.createRelationship(town, npc, friend, "friend", "friend")
         if (npc.hasClass === false) {
           // Descriptions and stuff goes here
-          return [
+          return randomValue([
             "I met my " + setup.profile(friend, "best buddy") + " on some travel.",
             "I lost contact with an " +
               setup.profile(friend, "old friend") +
@@ -1122,9 +1122,9 @@ export const npcData = {
             "we were attacked by raiders, and I was saved by a " +
               setup.profile(friend, "traveler") +
               " passing through. We are best of friends to this day.",
-          ].seededrandom()
+          ])
         } else {
-          return [
+          return randomValue([
             "I made a " + setup.profile(friend, "friend") + " for life in my travels.",
             "I was poor as a churchmouse, but then " +
               setup.profile(friend, "a total stranger") +
@@ -1133,18 +1133,18 @@ export const npcData = {
             "I took an odd job delivering a package to the town over. Never would have thought that that sort of thing could be life-changing, but it was- it's where I met my " +
               setup.profile(friend, "best friend") +
               ".",
-          ].seededrandom()
+          ])
         }
       },
     },
     meetEnemyNPC: {
       probability: 8,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         if (npc.ageYears >= 18 && npc.ageStage !== "child") {
           return true
         }
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.meetEnemyNPC function")
         const enemy = setup.createNPC(town, {
           gender: "man",
@@ -1153,7 +1153,7 @@ export const npcData = {
         })
         setup.createRelationship(town, npc, enemy, "enemy", "enemy")
         return (
-          [
+          randomValue([
             "I made an " + setup.profile(enemy, "enemy") + " for life in my travels- ",
             "I was framed by a " + setup.profile(enemy, "scoundrel") + " for a crime I didn't commit- ",
             "I met a " + setup.profile(enemy, "man") + ", and we played cards. He decided that I was cheating- ",
@@ -1161,8 +1161,8 @@ export const npcData = {
             "I used to play cards in a pub, and one time supposedly cheated a " +
               setup.profile(enemy, "man") +
               " out of his winnings; ",
-          ].seededrandom() +
-          [
+          ]) +
+          randomValue([
             "it was a misunderstanding, but I cannot convince him otherwise. ",
             "I admit that I am at least partially at fault. ",
             "I suppose that I'm at least partially to blame. ",
@@ -1171,8 +1171,8 @@ export const npcData = {
             "I'm not quite sure what happened. ",
             "it was all a setup, but a very good one. ",
             "I'll never say what really happened. ",
-          ].seededrandom() +
-          [
+          ]) +
+          randomValue([
             "He hunts me to this day.",
             "I hope to apologise to him if I ever encounter him again.",
             "I don't exactly care to run into him again.",
@@ -1183,18 +1183,18 @@ export const npcData = {
             "I doubt I'll ever meet him again.",
             "That's all behind me now and I hope it stays that way.",
             "I'm still on the lookout for him to this very day.",
-          ].seededrandom()
+          ])
         )
       },
     },
     meetPartnerNPC: {
       probability: 10,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         if (npc.ageYears >= 18 && npc.ageStage !== "child") {
           return true
         }
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.meetPartnerNPC function")
         const family = town.families[npc.family]
         const node = family.members[npc.key]
@@ -1240,44 +1240,38 @@ export const npcData = {
     },
     backgroundWork: {
       probability: 20,
-      exclusions(town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== "child") {
-          return true
-        }
+      exclusions(town: any, npc: any) {
+        return npc.ageYears >= 18 && npc.ageStage !== "child"
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.backgroundWork function")
         npc.wealth += dice(2, 6) * 1000
-        return (
-          [
-            "I spent some time working as a ",
-            "I did a stint as a ",
-            "I worked as a ",
-            "for a while I did some work as a ",
-            "because of a promise, I did some time as a ",
-            "there was no other work so for a while I was a ",
-            "to pay off a debt, I spent some time as a ",
-            "to pay off a debt, I had to work as a ",
-          ].seededrandom() +
-          [
-            npc.background,
-            npc.background,
-            npc.background,
-            npc.background,
-            npc.dndClass,
-            npc.dndClass,
-            npc.dndClass,
-          ].seededrandom() +
-          "."
-        )
+        return `${randomValue([
+          "I spent some time working as a ",
+          "I did a stint as a ",
+          "I worked as a ",
+          "for a while I did some work as a ",
+          "because of a promise, I did some time as a ",
+          "there was no other work so for a while I was a ",
+          "to pay off a debt, I spent some time as a ",
+          "to pay off a debt, I had to work as a ",
+        ])}${randomValue([
+          npc.background,
+          npc.background,
+          npc.background,
+          npc.background,
+          npc.dndClass,
+          npc.dndClass,
+          npc.dndClass,
+        ])}.`
       },
     },
     meetImportantNPC: {
       probability: 5,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         return true
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.meetImportantNPC function")
         return [
           [
