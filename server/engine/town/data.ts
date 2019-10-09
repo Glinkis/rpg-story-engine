@@ -6,6 +6,11 @@ interface EconomicIdeology {
   descriptors: Record<string, string>
 }
 
+interface PoliticalSource {
+  politicalIdeology: string[]
+  [key: string]: any
+}
+
 interface Demographic {
   probability: number
   popPercentages: Record<string, number>
@@ -34,7 +39,7 @@ interface TownData {
   rollData: RollData
   type: Record<string, TownType>
   economicIdeology: Record<string, EconomicIdeology>
-  politicalSource: Record<string, any>
+  politicalSource: Record<string, PoliticalSource>
   politicalIdeology: Record<string, any>
   misc: Record<string, any>
   terrain: Record<string, Terrain>
