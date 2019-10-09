@@ -186,7 +186,7 @@ export function createTown(base: any = {}) {
   town.vegetation = randomValue(townData.terrain[town.terrain].location[town.location].vegetation)
 
   Object.keys(town.roll).forEach(roll => {
-    town.roll[roll].clamp(1, 100)
+    clamp(town.roll[roll], 1, 100)
   })
 
   console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
@@ -215,7 +215,7 @@ export function createTown(base: any = {}) {
   setup.createSocioPolitics(town)
 
   for (const roll of Object.keys(town.roll)) {
-    town.roll[roll].clamp(1, 100)
+    clamp(town.roll[roll], 1, 100)
   }
 
   setup.townRender(town)
