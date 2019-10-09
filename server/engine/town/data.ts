@@ -6,6 +6,21 @@ interface EconomicIdeology {
   descriptors: Record<string, string>
 }
 
+interface Demographic {
+  probability: number
+  popPercentages: Record<string, number>
+}
+
+interface TownType {
+  economicIdeology: string[]
+  politicalSource: string[]
+  demographics: Demographic[]
+  modifiers: Record<string, number>
+  roadDuplication: number
+  population(): number
+  startFactionsNumber(): number
+}
+
 interface TownData {
   name: {
     prefix: string[]
@@ -17,7 +32,7 @@ interface TownData {
   }
   lifestyleStandards: [number, string][]
   rollData: RollData
-  type: Record<string, any>
+  type: Record<string, TownType>
   economicIdeology: Record<string, EconomicIdeology>
   politicalSource: Record<string, any>
   politicalIdeology: Record<string, any>
