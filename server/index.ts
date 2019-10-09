@@ -1,9 +1,6 @@
 import compression from "compression"
 import express from "express"
-import * as alchemist from "./engine/alchemist/data"
-import * as blacksmith from "./engine/blacksmith/data"
 import { createTown } from "./engine/town/create"
-import { red } from "color-name"
 
 const app = express()
 
