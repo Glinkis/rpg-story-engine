@@ -196,7 +196,7 @@ export function createTown(base: any = {}) {
     town.roll[modifier] = fm(town.roll[modifier], townSizeModifiers[modifier])
   }
 
-  town.guard = setup.createGuard(town)
+  // TODO: town.guard = setup.createGuard(town)
 
   console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   const economicIdeologyModifiers = townData.economicIdeology[town.economicIdeology].modifiers
@@ -212,15 +212,15 @@ export function createTown(base: any = {}) {
     town.roll[modifier] = fm(town.roll[modifier], politicalIdeologyModifiers[modifier])
   }
 
-  setup.createSocioPolitics(town)
+  // TODO: setup.createSocioPolitics(town)
 
   for (const roll of Object.keys(town.roll)) {
     clamp(town.roll[roll], 1, 100)
   }
 
-  setup.townRender(town)
-  setup.createStartBuildings(town)
-  setup.createStartFactions(town)
+  // TODO: setup.townRender(town)
+  // TODO: setup.createStartBuildings(town)
+  // TODO: setup.createStartFactions(town)
 
   console.groupEnd()
   console.log(`${town.name} has loaded.`)
