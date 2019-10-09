@@ -1,4 +1,6 @@
-export type RollData = Record<string, [number, ...(string | number)[]][]>
+export type Roll = [number, ...(string | number)[]]
+
+export type RollData = Record<string, Roll[]>
 
 export interface Terrain {
   weather: Weather
