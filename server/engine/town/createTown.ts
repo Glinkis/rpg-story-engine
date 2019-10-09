@@ -217,7 +217,6 @@ export function createTown(base: any = {}) {
   const economicIdeologyModifiers = townData.economicIdeology[town.economicIdeology].modifiers
 
   for (const modifier of Object.keys(economicIdeologyModifiers)) {
-    console.log(economicIdeologyModifiers[modifier])
     town.roll[modifier] = fm(town.roll[modifier], economicIdeologyModifiers[modifier])
   }
 
@@ -225,7 +224,6 @@ export function createTown(base: any = {}) {
   const politicalIdeologyModifiers = townData.politicalIdeology[town.politicalIdeology].modifiers
 
   for (const modifier of Object.keys(politicalIdeologyModifiers)) {
-    console.log(politicalIdeologyModifiers[modifier])
     town.roll[modifier] = fm(town.roll[modifier], politicalIdeologyModifiers[modifier])
   }
 
@@ -239,7 +237,6 @@ export function createTown(base: any = {}) {
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
 
-  console.log(town)
   console.groupEnd()
   console.log(`${town.name} has loaded.`)
 
