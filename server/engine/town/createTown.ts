@@ -1,3 +1,4 @@
+import { fetchProfessions } from "../tools/fetchProfessions"
 import { randomValue, randomRange, dice } from "../rolls"
 import { clamp, fm } from "../math"
 import { townDemographics } from "./townDemographics"
@@ -191,7 +192,7 @@ export function createTown(base: any = {}) {
   }
 
   townDemographics(town)
-  town.professions = setup.fetchProfessions(town)
+  town.professions = fetchProfessions(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology

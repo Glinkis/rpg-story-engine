@@ -1,5 +1,6 @@
 import { RollData, Terrain } from "../../../shared/types"
 import { randomFloatRange, randomValue, randomRange, dice } from "../rolls"
+import { professions } from "../npc-generation/professions"
 
 interface EconomicIdeology {
   modifiers: Record<string, number>
@@ -43,9 +44,11 @@ interface TownData {
   politicalIdeology: Record<string, any>
   misc: Record<string, any>
   terrain: Record<string, Terrain>
+  professions: typeof professions
 }
 
 export const townData: TownData = {
+  professions,
   name: {
     prefix: [
       "Green",

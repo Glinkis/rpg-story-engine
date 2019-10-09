@@ -1,4 +1,5 @@
-import { clone, weightedRandomFetcher } from "../utils"
+import { clone } from "../utils"
+import { weightedRandomFetcher } from "../tools/weightedRandomFetcher"
 import { townData } from "./townData"
 
 interface Town {
