@@ -725,11 +725,11 @@ export const npcData = {
         const ballCelebrate = setup.npcData.lifeEvents.nobleEvent.ballCelebrate.seededrandom()
         const carriage = setup.npcData.lifeEvents.nobleEvent.carriage.seededrandom()
         const handshake = setup.npcData.lifeEvents.nobleEvent.handshake.seededrandom()
-        return [
+        return randomValue([
           prefix + " the royal wedding of a local " + setup.profile(noble, "noble") + ".",
           prefix +
             " the royal " +
-            ["banquet", "feast", "gathering"].seededrandom() +
+            randomValue(["banquet", "feast", "gathering"]) +
             " of a local " +
             setup.profile(noble, "noble") +
             " in celebration of " +
@@ -737,7 +737,7 @@ export const npcData = {
             ".",
           prefix +
             " the royal " +
-            ["ball", "dance", "gala", "masquerade ball"].seededrandom() +
+            randomValue(["ball", "dance", "gala", "masquerade ball"]) +
             " hosted by a local " +
             setup.profile(noble, "noble") +
             " in honor of " +
@@ -746,12 +746,12 @@ export const npcData = {
           "I saw the carriage of a " +
             setup.profile(noble, "noble") +
             " " +
-            [
+            randomValue([
               "passing by my house",
               "while traveling",
               "going down a city street",
               "passing through my town",
-            ].seededrandom() +
+            ]) +
             ", and it was " +
             carriage +
             ".",
@@ -760,7 +760,7 @@ export const npcData = {
             ". If I recall their handshake was " +
             handshake +
             ".",
-        ].seededrandom()
+        ])
       },
       prefix: [
         "I was invited to",
@@ -823,44 +823,37 @@ export const npcData = {
     },
     journey: {
       probability: 3,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         return true
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.journey function")
-        const prefix = setup.npcData.lifeEvents.journey.prefix.seededrandom()
-        const location = setup.npcData.lifeEvents.journey.location.seededrandom()
-        const locationLocation = setup.npcData.lifeEvents.journey.locationLocation.seededrandom()
-        const found = setup.npcData.lifeEvents.journey.found.seededrandom()
-        const notFound = setup.npcData.lifeEvents.journey.notFound.seededrandom()
+        const prefix = randomValue(npcData.lifeEvents.journey.prefix)
+        const location = randomValue(npcData.lifeEvents.journey.location)
+        const locationLocation = randomValue(npcData.lifeEvents.journey.locationLocation)
+        const found = randomValue(npcData.lifeEvents.journey.found)
+        const notFound = randomValue(npcData.lifeEvents.journey.notFound)
         return (
-          [
+          randomValue([
+            `${prefix} ${location} ${locationLocation}. ${randomValue([
+              "I really did make it there, ",
+              "I got to see that place, ",
+              "My journey was succesful, ",
+            ])} ${found}`,
             prefix +
               " " +
               location +
               " " +
               locationLocation +
               ". " +
-              [
-                "I really did make it there, ",
-                "I got to see that place, ",
-                "My journey was succesful, ",
-              ].seededrandom() +
-              found,
-            prefix +
-              " " +
-              location +
-              " " +
-              locationLocation +
-              ". " +
-              [
+              randomValue([
                 "I never found it, ",
                 "I never got to see that place, ",
                 "My journey was a failure, ",
                 "I got lost along the way and never made it there, ",
-              ].seededrandom() +
+              ]) +
               notFound,
-          ].seededrandom() + "."
+          ]) + "."
         )
       },
       prefix: [
