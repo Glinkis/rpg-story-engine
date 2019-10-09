@@ -459,40 +459,40 @@ export const npcData = {
               " " +
               [fruit, vegetable].seededrandom() +
               ".",
-            ["I won", "I got"].seededrandom() +
+            randomValue(["I won", "I got"]) +
               " " +
               placement +
               " at " +
-              ["a garden festival", "a flower festival", "a farmer's market", "a garden tournament"].seededrandom() +
+              randomValue(["a garden festival", "a flower festival", "a farmer's market", "a garden tournament"]) +
               " for my " +
               flowerTrait +
               " " +
               flower +
               ".",
-            ["some friends and I went to", "I went to", "I spent a day at"].seededrandom() +
+            randomValue(["some friends and I went to", "I went to", "I spent a day at"]) +
               " " +
-              [
+              randomValue([
                 "a garden festival",
                 "a farmer's market",
                 "an agriculture festival",
                 "a garden tournament",
-              ].seededrandom() +
+              ]) +
               " where I saw some " +
               foodTrait +
               " " +
-              [fruit, vegetable].seededrandom() +
+              randomValue([fruit, vegetable]) +
               ". " +
-              [
+              randomValue([
                 "I think they won",
                 "If I recall correctly, they got",
                 "At the end of the festival they won ",
-              ].seededrandom() +
+              ]) +
               " " +
               placement +
               " in the growers competition.",
-            ["some friends and I went to", "I went to", "I spent a day at"].seededrandom() +
+            randomValue(["some friends and I went to", "I went to", "I spent a day at"]) +
               " " +
-              ["a garden festival", "a flower festival", "a farmer's market", "a garden tournament"].seededrandom() +
+              randomValue(["a garden festival", "a flower festival", "a farmer's market", "a garden tournament"]) +
               " where I saw some " +
               flowerTrait +
               " " +
