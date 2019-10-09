@@ -1,4 +1,4 @@
-export type RollData = Record<string, [number, string][]>
+import { RollData } from "../../shared/types"
 
 export const rollData: RollData = {
   wealth: [

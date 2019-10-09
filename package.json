@@ -15,9 +15,7 @@
     "yarn": "^1.15.0"
   },
   "nodemonConfig": {
-    "watch": [
-      "server"
-    ],
+    "watch": "server",
     "ext": "ts"
   },
   "dependencies": {
