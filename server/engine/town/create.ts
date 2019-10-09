@@ -1,6 +1,7 @@
 import { randomValue, randomRange, dice } from "../rolls"
-import { townData } from "./data"
 import { clamp, fm } from "../math"
+import { createTownName } from "./createTownName"
+import { townData } from "./data"
 
 const setup = {} as any
 
@@ -23,7 +24,7 @@ export function createTown(base: any = {}) {
   ])
   const terrain = randomValue(["temperate", "temperate", "temperate", "tropical", "polar", "arid"])
   const season = ["summer", "autumn", "winter", "spring"]
-  const townName = setup.createTownName()
+  const townName = createTownName()
   console.groupCollapsed(townName + " is loading...")
   const economicIdeology = randomValue(townData.type[type].economicIdeology)
   const politicalSource = randomValue(townData.type[type].politicalSource)

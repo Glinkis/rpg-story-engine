@@ -3,7 +3,7 @@ import { linguisticDrift } from "./lingusticDrift"
 
 const setup: any = {}
 
-export function createTownName(town: any) {
+export function createTownName(town?: any) {
   let name
   if (random(100) > 90) {
     console.log("Named a founder!")
