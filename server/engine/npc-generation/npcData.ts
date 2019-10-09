@@ -833,28 +833,19 @@ export const npcData = {
         const locationLocation = randomValue(npcData.lifeEvents.journey.locationLocation)
         const found = randomValue(npcData.lifeEvents.journey.found)
         const notFound = randomValue(npcData.lifeEvents.journey.notFound)
-        return (
-          randomValue([
-            `${prefix} ${location} ${locationLocation}. ${randomValue([
-              "I really did make it there, ",
-              "I got to see that place, ",
-              "My journey was succesful, ",
-            ])} ${found}`,
-            prefix +
-              " " +
-              location +
-              " " +
-              locationLocation +
-              ". " +
-              randomValue([
-                "I never found it, ",
-                "I never got to see that place, ",
-                "My journey was a failure, ",
-                "I got lost along the way and never made it there, ",
-              ]) +
-              notFound,
-          ]) + "."
-        )
+        return `${randomValue([
+          `${prefix} ${location} ${locationLocation}. ${randomValue([
+            "I really did make it there, ",
+            "I got to see that place, ",
+            "My journey was succesful, ",
+          ])} ${found}`,
+          `${prefix} ${location} ${locationLocation}. ${randomValue([
+            "I never found it, ",
+            "I never got to see that place, ",
+            "My journey was a failure, ",
+            "I got lost along the way and never made it there, ",
+          ])} ${notFound}`,
+        ])}.`
       },
       prefix: [
         "I ventured out to see",
