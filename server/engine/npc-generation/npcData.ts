@@ -226,7 +226,7 @@ export const npcData = {
     warMedal: {
       probability: 2,
       exclusions(town: any, npc: any) {
-        if (setup.townData.professions[npc.profession].sector === "military" || random(100) > 70) {
+        if (townData.professions[npc.profession].sector === "military" || random(100) > 70) {
           if (npc.ageYears > 15) {
             return true
           }
@@ -311,7 +311,7 @@ export const npcData = {
         const badAnimal = randomValue(npcData.lifeEvents.magicalCreatue.badAnimals)
 
         // good/non-hostile creatures
-        return [
+        return randomValue([
           `${randomValue([
             "while I was travelling through",
             "while I was journeying through",
@@ -335,38 +335,29 @@ export const npcData = {
             "It ran off as soon as it saw me",
             "It spent the day following me from a distance",
           ])}.`,
-          // dangerous/evil creautres
-          [
+          // dangerous/evil creatures
+          `${randomValue([
             "while I was travelling through",
             "while I was journeying through",
             "while passing through",
             "while exploring",
             "while trying to escape",
-          ].seededrandom() +
-            " " +
-            ["the heart of " + tree + " forest", badPlace, badPlace, badPlace].seededrandom() +
-            ", " +
-            [
-              "I saw",
-              "I spotted",
-              "I came across",
-              "I stumbled upon",
-              "I ran into",
-              "I caught sight of",
-            ].seededrandom() +
-            " " +
-            [badCreature, badCreature, "a giant " + badAnimal].seededrandom() +
-            "! " +
-            [
-              "It started chasing me as soon as it saw me, and I barely escaped",
-              "I ran as soon as I saw the thing",
-              "I snuck up close to get a better look, but ran away after that",
-              "The creature stalked me for the rest of the day",
-              "It didn't see me, but after that I was on edge for the rest of my journey",
-              "I barely escaped from that thing with my life",
-            ].seededrandom() +
-            ".",
-        ].seededrandom()
+          ])} ${randomValue(["the heart of " + tree + " forest", badPlace, badPlace, badPlace])}, ${randomValue([
+            "I saw",
+            "I spotted",
+            "I came across",
+            "I stumbled upon",
+            "I ran into",
+            "I caught sight of",
+          ])} ${randomValue([badCreature, badCreature, "a giant " + badAnimal])}! ${randomValue([
+            "It started chasing me as soon as it saw me, and I barely escaped",
+            "I ran as soon as I saw the thing",
+            "I snuck up close to get a better look, but ran away after that",
+            "The creature stalked me for the rest of the day",
+            "It didn't see me, but after that I was on edge for the rest of my journey",
+            "I barely escaped from that thing with my life",
+          ])}.`,
+        ])
       },
       goodPlaces: [
         "far away lands",
