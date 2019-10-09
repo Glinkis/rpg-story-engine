@@ -1,4 +1,4 @@
-import { random, dice, randomValue } from "../rolls"
+import { random, dice, randomValue, randomRange } from "../rolls"
 import { townData } from "../town/townData"
 
 export const npcData = {
@@ -581,29 +581,29 @@ export const npcData = {
     },
     apprentice: {
       probability: 6,
-      exclusions(town, npc) {
-        if (setup.townData.professions[npc.profession].socialClass === "nobility") {
+      exclusions(town: any, npc: any) {
+        if (townData.professions[npc.profession].socialClass === "nobility") {
           return false
         } else {
           return true
         }
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.apprentice function")
-        const apprenticeProfession = setup.npcData.lifeEvents.apprentice.profession.seededrandom()
-        const reputation = setup.npcData.lifeEvents.apprentice.reputation.seededrandom()
-        const learned = setup.npcData.lifeEvents.apprentice.learned.seededrandom()
+        const apprenticeProfession = randomValue(npcData.lifeEvents.apprentice.profession)
+        const reputation = randomValue(npcData.lifeEvents.apprentice.reputation)
+        const learned = randomValue(npcData.lifeEvents.apprentice.learned)
         const teacher = setup.createNPC(town, {
           profession: apprenticeProfession,
           isShallow: true,
         })
         return (
-          [
+          randomValue([
             "I apprenticed under",
             "I worked under",
             "I learned under the tutelage of",
             "I was a novice to",
-          ].seededrandom() +
+          ]) +
           " " +
           setup.profile(teacher, teacher.name) +
           " " +
@@ -676,14 +676,14 @@ export const npcData = {
     },
     trinket: {
       probability: 5,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         return true
       },
       function() {
         const trinket = setup.createMagicTrinket()
         console.log("called lifeEvents.trinket function")
         return (
-          [
+          randomValue([
             "I was given a magical trinket- it's a ",
             "I happened across a ",
             "I found my lost family heirloom, it is a ",
@@ -693,7 +693,7 @@ export const npcData = {
             "I met up with an adventurer who generously gave me a ",
             "I came across a trinket in a field- It's a ",
             "I was on a long journey when I found a ",
-          ].seededrandom() +
+          ]) +
           trinket.name +
           "." +
           "<blockquote>" +
@@ -707,24 +707,20 @@ export const npcData = {
     },
     nobleEvent: {
       probability: 5,
-      exclusions(town, npc) {
-        if (
-          setup.townData.professions[npc.profession].socialClass === "commoner" ||
-          setup.townData.professions[npc.profession].socialClass === "peasantry"
-        ) {
-          return true
-        }
+      exclusions(town: any, npc: any) {
+        const { socialClass } = townData.professions[npc.profession]
+        return socialClass === "commoner" || socialClass === "peasantry"
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         const noble = setup.createNPC(town, {
           background: "noble",
           isShallow: true,
         })
-        const prefix = setup.npcData.lifeEvents.nobleEvent.prefix.seededrandom()
-        const banquetCelebrate = setup.npcData.lifeEvents.nobleEvent.banquetCelebrate.seededrandom()
-        const ballCelebrate = setup.npcData.lifeEvents.nobleEvent.ballCelebrate.seededrandom()
-        const carriage = setup.npcData.lifeEvents.nobleEvent.carriage.seededrandom()
-        const handshake = setup.npcData.lifeEvents.nobleEvent.handshake.seededrandom()
+        const prefix = randomValue(npcData.lifeEvents.nobleEvent.prefix)
+        const banquetCelebrate = randomValue(npcData.lifeEvents.nobleEvent.banquetCelebrate)
+        const ballCelebrate = randomValue(npcData.lifeEvents.nobleEvent.ballCelebrate)
+        const carriage = randomValue(npcData.lifeEvents.nobleEvent.carriage)
+        const handshake = randomValue(npcData.lifeEvents.nobleEvent.handshake)
         return randomValue([
           prefix + " the royal wedding of a local " + setup.profile(noble, "noble") + ".",
           prefix +
@@ -1024,16 +1020,14 @@ export const npcData = {
     pilgrimage: {
       probability: 5,
       exclusions(town: any, npc: any) {
-        if (setup.townData.professions[npc.profession].sector === "religion" || random(100) > 75) {
-          return true
-        } else return false
+        return townData.professions[npc.profession].sector === "religion" || random(100) > 75
       },
       function(town: any, npc: any) {
         console.log("called lifeEvents.pilgrimage function")
-        const prefix = setup.npcData.lifeEvents.pilgrimage.prefix.seededrandom()
-        const location = setup.npcData.lifeEvents.pilgrimage.location.seededrandom()
-        const journey = setup.npcData.lifeEvents.pilgrimage.journey.seededrandom()
-        const result = setup.npcData.lifeEvents.pilgrimage.result.seededrandom()
+        const prefix = randomValue(npcData.lifeEvents.pilgrimage.prefix)
+        const location = randomValue(npcData.lifeEvents.pilgrimage.location)
+        const journey = randomValue(npcData.lifeEvents.pilgrimage.journey)
+        const result = randomValue(npcData.lifeEvents.pilgrimage.result)
         return prefix + " " + location + ". " + journey + ", " + result + "."
       },
       prefix: [
@@ -1781,10 +1775,10 @@ export const npcData = {
     },
     weirdStuff: {
       probability: 1,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         return true
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.weirdStuff function")
         return [
           "I came across a genie, " +
@@ -1813,29 +1807,23 @@ export const npcData = {
   doesnt: {
     "wants to grow a beard": {
       probability: 5,
-      // type: ['says', 'doesnt', 'hides'],
-      exclusions(town, npc) {
-        if (npc.beard || (npc.gender !== "man" && random(0, 100) <= npc.beardProbability)) {
-          return false
-        } else {
-          return true
-        }
+      exclusions(town: any, npc: any) {
+        return npc.beard || (npc.gender !== "man" && randomRange(0, 100) <= npc.beardProbability)
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         return npc.name + " doesn't say " + npc.heshe + " wants to grow a beard."
       },
     },
     "no longer loves partner": {
       probability: 5,
-      // type: ['says', 'doesnt', 'hides'],
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         if (!npc.partnerID) {
           return false
         } else {
           return true
         }
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         return (
           npc.name +
           " doesn't say " +
@@ -1853,11 +1841,10 @@ export const npcData = {
     },
     "has a sizeable inheritance": {
       probability: 5,
-      // type: ['says', 'doesnt', 'hides'],
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         return true
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         npc.wealth += 50000
         return npc.name + " doesn't say " + npc.heshe + " has a sizeable inheritance."
       },
@@ -1865,12 +1852,12 @@ export const npcData = {
     "wants to run away": {
       probability: 5,
       // type: ['says', 'doesnt', 'hides'],
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         if (npc.background !== "hermit") {
           return true
         }
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         return npc.name + " doesn't say " + npc.heshe + " wants to run away and live far away from society."
       },
     },
@@ -5578,7 +5565,7 @@ export const npcData = {
       ],
       weapon: ["a huge greataxe", "a battleaxe", "a greatsword", "two handaxes", "two warhammers"],
       wealth() {
-        return dice("2d4") * 1000
+        return dice(2, 4) * 1000
       },
     },
     bard: {
@@ -5612,7 +5599,7 @@ export const npcData = {
       ],
       weapon: ["a crossbow", "a longsword", "a longsword", "a longsword", "a long bow", "two daggers"],
       wealth() {
-        return dice("5d4") * 1000
+        return dice(5, 4) * 1000
       },
     },
     cleric: {
@@ -5652,7 +5639,7 @@ export const npcData = {
       ],
       weapon: ["a mace", "a mace", "a morning star", "a club", "a quarterstaff", "a crossbow"],
       wealth() {
-        return dice("5d4") * 1000
+        return dice(5, 4) * 1000
       },
     },
     druid: {
@@ -5700,7 +5687,7 @@ export const npcData = {
         "a longbow",
       ],
       wealth() {
-        return dice("2d4") * 1000
+        return dice(2, 4) * 1000
       },
     },
     fighter: {
@@ -5754,7 +5741,7 @@ export const npcData = {
         "a halberdier",
       ],
       wealth() {
-        return dice("5d4") * 1000
+        return dice(5, 4) * 1000
       },
     },
     monk: {
@@ -5789,7 +5776,7 @@ export const npcData = {
       ],
       weapon: ["fists", "fists", "fists", "a quarterstaff", "a quarterstaff"],
       wealth() {
-        return dice("2d4") * 100
+        return dice(2, 4) * 100
       },
     },
     paladin: {
