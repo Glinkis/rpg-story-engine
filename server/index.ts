@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
     res.send(JSON.stringify(createTown(), null, 2))
   } catch (error) {
     console.error(error)
-    res.send("ERROR " + JSON.stringify(error, null, 2))
+    res.send(error.stack)
   }
 })
 
