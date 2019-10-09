@@ -55,7 +55,6 @@ export function createTown(base: any = {}) {
       return Math.round(totalTax * 100) / 100
     },
     get type() {
-      console.log("Getting town type.")
       if (this.population > 3000) {
         return "city"
       } else if (this.population > 1000) {
@@ -84,15 +83,12 @@ export function createTown(base: any = {}) {
     // Clone the raw demographic data for the town type.
     // _baseDemographics: clone(setup.townData.type['hamlet'].demographics.seededrandom().output),
     get baseDemographics() {
-      console.log("Getting base demographics.")
       return this._baseDemographics
     },
     set baseDemographics(this: any, newDemographics) {
-      console.log("Setting base demographics.")
-      Object.keys(newDemographics).forEach(byRace => {
+      for (const byRace of Object.keys(newDemographics)) {
         this._baseDemographics[byRace] = newDemographics[byRace]
-      })
-      console.log(this.demographic)
+      }
     },
     get demographic(): any {
       // console.log('Getting demographic percent.')
