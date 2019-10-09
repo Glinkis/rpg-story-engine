@@ -91,13 +91,8 @@ export const npcData = {
     performed: {
       probability: 3,
       exclusions(town: any, npc: any) {
-        if (
-          townData.professions[npc.profession].socialClass === "commoner" ||
-          townData.professions[npc.profession].socialClass === "nobility" ||
-          random(100) > 90
-        ) {
-          return true
-        } else return false
+        const { socialClass } = townData.professions[npc.profession]
+        return socialClass === "commoner" || socialClass === "nobility" || random(100) > 90
       },
       function(town: any, npc: any) {
         console.log("called lifeEvents.performed function")
@@ -107,46 +102,33 @@ export const npcData = {
         const talent = randomValue(npcData.lifeEvents.performed.talent)
         const talentShowInfo = randomValue(npcData.lifeEvents.performed.talentShowInfo)
         return randomValue([
-          randomValue(["I played", "I was"]) +
-            " " +
-            character +
-            " in a " +
-            randomValue(["local", "regional", "travelling", "well known", "little known"]) +
-            " " +
-            randomValue(["theatre show", "musical", "play", "one man show"]) +
-            ". " +
-            theatrePerformance +
-            ".",
-          ["I was part of a", "I played in a", "I was in a"] +
-            " " +
-            randomValue([
-              "traveling band",
-              "local band",
-              "well known band",
-              "one man band",
-              "barely known band",
-              "pretty unpopular band",
-            ]) +
-            " " +
-            randomValue([
-              "for a while",
-              "for a little bit",
-              "for a pretty long stint",
-              "for a couple months",
-              "for over a year",
-              "for a short time",
-            ]) +
-            ". The band " +
-            bandInfo +
-            ".",
-          randomValue(["I entered a", "I took part in a", "I competed in a"]) +
-            " " +
-            randomValue(["local", "regional", "kingdom wide"]) +
-            " talent show with my " +
-            talent +
-            ". " +
-            talentShowInfo +
-            ".",
+          `${randomValue(["I played", "I was"])} ${character} in a ${randomValue([
+            "local",
+            "regional",
+            "travelling",
+            "well known",
+            "little known",
+          ])} ${randomValue(["theatre show", "musical", "play", "one man show"])}. ${theatrePerformance}.`,
+          `${randomValue(["I was part of a", "I played in a", "I was in a"])} ${randomValue([
+            "traveling band",
+            "local band",
+            "well known band",
+            "one man band",
+            "barely known band",
+            "pretty unpopular band",
+          ])} ${randomValue([
+            "for a while",
+            "for a little bit",
+            "for a pretty long stint",
+            "for a couple months",
+            "for over a year",
+            "for a short time",
+          ])}. The band ${bandInfo}.`,
+          `${randomValue(["I entered a", "I took part in a", "I competed in a"])} ${randomValue([
+            "local",
+            "regional",
+            "kingdom wide",
+          ])} talent show with my ${talent}. ${talentShowInfo}.`,
         ])
       },
       character: [
