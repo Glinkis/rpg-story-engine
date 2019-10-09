@@ -1,1 +1,1 @@
-export type RollData = Record<string, [number, string][]>
+export type RollData = Record<string, [number, ...string[]][]>
