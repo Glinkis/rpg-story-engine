@@ -1,6 +1,11 @@
 import { RollData, Terrain } from "../../../shared/types"
 import { randomFloatRange, randomValue, randomRange, dice } from "../rolls"
 
+interface EconomicIdeology {
+  modifiers: Record<string, number>
+  descriptors: Record<string, string>
+}
+
 interface TownData {
   name: {
     prefix: string[]
@@ -13,7 +18,7 @@ interface TownData {
   lifestyleStandards: [number, string][]
   rollData: RollData
   type: Record<string, any>
-  economicIdeology: Record<string, any>
+  economicIdeology: Record<string, EconomicIdeology>
   politicalSource: Record<string, any>
   politicalIdeology: Record<string, any>
   misc: Record<string, any>
