@@ -1,7 +1,7 @@
 import compression from "compression"
 import express from "express"
-import * as alchemist from "./engine/alchemist"
-import * as blacksmith from "./engine/blacksmith"
+import * as alchemist from "./engine/alchemist/data"
+import * as blacksmith from "./engine/blacksmith/data"
 
 const app = express()
 

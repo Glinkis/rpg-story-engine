@@ -1,4 +1,4 @@
-import { RollData } from "../../shared/types"
+import { RollData } from "../../../shared/types"
 
 export const rollData: RollData = {
   wealth: [
@@ -49,6 +49,10 @@ export const rollData: RollData = {
 
 export interface Alchemist {
   name: string
+  roll: Record<string, number>
+  material: string
+  priceModifier: number
+  activity: string
 }
 
 export function lookAround(alchemist: Alchemist) {

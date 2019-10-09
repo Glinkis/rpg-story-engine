@@ -1,4 +1,4 @@
-import { RollData } from "../../shared/types"
+import { RollData } from "../../../shared/types"
 
 export const rollData: RollData = {
   wealth: [
