@@ -176,7 +176,7 @@ export function createTown(base: any = {}) {
     ...base,
   }
 
-  townDemographics(town)
+  town._baseDemographics = townDemographics(town)
   town.professions = fetchProfessions(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
