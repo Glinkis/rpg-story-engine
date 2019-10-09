@@ -8,7 +8,7 @@ interface Town {
   [key: string]: any
 }
 
-export function createTown(base: any) {
+export function createTown(base: any = {}) {
   const type = randomValue([
     "hamlet",
     "hamlet",
