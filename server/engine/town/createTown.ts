@@ -65,13 +65,11 @@ export function createTown(base: any = {}) {
       } else if (this.population > 30) {
         return "hamlet"
       } else if (this.population <= 30) {
-        console.log("Population is less than 30. Setting to 30.")
         this.population = 30
         return "hamlet"
       }
     },
     set type(this: any, value) {
-      console.log("Setting town type.")
       this._type = value
     },
     // type: type,
@@ -112,33 +110,26 @@ export function createTown(base: any = {}) {
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
     get economicIdeology() {
-      console.log("Getting town economic ideology.")
       return this._economicIdeology
     },
     set economicIdeology(value) {
-      console.log("Setting town economic ideology.")
       this._economicIdeology = value
       Object.assign(this, townData.economicIdeology[this._economicIdeology].descriptors)
     },
     get politicalSource() {
-      console.log("Getting town political source.")
       return this._politicalSource
     },
     set politicalSource(value) {
-      console.log("Setting town political source.")
       this._politicalSource = value
     },
     get politicalIdeology() {
-      console.log("Getting town political ideology.")
       return this._politicalIdeology
     },
     set politicalIdeology(value) {
-      console.log("Setting town political ideology.")
       this._politicalIdeology = value
       Object.assign(this, townData.politicalIdeology[this._politicalIdeology].data)
     },
     get politicalSourceDescription(): any {
-      console.log("Getting town political source description.")
       const source = townData.politicalSource[this._politicalSource]
       if (this._politicalSource === "absolute monarchy" || this._politicalSource === "constitutional monarchy") {
         if (this.politicalIdeology === "autocracy") {
@@ -151,7 +142,6 @@ export function createTown(base: any = {}) {
       }
     },
     get wealth() {
-      console.log("Getting town wealth.")
       let wealth = townData.rollData.wealth.find(descriptor => descriptor[0] <= this.roll.wealth)
       if (wealth === undefined) {
         console.log(
@@ -163,7 +153,6 @@ export function createTown(base: any = {}) {
       return this._wealth
     },
     set wealth(value) {
-      console.log("Setting town wealth.")
       this._wealth = value
     },
     roads: {},
