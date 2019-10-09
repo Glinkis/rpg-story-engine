@@ -13,6 +13,5 @@ export function townDemographics(town: Town) {
   town._baseDemographics = clone(
     weightedRandomFetcher(town, townData.type[town.type].demographics, "", "", "popPercentages")
   )
-  console.log(town)
   return town
 }

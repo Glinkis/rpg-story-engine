@@ -22,23 +22,19 @@ export function weightedRandomFetcher(
   output: any,
   defaultProbability?: any
 ) {
-  console.groupCollapsed("Running a weighted random search...")
-  console.log({
-    args,
-    obj,
-    exclusionFunction,
-    output,
-    defaultProbability,
-  })
   if (!output) {
     output = "function"
   }
+
   if (!defaultProbability) {
     defaultProbability = 10
   }
+
   const pool = []
+
   let totalWeight = 0
   exclusionFunction = exclusionFunction || true
+
   for (const arg in args) {
     let isValid
     let fnValid
@@ -47,43 +43,43 @@ export function weightedRandomFetcher(
     } else {
       isValid = true
     }
+
     if (args[arg].probability <= 0) {
       isValid = false
     }
+
     if (typeof exclusionFunction === "function") {
       fnValid = exclusionFunction(town, args[arg])
     } else {
       fnValid = true
     }
+
     if (isValid === true && fnValid === true) {
       pool.push(args[arg])
       totalWeight += args[arg].probability || defaultProbability
     }
   }
+
   let random = Math.floor(randomFloat(1) * totalWeight)
   let selected
-  for (let i = 0; i < pool.length; i++) {
-    random -= pool[i].probability || defaultProbability
+
+  for (const value of pool) {
+    random -= value.probability || defaultProbability
     if (random < 0) {
-      selected = pool[i]
+      selected = value
       break
     }
   }
-  console.log(selected)
+
   if (!selected[output] && output !== "object") {
-    console.error("The randomly fetched object does not have the attribute " + output + ".")
-    console.log({ selected })
+    console.error(`The randomly fetched object does not have the attribute ${output}.`)
   }
-  console.groupEnd()
+
   if (output === "object") {
-    // if the string 'object' is passed, then it returns the object itself.
-    console.log(selected)
     return selected
   } else if (typeof selected[output] === "function") {
-    console.log(selected[output](town, obj))
     return selected[output](town, obj)
   } else {
-    console.log(selected[output])
     return selected[output]
   }
 }
