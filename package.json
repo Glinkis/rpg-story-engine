@@ -9,6 +9,10 @@
   "scripts": {
     "start": "ts-node server"
   },
+  "engines": {
+    "node": ">=10.5.0",
+    "yarn": "^1.15.0"
+  },
   "dependencies": {
     "@types/compression": "1.0.1",
     "@types/express": "4.17.1",
