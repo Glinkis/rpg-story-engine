@@ -1263,7 +1263,7 @@ export const npcData = {
       },
       function(town, npc) {
         console.log("called lifeEvents.backgroundWork function")
-        npc.wealth += dice("2d6") * 1000
+        npc.wealth += dice(2, 6) * 1000
         return (
           [
             "I spent some time working as a ",
@@ -5866,7 +5866,7 @@ export const npcData = {
         "a halberdier",
       ],
       wealth() {
-        return dice("5d4") * 1000
+        return dice(5, 4) * 1000
       },
     },
     ranger: {
@@ -5914,7 +5914,7 @@ export const npcData = {
         "two daggers",
       ],
       wealth() {
-        return dice("4d4") * 1000
+        return dice(4, 4) * 1000
       },
     },
     rogue: {
@@ -5965,7 +5965,7 @@ export const npcData = {
         "a crossbow",
       ],
       wealth() {
-        return dice("4d4") * 1000
+        return dice(4, 4) * 1000
       },
     },
     sorcerer: {
@@ -6014,7 +6014,7 @@ export const npcData = {
         "a dagger",
       ],
       wealth() {
-        return dice("3d4") * 1000
+        return dice(3, 4) * 1000
       },
     },
     warlock: {
@@ -6068,7 +6068,7 @@ export const npcData = {
         "a dagger",
       ],
       wealth() {
-        return dice("4d4") * 1000
+        return dice(4, 4) * 1000
       },
     },
     wizard: {
@@ -6122,7 +6122,7 @@ export const npcData = {
         "a dagger",
       ],
       wealth() {
-        return dice("4d4") * 1000
+        return dice(4, 4) * 1000
       },
     },
   },
