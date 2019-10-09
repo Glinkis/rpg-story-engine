@@ -1,7 +1,8 @@
 import { randomValue, randomRange, dice } from "../rolls"
 import { clamp, fm } from "../math"
+import { townDemographics } from "./townDemographics"
 import { createTownName } from "./createTownName"
-import { townData } from "./data"
+import { townData } from "./townData"
 
 const setup = {} as any
 
@@ -189,7 +190,7 @@ export function createTown(base: any = {}) {
     ...base,
   }
 
-  setup.townDemographics(town)
+  townDemographics(town)
   town.professions = setup.fetchProfessions(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology

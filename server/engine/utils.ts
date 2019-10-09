@@ -1,0 +1,182 @@
+import { randomFloat } from "./rolls"
+
+/**
+ * @copyright Copyright © 2013–2018 Thomas Michael Edwards
+ *
+ * Returns a deep copy of the given object.
+ *
+ * NOTE:
+ *  1.  `clone()` does not clone functions, however, since function definitions
+ *      are immutable, the only issues are with expando properties and scope.
+ *      The former really should not be done.  The latter is problematic either
+ *      way—damned if you do, damned if you don't.
+ *  2.  `clone()` does not maintain referential relationships—e.g. multiple
+ *      references to the same object will, post-cloning, refer to different
+ *      equivalent objects; i.e. each reference will receive its own clone
+ *      of the original object.
+ */
+export function clone<T>(orig: T): T {
+  /*
+    Immediately return the primitives and functions.
+  */
+  if (typeof orig !== `object` || orig === null) {
+    return orig
+  }
+
+  /*
+    Unbox instances of the primitive exemplar objects.
+  */
+  if (orig instanceof String) {
+    return String(orig) as any
+  }
+  if (orig instanceof Number) {
+    return Number(orig) as any
+  }
+  if (orig instanceof Boolean) {
+    return Boolean(orig) as any
+  }
+
+  /*
+    Create a copy of the original object.
+
+    NOTE: Each non-generic object that we wish to support must be
+    explicitly handled below.
+  */
+  let copy: any
+
+  // Handle instances of the core supported object types.
+  if (orig instanceof Array) {
+    copy = new Array(orig.length)
+  } else if (orig instanceof Date) {
+    copy = new Date(orig.getTime())
+  } else if (orig instanceof Map) {
+    copy = new Map()
+    orig.forEach((val, key) => copy.set(key, clone(val)))
+  } else if (orig instanceof RegExp) {
+    copy = new RegExp(orig)
+  } else if (orig instanceof Set) {
+    copy = new Set()
+    orig.forEach(val => copy.add(clone(val)))
+    // eslint-disable-next-line brace-style
+  }
+
+  // Handle instances of unknown or generic objects.
+  else {
+    // We try to ensure that the returned copy has the same prototype as
+    // the original, but this will probably produce less than satisfactory
+    // results on non-generics.
+    copy = Object.create(Object.getPrototypeOf(orig))
+  }
+
+  /*
+    Duplicate the original object's own enumerable properties, which will
+    include expando properties on non-generic objects.
+
+    NOTE: This does not preserve ES5 property attributes.  Neither does
+    the delta coding or serialization code, however, so it's not really
+    an issue at the moment.
+  */
+  Object.keys(orig).forEach(name => (copy[name] = clone((orig as any)[name])))
+
+  return copy
+}
+
+/**
+ * @param town Needed because everything needs town to evaluate
+ *
+ * @param args The object containing the objects that you're drawing from
+ *
+ * @param obj The optional npc, building, or whatever that is needed for functions.
+ *
+ * @param exclusionFunction The optional global exclusion testing function;
+ * this is for things like pulling just the paper type objects from plothooks.
+ * Saves on LoC. Leave exclusionFunction blank if everyting in your object is
+ * always going to be allowed.
+ *
+ * @param output What should be outputted at the end. Set to 'object' to return the whole object.
+ * defaultProbability is the optional default unit. You won't usually need to supply this.
+ */
+export function weightedRandomFetcher(
+  town: any,
+  args: any,
+  obj: any,
+  exclusionFunction: any,
+  output: any,
+  defaultProbability?: any
+) {
+  console.groupCollapsed("Running a weighted random search...")
+  console.log({
+    args,
+    obj,
+    exclusionFunction,
+    output,
+    defaultProbability,
+  })
+
+  if (!output) {
+    output = "function"
+  }
+  if (!defaultProbability) {
+    defaultProbability = 10
+  }
+
+  const pool = []
+  let totalWeight = 0
+  exclusionFunction = exclusionFunction || true
+
+  for (const arg in args) {
+    let isValid
+    let fnValid
+
+    if (args[arg].exclusions && typeof args[arg].exclusions === "function") {
+      isValid = args[arg].exclusions(town, obj)
+    } else {
+      isValid = true
+    }
+
+    if (args[arg].probability <= 0) {
+      isValid = false
+    }
+
+    if (typeof exclusionFunction === "function") {
+      fnValid = exclusionFunction(town, args[arg])
+    } else {
+      fnValid = true
+    }
+
+    if (isValid === true && fnValid === true) {
+      pool.push(args[arg])
+      totalWeight += args[arg].probability || defaultProbability
+    }
+  }
+
+  let random = Math.floor(randomFloat(1) * totalWeight)
+  let selected
+
+  for (let i = 0; i < pool.length; i++) {
+    random -= pool[i].probability || defaultProbability
+    if (random < 0) {
+      selected = pool[i]
+      break
+    }
+  }
+
+  console.log(selected)
+  if (!selected[output] && output !== "object") {
+    console.error("The randomly fetched object does not have the attribute " + output + ".")
+    console.log({ selected })
+  }
+  console.groupEnd()
+
+  if (output === "object") {
+    // if the string 'object' is passed, then it returns the object itself.
+    console.log(selected)
+    return selected
+  } else if (typeof selected[output] === "function") {
+    console.log(selected[output](town, obj))
+    return selected[output](town, obj)
+  } else {
+    console.log(selected[output])
+    return selected[output]
+  }
+}

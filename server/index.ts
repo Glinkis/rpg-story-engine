@@ -1,6 +1,6 @@
 import compression from "compression"
 import express from "express"
-import { createTown } from "./engine/town/create"
+import { createTown } from "./engine/town/createTown"
 
 const app = express()
 

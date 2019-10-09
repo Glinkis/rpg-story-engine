@@ -1,6 +1,6 @@
 import { random, randomValue, randomFloat, randomRange } from "../rolls"
 import { clamp } from "../math"
-import { townData } from "../town/data"
+import { townData } from "../town/townData"
 
 interface Building {}
 
