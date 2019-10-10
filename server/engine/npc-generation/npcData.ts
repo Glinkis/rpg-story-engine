@@ -6,6 +6,7 @@ import { createNPC, globalNPCs } from "./createNPC"
 import { createMagicWeapon } from "../misc/createMagicWeapon"
 import { createMarriage } from "./createFamilyMembers"
 import { misc } from "../world/miscData"
+import { createMagicTrinket } from "../misc/createMagicTrinket"
 
 export const npcData: any = {
   gender: {
