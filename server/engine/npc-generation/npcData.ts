@@ -532,7 +532,7 @@ export const npcData = {
               ". While I was there, I " +
               festivalDid +
               ".",
-              randomValue([
+            randomValue([
               "some friends and I went to",
               "I went to",
               "I spent a day at",
@@ -1276,7 +1276,7 @@ export const npcData = {
             "I had a brief stint working for a famous ",
             "I got an autograph from a famous ",
           ]) +
-          randomValue([
+            randomValue([
               "wizard",
               "bard",
               "priest",
@@ -1338,7 +1338,7 @@ export const npcData = {
           return setup.npcData.lifeEvents.backgroundWork.function(town, npc)
         } else {
           // eslint-disable-next-line no-var
-          var adventurePrefix =randomValue([
+          var adventurePrefix = randomValue([
             "I went on an adventure, and ",
             "I went on a hike with a friend, and we got lost. It took us months to get back home, and on the way, I ",
             "I had a spur of the moment whim to go on an adventure, and on my journeys, I ",
@@ -1418,8 +1418,7 @@ export const npcData = {
         const miracle = randomValue(setup.npcData.lifeEvents.miracle.miracle)
         const curse = randomValue(setup.npcData.lifeEvents.miracle.curse)
         return randomValue([
-        const curse = randomValue(setup.npcData.lifeEvents.miracle.curse)
-        randomValue([
+          randomValue([
             "I witnessed a miracle once- Honest to god. ",
             "I once saw a true miracle. ",
             "one time, I was part of a real miracle. ",
@@ -1430,7 +1429,7 @@ export const npcData = {
             " " +
             miracle +
             ".",
-            randomValue([
+          randomValue([
             "I witnessed a terrible curse once- Honest to god. ",
             "I once saw a true curse. ",
             "one time, I was part of a real curse. ",
@@ -1613,7 +1612,7 @@ export const npcData = {
         console.log("called lifeEvents.arcaneMatters function")
         return randomValue([
           "I saw a demon I swear on my life! " +
-          randomValue([
+            randomValue([
               "",
               "It offered to make a deal with me, but I turned it down.",
               "It challenged me to a lute playing competition.",
@@ -1625,7 +1624,7 @@ export const npcData = {
               "Sometimes I think it is still hunting me.",
             ]),
           "I once saw a powerful wizard " +
-          randomValue([
+            randomValue([
               randomValue(["enchanting", "disenchanting", "cursing"]) +
                 " a " +
                 randomValue([
@@ -1649,7 +1648,7 @@ export const npcData = {
                 ]) +
                 ".",
               "casting a " +
-              randomValue([
+                randomValue([
                   "very powerful",
                   "strong",
                   "rather weak",
@@ -1674,7 +1673,7 @@ export const npcData = {
                 ]) +
                 " spell.",
               "riding on the back of a " +
-              randomValue([
+                randomValue([
                   "gryphon",
                   "unicorn",
                   "lion",
@@ -1689,7 +1688,7 @@ export const npcData = {
                 ]),
             ]),
           "I once " +
-          randomValue([
+            randomValue([
               "got caught in the cross-fires between two dueling",
               "witnessed a battle between two",
               "fought in a battle against",
@@ -1709,7 +1708,7 @@ export const npcData = {
             ]) +
             ".",
           "I had a mishap with " +
-          randomValue(["a charm", "an illusion", "a mind control"]) +
+            randomValue(["a charm", "an illusion", "a mind control"]) +
             " spell- " +
             randomValue([
               "an old friend",
@@ -1739,7 +1738,7 @@ export const npcData = {
             ]) +
             ".",
           "I once drank a " +
-          randomValue([
+            randomValue([
               "really strong",
               "crazy strong",
               "strong",
@@ -1754,7 +1753,7 @@ export const npcData = {
               "I swear to god, I could taste colours!",
               "my hair was standing on end!",
               "my skin turned bright " +
-              randomValue(["red", "purple", "white", "yellow", "green", "orange", "pink", "blue", "violet"]) +
+                randomValue(["red", "purple", "white", "yellow", "green", "orange", "pink", "blue", "violet"]) +
                 " for several days.",
               "I grew a thick bushy beard in a few hours!",
               "it sent me into a comma for weeks.",
@@ -1762,7 +1761,7 @@ export const npcData = {
               "it made my nose glow in the dark for a week!",
             ]),
           "I once found a cursed book. The book " +
-          randomValue([
+            randomValue([
               "kills all who who read it",
               "turned the reader blind",
               "retold the reader's life but with a horrible twist ending",
@@ -1783,7 +1782,7 @@ export const npcData = {
         console.log("called lifeEvents.weirdStuff function")
         return randomValue([
           "I came across a genie, " +
-          randomValue([
+            randomValue([
               "but squandered the wish on an ex lover",
               "but wasted the wish on the perfect sandwich",
               "and used my wish to set him free",
@@ -1794,7 +1793,7 @@ export const npcData = {
             ".",
           "I was once swallowed by a giant fish. Spent a bloody month in there, subsisting on fish and the other things it ate as I tried to find my way out.",
           "I met a " +
-          randomValue(["demigod", "arch-fey", "lich", "demon lord", "titan"]) +
+            randomValue(["demigod", "arch-fey", "lich", "demon lord", "titan"]) +
             " and lived to tell the tale.",
           "I was once captured by a group of cultists. They nearly sacrificed me, but I managed to set one of their robes on fire, and escaped in the confusion.",
           "I really have had some pretty bad luck in my love life in the past- one lover turned out to be a silver dragon. Took all my gold!",
