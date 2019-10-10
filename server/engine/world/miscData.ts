@@ -1,5 +1,6 @@
-import { randomValue, random, randomRange } from "../rolls"
+import { randomValue, randomRange } from "../rolls"
 import { weightedRandomFetcher } from "../tools/weightedRandomFetcher"
+import { locations } from "./locations"
 
 export const misc = {
   cheese: {
@@ -327,9 +328,9 @@ export const misc = {
     ],
   },
   caravan: {
-    create(town: any, base: any) {
+    create(town: any, base = {}) {
       const masterType = randomValue(Object.keys(misc.caravan.masterType))
-      const caravan = {
+      const caravan: any = {
         type: randomValue(misc.caravan.caravanType),
         animals: randomValue(misc.caravan.animals),
         transporting: randomValue(misc.caravan.transporting),
@@ -1397,7 +1398,7 @@ export const misc = {
       "priests and sages",
       "women and children",
     ],
-    create() {
+    create(town: any, base = {}) {
       const bandits: any = {
         business: randomValue(misc.bandits.business),
         colours: randomValue(misc.bandits.colours),
@@ -1408,6 +1409,7 @@ export const misc = {
         weapons: randomValue(misc.bandits.weapons),
         lair: randomValue(misc.bandits.lair),
         fearedBy: randomValue(misc.bandits.fearedBy),
+        ...base,
       }
       bandits.readout =
         "These bandits are " +
@@ -1702,9 +1704,9 @@ export const misc = {
   },
   religion: {
     shrine: {
-      create(town: any, base: any) {
+      create(town: any, base = {}) {
         const sensesArray = randomValue(Object.keys(misc.religion.shrine.senses))
-        const shrine = {
+        const shrine: any = {
           god: randomValue([
             randomValue(misc.religion.namedGod),
             randomValue(misc.religion.abstractGod),
@@ -3200,9 +3202,9 @@ export const misc = {
     },
   },
   tree: {
-    create(town: any, biome: any, base: any) {
+    create(town: any, biome: string, base = {}) {
       biome = biome || randomValue(["forest", "desert", "mountain", "plains"])
-      const tree = {
+      const tree: any = {
         species: randomValue(misc.tree.biome[biome].species),
         size: randomValue(misc.tree.biome[biome].size),
         feature: randomValue(misc.tree.biome[biome].feature),
@@ -3387,8 +3389,8 @@ export const misc = {
     },
   },
   cabin: {
-    create(town: any, base: any, biome: any) {
-      const cabin = {
+    create(town: any, biome: string, base = {}) {
+      const cabin: any = {
         material: randomValue(["wooden", "wooden", "wooden", "stone"]),
         wordNoun: "cabin",
         feature: randomValue(misc.cabin.feature),
@@ -3861,7 +3863,7 @@ export const misc = {
       if (randomRange(1, 100) >= 50) {
         encounterKey = randomValue(misc.mountain.location)
         console.log(encounterKey)
-        encounter = misc.locations[encounterKey](town, biome)
+        encounter = locations[encounterKey](town, biome)
         console.log(encounter)
       } else {
         encounterKey = randomValue(misc.mountain.encounters)
@@ -4119,13 +4121,13 @@ export const misc = {
       }
       console.log(encounterKey)
       return (
-        ["While", "As", "After a while, as"].seededrandom() +
+        randomValue(["While", "As", "After a while, as"]) +
         " you " +
-        ["traverse", "trudge along in", "travel through", "walk through"].seededrandom() +
+        randomValue(["traverse", "trudge along in", "travel through", "walk through"]) +
         " the forest, you see " +
-        misc.forest.landmark.seededrandom() +
+        randomValue(misc.forest.landmark) +
         ". You notice " +
-        misc.forest.feature.seededrandom() +
+        randomValue(misc.forest.feature) +
         ". Up ahead, you see " +
         encounter
       )
