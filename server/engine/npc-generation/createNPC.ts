@@ -8,6 +8,7 @@ import { createSexuality } from "./createSexuality"
 import { createClass } from "./createClass"
 import { fetchRace } from "./fetchRace"
 import { fetchProfessionChance } from "./fetchProfessionChance"
+import { lifestyleStandards } from "../town/lifestyleStandards"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
@@ -107,22 +108,21 @@ export function createNPC(town: any, base?: any) {
       lifestyleStandard(town: any, npc: any) {
         console.log(`Returning ${npc.name}'s lifestyle standard...`)
         const income = npc.finances.netIncome(town, npc)
-        let lifestyleStandard
-        for (let i = 0; i < setup.lifestyleStandards.length; i++) {
-          if (income >= setup.lifestyleStandards[i][0]) {
-            return setup.lifestyleStandards[i]
+        for (const lifestyleStandard of lifestyleStandards) {
+          if (income >= lifestyleStandard[0]) {
+            return lifestyleStandard
           }
         }
         // lifestyleStandard returns the unmodified array of [100, 'modest', 30]
         // various bits use all three, so it was easier to specify which than create three virtually identical functions.
-        return lifestyleStandard
+        return
       },
       lifestyleExpenses(town: any, npc: any) {
         console.log(`Returning ${npc.name}'s lifestyle expenses...`)
         const income = npc.finances.grossIncome(town, npc)
         const living = npc.finances.lifestyleStandard(town, npc)
-        const ratio = setup.lifestyleStandards.find(desc => desc[1] === living[1])
-        return Math.round(income * (ratio[2] / 100))
+        const ratio = lifestyleStandards.find(desc => desc[1] === living[1])
+        return ratio && Math.round(income * (ratio[2] / 100))
       },
       profit(town: any, npc: any) {
         console.log(`Returning ${npc.name}'s profit...`)
