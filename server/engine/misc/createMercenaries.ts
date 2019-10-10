@@ -1,6 +1,7 @@
 import { randomValue } from "../rolls"
 import { variables } from "../global"
 import { createNPC } from "../npc-generation/createNPC"
+import { factionData } from "../factions/factionData"
 
 export function createMercenaries(town) {
   const mercenaries = {
@@ -157,31 +158,27 @@ export function createMercenaries(town) {
 
   const captain = createCommander(town, mercenaries.commanderTrait)
 
+  const data = factionData.type.mercenaries
+
   const name = randomValue([
-    `The ${factionData.type[`mercenaries`].group.seededrandom()} of ${factionData.type[
-      `mercenaries`
-    ].adjective.seededrandom()} ${factionData.type[`mercenaries`].main.seededrandom()}`,
-    `The ${factionData.type[`mercenaries`].group.seededrandom()} of ${factionData.type[
-      `mercenaries`
-    ].main.seededrandom()}`,
-    `The ${factionData.type[`mercenaries`].adjective.seededrandom()} ${factionData.type[
-      `mercenaries`
-    ].group.seededrandom()}`,
-    `The ${factionData.type[`mercenaries`].main.seededrandom()} of ${variables.town.name}`,
-    `The ${variables.town.name} ${factionData.type[`mercenaries`].main.seededrandom()}`,
-    factionData.type[`mercenaries`].unique.seededrandom(),
+    `The ${randomValue(data.group)} of ${randomValue(data.adjective)} ${randomValue(data.main)}`,
+    `The ${randomValue(data.group)} of ${randomValue(data.main)}`,
+    `The ${randomValue(data.adjective)} ${randomValue(data.group)}`,
+    `The ${randomValue(data.main)} of ${variables.town.name}`,
+    `The ${variables.town.name} ${randomValue(data.main)}`,
+    randomValue(data.unique),
   ])
 
   const readout = `A group of mercenaries sit in the corner of the room, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their commander ${captain.name}, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
-  mercenaries.tippyWord = `<span class=tip title=${JSON.stringify(
-    readout
-  )}> <b>mercenaries</b></span><<run setup.tippy("span")>>`
+
+  const tippyWord = `<span class=tip title=${readout}> <b>mercenaries</b></span><<run setup.tippy("span")>>`
 
   return {
     ...mercenaries,
     captain,
     readout,
     name,
+    tippyWord,
   }
 }
 
