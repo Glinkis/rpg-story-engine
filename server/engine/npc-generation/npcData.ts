@@ -1,5 +1,6 @@
 import { random, dice, randomValue, randomRange } from "../rolls"
 import { townData } from "../town/townData"
+import { flora } from "../dictionary/flora"
 
 export const npcData = {
   gender: {
@@ -279,9 +280,9 @@ export const npcData = {
       },
       function(town: any, npc: any) {
         console.log("called lifeEvents.magicalCreature function")
-        const flower = randomValue(setup.flora.flower.stemP)
-        const tree = randomValue(setup.flora.tree.typeArticle)
-        const fruitTree = randomValue(setup.flora.fruit.tree)
+        const flower = randomValue(flora.flower.stemP)
+        const tree = randomValue(flora.tree.typeArticle)
+        const fruitTree = randomValue(flora.fruit.tree)
         const goodPlace = randomValue(npcData.lifeEvents.magicalCreatue.goodPlaces)
         const goodCreature = randomValue(npcData.lifeEvents.magicalCreatue.goodCreatures)
         const goodAnimal = randomValue(npcData.lifeEvents.magicalCreatue.goodAnimals)
@@ -435,9 +436,9 @@ export const npcData = {
         const placement = randomValue(npcData.lifeEvents.festival.placement)
         const foodTrait = randomValue(npcData.lifeEvents.festival.foodTrait)
         const flowerTrait = randomValue(npcData.lifeEvents.festival.flowerTrait)
-        const fruit = randomValue(setup.flora.fruit.fruitP)
-        const vegetable = randomValue(setup.flora.vegetable.vegetableP)
-        const flower = randomValue(setup.flora.flower.stemP)
+        const fruit = randomValue(flora.fruit.fruitP)
+        const vegetable = randomValue(flora.vegetable.vegetableP)
+        const flower = randomValue(flora.flower.stemP)
         const festivalDid = randomValue(npcData.lifeEvents.festival.festivalDid)
         if (random(100) > 70) {
           return randomValue([
@@ -886,7 +887,7 @@ export const npcData = {
       },
       function(town: any, npc: any) {
         console.log("called lifeEvents.lostChild function")
-        const treeType = randomValue(setup.flora.tree.typeArticle)
+        const treeType = randomValue(flora.tree.typeArticle)
         const location = randomValue(npcData.lifeEvents.lostChild.location)
         const time = randomValue(npcData.lifeEvents.lostChild.time)
         const finder = randomValue(npcData.lifeEvents.lostChild.finder)
