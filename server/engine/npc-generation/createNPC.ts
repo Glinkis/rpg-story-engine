@@ -5,6 +5,7 @@ import { misc } from "../world/miscData"
 import { calcPercentage } from "../tools/calcPercentage"
 import { toUpperFirst } from "../tools/toUpperFirst"
 import { createSexuality } from "./createSexuality"
+import { createClass } from "./createClass"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
@@ -256,7 +257,7 @@ export function createNPC(town: any, base?: any) {
     npc.physicalTrait = npc.physicalTrait || randomValue(data.tattoo)
   }
 
-  setup.createClass(npc)
+  createClass(npc)
   setup.createBackground(npc)
   setup.createDescriptors(npc)
 
