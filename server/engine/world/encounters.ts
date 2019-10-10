@@ -1,4 +1,5 @@
 import { misc } from "./miscData"
+import { randomValue } from "../rolls"
 
 interface Encounters {
   [encounter: string]: (town: any) => string
@@ -172,80 +173,80 @@ export const encounters: Encounters = {
     return "a merchant caravan. " + caravan.readout
   },
   "a clan of orcs": town => {
-    const orcs = setup.misc.orcs.create()
+    const orcs = misc.orcs.create()
     return "a clan of orcs. " + orcs.readout
   },
   "several orc raiders": town => {
-    const orcs = setup.misc.orcs.create()
+    const orcs = misc.orcs.create()
     return "several orc raiders. " + orcs.readout
   },
-  "an orkish war band": () => {
-    const orcs = setup.misc.orcs.create()
+  "an orkish war band"() {
+    const orcs = misc.orcs.create()
     return "an orc war band. " + orcs.readout
   },
-  "an orc war band": town => {
-    const orcs = setup.misc.orcs.create(town)
+  "an orc war band"() {
+    const orcs = misc.orcs.create()
     return "an orc war band. " + orcs.readout
   },
-  "a handful of ogres": () => {
-    const ogre = setup.misc.ogre.create()
+  "a handful of ogres"() {
+    const ogre = misc.ogre.create()
     return "a handful of " + ogre.tippyWord + "s."
   },
-  "an ogre": () => {
-    const ogre = setup.misc.ogre.create()
+  "an ogre"() {
+    const ogre = misc.ogre.create()
     return "a lone " + ogre.tippyWord + "."
   },
-  "an ogre's lair": () => {
-    const ogre = setup.misc.ogre.create()
+  "an ogre's lair"() {
+    const ogre = misc.ogre.create()
     return "a lair belonging to an " + ogre.tippyWord
   },
   "some goblins' hideout": town => {
-    const goblins = setup.misc.goblins.create(town)
+    const goblins = misc.goblins.create(town)
     return "a goblin hideout. " + goblins.readout
   },
   "a pair of goblin scouts": () => "a pair of goblin scouts",
-  "a lone goblin": () => {
-    const goblin = setup.misc.goblin.create()
+  "a lone goblin"() {
+    const goblin = misc.goblin.create()
     return (
       "a lone " +
       goblin.tippyWord +
       " " +
-      [
+      randomValue([
         "trying to hide from you.",
         "lying in wait for you.",
         "lying down, asleep.",
         "crawling away from you, clearly bleeding.",
-      ].seededrandom()
+      ])
     )
   },
-  "a goblin war party": town => {
-    const goblins = setup.misc.goblins.create()
+  "a goblin war party"() {
+    const goblins = misc.goblins.create()
     return "a goblin war party. " + goblins.readout
   },
   "a goblin patrol": () =>
     "a goblin patrol " +
-    [
+    randomValue([
       "lying in ambush.",
       "squabbling over something.",
       "in the middle of a meal.",
       "arguing amongst themselves over something.",
       "jumping up and down, for some reason.",
-    ].seededrandom(),
-  "several giant spiders": () => {
-    const spider = setup.misc.spider.create()
+    ]),
+  "several giant spiders"() {
+    const spider = misc.spider.create()
     return "several giant " + spider.tippyWord + "<b>s</b>."
   },
-  "a pack of wolves": () => {
-    const wolf = setup.misc.wolf.create()
+  "a pack of wolves"() {
+    const wolf = misc.wolf.create()
     const wolves = wolf.tippy + "<b>wolves</b></span>."
     return "a pack of " + wolves
   },
-  "a lone wolf": () => {
-    const wolf = setup.misc.wolf.create()
+  "a lone wolf"() {
+    const wolf = misc.wolf.create()
     return "a lone " + wolf.tippyWord + "."
   },
-  "a hunting cat": () => {
-    const cat = setup.misc.cat.create()
+  "a hunting cat"() {
+    const cat = misc.cat.create()
     return "a hunting " + cat.tippyWord + "."
   },
   "an itinerant priest": town => {
@@ -284,8 +285,8 @@ export const encounters: Encounters = {
   },
   "an injured knight": town => {
     const npc = setup.createNPC(town, {
-      dndClass: ["fighter", "fighter", "paladin"].seededrandom(),
-      background: ["noble", "soldier", "soldier"].seededrandom(),
+      dndClass: randomValue(["fighter", "fighter", "paladin"]),
+      background: randomValue(["noble", "soldier", "soldier"]),
       isThrowaway: true,
     })
     return "an injured " + setup.profile(npc, "knight")
@@ -333,8 +334,8 @@ export const encounters: Encounters = {
   "an adventurer on a horse": town => {
     const horse = setup.misc.horse.create()
     const npc = setup.createNPC(town, {
-      dndClass: ["fighter", "fighter", "paladin"].seededrandom(),
-      background: ["noble", "soldier", "soldier"].seededrandom(),
+      dndClass: randomValue(["fighter", "fighter", "paladin"]),
+      background: randomValue(["noble", "soldier", "soldier"]),
       isThrowaway: true,
     })
     return "an " + setup.profile(npc, "adventurer") + " on a " + horse.tippyWord
@@ -353,7 +354,7 @@ export const encounters: Encounters = {
   "a pair of travelling clerics": () => "a pair of travelling clerics",
   "some graverobbers": () => "some graverobbers",
   "some farmers": () => "some farmers",
-  "a plague-infested cabin": () => {
+  "a plague-infested cabin"() {
     const cabin = setup.misc.cabin.create()
     return "a plague-infested " + cabin.tippyWord + "."
   },
@@ -395,7 +396,7 @@ export const encounters: Encounters = {
   "a group of pilgrims": () => "a group of pilgrims",
   "a funeral procession": () => "a funeral procession",
   "a plague cart": () => "a plague cart",
-  "a lone horse, trotting the other way": () => {
+  "a lone horse, trotting the other way"() {
     const horse = setup.misc.horse.create()
     return "a lone " + horse.tippyWord + ", trotting the other way"
   },
@@ -458,12 +459,12 @@ export const encounters: Encounters = {
     })
     return "a mounted barbarian " + setup.profile(npc, "scout")
   },
-  "the ghost of a traveler": () => {
+  "the ghost of a traveler"() {
     const ghost = setup.misc.ghost.create()
     return "the " + ghost.tippyWord + " of a traveler. "
   },
   "a poisonous snake": () => "a poisonous snake",
-  "a giant spider": () => {
+  "a giant spider"() {
     const spider = setup.misc.spider.create()
     return "a giant " + spider.tippyWord
   },
@@ -650,7 +651,7 @@ export const encounters: Encounters = {
     })
     return "a reclusive " + setup.profile(npc, "shapeshifter")
   },
-  "a restless ghost": () => {
+  "a restless ghost"() {
     const ghost = setup.misc.ghost.create()
     return "a restless " + ghost.tippyWord
   },
@@ -666,7 +667,7 @@ export const encounters: Encounters = {
     })
     return "a dangerous " + setup.profile(npc, "fugitive")
   },
-  "spiders and rats": () => {
+  "spiders and rats"() {
     const spider = setup.misc.spider.create()
     return spider.tippyWord + "<b>s</b>" + " and rats"
   },
@@ -722,7 +723,7 @@ export const encounters: Encounters = {
     })
     return "a mad " + setup.profile(npc, "witch")
   },
-  "restless ghosts": () => {
+  "restless ghosts"() {
     const ghost = setup.misc.ghost.create()
     return "a restless " + ghost.tippyWord
   },
@@ -800,7 +801,7 @@ export const encounters: Encounters = {
   "a flock of ravens": town => "a flock of ravens",
   "several homeless dwarves": town => "several homeless dwarves",
   "an angry wraith": town => "an angry wraith",
-  "a malevolent ghost": () => {
+  "a malevolent ghost"() {
     const ghost = setup.misc.ghost.create({ reaction: "murderous and cruel" })
     return "a malevolent " + ghost.tippyWord
   },
@@ -870,11 +871,11 @@ export const encounters: Encounters = {
   },
   "a large bear": () => "a large bear",
   "a bear cub": () => "a bear cub",
-  "a wailing ghost": () => {
+  "a wailing ghost"() {
     const ghost = setup.misc.ghost.create()
     return "a wailing " + ghost.tippyWord
   },
-  "giant spiders": () => {
+  "giant spiders"() {
     const spider = setup.misc.spider.create()
     return "giant " + spider.tippyWord + '<b>s</b><<run setup.tippy("span")>>'
   },
