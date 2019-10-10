@@ -2,6 +2,7 @@ import { randomRange } from "../rolls"
 import { npcData } from "./npcData"
 import { variables } from "../global"
 import { Marriage } from "./createFamilyMembers"
+import { rollFromTable } from "../tools/rollFromTable"
 
 export const familyData = {
   // These numbers are all made up, feel free to change them

@@ -1,6 +1,7 @@
 import { randomValue } from "../rolls"
 import { findProfession } from "./findProfession"
 import { Marriage } from "./createFamilyMembers"
+import { rollFromTable } from "../tools/rollFromTable"
 
 const lifestyleTables: Record<string, [number, string][]> = {
   "aristocracy": [[5, `comfortable`], [15, `wealthy`], [80, `aristocratic`]],

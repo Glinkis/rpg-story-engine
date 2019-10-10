@@ -3,6 +3,7 @@ import { dice, randomRange } from "../rolls"
 import { clamp } from "../math"
 import { variables } from "../global"
 import { Marriage } from "./createFamilyMembers"
+import { rollFromTable } from "../tools/rollFromTable"
 
 const socialClasses = [
   [195, `aristocracy`, 5],
