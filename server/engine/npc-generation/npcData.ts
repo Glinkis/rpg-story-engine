@@ -208,11 +208,8 @@ export const npcData = {
     warMedal: {
       probability: 2,
       exclusions(town: any, npc: any) {
-        if (townData.professions[npc.profession].sector === "military" || random(100) > 70) {
-          if (npc.ageYears > 15) {
-            return true
-          }
-        } else return false
+        const condition = townData.professions[npc.profession].sector === "military" || random(100) > 70
+        return condition && npc.ageYears > 15
       },
       function(town: any, npc: any) {
         console.log("called lifeEvents.magicalCreature function")
@@ -444,117 +441,77 @@ export const npcData = {
         const festivalDid = randomValue(npcData.lifeEvents.festival.festivalDid)
         if (random(100) > 70) {
           return randomValue([
-            randomValue(["I won", "I got"]) +
-              " " +
-              placement +
-              " at " +
-              randomValue([
-                "a garden festival",
-                "a farmer's market",
-                "an agriculture festival",
-                "a garden tournament",
-              ]) +
-              " for my " +
-              foodTrait +
-              " " +
-              randomValue([fruit, vegetable]) +
-              ".",
-            randomValue(["I won", "I got"]) +
-              " " +
-              placement +
-              " at " +
-              randomValue(["a garden festival", "a flower festival", "a farmer's market", "a garden tournament"]) +
-              " for my " +
-              flowerTrait +
-              " " +
-              flower +
-              ".",
-            randomValue(["some friends and I went to", "I went to", "I spent a day at"]) +
-              " " +
-              randomValue([
-                "a garden festival",
-                "a farmer's market",
-                "an agriculture festival",
-                "a garden tournament",
-              ]) +
-              " where I saw some " +
-              foodTrait +
-              " " +
-              randomValue([fruit, vegetable]) +
-              ". " +
-              randomValue([
-                "I think they won",
-                "If I recall correctly, they got",
-                "At the end of the festival they won ",
-              ]) +
-              " " +
-              placement +
-              " in the growers competition.",
-            randomValue(["some friends and I went to", "I went to", "I spent a day at"]) +
-              " " +
-              randomValue(["a garden festival", "a flower festival", "a farmer's market", "a garden tournament"]) +
-              " where I saw some " +
-              flowerTrait +
-              " " +
-              flower +
-              ". " +
-              randomValue([
-                "I think they won",
-                "If I recall correctly, they got",
-                "At the end of the festival they won ",
-              ]) +
-              " " +
-              placement +
-              " in the growers competition.",
+            `${randomValue(["I won", "I got"])} ${placement} at ${randomValue([
+              "a garden festival",
+              "a farmer's market",
+              "an agriculture festival",
+              "a garden tournament",
+            ])} for my ${foodTrait} ${randomValue([fruit, vegetable])}.`,
+            `${randomValue(["I won", "I got"])} ${placement} at ${randomValue([
+              "a garden festival",
+              "a flower festival",
+              "a farmer's market",
+              "a garden tournament",
+            ])} for my ${flowerTrait} ${flower}.`,
+            `${randomValue(["some friends and I went to", "I went to", "I spent a day at"])} ${randomValue([
+              "a garden festival",
+              "a farmer's market",
+              "an agriculture festival",
+              "a garden tournament",
+            ])} where I saw some ${foodTrait} ${randomValue([fruit, vegetable])}. ${randomValue([
+              "I think they won",
+              "If I recall correctly, they got",
+              "At the end of the festival they won ",
+            ])} ${placement} in the growers competition.`,
+            `${randomValue(["some friends and I went to", "I went to", "I spent a day at"])} ${randomValue([
+              "a garden festival",
+              "a flower festival",
+              "a farmer's market",
+              "a garden tournament",
+            ])} where I saw some ${flowerTrait} ${flower}. ${randomValue([
+              "I think they won",
+              "If I recall correctly, they got",
+              "At the end of the festival they won ",
+            ])} ${placement} in the growers competition.`,
           ])
         } else {
           return randomValue([
-            randomValue([
+            `${randomValue([
               "some friends and I went to",
               "I went to",
               "I spent a day at",
               "I attended",
               "I went to celebrate at",
-            ]) +
-              " " +
-              randomValue([
-                "a holiday festival",
-                "a spring festival",
-                "a summer festival",
-                "a fall festival",
-                "a autumn festival",
-                "a winter festival",
-                "a grand festival",
-                "a festival",
-                "a festival for the gods",
-                "a heroe's festival",
-              ]) +
-              ". While I was there, I " +
-              festivalDid +
-              ".",
-            randomValue([
+            ])} ${randomValue([
+              "a holiday festival",
+              "a spring festival",
+              "a summer festival",
+              "a fall festival",
+              "a autumn festival",
+              "a winter festival",
+              "a grand festival",
+              "a festival",
+              "a festival for the gods",
+              "a heroe's festival",
+            ])}. While I was there, I ${festivalDid}.`,
+            `${randomValue([
               "some friends and I went to",
               "I went to",
               "I spent a day at",
               "I attended",
               "I went to celebrate at",
-            ]) +
-              " " +
-              randomValue([
-                "a holiday festival",
-                "a spring festival",
-                "a summer festival",
-                "a fall festival",
-                "a autumn festival",
-                "a winter festival",
-                "a grand festival",
-                "a festival",
-                "a festival for the gods",
-                "a heroe's festival",
-              ]) +
-              ". While I was there, I " +
-              festivalDid +
-              ".",
+            ])} ${randomValue([
+              "a holiday festival",
+              "a spring festival",
+              "a summer festival",
+              "a fall festival",
+              "a autumn festival",
+              "a winter festival",
+              "a grand festival",
+              "a festival",
+              "a festival for the gods",
+              "a heroe's festival",
+            ])}. While I was there, I ${festivalDid}.`,
           ])
         }
       },
@@ -582,11 +539,7 @@ export const npcData = {
     apprentice: {
       probability: 6,
       exclusions(town: any, npc: any) {
-        if (townData.professions[npc.profession].socialClass === "nobility") {
-          return false
-        } else {
-          return true
-        }
+        return townData.professions[npc.profession].socialClass !== "nobility"
       },
       function(town: any, npc: any) {
         console.log("called lifeEvents.apprentice function")
@@ -1081,10 +1034,11 @@ export const npcData = {
       },
       function(town: any, npc: any) {
         console.log("called lifeEvents.meetFriendNPC function")
+        let friend: any
         if (random(100) > 50) {
           console.log("Finding an already existing friend!")
           // eslint-disable-next-line no-var
-          var friend = Object.keys(State.variables.npcs).find(function(name) {
+          friend = Object.keys(State.variables.npcs).find(name => {
             return (
               State.variables.npcs[name].socialClass === npc.socialClass &&
               !State.variables.npcs[name].relationships[npc.key]
@@ -1184,9 +1138,7 @@ export const npcData = {
     meetPartnerNPC: {
       probability: 10,
       exclusions(town: any, npc: any) {
-        if (npc.ageYears >= 18 && npc.ageStage !== "child") {
-          return true
-        }
+        return npc.ageYears >= 18 && npc.ageStage !== "child"
       },
       function(town: any, npc: any) {
         console.log("called lifeEvents.meetPartnerNPC function")
@@ -1324,18 +1276,16 @@ export const npcData = {
     },
     adventure: {
       probability: 5,
-      exclusions(town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== "child") {
-          return true
-        }
+      exclusions(town: any, npc: any) {
+        return npc.ageYears >= 18 && npc.ageStage !== "child"
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.adventure function")
-        const adventureRoll = random(1, 100)
+        const adventureRoll = randomRange(1, 100)
         let adventureResults
         if (npc.hasClass === false) {
           // Descriptions and stuff goes here
-          return setup.npcData.lifeEvents.backgroundWork.function(town, npc)
+          return npcData.lifeEvents.backgroundWork.function(town, npc)
         } else {
           // eslint-disable-next-line no-var
           var adventurePrefix = randomValue([
@@ -1359,7 +1309,7 @@ export const npcData = {
               "</blockquote>"
           } else if (adventureRoll >= 91) {
             adventureResults = "found a considerable amount of treasure."
-            npc.wealth += random(5100, 7150)
+            npc.wealth += randomRange(5100, 7150)
           } else if (adventureRoll >= 81) {
             adventureResults = "found some treasure."
             npc.wealth += dice(2, 600)
@@ -1390,10 +1340,10 @@ export const npcData = {
     },
     supernatural: {
       probability: 2,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         return true
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.supernatural function")
         return randomValue([
           "I came across a horde of ghouls feasting on a dead body in my youth.",
@@ -1481,14 +1431,12 @@ export const npcData = {
     },
     war: {
       probability: 5,
-      exclusions(town, npc) {
-        if (npc.ageYears >= 18 && npc.ageStage !== "child") {
-          return true
-        }
+      exclusions(town: any, npc: any) {
+        return npc.ageYears >= 18 && npc.ageStage !== "child"
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.war function")
-        const warRoll = random(1, 12)
+        const warRoll = randomRange(1, 12)
         const warStart = randomValue([
           "there was a minor skirmish with some orcs that I was involved with.",
           "there was a small skirmish with a rivaling faction that I was drafted into.",
@@ -1537,12 +1485,10 @@ export const npcData = {
     },
     crime: {
       probability: 10,
-      exclusions(town, npc) {
-        if (setup.townData.professions[npc.profession].sector === "crime" || random(100) > 60) {
-          return true
-        }
+      exclusions(town: any, npc: any) {
+        return townData.professions[npc.profession].sector === "crime" || random(100) > 60
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.crime function")
         const crime = randomValue([
           "murder",
@@ -1558,45 +1504,38 @@ export const npcData = {
           "illegal gambling",
           "selling contraband ",
         ])
-        const crimeRoll = random(1, 12)
-        let crimeReadout
+
+        const crimeRoll = randomRange(1, 12)
+
         if (crimeRoll >= 9) {
-          crimeReadout =
-            "I was caught and convicted of " +
-            crime +
-            ", and spent " +
-            random(1, 4) +
-            " years " +
-            randomValue(["in jail", "chained to an oar", "doing hard labour"]) +
-            " before " +
-            randomValue(["being released.", "managing to escape."])
-        } else if (crimeRoll >= 7) {
-          crimeReadout =
-            "I was nearly caught and convicted in the middle of " +
-            crime +
-            ", but managed to escape. They are still after me, though."
-        } else if (crimeRoll >= 4) {
-          crimeReadout =
-            "I was caught aiding and abetting the crime of " +
-            crime +
-            ", but due to " +
-            randomValue(["being forced to do it against my will", "my amazing lawyer", "being under a spell"]) +
-            ", I was found not guilty."
-        } else {
-          crimeReadout =
-            "I was falsely accused of " +
-            crime +
-            ", but eventually was acquitted. It took up years of my life, though, and I still get antsy around guards that I don't know."
+          return `I was caught and convicted of ${crime}, and spent ${randomRange(1, 4)} years ${randomValue([
+            "in jail",
+            "chained to an oar",
+            "doing hard labour",
+          ])} before ${randomValue(["being released.", "managing to escape."])}`
         }
-        return crimeReadout
+
+        if (crimeRoll >= 7) {
+          return `I was nearly caught and convicted in the middle of ${crime}, but managed to escape. They are still after me, though.`
+        }
+
+        if (crimeRoll >= 4) {
+          return `I was caught aiding and abetting the crime of ${crime}, but due to ${randomValue([
+            "being forced to do it against my will",
+            "my amazing lawyer",
+            "being under a spell",
+          ])}, I was found not guilty.`
+        }
+
+        return `I was falsely accused of ${crime}, but eventually was acquitted. It took up years of my life, though, and I still get antsy around guards that I don't know.`
       },
     },
     arcaneMatters: {
       probability: 4,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         return true
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.arcaneMatters function")
         return randomValue([
           "I saw a demon I swear on my life! " +
@@ -1799,7 +1738,7 @@ export const npcData = {
         return npc.beard || (npc.gender !== "man" && randomRange(0, 100) <= npc.beardProbability)
       },
       function(town: any, npc: any) {
-        return npc.name + " doesn't say " + npc.heshe + " wants to grow a beard."
+        return `${npc.name} doesn't say ${npc.heshe} wants to grow a beard.`
       },
     },
     "no longer loves partner": {
@@ -1812,19 +1751,9 @@ export const npcData = {
         }
       },
       function(town: any, npc: any) {
-        return (
-          npc.name +
-          " doesn't say " +
-          npc.heshe +
-          " no longer loves " +
-          npc.hisher +
-          " " +
-          npc.partnerID.marriageNoun +
-          ", " +
-          "<<profile `$npcs[" +
-          JSON.stringify(npc.partnerID) +
-          "]`>>"
-        )
+        return `${npc.name} doesn't say ${npc.heshe} no longer loves ${npc.hisher} ${
+          npc.partnerID.marriageNoun
+        }, <<profile $npcs[${JSON.stringify(npc.partnerID)}]>>`
       },
     },
     "has a sizeable inheritance": {
@@ -1834,7 +1763,7 @@ export const npcData = {
       },
       function(town: any, npc: any) {
         npc.wealth += 50000
-        return npc.name + " doesn't say " + npc.heshe + " has a sizeable inheritance."
+        return `${npc.name} doesn't say ${npc.heshe} has a sizeable inheritance.`
       },
     },
     "wants to run away": {
@@ -1846,7 +1775,7 @@ export const npcData = {
         }
       },
       function(town: any, npc: any) {
-        return npc.name + " doesn't say " + npc.heshe + " wants to run away and live far away from society."
+        return `${npc.name} doesn't say ${npc.heshe} wants to run away and live far away from society.`
       },
     },
   },
