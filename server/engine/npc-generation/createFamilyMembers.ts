@@ -5,6 +5,7 @@ import { isOfAge } from "./createAge"
 import { npcData } from "./npcData"
 import { familyData } from "./familyData"
 import { setAsPartners } from "./setAsPartners"
+import { findPartnerRace, findChildRace, findParentRaces } from "./familyRaces"
 
 export interface Marriage {
   parents: string[]
