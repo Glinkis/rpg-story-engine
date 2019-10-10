@@ -2,6 +2,7 @@ import { misc } from "./miscData"
 import { randomValue } from "../rolls"
 import { profile } from "../npc-generation/profile"
 import { createNPC } from "../npc-generation/createNPC"
+import { createMercenaries } from "../misc/createMercenaries"
 
 interface Encounters {
   [encounter: string]: (town: any) => string
@@ -53,7 +54,7 @@ export const encounters: Encounters = {
     return `${bandits.tippy}a hideout belonging to <b>some outlaws</b></span>`
   },
   "a disciplined military company"(town) {
-    const mercenaries = setup.createMercenaries(town)
+    const mercenaries = createMercenaries(town)
     return `a military company, armed to the teeth with ${mercenaries.weapon}, wearing ${
       mercenaries.colours
     } livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${
