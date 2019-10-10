@@ -2,6 +2,7 @@ import { random, dice, randomValue, randomRange } from "../rolls"
 import { townData } from "../town/townData"
 import { flora } from "../dictionary/flora"
 import { profile } from "./profile"
+import { createNPC } from "./createNPC"
 
 export const npcData = {
   gender: {
@@ -548,7 +549,7 @@ export const npcData = {
         const apprenticeProfession = randomValue(npcData.lifeEvents.apprentice.profession)
         const reputation = randomValue(npcData.lifeEvents.apprentice.reputation)
         const learned = randomValue(npcData.lifeEvents.apprentice.learned)
-        const teacher = setup.createNPC(town, {
+        const teacher = createNPC(town, {
           profession: apprenticeProfession,
           isShallow: true,
         })
@@ -650,7 +651,7 @@ export const npcData = {
         return socialClass === "commoner" || socialClass === "peasantry"
       },
       function(town: any, npc: any) {
-        const noble = setup.createNPC(town, {
+        const noble = createNPC(town, {
           background: "noble",
           isShallow: true,
         })
@@ -1006,13 +1007,13 @@ export const npcData = {
           })
           if (friend === undefined) {
             console.log(`Nobody was in the same caste as ${npc.name}`)
-            friend = setup.createNPC(town, {
+            friend = createNPC(town, {
               isShallow: true,
               socialClass: npc.socialClass,
             })
           }
         } else {
-          friend = setup.createNPC(town, {
+          friend = createNPC(town, {
             isShallow: true,
           })
         }
@@ -1056,7 +1057,7 @@ export const npcData = {
       },
       function(town: any, npc: any) {
         console.log("called lifeEvents.meetEnemyNPC function")
-        const enemy = setup.createNPC(town, {
+        const enemy = createNPC(town, {
           gender: "man",
           background: "noble",
           isShallow: true,

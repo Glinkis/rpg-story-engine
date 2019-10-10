@@ -1,5 +1,6 @@
 import { random, randomValue } from "../rolls"
 import { linguisticDrift } from "./lingusticDrift"
+import { createNPC } from "../npc-generation/createNPC"
 
 const setup: any = {}
 
@@ -8,7 +9,7 @@ export function createTownName(town?: any) {
   if (random(100) > 90) {
     console.log("Named a founder!")
     if (town) {
-      const npc = setup.createNPC(town)
+      const npc = createNPC(town)
       town.founder = npc.key
       name = town.founder.lastName + randomValue(suffix)
     } else {

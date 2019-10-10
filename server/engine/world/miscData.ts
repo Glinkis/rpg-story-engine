@@ -3,6 +3,7 @@ import { weightedRandomFetcher } from "../tools/weightedRandomFetcher"
 import { locations } from "./locations"
 import { encounters } from "./encounters"
 import { profile } from "../npc-generation/profile"
+import { createNPC } from "../npc-generation/createNPC"
 
 interface Misc {
   [key: string]: any
@@ -335,7 +336,7 @@ export const misc: Misc = {
         masterCarry: randomValue(misc.caravan.masterCarry),
         ...base,
       }
-      caravan.master = setup.createNPC(town, misc.caravan.masterType[caravan.masterType])
+      caravan.master = createNPC(town, misc.caravan.masterType[caravan.masterType])
       caravan.readout = `The caravan is ${caravan.type}, with ${
         caravan.animals
       } as the pack animals. They are transporting ${caravan.transporting}, and the general mood seems to be ${
@@ -1659,7 +1660,7 @@ export const misc: Misc = {
           return "You can see some bedding on the ground near the shrine. It's pretty obvious that the owner left in a hurry."
         },
         beddingWithNPC(town: any) {
-          const npc = setup.createNPC(town)
+          const npc = createNPC(town)
           return `You can see some bedding on the ground near the shrine. The ${profile(npc, "owner")} is out hunting.`
         },
       },
