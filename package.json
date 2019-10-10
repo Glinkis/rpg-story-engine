@@ -10,10 +10,6 @@
     "start": "ts-node server",
     "start:watch": "nodemon"
   },
-  "engines": {
-    "node": ">=10.5.0",
-    "yarn": "^1.15.0"
-  },
   "nodemonConfig": {
     "watch": "server",
     "ext": "ts"
