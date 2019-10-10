@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import { randomValue } from "../rolls"
 import { RollData } from "../../../shared/types"
 
@@ -47,12 +48,15 @@ export function defineRollDataGetter<T extends Rollable>(
 
   Object.defineProperty(baseObj, propName, {
     get(this: T) {
+      // @ts-ignore
       console.log(`Fetching ${this.name} ${propName}.`)
       const rollArray = keyName ? rollDataObj[keyName] : []
       let result = rollArray.find(desc => {
         if (rollLocation) {
+          // @ts-ignore
           return desc[0] <= rollLocation[keyName]
         } else {
+          // @ts-ignore
           return desc[0] <= this.roll[keyName]
         }
       })
@@ -60,19 +64,26 @@ export function defineRollDataGetter<T extends Rollable>(
         console.log(`Failed to get a descriptor that matched the roll of ${this.roll[propName]} for ${propName}.`)
         result = rollArray[rollArray.length - 1]
       }
+
+      // @ts-ignore
       if (Array.isArray(result[indexNumber])) {
+        // @ts-ignore
         result[indexNumber] = randomValue(result[indexNumber])
       }
+      // @ts-ignore
       this[`_${propName}`] = result[indexNumber] || result
       return this[`_${propName}`]
     },
     set(val) {
       console.log(`Setting ${this.name} ${propName}.`)
+      // @ts-ignore
       const rollArray = rollDataObj[keyName]
       let result = rollArray.find(desc => {
         if (rollLocation) {
+          // @ts-ignore
           return desc[0] <= rollLocation[keyName]
         } else {
+          // @ts-ignore
           return desc[0] <= this.roll[keyName]
         }
       })
