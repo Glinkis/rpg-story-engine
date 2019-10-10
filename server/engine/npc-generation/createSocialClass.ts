@@ -41,7 +41,7 @@ export function createSocialClass(town: any, npc: any) {
         return desc[0] <= npc.roll.socialClass
       })
       npc.socialClass = array && array[1]
-      console.log(`Unidentified profession- ${npc.profession} does not exist in townData.professions!`)
+      console.log(`Unidentified profession- ${npc.profession} does not exist in professions!`)
     }
   }
   if (npc.socialClass === undefined) {

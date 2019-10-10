@@ -9,6 +9,7 @@ import { misc } from "../world/miscData"
 import { createMagicTrinket } from "../misc/createMagicTrinket"
 import { createRelationship } from "./createRelationship"
 import { variables } from "../global"
+import { professions } from "./professions"
 
 export const npcData: any = {
   gender: {
@@ -100,7 +101,7 @@ export const npcData: any = {
     performed: {
       probability: 3,
       exclusions(town: any, npc: any) {
-        const { socialClass } = townData.professions[npc.profession]
+        const { socialClass } = professions[npc.profession]
         return socialClass === `commoner` || socialClass === `nobility` || random(100) > 90
       },
       function(town: any, npc: any) {
@@ -217,7 +218,7 @@ export const npcData: any = {
     warMedal: {
       probability: 2,
       exclusions(town: any, npc: any) {
-        const condition = townData.professions[npc.profession].sector === `military` || random(100) > 70
+        const condition = professions[npc.profession].sector === `military` || random(100) > 70
         return condition && npc.ageYears > 15
       },
       function(town: any, npc: any) {
@@ -225,7 +226,7 @@ export const npcData: any = {
         const medal = misc.medal.create()
         const medalType = randomValue(npcData.lifeEvents.warMedal.medalType)
         const medalStatus = randomValue(npcData.lifeEvents.warMedal.medalStatus)
-        if (townData.professions[npc.profession].sector === `military`) {
+        if (professions[npc.profession].sector === `military`) {
           return `${randomValue([
             `after a recent war`,
             `after a brutal battle`,
@@ -284,7 +285,7 @@ export const npcData: any = {
     magicalCreatue: {
       probability: 2,
       exclusions(town: any, npc: any) {
-        return townData.professions[npc.profession].sector === `adventuring` || random(100) > 90
+        return professions[npc.profession].sector === `adventuring` || random(100) > 90
       },
       function(town: any, npc: any) {
         console.log(`called lifeEvents.magicalCreature function`)
@@ -548,7 +549,7 @@ export const npcData: any = {
     apprentice: {
       probability: 6,
       exclusions(town: any, npc: any) {
-        return townData.professions[npc.profession].socialClass !== `nobility`
+        return professions[npc.profession].socialClass !== `nobility`
       },
       function(town: any, npc: any) {
         console.log(`called lifeEvents.apprentice function`)
@@ -653,7 +654,7 @@ export const npcData: any = {
     nobleEvent: {
       probability: 5,
       exclusions(town: any, npc: any) {
-        const { socialClass } = townData.professions[npc.profession]
+        const { socialClass } = professions[npc.profession]
         return socialClass === `commoner` || socialClass === `peasantry`
       },
       function(town: any, npc: any) {
@@ -940,7 +941,7 @@ export const npcData: any = {
     pilgrimage: {
       probability: 5,
       exclusions(town: any, npc: any) {
-        return townData.professions[npc.profession].sector === `religion` || random(100) > 75
+        return professions[npc.profession].sector === `religion` || random(100) > 75
       },
       function(town: any, npc: any) {
         console.log(`called lifeEvents.pilgrimage function`)
@@ -1449,7 +1450,7 @@ export const npcData: any = {
     crime: {
       probability: 10,
       exclusions(town: any, npc: any) {
-        return townData.professions[npc.profession].sector === `crime` || random(100) > 60
+        return professions[npc.profession].sector === `crime` || random(100) > 60
       },
       function(town: any, npc: any) {
         console.log(`called lifeEvents.crime function`)

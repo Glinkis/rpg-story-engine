@@ -1,6 +1,6 @@
-import { townData } from "../town/townData"
 import { fetchProfessionChance } from "./fetchProfessionChance"
 import { findInContainer } from "../tools/findInContainer"
+import { professions } from "./professions"
 
 export function findProfession(town: any, npc: any, profession?: string) {
   profession = profession || npc.dndClass || npc.profession
@@ -9,11 +9,11 @@ export function findProfession(town: any, npc: any, profession?: string) {
     profession = fetchProfessionChance(town, npc)
   }
 
-  if (profession && townData.professions[profession]) {
-    return townData.professions[profession]
+  if (profession && professions[profession]) {
+    return professions[profession]
   }
 
-  const found = findInContainer(townData.professions, `synonyms`, profession)
+  const found = findInContainer(professions, `synonyms`, profession)
 
-  return found || townData.professions.peasant
+  return found || professions.peasant
 }
