@@ -4,6 +4,7 @@ import { randomRange, randomValue, dice, random } from "../rolls"
 import { misc } from "../world/miscData"
 import { calcPercentage } from "../tools/calcPercentage"
 import { toUpperFirst } from "../tools/toUpperFirst"
+import { createSexuality } from "./createSexuality"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
@@ -141,9 +142,9 @@ export function createNPC(town: any, base?: any) {
         this.hairColour = hairs[1] || ""
       },
       get descriptor() {
-        return this.descriptors.seededrandom()
+        return randomValue(this.descriptors)
       },
-      set descriptorsAdd(description) {
+      set descriptorsAdd(description: any) {
         if (typeof description === "string") {
           console.log(this.descriptors)
           if (this.descriptors.includes(description)) {
@@ -269,7 +270,7 @@ export function createNPC(town: any, base?: any) {
     return `<<profile \`$npcs[${JSON.stringify(npc.key)}] \`${JSON.stringify(base)}>>`
   }
 
-  setup.createSexuality(npc)
+  createSexuality(npc)
   setup.createSocialClass(town, npc)
   setup.createlifestyleStandards(town, npc)
 
