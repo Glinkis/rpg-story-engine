@@ -2,6 +2,7 @@ import { randomValue, randomRange } from "../rolls"
 import { weightedRandomFetcher } from "../tools/weightedRandomFetcher"
 import { locations } from "./locations"
 import { encounters } from "./encounters"
+import { profile } from "../npc-generation/profile"
 
 export const misc = {
   cheese: {
@@ -353,7 +354,7 @@ export const misc = {
         ", and the general mood seems to be " +
         caravan.mood +
         " The master is " +
-        setup.profile(caravan.master, JSON.stringify(caravan.masterType)) +
+        profile(caravan.master, JSON.stringify(caravan.masterType)) +
         ", who is looking for " +
         caravan.masterLooking +
         ". " +
@@ -1784,9 +1785,7 @@ export const misc = {
         beddingWithNPC(town: any) {
           const npc = setup.createNPC(town)
           return (
-            "You can see some bedding on the ground near the shrine. The " +
-            setup.profile(npc, "owner") +
-            " is out hunting."
+            "You can see some bedding on the ground near the shrine. The " + profile(npc, "owner") + " is out hunting."
           )
         },
       },

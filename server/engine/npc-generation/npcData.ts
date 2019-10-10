@@ -1,6 +1,7 @@
 import { random, dice, randomValue, randomRange } from "../rolls"
 import { townData } from "../town/townData"
 import { flora } from "../dictionary/flora"
+import { profile } from "./profile"
 
 export const npcData = {
   gender: {
@@ -559,7 +560,7 @@ export const npcData = {
             "I was a novice to",
           ]) +
           " " +
-          setup.profile(teacher, teacher.name) +
+          profile(teacher, teacher.name) +
           " " +
           reputation +
           " " +
@@ -676,12 +677,12 @@ export const npcData = {
         const carriage = randomValue(npcData.lifeEvents.nobleEvent.carriage)
         const handshake = randomValue(npcData.lifeEvents.nobleEvent.handshake)
         return randomValue([
-          prefix + " the royal wedding of a local " + setup.profile(noble, "noble") + ".",
+          prefix + " the royal wedding of a local " + profile(noble, "noble") + ".",
           prefix +
             " the royal " +
             randomValue(["banquet", "feast", "gathering"]) +
             " of a local " +
-            setup.profile(noble, "noble") +
+            profile(noble, "noble") +
             " in celebration of " +
             banquetCelebrate +
             ".",
@@ -689,12 +690,12 @@ export const npcData = {
             " the royal " +
             randomValue(["ball", "dance", "gala", "masquerade ball"]) +
             " hosted by a local " +
-            setup.profile(noble, "noble") +
+            profile(noble, "noble") +
             " in honor of " +
             ballCelebrate +
             ".",
           "I saw the carriage of a " +
-            setup.profile(noble, "noble") +
+            profile(noble, "noble") +
             " " +
             randomValue([
               "passing by my house",
@@ -706,7 +707,7 @@ export const npcData = {
             carriage +
             ".",
           "I shook the hand of a passing " +
-            setup.profile(noble, "noble") +
+            profile(noble, "noble") +
             ". If I recall their handshake was " +
             handshake +
             ".",
@@ -1061,26 +1062,26 @@ export const npcData = {
         if (npc.hasClass === false) {
           // Descriptions and stuff goes here
           return randomValue([
-            "I met my " + setup.profile(friend, "best buddy") + " on some travel.",
+            "I met my " + profile(friend, "best buddy") + " on some travel.",
             "I lost contact with an " +
-              setup.profile(friend, "old friend") +
+              profile(friend, "old friend") +
               ", and reconnected with " +
-              setup.profile(friend, friend.himher) +
+              profile(friend, friend.himher) +
               " on a pilgrimage.",
-            "I made a " + setup.profile(friend, "good friend") + " during a drinking contest.",
+            "I made a " + profile(friend, "good friend") + " during a drinking contest.",
             "we were attacked by raiders, and I was saved by a " +
-              setup.profile(friend, "traveler") +
+              profile(friend, "traveler") +
               " passing through. We are best of friends to this day.",
           ])
         } else {
           return randomValue([
-            "I made a " + setup.profile(friend, "friend") + " for life in my travels.",
+            "I made a " + profile(friend, "friend") + " for life in my travels.",
             "I was poor as a churchmouse, but then " +
-              setup.profile(friend, "a total stranger") +
+              profile(friend, "a total stranger") +
               " helped me get a job. I owe everything I am today to his compassion.",
             "I went traveling for a while, and found myself in the company of all manner of folk, who I like to think helped teach me how to be a bit wiser.",
             "I took an odd job delivering a package to the town over. Never would have thought that that sort of thing could be life-changing, but it was- it's where I met my " +
-              setup.profile(friend, "best friend") +
+              profile(friend, "best friend") +
               ".",
           ])
         }
@@ -1103,12 +1104,12 @@ export const npcData = {
         setup.createRelationship(town, npc, enemy, "enemy", "enemy")
         return (
           randomValue([
-            "I made an " + setup.profile(enemy, "enemy") + " for life in my travels- ",
-            "I was framed by a " + setup.profile(enemy, "scoundrel") + " for a crime I didn't commit- ",
-            "I met a " + setup.profile(enemy, "man") + ", and we played cards. He decided that I was cheating- ",
-            "I was a guest in the court of a " + setup.profile(enemy, "lord") + ", and made an embarassment of him- ",
+            "I made an " + profile(enemy, "enemy") + " for life in my travels- ",
+            "I was framed by a " + profile(enemy, "scoundrel") + " for a crime I didn't commit- ",
+            "I met a " + profile(enemy, "man") + ", and we played cards. He decided that I was cheating- ",
+            "I was a guest in the court of a " + profile(enemy, "lord") + ", and made an embarassment of him- ",
             "I used to play cards in a pub, and one time supposedly cheated a " +
-              setup.profile(enemy, "man") +
+              profile(enemy, "man") +
               " out of his winnings; ",
           ]) +
           randomValue([
@@ -1158,7 +1159,7 @@ export const npcData = {
           if (!partnerKey) {
             return "I met the love of my life, who is no longer with me."
           }
-          return "I met the love of my life, " + setup.profile(partnerKey) + "."
+          return "I met the love of my life, " + profile(partnerKey) + "."
         } else {
           console.log(npc.name + " already met somebody!")
           console.log(node.marriages)
@@ -1172,13 +1173,13 @@ export const npcData = {
 
         let childMsg, partnerMsg
         if (childKey) {
-          childMsg = "I had a child, " + setup.profile(State.variables.npcs[childKey])
+          childMsg = "I had a child, " + profile(State.variables.npcs[childKey])
           partnerMsg = partnerKey
-            ? " with my dear partner " + setup.profile(State.variables.npcs[partnerKey]) + "."
+            ? " with my dear partner " + profile(State.variables.npcs[partnerKey]) + "."
             : " with my dear partner, who is no longer with me."
         } else {
           partnerMsg = partnerKey
-            ? "I met the love of my life, " + setup.profile(partnerKey) + "."
+            ? "I met the love of my life, " + profile(partnerKey) + "."
             : "I met the love of my life, who is no longer with me."
           return
         }
