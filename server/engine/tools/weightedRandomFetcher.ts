@@ -18,8 +18,8 @@ export function weightedRandomFetcher(
   town: any,
   args: any,
   obj: any,
-  exclusionFunction: any,
-  output: any,
+  exclusionFunction?: any,
+  output?: any,
   defaultProbability?: any
 ) {
   if (!output) {
