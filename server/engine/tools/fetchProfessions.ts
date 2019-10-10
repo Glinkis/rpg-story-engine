@@ -9,7 +9,7 @@ import { dice, randomFloatRange } from "../rolls"
  * function located in `NPCGeneration/fetchProfessionChance.js`
  */
 export function fetchProfessions(town?: any) {
-  town = town // TODO: || State.variables.town
+  // TODO: town = town || State.variables.town
   town.professions = {}
 
   for (const [name, profession] of Object.entries(townData.professions)) {

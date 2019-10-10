@@ -81,7 +81,7 @@ export const locations: Locations = {
   "a sacred grove"() {
     return "a sacred grove."
   },
-  "a shrine"(town, biome) {
+  "a shrine"(town) {
     const shrine = misc.religion.shrine.create(town)
     return `a shrine dedicated to ${shrine.god}. The shrine is ${shrine.material} ${shrine.senses}`
   },
@@ -114,17 +114,17 @@ export const locations: Locations = {
     return `a cavern. ${cavern.readout}<blockquote>The cavern is home to ${encounter}.</blockquote>`
   },
   // mining is intentionally using the mountain biome
-  "an old mine in a canyon"(town, biome) {
+  "an old mine in a canyon"() {
     const miners = randomValue(misc.mountain.miners)
     const goal = randomValue(misc.mountain.minersGoal)
     return `an old mine in a canyon <blockquote>The mine was built by by ${miners}, looking for ${goal}.</blockquote>`
   },
-  "an active mining camp"(town, biome) {
+  "an active mining camp"() {
     const miners = randomValue(misc.mountain.miners)
     const goal = randomValue(misc.mountain.minersGoal)
     return `an active mining camp, manned by ${miners}, looking for ${goal}`
   },
-  "a hole under a large boulder"(town, biome) {
+  "a hole under a large boulder"() {
     const content = randomValue(misc.desert.hole)
     return `a hole under a large boulder <blockquote> Inside is ${content}</blockquote>`
   },
@@ -147,7 +147,7 @@ export const locations: Locations = {
     })
     return `a ${cabin.tippy}<b>stone house</b></span> sheltered by a ${shelter}<blockquote>${lived} once lived here. Now, ${encounter} lives here.</blockquote>`
   },
-  "a merchant caravan's camp"(town, biome) {
+  "a merchant caravan's camp"(town) {
     const caravan = misc.caravan.create(town)
     return `a merchant caravan's camp. ${caravan.readout}`
   },
@@ -199,28 +199,28 @@ export const locations: Locations = {
     const encounter = contentsFetcher(town, biome, misc[biome].ruinsLives, encounters)
     return `a ruined monastery. <blockquote>These ruins are currently occupied by ${encounter}.</blockquote>`
   },
-  "a village of primitive canyon dwellers"(town, biome) {
+  "a village of primitive canyon dwellers"() {
     return "a village of primitive canyon dwellers"
   },
-  "some nomad's camp"(town, biome) {
+  "some nomad's camp"() {
     return "some nomad's camp"
   },
-  "an ancient tomb"(town, biome) {
+  "an ancient tomb"() {
     return "an ancient tomb"
   },
-  "a dark tunnel leading under the mountain"(town, biome) {
+  "a dark tunnel leading under the mountain"() {
     return "a dark tunnel leading under the mountain"
   },
-  "a tunnel in a cliff face"(town, biome) {
+  "a tunnel in a cliff face"() {
     return "a tunnel in a cliff face"
   },
-  "a tunnel leading into an abandoned mine"(town, biome) {
+  "a tunnel leading into an abandoned mine"() {
     return "a tunnel leading into an abandoned mine"
   },
-  "an enormous bird’s nest"(town, biome) {
+  "an enormous bird’s nest"() {
     return "the nest of an enormous bird"
   },
-  "a poorly marked grave or tomb"(town, biome) {
+  "a poorly marked grave or tomb"() {
     return "a crudely marked grave of someone long gone"
   },
 }
