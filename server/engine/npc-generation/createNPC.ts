@@ -13,6 +13,7 @@ import { findProfession } from "./findProfession"
 import { createAge } from "./createAge"
 import { createRace } from "./createRace"
 import { createSocialClass } from "./createSocialClass"
+import { createLifestyleStandards } from "./createLifestyleStandards"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
@@ -187,7 +188,7 @@ export function createNPC(town: any, base?: any) {
       this._race = race
       Object.assign(this, npcData.raceTraits[race].raceWords)
     },
-    get raceNote() {
+    get raceNote(): any {
       if (this._race === `human`) {
         return `${this.height} ${this.gender}`
       } else {
@@ -246,6 +247,7 @@ export function createNPC(town: any, base?: any) {
   const legs = randomValue(npcData.bodyParts.legs.descriptions)
 
   const physicalTraitRoll = randomRange(1, 100)
+
   if (physicalTraitRoll > 40) {
     npc.physicalTrait = npc.physicalTrait || randomValue([hair, eyes, nose, mouth, chin, ears, headMisc])
   } else if (physicalTraitRoll > 30) {
@@ -263,12 +265,14 @@ export function createNPC(town: any, base?: any) {
   }
 
   createClass(npc)
-  setup.createBackground(npc)
-  setup.createDescriptors(npc)
+  createBackground(npc)
+  createDescriptors(npc)
 
   npc.formalName = npc.formalName || `${npc.title} ${npc.lastName}`
-  // npc.key = npc.name
-  if (!npc.keyIsAlreadyDefined) State.variables.npcs[npc.key] = npc
+
+  if (!npc.keyIsAlreadyDefined) {
+    State.variables.npcs[npc.key] = npc
+  }
 
   npc.profile = (npc: any, base: any) => {
     base = npc.name || base
@@ -277,7 +281,7 @@ export function createNPC(town: any, base?: any) {
 
   createSexuality(npc)
   createSocialClass(town, npc)
-  createlifestyleStandards(town, npc)
+  createLifestyleStandards(town, npc)
 
   if (npc.hasHistory !== false) {
     // TODO: setup.ExpandNPC(town, npc)
