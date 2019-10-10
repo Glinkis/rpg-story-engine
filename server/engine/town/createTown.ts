@@ -5,8 +5,6 @@ import { townDemographics } from "./townDemographics"
 import { createTownName } from "./createTownName"
 import { townData } from "./townData"
 
-const setup = {} as any
-
 interface Town {
   [key: string]: any
 }
