@@ -795,10 +795,8 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: `feudalistic`,
         economicIdeologyIST: `feudalist`,
-        economicIdeologyDescription:
-          `The people of $town.name work the land in exchange for working their lord's lands.`,
-        tippy:
-          `The crown gives land to the nobles in exchange for military service. Peasants work, tithe, and fight for the nobles in exchange for being able to live on the noble's lands.`,
+        economicIdeologyDescription: `The people of $town.name work the land in exchange for working their lord's lands.`,
+        tippy: `The crown gives land to the nobles in exchange for military service. Peasants work, tithe, and fight for the nobles in exchange for being able to live on the noble's lands.`,
       },
     },
     capitalism: {
@@ -811,8 +809,7 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: `capitalistic`,
         economicIdeologyIST: `capitalist`,
-        economicIdeologyDescription:
-          `The people of $town.name work in exchange for payment from their employers, which they use to buy the necessities.`,
+        economicIdeologyDescription: `The people of $town.name work in exchange for payment from their employers, which they use to buy the necessities.`,
         tippy: `Trade and industry are controlled by private owners for profit, rather than the state.`,
       },
     },
@@ -826,8 +823,7 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: `syndicalistic`,
         economicIdeologyIST: `syndicalist`,
-        economicIdeologyDescription:
-          `The people of $town.name own the lands they work on collectively, and together benefit from its prosperity.`,
+        economicIdeologyDescription: `The people of $town.name own the lands they work on collectively, and together benefit from its prosperity.`,
         tippy: `The workers own the lands they work on collectively, and together benefit from its prosperity.`,
       },
     },
@@ -841,10 +837,8 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: `communistic`,
         economicIdeologyIST: `communist`,
-        economicIdeologyDescription:
-          `The people of $town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.`,
-        tippy:
-          `People work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.`,
+        economicIdeologyDescription: `The people of $town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.`,
+        tippy: `People work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.`,
       },
     },
     primitivism: {
@@ -857,10 +851,8 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: `primitivistic`,
         economicIdeologyIST: `primitivist`,
-        economicIdeologyDescription:
-          `The people of $town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers.`,
-        tippy:
-          `There is no formal government, and people are largely hunter-gatherers with no concept of ownership; might makes right.`,
+        economicIdeologyDescription: `The people of $town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers.`,
+        tippy: `There is no formal government, and people are largely hunter-gatherers with no concept of ownership; might makes right.`,
       },
     },
   },
@@ -881,13 +873,11 @@ export const townData: TownData = {
         `technocracy`,
       ],
       autocracy: {
-        politicalSourceDescription:
-          `<<print $town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.`,
+        politicalSourceDescription: `<<print $town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.`,
         description: `The crown holds both supreme executive and judicial powers.`,
       },
       default: {
-        politicalSourceDescription:
-          `<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.`,
+        politicalSourceDescription: `<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.`,
         description: `The crown holds supreme judicial power, but the executive power is held by a parliamentary.`,
       },
     },
@@ -908,13 +898,11 @@ export const townData: TownData = {
         `technocracy`,
       ],
       autocracy: {
-        politicalSourceDescription:
-          `<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.`,
+        politicalSourceDescription: `<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.`,
         description: `The crown holds supreme judicial powers, but executive power is held by the prime minister.`,
       },
       default: {
-        politicalSourceDescription:
-          `<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.`,
+        politicalSourceDescription: `<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.`,
         description: `The crown holds supreme judicial power, but day to day affairs are held by parliament.`,
       },
     },
@@ -934,8 +922,7 @@ export const townData: TownData = {
         `theocracy`,
         `technocracy`,
       ],
-      politicalSourceDescription:
-        `Affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>`,
+      politicalSourceDescription: `Affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>`,
       description: `The crown holds both supreme executive and judicial powers.`,
     },
     "anarchy": {
@@ -954,8 +941,7 @@ export const townData: TownData = {
         `theocracy`,
         `technocracy`,
       ],
-      politicalSourceDescription:
-        `None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.`,
+      politicalSourceDescription: `None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.`,
       description: `No formal political system exists.`,
     },
   },
