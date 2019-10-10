@@ -3,6 +3,7 @@ import { townData } from "../town/townData"
 import { flora } from "../dictionary/flora"
 import { profile } from "./profile"
 import { createNPC } from "./createNPC"
+import { createMagicWeapon } from "../misc/createMagicWeapon"
 
 export const npcData: any = {
   gender: {
@@ -1245,25 +1246,26 @@ export const npcData: any = {
       function(town: any, npc: any) {
         console.log(`called lifeEvents.adventure function`)
         const adventureRoll = randomRange(1, 100)
-        let adventureResults
+
+        let adventurePrefix: string
+        let adventureResults: string
+
         if (npc.hasClass === false) {
           // Descriptions and stuff goes here
           return npcData.lifeEvents.backgroundWork.function(town, npc)
         } else {
-          // eslint-disable-next-line no-var
-          var adventurePrefix = randomValue([
+          adventurePrefix = randomValue([
             `I went on an adventure, and `,
             `I went on a hike with a friend, and we got lost. It took us months to get back home, and on the way, I `,
             `I had a spur of the moment whim to go on an adventure, and on my journeys, I `,
             `I got really drunk, and woke up in the middle of nowhere. From there, I had to trek back home, and on the way, I `,
             `there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I `,
           ])
+
           if (adventureRoll === 100) {
             const weapon = createMagicWeapon()
             console.log(`Called weapon function.`)
-            adventureResults =
-              `came across a magical weapon- this is my trusty ${weapon.name}<blockquote>` +
-              `<h4>${weapon.name}</h4>${weapon.description}</blockquote>`
+            adventureResults = `came across a magical weapon- this is my trusty ${weapon.name}<blockquote><h4>${weapon.name}</h4>${weapon.description}</blockquote>`
           } else if (adventureRoll >= 91) {
             adventureResults = `found a considerable amount of treasure.`
             npc.wealth += randomRange(5100, 7150)
@@ -1277,11 +1279,8 @@ export const npcData: any = {
           } else if (adventureRoll >= 51) {
             adventureResults = `lost something of sentimental value to me.`
           } else if (adventureRoll >= 41) {
-            adventureResults = `was poisoned by a ${randomValue([
-              `monster`,
-              `trap`,
-              `monster`,
-            ])}, but recovered in due time.`
+            const poisoner = randomValue([`monster`, `trap`, `monster`])
+            adventureResults = `was poisoned by a ${poisoner}, but recovered in due time.`
           } else if (adventureRoll >= 31) {
             adventureResults = `contracted a disease while exploring a filthy warren. I recovered, but I'm still not quite right.`
             npc.physicalTrait = randomValue([`pockmarked face`, `grey hair`])
@@ -1289,7 +1288,7 @@ export const npcData: any = {
             adventureResults = `was wounded, but recovered in time.`
           } else if (adventureRoll >= 11) {
             adventureResults = `was greivously wounded, but recovered in time. It still hurts, from time to time.`
-          } else if (adventureRoll < 11) {
+          } else {
             adventureResults = `nearly died- that's how I got the scars.`
             npc.physicalTrait = randomValue([`a missing ear`, `a missing finger`, `two missing fingers`])
           }
