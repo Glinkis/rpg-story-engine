@@ -4,7 +4,11 @@ import { locations } from "./locations"
 import { encounters } from "./encounters"
 import { profile } from "../npc-generation/profile"
 
-export const misc = {
+interface Misc {
+  [key: string]: any
+}
+
+export const misc: Misc = {
   cheese: {
     create() {
       return {

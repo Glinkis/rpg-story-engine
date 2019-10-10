@@ -2,9 +2,10 @@ import { misc } from "./miscData"
 import { encounters } from "./encounters"
 import { randomValue } from "../rolls"
 import { contentsFetcher } from "../tools/contentsFetcher"
+import { Biome } from "../../../shared/types"
 
 interface Locations {
-  [location: string]: (town: any, biome: string) => string
+  [location: string]: (town: any, biome: Biome) => string
 }
 
 export const locations: Locations = {
