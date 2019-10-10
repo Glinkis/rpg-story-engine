@@ -4,7 +4,7 @@ import { flora } from "../dictionary/flora"
 import { profile } from "./profile"
 import { createNPC } from "./createNPC"
 
-export const npcData = {
+export const npcData: any = {
   gender: {
     man: {
       title: `Mr`,

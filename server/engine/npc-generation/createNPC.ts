@@ -12,6 +12,7 @@ import { lifestyleStandards } from "../town/lifestyleStandards"
 import { findProfession } from "./findProfession"
 import { createAge } from "./createAge"
 import { createRace } from "./createRace"
+import { createSocialClass } from "./createSocialClass"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
@@ -146,7 +147,7 @@ export function createNPC(town: any, base?: any) {
       this.hairType = hairs[0] || ``
       this.hairColour = hairs[1] || ``
     },
-    get descriptor() {
+    get descriptor(): any {
       return randomValue(this.descriptors)
     },
     set descriptorsAdd(description: any) {
@@ -275,14 +276,14 @@ export function createNPC(town: any, base?: any) {
   }
 
   createSexuality(npc)
-  setup.createSocialClass(town, npc)
-  setup.createlifestyleStandards(town, npc)
+  createSocialClass(town, npc)
+  createlifestyleStandards(town, npc)
 
   if (npc.hasHistory !== false) {
-    setup.ExpandNPC(town, npc)
+    // TODO: setup.ExpandNPC(town, npc)
   }
 
-  State.temporary.newNPC = npc
+  // TODO: State.temporary.newNPC = npc
 
   if (npc.callbackFunction) {
     npc.callbackFunction(town, npc, base)
