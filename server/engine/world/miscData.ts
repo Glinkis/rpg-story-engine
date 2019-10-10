@@ -3243,7 +3243,7 @@ export const misc: Misc = {
   },
   town: {
     create(town: any) {
-      return weightedRandomFetcher(town, setup.plothooks, ``, misc.town.type.event)
+      return weightedRandomFetcher(town, plothooks, ``, misc.town.type.event)
     },
     type: {
       event(town: any, arg: any) {
@@ -3257,7 +3257,7 @@ export const misc: Misc = {
   road: {
     create(town: any, base: any) {
       const type = randomValue([`trail`, `path`, `path`, `road`, `road`, `road`])
-      const encounterKey = randomValue(misc.road[type].encounters)
+      const encounterKey: string = randomValue(misc.road[type].encounters)
       console.log(encounterKey)
       const road = {
         type: randomValue(misc.road[type].type),
