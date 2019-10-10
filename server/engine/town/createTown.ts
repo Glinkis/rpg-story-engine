@@ -179,7 +179,7 @@ export function createTown(base: any = {}) {
   town.origin = randomValue(townData.terrain[town.terrain].location[town.location].origin)
   town.vegetation = randomValue(townData.terrain[town.terrain].location[town.location].vegetation)
 
-  for (const roll of town.roll) {
+  for (const roll of Object.keys(town.roll)) {
     town.roll[roll] = clamp(town.roll[roll], 1, 100)
   }
 
