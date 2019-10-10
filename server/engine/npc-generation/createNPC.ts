@@ -11,6 +11,7 @@ import { fetchProfessionChance } from "./fetchProfessionChance"
 import { lifestyleStandards } from "../town/lifestyleStandards"
 import { findProfession } from "./findProfession"
 import { createAge } from "./createAge"
+import { createRace } from "./createRace"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
@@ -229,7 +230,7 @@ export function createNPC(town: any, base?: any) {
   }
 
   createAge(npc)
-  setup.createRace(npc)
+  createRace(npc)
 
   // This sets up the physical traits of NPCs
   const hair = randomValue(npcData.bodyParts.head.hair)
