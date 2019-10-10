@@ -1,4 +1,4 @@
-import { globalNPCs } from "./createNPC"
+import { variables } from "../global"
 
 export function createRelationship(town, npc, targetNPC, type, targetType) {
   console.log(`Forming a relationship.`)
@@ -7,23 +7,23 @@ export function createRelationship(town, npc, targetNPC, type, targetType) {
 
   if (typeof npc === `string`) {
     console.error(`First argument was passed a string!`)
-    npc = globalNPCs.get(npc)
+    npc = variables.npcs[npc]
   }
   if (typeof targetNPC === `string`) {
     console.error(`Second argument was passed a string!`)
-    targetNPC = globalNPCs.get(targetNPC)
+    targetNPC = variables.npcs[targetNPC]
   }
 
   const npcsToClean: any[] = []
 
-  if (npc.relationships[targetNPC.key] && globalNPCs.get(npc.relationships[targetNPC.key])) {
+  if (npc.relationships[targetNPC.key] && variables.npcs[npc.relationships[targetNPC.key]]) {
     /* npc already had a valid partner; mark it for removal */
-    npcsToClean.push(globalNPCs.get(targetNPC.key))
+    npcsToClean.push(variables.npcs[targetNPC.key])
   }
 
-  if (targetNPC.relationships[npc.key] && globalNPCs.get(targetNPC.relationships[npc.key])) {
+  if (targetNPC.relationships[npc.key] && variables.npcs[targetNPC.relationships[npc.key]]) {
     /* targetNPC already had a valid partner; mark it for removal */
-    npcsToClean.push(globalNPCs.get(targetNPC.relationships[npc.key]))
+    npcsToClean.push(variables.npcs[targetNPC.relationships[npc.key]])
   }
 
   /* Remove "old" partners first */

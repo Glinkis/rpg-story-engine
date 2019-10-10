@@ -1,7 +1,7 @@
 import { clamp } from "../math"
 import { dice, random, randomRange } from "../rolls"
 import { npcData } from "./npcData"
-import { globalNPCs } from "./createNPC"
+import { variables } from "../global"
 
 interface Kinsey {
   [key: number]: {
@@ -19,7 +19,7 @@ interface Kinsey {
 // if a partner exists, then we need to make sure that it's an acceptable gender.
 export function createSexuality(npc: any) {
   if (npc.partnerID !== undefined) {
-    if (globalNPCs.get(npc.partnerID).gender === npc.gender) {
+    if (variables.npcs[npc.partnerID].gender === npc.gender) {
       npc.roll.kinsey = 6
       npc.roll.sexuality = 99
     } else {

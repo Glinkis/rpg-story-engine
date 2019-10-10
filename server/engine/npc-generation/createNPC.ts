@@ -14,8 +14,7 @@ import { createAge } from "./createAge"
 import { createRace } from "./createRace"
 import { createSocialClass } from "./createSocialClass"
 import { createLifestyleStandards } from "./createLifestyleStandards"
-
-export const globalNPCs = new Map()
+import { variables } from "../global"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
@@ -273,7 +272,7 @@ export function createNPC(town: any, base?: any) {
   npc.formalName = npc.formalName || `${npc.title} ${npc.lastName}`
 
   if (!npc.keyIsAlreadyDefined) {
-    globalNPCs.set(npc.key, npc)
+    variables.npcs[npc.key] = npc
   }
 
   npc.profile = (npc: any, base: any) => {

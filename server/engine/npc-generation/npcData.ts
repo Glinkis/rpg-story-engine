@@ -2,12 +2,13 @@ import { random, dice, randomValue, randomRange } from "../rolls"
 import { townData } from "../town/townData"
 import { flora } from "../dictionary/flora"
 import { profile } from "./profile"
-import { createNPC, globalNPCs } from "./createNPC"
+import { createNPC } from "./createNPC"
 import { createMagicWeapon } from "../misc/createMagicWeapon"
 import { createMarriage } from "./createFamilyMembers"
 import { misc } from "../world/miscData"
 import { createMagicTrinket } from "../misc/createMagicTrinket"
 import { createRelationship } from "./createRelationship"
+import { variables } from "../global"
 
 export const npcData: any = {
   gender: {
@@ -1003,7 +1004,7 @@ export const npcData: any = {
         let friend: any
         if (random(100) > 50) {
           console.log(`Finding an already existing friend!`)
-          friend = Array.from(globalNPCs).find(([name, npc]) => {
+          friend = Object.entries(variables.npcs).find(([name, npc]) => {
             return npc.socialClass === npc.socialClass && !npc.relationships[npc.key]
           })
           if (friend === undefined) {
@@ -1141,13 +1142,13 @@ export const npcData: any = {
         let partnerMsg = ``
 
         if (childKey) {
-          childMsg = `I had a child, ${profile(globalNPCs.get(childKey))}`
+          childMsg = `I had a child, ${profile(variables.npcs[childKey])}`
           partnerMsg = partnerKey
-            ? ` with my dear partner ${profile(globalNPCs.get(partnerKey))}.`
+            ? ` with my dear partner ${profile(variables.npcs[partnerKey])}.`
             : ` with my dear partner, who is no longer with me.`
         } else {
           partnerMsg = partnerKey
-            ? `I met the love of my life, ${profile(globalNPCs.get(partnerKey))}.`
+            ? `I met the love of my life, ${profile(variables.npcs[partnerKey])}.`
             : `I met the love of my life, who is no longer with me.`
         }
 

@@ -1,6 +1,6 @@
 import { randomRange } from "../rolls"
 import { npcData } from "./npcData"
-import { globalNPCs } from "./createNPC"
+import { variables } from "../global"
 
 export const familyData = {
   // These numbers are all made up, feel free to change them
@@ -31,11 +31,11 @@ export const familyData = {
     if (marriage.parents.length > 0) {
       // find the youngest parent
       const youngest = marriage.parents
-        .map(key => globalNPCs.get(key))
+        .map(key => variables.npcs[key])
         .reduce((npcA, npcB) => (npcA.ageYears <= npcB.ageYears ? npcA : npcB))
       return 2 * youngest.ageYears - familyData.parentAge(youngest)
     } else if (marriage.children.length > 0) {
-      const sibling = globalNPCs.get(marriage.children[0])
+      const sibling = variables.npcs[marriage.children[0]]
       return familyData.siblingAge(sibling)
     } else {
       return 0

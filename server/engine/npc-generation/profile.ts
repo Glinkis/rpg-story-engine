@@ -1,3 +1,5 @@
+import { variables } from "../global"
+
 /**
  * this is a function that returns the profile widget for the provided object.
  * obj is the object. It is mandatory.
@@ -9,7 +11,7 @@ export function profile(obj: any, base?: any, type?: any) {
   type = type || `npcs`
   if (typeof obj === `string`) {
     console.error(`Profile function for ${obj} called with a string.`)
-    obj = State.variables[type][obj]
+    obj = variables[type][obj]
   }
 
   // base is the user-facing text
