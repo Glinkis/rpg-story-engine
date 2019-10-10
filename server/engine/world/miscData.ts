@@ -905,7 +905,7 @@ export const misc = {
       "greataxes and javelins",
     ],
     create() {
-      const orcs = {
+      const orcs: any = {
         type: randomValue(misc.orcs.type),
         symbol: randomValue(misc.orcs.symbol),
         value: randomValue(misc.orcs.value),
@@ -2800,15 +2800,15 @@ export const misc = {
       "white or pale fur on one paw",
       "white or pale fur around the face and muzzle",
       "black or dark fur around the face and muzzle",
-      "a banded pattern on its back" + ["dark grey", "pale grey", "reddish brown", "sandy brown"].seededrandom(),
+      "a banded pattern on its back" + randomValue(["dark grey", "pale grey", "reddish brown", "sandy brown"]),
       "lighter fur on its belly",
       "darker fur on its belly",
       "a distinct, " +
-        ["white", "pale grey"].seededrandom() +
+        randomValue(["white", "pale grey"]) +
         " " +
-        ["arrowhead", "pair of eye-like spots", "hourglass", "star"].seededrandom() +
+        randomValue(["arrowhead", "pair of eye-like spots", "hourglass", "star"]) +
         " on its chest",
-      "a scar from a past injury on its " + ["flank", "foreleg", "hindleg", "snout", "eye", "ear"].seededrandom(),
+      "a scar from a past injury on its " + randomValue(["flank", "foreleg", "hindleg", "snout", "eye", "ear"]),
       "no obvious markings",
     ],
     eyes: [
@@ -3016,16 +3016,16 @@ export const misc = {
     markings: [
       "pale banding on its legs",
       "dark banding on its legs",
-      "bright " + ["orange", "red", "white", "yellow"].seededrandom() + " banding on its legs",
+      "bright " + randomValue(["orange", "red", "white", "yellow"]) + " banding on its legs",
       "pale stripes down its abdomen",
       "dark stripes down its abdomen",
       "a distinct, crimson " +
-        ["arrowhead", "pair of eye-like spots", "hourglass", "star"].seededrandom() +
+        randomValue(["arrowhead", "pair of eye-like spots", "hourglass", "star"]) +
         " on its abdomen",
       "a distinct, " +
-        ["black", "dark grey"].seededrandom() +
+        randomValue(["black", "dark grey"]) +
         " " +
-        ["arrowhead", "pair of eye-like spots", "hourglass", "star"].seededrandom() +
+        randomValue(["arrowhead", "pair of eye-like spots", "hourglass", "star"]) +
         " on its abdomen",
       "no obvious markings",
     ],
@@ -3203,9 +3203,9 @@ export const misc = {
     create(town: any, biome: any, base: any) {
       biome = biome || randomValue(["forest", "desert", "mountain", "plains"])
       const tree = {
-        species: misc.tree.biome[biome].species.seededrandom(),
-        size: misc.tree.biome[biome].size.seededrandom(),
-        feature: misc.tree.biome[biome].feature.seededrandom(),
+        species: randomValue(misc.tree.biome[biome].species),
+        size: randomValue(misc.tree.biome[biome].size),
+        feature: randomValue(misc.tree.biome[biome].feature),
         ...base,
       }
       tree.readout = "The " + tree.species + " tree is " + tree.size + " " + tree.feature
@@ -3670,29 +3670,26 @@ export const misc = {
     },
   },
   desert: {
-    create: town => {
+    create(town: any) {
       const biome = "desert"
       let encounter
       let encounterKey
-      if (random(1, 100) >= 50) {
-        encounterKey = setup.misc.desert.location.seededrandom()
-        encounter = setup.misc.locations[encounterKey](town, biome)
+      if (randomRange(1, 100) >= 50) {
+        encounterKey = randomValue(misc.desert.location)
+        encounter = misc.locations[encounterKey](town, biome)
       } else {
-        encounterKey = setup.misc.desert.encounters.seededrandom()
-        encounter = setup.misc.encounters[encounterKey](town)
+        encounterKey = randomValue(misc.desert.encounters)
+        encounter = misc.encounters[encounterKey](town)
       }
       console.log(encounterKey)
-      return (
-        ["While", "As", "After a while, as"].seededrandom() +
-        " you " +
-        ["traverse", "trudge along", "travel across", "walk across"].seededrandom() +
-        " the desert, you see " +
-        setup.misc.desert.landmark.seededrandom() +
-        ". You notice " +
-        setup.misc.desert.feature.seededrandom() +
-        ". Up ahead, you see " +
-        encounter
-      )
+      return `${randomValue(["While", "As", "After a while, as"])} you ${randomValue([
+        "traverse",
+        "trudge along",
+        "travel across",
+        "walk across",
+      ])} the desert, you see ${randomValue(misc.desert.landmark)}. You notice ${randomValue(
+        misc.desert.feature
+      )}. Up ahead, you see ${encounter}`
     },
     location: [
       "a cavern in a canyon wall",
@@ -3857,31 +3854,28 @@ export const misc = {
     hole: ["a snake", "a spider", "beetles", "scorpions", "centipedes", "a toad", "a lizard", "a fox"],
   },
   mountain: {
-    create: town => {
+    create(town: any) {
       const biome = "mountain"
       let encounter
       let encounterKey
-      if (random(1, 100) >= 50) {
-        encounterKey = setup.misc.mountain.location.seededrandom()
+      if (randomRange(1, 100) >= 50) {
+        encounterKey = randomValue(misc.mountain.location)
         console.log(encounterKey)
-        encounter = setup.misc.locations[encounterKey](town, biome)
+        encounter = misc.locations[encounterKey](town, biome)
         console.log(encounter)
       } else {
-        encounterKey = setup.misc.mountain.encounters.seededrandom()
-        encounter = setup.misc.encounters[encounterKey](town)
+        encounterKey = randomValue(misc.mountain.encounters)
+        encounter = misc.encounters[encounterKey](town)
       }
       console.log(encounterKey)
-      return (
-        ["While", "As", "After a while, as"].seededrandom() +
-        " you " +
-        ["traverse", "trudge along", "travel across", "walk on"].seededrandom() +
-        " the mountain, you see " +
-        setup.misc.mountain.landmark.seededrandom() +
-        ". You notice " +
-        setup.misc.mountain.feature.seededrandom() +
-        ". Up ahead, you see " +
-        encounter
-      )
+      return `${randomValue(["While", "As", "After a while, as"])} you ${randomValue([
+        "traverse",
+        "trudge along",
+        "travel across",
+        "walk on",
+      ])} the mountain, you see ${randomValue(misc.mountain.landmark)}. You notice ${randomValue(
+        misc.mountain.feature
+      )}. Up ahead, you see ${encounter}`
     },
     landmark: [
       "a trickle of water flowing down a rock wall",
@@ -4036,7 +4030,7 @@ export const misc = {
       "gold",
       "iron",
       "silver",
-      ["adamantine", "electrum", "mithral", "platinum"].seededrandom(),
+      randomValue(["adamantine", "electrum", "mithral", "platinum"]),
     ],
     mineLives: [
       "carrion crawler",
@@ -4109,19 +4103,19 @@ export const misc = {
     ],
   },
   forest: {
-    create: town => {
+    create(town: any) {
       const biome = "forest"
       let encounter
       let encounterKey
-      if (random(1, 100) >= 50) {
-        encounterKey = setup.misc.forest.location.seededrandom()
+      if (randomRange(1, 100) >= 50) {
+        encounterKey = randomValue(misc.forest.location)
         console.log(encounterKey)
-        encounter = setup.misc.locations[encounterKey](town, biome)
+        encounter = misc.locations[encounterKey](town, biome)
         console.log(encounter)
       } else {
-        encounterKey = setup.misc.forest.encounters.seededrandom()
+        encounterKey = randomValue(misc.forest.encounters)
         console.log(encounterKey)
-        encounter = setup.misc.encounters[encounterKey](town)
+        encounter = misc.encounters[encounterKey](town)
       }
       console.log(encounterKey)
       return (
@@ -4129,9 +4123,9 @@ export const misc = {
         " you " +
         ["traverse", "trudge along in", "travel through", "walk through"].seededrandom() +
         " the forest, you see " +
-        setup.misc.forest.landmark.seededrandom() +
+        misc.forest.landmark.seededrandom() +
         ". You notice " +
-        setup.misc.forest.feature.seededrandom() +
+        misc.forest.feature.seededrandom() +
         ". Up ahead, you see " +
         encounter
       )
