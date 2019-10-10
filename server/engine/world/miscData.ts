@@ -1,6 +1,7 @@
 import { randomValue, randomRange } from "../rolls"
 import { weightedRandomFetcher } from "../tools/weightedRandomFetcher"
 import { locations } from "./locations"
+import { encounters } from "./encounters"
 
 export const misc = {
   cheese: {
@@ -3514,7 +3515,7 @@ export const misc = {
       const road = {
         type: misc.road[type].type.seededrandom(),
         traffic: misc.road[type].traffic.seededrandom(),
-        encounter: misc.encounters[encounterKey](town),
+        encounter: encounters[encounterKey](town),
         ...base,
       }
       return (
@@ -3678,10 +3679,10 @@ export const misc = {
       let encounterKey
       if (randomRange(1, 100) >= 50) {
         encounterKey = randomValue(misc.desert.location)
-        encounter = misc.locations[encounterKey](town, biome)
+        encounter = locations[encounterKey](town, biome)
       } else {
         encounterKey = randomValue(misc.desert.encounters)
-        encounter = misc.encounters[encounterKey](town)
+        encounter = encounters[encounterKey](town)
       }
       console.log(encounterKey)
       return `${randomValue(["While", "As", "After a while, as"])} you ${randomValue([
@@ -3867,7 +3868,7 @@ export const misc = {
         console.log(encounter)
       } else {
         encounterKey = randomValue(misc.mountain.encounters)
-        encounter = misc.encounters[encounterKey](town)
+        encounter = encounters[encounterKey](town)
       }
       console.log(encounterKey)
       return `${randomValue(["While", "As", "After a while, as"])} you ${randomValue([
@@ -4112,12 +4113,12 @@ export const misc = {
       if (randomRange(1, 100) >= 50) {
         encounterKey = randomValue(misc.forest.location)
         console.log(encounterKey)
-        encounter = misc.locations[encounterKey](town, biome)
+        encounter = locations[encounterKey](town, biome)
         console.log(encounter)
       } else {
         encounterKey = randomValue(misc.forest.encounters)
         console.log(encounterKey)
-        encounter = misc.encounters[encounterKey](town)
+        encounter = encounters[encounterKey](town)
       }
       console.log(encounterKey)
       return (

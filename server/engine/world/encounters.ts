@@ -1,25 +1,29 @@
 import { misc } from "./miscData"
 
-export const encounters = {
-  "a group of bandits operating a toll road"(town: any) {
+interface Encounters {
+  [encounter: string]: (town: any) => string
+}
+
+export const encounters: Encounters = {
+  "a group of bandits operating a toll road"(town) {
     const bandits = misc.bandits.create(town, {
       business: "scamming people into paying a toll to use the trail (despite it clearly not being crown-maintained)",
     })
     return "a group of " + bandits.tippyWord + " operating a toll road. "
   },
-  "a band of robbers"(town: any) {
+  "a band of robbers"(town) {
     const bandits = misc.bandits.create(town, { business: "attacking people using the trail" })
     return bandits.tippy + "<b>a band of robbers.</b></span>"
   },
-  "some robbers"(town: any) {
+  "some robbers"(town) {
     const bandits = misc.bandits.create(town, { business: "attacking people using the trail" })
     return bandits.tippy + "<b>some robbers.</b></span>"
   },
-  "a party of raiders"(town: any) {
+  "a party of raiders"(town) {
     const bandits = misc.bandits.create(town)
     return bandits.tippy + "<b>a party of raiders.</b></span>"
   },
-  "a pair of outlaws"(town: any) {
+  "a pair of outlaws"(town) {
     const npc = setup.createNPC(town, {
       background: "criminal",
       isThrowaway: true,
@@ -35,19 +39,19 @@ export const encounters = {
       setup.profile(secondNpc, secondNpc.descriptor)
     )
   },
-  "a band of desperate outlaws"(town: any) {
+  "a band of desperate outlaws"(town) {
     const bandits = misc.bandits.create(town)
     return bandits.tippy + "<b>a band of desperate outlaws.</b></span>"
   },
-  "some bandits"(town: any) {
+  "some bandits"(town) {
     const bandits = misc.bandits.create(town, { business: "attacking people using the trail" })
     return bandits.tippy + "<b>some bandits.</b></span>"
   },
-  "some outlaws’ hideout"(town: any) {
+  "some outlaws’ hideout"(town) {
     const bandits = misc.bandits.create(town)
     return bandits.tippy + "a hideout belonging to <b>some outlaws</b></span>"
   },
-  "a disciplined military company"(town: any) {
+  "a disciplined military company"(town) {
     const mercenaries = setup.createMercenaries(town)
     return (
       "a military company, armed to the teeth with " +
@@ -75,7 +79,7 @@ export const encounters = {
       "."
     )
   },
-  "a rowdy mercenary troop"(town: any) {
+  "a rowdy mercenary troop"(town) {
     const mercenaries = setup.createMercenaries(town)
     return (
       "a mercenary troop, armed to the teeth with " +
@@ -103,7 +107,7 @@ export const encounters = {
       "."
     )
   },
-  "a band of mercenaries"(town: any) {
+  "a band of mercenaries"(town) {
     const mercenaries = setup.createMercenaries(town)
     return (
       "a mercenary troop, armed to the teeth with " +
