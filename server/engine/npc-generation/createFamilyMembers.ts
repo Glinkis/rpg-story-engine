@@ -1,6 +1,6 @@
 import { randomRange, randomValue } from "../rolls"
 import { createNPC } from "./createNPC"
-import { relativeSocialClass } from "./createSocialClass"
+import { relativeSocialClass, familySocialClass } from "./createSocialClass"
 import { isOfAge } from "./createAge"
 import { npcData } from "./npcData"
 import { familyData } from "./familyData"
