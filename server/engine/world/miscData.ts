@@ -2289,12 +2289,12 @@ export const misc: Misc = {
     ],
   },
   bunny: {
-    create: () => {
-      const bunny = {
-        size: setup.misc.bunny.size.seededrandom(),
-        coat: setup.misc.bunny.coat.seededrandom(),
-        favouriteFood: setup.misc.bunny.favouriteFood.seededrandom(),
-        markings: setup.misc.bunny.markings.seededrandom(),
+    create() {
+      const bunny: any = {
+        size: misc.bunny.size.seededrandom(),
+        coat: misc.bunny.coat.seededrandom(),
+        favouriteFood: misc.bunny.favouriteFood.seededrandom(),
+        markings: misc.bunny.markings.seededrandom(),
       }
       bunny.readout = `This bunny is ${bunny.size}, and has a ${bunny.coat} coat, with ${bunny.markings}. It loves ${bunny.favouriteFood}.`
       bunny.tippyWord = `<span class=tip title=${JSON.stringify(
@@ -3266,12 +3266,12 @@ export const misc: Misc = {
   },
   road: {
     create(town: any, base: any) {
-      const type = ["trail", "path", "path", "road", "road", "road"].seededrandom()
-      const encounterKey = misc.road[type].encounters.seededrandom()
+      const type = randomValue(["trail", "path", "path", "road", "road", "road"])
+      const encounterKey = randomValue(misc.road[type].encounters)
       console.log(encounterKey)
       const road = {
-        type: misc.road[type].type.seededrandom(),
-        traffic: misc.road[type].traffic.seededrandom(),
+        type: randomValue(misc.road[type].type),
+        traffic: randomValue(misc.road[type].traffic),
         encounter: encounters[encounterKey](town),
         ...base,
       }
