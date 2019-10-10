@@ -321,85 +321,85 @@ export const townData: TownData = {
           // demographics must be in alphabetical order until I fix it to not be buggy
           probability: 50,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 2),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(1, 5),
-            gnome: randomFloatRange(1, 5),
+            "dragonborn": randomFloatRange(1, 2),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(1, 5),
+            "gnome": randomFloatRange(1, 5),
             "half-elf": randomFloatRange(1, 5),
             "half-orc": randomFloatRange(1, 3),
-            halfling: randomFloatRange(5, 10),
-            human: randomFloatRange(85, 95),
-            tiefling: randomFloatRange(1, 2),
+            "halfling": randomFloatRange(5, 10),
+            "human": randomFloatRange(85, 95),
+            "tiefling": randomFloatRange(1, 2),
           },
         },
         {
           probability: 5,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 2),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(1, 5),
-            gnome: randomFloatRange(1, 5),
+            "dragonborn": randomFloatRange(1, 2),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(1, 5),
+            "gnome": randomFloatRange(1, 5),
             "half-elf": randomFloatRange(1, 5),
             "half-orc": randomFloatRange(85, 95),
-            halfling: randomFloatRange(5, 10),
-            human: randomFloatRange(5, 15),
-            tiefling: randomFloatRange(1, 2),
+            "halfling": randomFloatRange(5, 10),
+            "human": randomFloatRange(5, 15),
+            "tiefling": randomFloatRange(1, 2),
           },
         },
         {
           probability: 2,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 5),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(1, 5),
-            gnome: randomFloatRange(1, 5),
+            "dragonborn": randomFloatRange(1, 5),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(1, 5),
+            "gnome": randomFloatRange(1, 5),
             "half-elf": randomFloatRange(1, 5),
             "half-orc": randomFloatRange(5, 10),
-            halfling: randomFloatRange(5, 10),
-            human: randomFloatRange(5, 15),
-            tiefling: randomFloatRange(3, 10),
+            "halfling": randomFloatRange(5, 10),
+            "human": randomFloatRange(5, 15),
+            "tiefling": randomFloatRange(3, 10),
           },
         },
         {
           probability: 7,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 2),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(1, 5),
-            gnome: randomFloatRange(1, 5),
+            "dragonborn": randomFloatRange(1, 2),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(1, 5),
+            "gnome": randomFloatRange(1, 5),
             "half-elf": randomFloatRange(1, 5),
             "half-orc": randomFloatRange(1, 3),
-            halfling: randomFloatRange(70, 90),
-            human: randomFloatRange(5, 15),
-            tiefling: randomFloatRange(1, 2),
+            "halfling": randomFloatRange(70, 90),
+            "human": randomFloatRange(5, 15),
+            "tiefling": randomFloatRange(1, 2),
           },
         },
         {
           probability: 10,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 2),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(70, 80),
-            gnome: randomFloatRange(1, 5),
+            "dragonborn": randomFloatRange(1, 2),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(70, 80),
+            "gnome": randomFloatRange(1, 5),
             "half-elf": randomFloatRange(20, 40),
             "half-orc": randomFloatRange(1, 2),
-            halfling: randomFloatRange(5, 15),
-            human: randomFloatRange(5, 15),
-            tiefling: randomFloatRange(1, 2),
+            "halfling": randomFloatRange(5, 15),
+            "human": randomFloatRange(5, 15),
+            "tiefling": randomFloatRange(1, 2),
           },
         },
         {
           probability: 10,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 2),
-            dwarf: randomFloatRange(80, 90),
-            elf: randomFloatRange(1, 5),
-            gnome: randomFloatRange(25, 35),
+            "dragonborn": randomFloatRange(1, 2),
+            "dwarf": randomFloatRange(80, 90),
+            "elf": randomFloatRange(1, 5),
+            "gnome": randomFloatRange(25, 35),
             "half-elf": randomFloatRange(1, 5),
             "half-orc": randomFloatRange(1, 3),
-            halfling: randomFloatRange(5, 10),
-            human: randomFloatRange(5, 15),
-            tiefling: randomFloatRange(1, 2),
+            "halfling": randomFloatRange(5, 10),
+            "human": randomFloatRange(5, 15),
+            "tiefling": randomFloatRange(1, 2),
           },
         },
       ],
@@ -436,85 +436,85 @@ export const townData: TownData = {
           // demographics must be in alphabetical order until I fix it to not be buggy
           probability: 50,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 2),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(1, 10),
-            gnome: randomFloatRange(1, 10),
+            "dragonborn": randomFloatRange(1, 2),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(1, 10),
+            "gnome": randomFloatRange(1, 10),
             "half-elf": randomFloatRange(1, 10),
             "half-orc": randomFloatRange(1, 5),
-            halfling: randomFloatRange(5, 10),
-            human: randomFloatRange(85, 95),
-            tiefling: randomFloatRange(1, 2),
+            "halfling": randomFloatRange(5, 10),
+            "human": randomFloatRange(85, 95),
+            "tiefling": randomFloatRange(1, 2),
           },
         },
         {
           probability: 5,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 5),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(1, 3),
-            gnome: randomFloatRange(1, 5),
+            "dragonborn": randomFloatRange(1, 5),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(1, 3),
+            "gnome": randomFloatRange(1, 5),
             "half-elf": randomFloatRange(1, 3),
             "half-orc": randomFloatRange(85, 95),
-            halfling: randomFloatRange(5, 7),
-            human: randomFloatRange(8, 15),
-            tiefling: randomFloatRange(1, 5),
+            "halfling": randomFloatRange(5, 7),
+            "human": randomFloatRange(8, 15),
+            "tiefling": randomFloatRange(1, 5),
           },
         },
         {
           probability: 2,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 5),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(1, 5),
-            gnome: randomFloatRange(1, 5),
+            "dragonborn": randomFloatRange(1, 5),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(1, 5),
+            "gnome": randomFloatRange(1, 5),
             "half-elf": randomFloatRange(1, 5),
             "half-orc": randomFloatRange(5, 10),
-            halfling: randomFloatRange(5, 10),
-            human: randomFloatRange(5, 20),
-            tiefling: randomFloatRange(3, 10),
+            "halfling": randomFloatRange(5, 10),
+            "human": randomFloatRange(5, 20),
+            "tiefling": randomFloatRange(3, 10),
           },
         },
         {
           probability: 7,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 2),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(1, 5),
-            gnome: randomFloatRange(5, 10),
+            "dragonborn": randomFloatRange(1, 2),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(1, 5),
+            "gnome": randomFloatRange(5, 10),
             "half-elf": randomFloatRange(1, 10),
             "half-orc": randomFloatRange(1, 4),
-            halfling: randomFloatRange(70, 90),
-            human: randomFloatRange(5, 15),
-            tiefling: randomFloatRange(1, 4),
+            "halfling": randomFloatRange(70, 90),
+            "human": randomFloatRange(5, 15),
+            "tiefling": randomFloatRange(1, 4),
           },
         },
         {
           probability: 10,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 4),
-            dwarf: randomFloatRange(3, 10),
-            elf: randomFloatRange(70, 80),
-            gnome: randomFloatRange(2, 7),
+            "dragonborn": randomFloatRange(1, 4),
+            "dwarf": randomFloatRange(3, 10),
+            "elf": randomFloatRange(70, 80),
+            "gnome": randomFloatRange(2, 7),
             "half-elf": randomFloatRange(20, 40),
             "half-orc": randomFloatRange(1, 2),
-            halfling: randomFloatRange(5, 15),
-            human: randomFloatRange(5, 15),
-            tiefling: randomFloatRange(1, 3),
+            "halfling": randomFloatRange(5, 15),
+            "human": randomFloatRange(5, 15),
+            "tiefling": randomFloatRange(1, 3),
           },
         },
         {
           probability: 10,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 2),
-            dwarf: randomFloatRange(80, 90),
-            elf: randomFloatRange(1, 7),
-            gnome: randomFloatRange(25, 35),
+            "dragonborn": randomFloatRange(1, 2),
+            "dwarf": randomFloatRange(80, 90),
+            "elf": randomFloatRange(1, 7),
+            "gnome": randomFloatRange(25, 35),
             "half-elf": randomFloatRange(1, 6),
             "half-orc": randomFloatRange(1, 3),
-            halfling: randomFloatRange(5, 10),
-            human: randomFloatRange(10, 15),
-            tiefling: randomFloatRange(1, 3),
+            "halfling": randomFloatRange(5, 10),
+            "human": randomFloatRange(10, 15),
+            "tiefling": randomFloatRange(1, 3),
           },
         },
       ],
@@ -551,85 +551,85 @@ export const townData: TownData = {
           // demographics must be in alphabetical order until I fix it to not be buggy
           probability: 50,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 2),
-            dwarf: randomFloatRange(1, 15),
-            elf: randomFloatRange(1, 10),
-            gnome: randomFloatRange(1, 10),
+            "dragonborn": randomFloatRange(1, 2),
+            "dwarf": randomFloatRange(1, 15),
+            "elf": randomFloatRange(1, 10),
+            "gnome": randomFloatRange(1, 10),
             "half-elf": randomFloatRange(3, 15),
             "half-orc": randomFloatRange(1, 5),
-            halfling: randomFloatRange(5, 10),
-            human: randomFloatRange(75, 95),
-            tiefling: randomFloatRange(1, 2),
+            "halfling": randomFloatRange(5, 10),
+            "human": randomFloatRange(75, 95),
+            "tiefling": randomFloatRange(1, 2),
           },
         },
         {
           probability: 3,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 7),
-            dwarf: randomFloatRange(5, 15),
-            elf: randomFloatRange(1, 3),
-            gnome: randomFloatRange(1, 10),
+            "dragonborn": randomFloatRange(1, 7),
+            "dwarf": randomFloatRange(5, 15),
+            "elf": randomFloatRange(1, 3),
+            "gnome": randomFloatRange(1, 10),
             "half-elf": randomFloatRange(1, 3),
             "half-orc": randomFloatRange(85, 95),
-            halfling: randomFloatRange(5, 7),
-            human: randomFloatRange(8, 25),
-            tiefling: randomFloatRange(4, 10),
+            "halfling": randomFloatRange(5, 7),
+            "human": randomFloatRange(8, 25),
+            "tiefling": randomFloatRange(4, 10),
           },
         },
         {
           probability: 2,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 5),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(1, 5),
-            gnome: randomFloatRange(1, 5),
+            "dragonborn": randomFloatRange(1, 5),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(1, 5),
+            "gnome": randomFloatRange(1, 5),
             "half-elf": randomFloatRange(1, 5),
             "half-orc": randomFloatRange(5, 10),
-            halfling: randomFloatRange(5, 10),
-            human: randomFloatRange(5, 20),
-            tiefling: randomFloatRange(3, 10),
+            "halfling": randomFloatRange(5, 10),
+            "human": randomFloatRange(5, 20),
+            "tiefling": randomFloatRange(3, 10),
           },
         },
         {
           probability: 7,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 2),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(5, 20),
-            gnome: randomFloatRange(5, 15),
+            "dragonborn": randomFloatRange(1, 2),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(5, 20),
+            "gnome": randomFloatRange(5, 15),
             "half-elf": randomFloatRange(1, 15),
             "half-orc": randomFloatRange(1, 4),
-            halfling: randomFloatRange(50, 80),
-            human: randomFloatRange(25, 40),
-            tiefling: randomFloatRange(1, 7),
+            "halfling": randomFloatRange(50, 80),
+            "human": randomFloatRange(25, 40),
+            "tiefling": randomFloatRange(1, 7),
           },
         },
         {
           probability: 10,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 4),
-            dwarf: randomFloatRange(3, 10),
-            elf: randomFloatRange(70, 80),
-            gnome: randomFloatRange(2, 7),
+            "dragonborn": randomFloatRange(1, 4),
+            "dwarf": randomFloatRange(3, 10),
+            "elf": randomFloatRange(70, 80),
+            "gnome": randomFloatRange(2, 7),
             "half-elf": randomFloatRange(10, 30),
             "half-orc": randomFloatRange(1, 2),
-            halfling: randomFloatRange(5, 20),
-            human: randomFloatRange(5, 15),
-            tiefling: randomFloatRange(1, 3),
+            "halfling": randomFloatRange(5, 20),
+            "human": randomFloatRange(5, 15),
+            "tiefling": randomFloatRange(1, 3),
           },
         },
         {
           probability: 10,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 2),
-            dwarf: randomFloatRange(80, 90),
-            elf: randomFloatRange(1, 7),
-            gnome: randomFloatRange(25, 35),
+            "dragonborn": randomFloatRange(1, 2),
+            "dwarf": randomFloatRange(80, 90),
+            "elf": randomFloatRange(1, 7),
+            "gnome": randomFloatRange(25, 35),
             "half-elf": randomFloatRange(1, 6),
             "half-orc": randomFloatRange(1, 3),
-            halfling: randomFloatRange(3, 7),
-            human: randomFloatRange(10, 20),
-            tiefling: randomFloatRange(1, 3),
+            "halfling": randomFloatRange(3, 7),
+            "human": randomFloatRange(10, 20),
+            "tiefling": randomFloatRange(1, 3),
           },
         },
       ],
@@ -666,85 +666,85 @@ export const townData: TownData = {
           // demographics must be in alphabetical order until I fix it to not be buggy
           probability: 50,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 4),
-            dwarf: randomFloatRange(1, 20),
-            elf: randomFloatRange(1, 15),
-            gnome: randomFloatRange(1, 15),
+            "dragonborn": randomFloatRange(1, 4),
+            "dwarf": randomFloatRange(1, 20),
+            "elf": randomFloatRange(1, 15),
+            "gnome": randomFloatRange(1, 15),
             "half-elf": randomFloatRange(1, 20),
             "half-orc": randomFloatRange(1, 10),
-            halfling: randomFloatRange(5, 15),
-            human: randomFloatRange(70, 95),
-            tiefling: randomFloatRange(1, 2),
+            "halfling": randomFloatRange(5, 15),
+            "human": randomFloatRange(70, 95),
+            "tiefling": randomFloatRange(1, 2),
           },
         },
         {
           probability: 1,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 7),
-            dwarf: randomFloatRange(5, 15),
-            elf: randomFloatRange(1, 3),
-            gnome: randomFloatRange(1, 10),
+            "dragonborn": randomFloatRange(1, 7),
+            "dwarf": randomFloatRange(5, 15),
+            "elf": randomFloatRange(1, 3),
+            "gnome": randomFloatRange(1, 10),
             "half-elf": randomFloatRange(1, 3),
             "half-orc": randomFloatRange(85, 95),
-            halfling: randomFloatRange(5, 7),
-            human: randomFloatRange(8, 25),
-            tiefling: randomFloatRange(4, 10),
+            "halfling": randomFloatRange(5, 7),
+            "human": randomFloatRange(8, 25),
+            "tiefling": randomFloatRange(4, 10),
           },
         },
         {
           probability: 2,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 5),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(1, 5),
-            gnome: randomFloatRange(1, 5),
+            "dragonborn": randomFloatRange(1, 5),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(1, 5),
+            "gnome": randomFloatRange(1, 5),
             "half-elf": randomFloatRange(1, 5),
             "half-orc": randomFloatRange(5, 10),
-            halfling: randomFloatRange(5, 10),
-            human: randomFloatRange(5, 20),
-            tiefling: randomFloatRange(3, 10),
+            "halfling": randomFloatRange(5, 10),
+            "human": randomFloatRange(5, 20),
+            "tiefling": randomFloatRange(3, 10),
           },
         },
         {
           probability: 3,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 2),
-            dwarf: randomFloatRange(1, 10),
-            elf: randomFloatRange(5, 30),
-            gnome: randomFloatRange(5, 15),
+            "dragonborn": randomFloatRange(1, 2),
+            "dwarf": randomFloatRange(1, 10),
+            "elf": randomFloatRange(5, 30),
+            "gnome": randomFloatRange(5, 15),
             "half-elf": randomFloatRange(1, 25),
             "half-orc": randomFloatRange(1, 4),
-            halfling: randomFloatRange(50, 60),
-            human: randomFloatRange(25, 40),
-            tiefling: randomFloatRange(1, 10),
+            "halfling": randomFloatRange(50, 60),
+            "human": randomFloatRange(25, 40),
+            "tiefling": randomFloatRange(1, 10),
           },
         },
         {
           probability: 15,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 5),
-            dwarf: randomFloatRange(3, 10),
-            elf: randomFloatRange(70, 95),
-            gnome: randomFloatRange(2, 7),
+            "dragonborn": randomFloatRange(1, 5),
+            "dwarf": randomFloatRange(3, 10),
+            "elf": randomFloatRange(70, 95),
+            "gnome": randomFloatRange(2, 7),
             "half-elf": randomFloatRange(10, 25),
             "half-orc": randomFloatRange(1, 2),
-            halfling: randomFloatRange(5, 15),
-            human: randomFloatRange(5, 25),
-            tiefling: randomFloatRange(1, 5),
+            "halfling": randomFloatRange(5, 15),
+            "human": randomFloatRange(5, 25),
+            "tiefling": randomFloatRange(1, 5),
           },
         },
         {
           probability: 15,
           popPercentages: {
-            dragonborn: randomFloatRange(1, 3),
-            dwarf: randomFloatRange(80, 95),
-            elf: randomFloatRange(1, 4),
-            gnome: randomFloatRange(25, 35),
+            "dragonborn": randomFloatRange(1, 3),
+            "dwarf": randomFloatRange(80, 95),
+            "elf": randomFloatRange(1, 4),
+            "gnome": randomFloatRange(25, 35),
             "half-elf": randomFloatRange(1, 6),
             "half-orc": randomFloatRange(1, 5),
-            halfling: randomFloatRange(3, 7),
-            human: randomFloatRange(10, 25),
-            tiefling: randomFloatRange(1, 3),
+            "halfling": randomFloatRange(3, 7),
+            "human": randomFloatRange(10, 25),
+            "tiefling": randomFloatRange(1, 3),
           },
         },
       ],
@@ -795,8 +795,10 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: "feudalistic",
         economicIdeologyIST: "feudalist",
-        economicIdeologyDescription: `The people of $town.name work the land in exchange for working their lord's lands.`,
-        tippy: `The crown gives land to the nobles in exchange for military service. Peasants work, tithe, and fight for the nobles in exchange for being able to live on the noble's lands.`,
+        economicIdeologyDescription:
+          "The people of $town.name work the land in exchange for working their lord's lands.",
+        tippy:
+          "The crown gives land to the nobles in exchange for military service. Peasants work, tithe, and fight for the nobles in exchange for being able to live on the noble's lands.",
       },
     },
     capitalism: {
@@ -809,8 +811,9 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: "capitalistic",
         economicIdeologyIST: "capitalist",
-        economicIdeologyDescription: `The people of $town.name work in exchange for payment from their employers, which they use to buy the necessities.`,
-        tippy: `Trade and industry are controlled by private owners for profit, rather than the state.`,
+        economicIdeologyDescription:
+          "The people of $town.name work in exchange for payment from their employers, which they use to buy the necessities.",
+        tippy: "Trade and industry are controlled by private owners for profit, rather than the state.",
       },
     },
     syndicalism: {
@@ -823,8 +826,9 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: "syndicalistic",
         economicIdeologyIST: "syndicalist",
-        economicIdeologyDescription: `The people of $town.name own the lands they work on collectively, and together benefit from its prosperity.`,
-        tippy: `The workers own the lands they work on collectively, and together benefit from its prosperity.`,
+        economicIdeologyDescription:
+          "The people of $town.name own the lands they work on collectively, and together benefit from its prosperity.",
+        tippy: "The workers own the lands they work on collectively, and together benefit from its prosperity.",
       },
     },
     communism: {
@@ -837,8 +841,10 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: "communistic",
         economicIdeologyIST: "communist",
-        economicIdeologyDescription: `The people of $town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.`,
-        tippy: `People work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.`,
+        economicIdeologyDescription:
+          "The people of $town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.",
+        tippy:
+          "People work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.",
       },
     },
     primitivism: {
@@ -851,8 +857,10 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: "primitivistic",
         economicIdeologyIST: "primitivist",
-        economicIdeologyDescription: `The people of $town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers.`,
-        tippy: `There is no formal government, and people are largely hunter-gatherers with no concept of ownership; might makes right.`,
+        economicIdeologyDescription:
+          "The people of $town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the _town.type's citizens are hunter-gatherers.",
+        tippy:
+          "There is no formal government, and people are largely hunter-gatherers with no concept of ownership; might makes right.",
       },
     },
   },
@@ -873,12 +881,14 @@ export const townData: TownData = {
         "technocracy",
       ],
       autocracy: {
-        politicalSourceDescription: `<<print $town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.`,
-        description: `The crown holds both supreme executive and judicial powers.`,
+        politicalSourceDescription:
+          "<<print $town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.",
+        description: "The crown holds both supreme executive and judicial powers.",
       },
       default: {
-        politicalSourceDescription: `<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.`,
-        description: `The crown holds supreme judicial power, but the executive power is held by a parliamentary.`,
+        politicalSourceDescription:
+          "<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.",
+        description: "The crown holds supreme judicial power, but the executive power is held by a parliamentary.",
       },
     },
     "constitutional monarchy": {
@@ -898,15 +908,17 @@ export const townData: TownData = {
         "technocracy",
       ],
       autocracy: {
-        politicalSourceDescription: `<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.`,
-        description: `The crown holds supreme judicial powers, but executive power is held by the prime minister.`,
+        politicalSourceDescription:
+          "<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.",
+        description: "The crown holds supreme judicial powers, but executive power is held by the prime minister.",
       },
       default: {
-        politicalSourceDescription: `<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.`,
-        description: `The crown holds supreme judicial power, but day to day affairs are held by parliament.`,
+        politicalSourceDescription:
+          "<<print _town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.",
+        description: "The crown holds supreme judicial power, but day to day affairs are held by parliament.",
       },
     },
-    republic: {
+    "republic": {
       politicalIdeology: [
         "meritocracy",
         "meritocracy",
@@ -922,10 +934,11 @@ export const townData: TownData = {
         "theocracy",
         "technocracy",
       ],
-      politicalSourceDescription: `Affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>`,
-      description: `The crown holds both supreme executive and judicial powers.`,
+      politicalSourceDescription:
+        "Affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>",
+      description: "The crown holds both supreme executive and judicial powers.",
     },
-    anarchy: {
+    "anarchy": {
       politicalIdeology: [
         "meritocracy",
         "meritocracy",
@@ -941,8 +954,9 @@ export const townData: TownData = {
         "theocracy",
         "technocracy",
       ],
-      politicalSourceDescription: `None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.`,
-      description: `No formal political system exists.`,
+      politicalSourceDescription:
+        "None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.",
+      description: "No formal political system exists.",
     },
   },
   politicalIdeology: {
@@ -1548,7 +1562,7 @@ export const townData: TownData = {
       ],
       location: {
         // town.Name is located in the _
-        seashore: {
+        "seashore": {
           precipitationIntensity: 3,
           // town.Name grew around _
           origin: [
@@ -1567,7 +1581,7 @@ export const townData: TownData = {
           vegetation: ["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"],
           plants: ["shrubs", "bush", "windswept trees", "windswept trees", "windswept trees"],
         },
-        forest: {
+        "forest": {
           precipitationIntensity: 2,
           origin: [
             "a large freshwater lake",
@@ -1599,7 +1613,7 @@ export const townData: TownData = {
             "yew trees",
           ],
         },
-        hills: {
+        "hills": {
           precipitationIntensity: 2,
           origin: [
             "a large freshwater lake",
@@ -1614,7 +1628,7 @@ export const townData: TownData = {
           vegetation: ["sparse", "lush", "lush", "lush", "thick", "thick", "thick", "thick", "thick", "thick"],
           plants: [],
         },
-        plains: {
+        "plains": {
           precipitationIntensity: 2,
           origin: [
             "a wide, navigable river",
@@ -1627,7 +1641,7 @@ export const townData: TownData = {
           vegetation: ["sparse", "sparse", "sparse", "sparse", "sparse", "lush", "thick"],
           plants: [],
         },
-        mountains: {
+        "mountains": {
           precipitationIntensity: 2,
           origin: [
             "a large freshwater lake",
@@ -1704,7 +1718,7 @@ export const townData: TownData = {
       },
       start: ["seacoast", "forest", "hills", "plains", "mountains", "river coast", "jungle", "volcanic field"],
       location: {
-        seacoast: {
+        "seacoast": {
           precipitationIntensity: 3,
           origin: [
             "a coastal harbor",
@@ -1721,7 +1735,7 @@ export const townData: TownData = {
           vegetation: ["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"],
           plants: [],
         },
-        forest: {
+        "forest": {
           precipitationIntensity: 2,
           origin: [
             "a large freshwater lake",
@@ -1738,7 +1752,7 @@ export const townData: TownData = {
           vegetation: ["sparse", "lush", "lush", "lush", "thick", "thick", "thick", "thick", "thick", "thick"],
           plants: [],
         },
-        hills: {
+        "hills": {
           precipitationIntensity: 2,
           origin: [
             "a large freshwater lake",
@@ -1752,7 +1766,7 @@ export const townData: TownData = {
           vegetation: ["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"],
           plants: [],
         },
-        plains: {
+        "plains": {
           precipitationIntensity: 2,
           origin: [
             "a wide, navigable river",
@@ -1765,7 +1779,7 @@ export const townData: TownData = {
           vegetation: ["sparse", "sparse", "sparse", "sparse", "sparse", "lush", "thick"],
           plants: [],
         },
-        mountains: {
+        "mountains": {
           precipitationIntensity: 2,
           origin: [
             "a large freshwater lake",
@@ -1791,7 +1805,7 @@ export const townData: TownData = {
           vegetation: ["sparse", "lush", "lush", "lush", "lush", "thick", "thick", "thick"],
           plants: [],
         },
-        jungle: {
+        "jungle": {
           precipitationIntensity: 2,
           origin: [
             "a river navigable by small craft",
@@ -1902,7 +1916,7 @@ export const townData: TownData = {
       },
       start: ["desert", "hills", "plains", "mountains", "river coast", "wasteland", "oasis"],
       location: {
-        desert: {
+        "desert": {
           precipitationIntensity: 2,
           origin: [
             "a coastal harbor",
@@ -1931,7 +1945,7 @@ export const townData: TownData = {
           ],
           plants: [],
         },
-        forest: {
+        "forest": {
           precipitationIntensity: 2,
           origin: [
             "a large freshwater lake",
@@ -1961,7 +1975,7 @@ export const townData: TownData = {
           ],
           plants: [],
         },
-        hills: {
+        "hills": {
           precipitationIntensity: 2,
           origin: [
             "a large freshwater lake",
@@ -1989,7 +2003,7 @@ export const townData: TownData = {
           ],
           plants: [],
         },
-        plains: {
+        "plains": {
           precipitationIntensity: 2,
           origin: [
             "a wide, navigable river",
@@ -2015,7 +2029,7 @@ export const townData: TownData = {
           ],
           plants: [],
         },
-        mountains: {
+        "mountains": {
           precipitationIntensity: 2,
           origin: [
             "a large freshwater lake",
@@ -2066,7 +2080,7 @@ export const townData: TownData = {
           ],
           plants: [],
         },
-        wasteland: {
+        "wasteland": {
           precipitationIntensity: 2,
           origin: [
             "a road traveled by merchants on the way to another, larger city",
@@ -2090,7 +2104,7 @@ export const townData: TownData = {
           ],
           plants: [],
         },
-        oasis: {
+        "oasis": {
           origin: [
             "a series of natural springs",
             "a series of natural springs",
@@ -2162,7 +2176,7 @@ export const townData: TownData = {
       },
       start: ["seacoast", "forest", "hills", "plains", "mountains", "river coast", "tundra", "ice sheet", "seacoast"],
       location: {
-        seacoast: {
+        "seacoast": {
           precipitationIntensity: 3,
           origin: [
             "a coastal harbor",
@@ -2191,7 +2205,7 @@ export const townData: TownData = {
           ],
           plants: [],
         },
-        forest: {
+        "forest": {
           precipitationIntensity: 2,
           origin: [
             "a large freshwater lake",
@@ -2221,7 +2235,7 @@ export const townData: TownData = {
           ],
           plants: [],
         },
-        hills: {
+        "hills": {
           precipitationIntensity: 2,
           origin: [
             "a large freshwater lake",
@@ -2249,7 +2263,7 @@ export const townData: TownData = {
           ],
           plants: [],
         },
-        plains: {
+        "plains": {
           precipitationIntensity: 2,
           origin: [
             "a wide, navigable river",
@@ -2275,7 +2289,7 @@ export const townData: TownData = {
           ],
           plants: [],
         },
-        mountains: {
+        "mountains": {
           precipitationIntensity: 2,
           origin: [
             "a large freshwater lake",
@@ -2326,7 +2340,7 @@ export const townData: TownData = {
           ],
           plants: [],
         },
-        tundra: {
+        "tundra": {
           precipitationIntensity: 2,
           origin: [
             "a wide, navigable river",

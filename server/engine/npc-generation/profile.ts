@@ -8,12 +8,12 @@
 export function profile(obj: any, base?: any, type?: any) {
   type = type || "npcs"
   if (typeof obj === "string") {
-    console.error("Profile function for " + obj + " called with a string.")
+    console.error(`Profile function for ${obj} called with a string.`)
     obj = State.variables[type][obj]
   }
 
   // base is the user-facing text
   base = base || obj.name || obj.race
 
-  return "<<profile `$" + type + "[" + JSON.stringify(obj.key) + "] `" + JSON.stringify(base) + ">>"
+  return `<<profile \`$${type}[${JSON.stringify(obj.key)}] \`${JSON.stringify(base)}>>`
 }

@@ -2,10 +2,6 @@ import { random, randomValue, randomFloat, randomRange } from "../rolls"
 import { clamp } from "../math"
 import { townData } from "../town/townData"
 
-interface Building {}
-
-export const buildings: Building[] = []
-
 export function createBuilding(town: any, type: any, base: any) {
   let roadName
   let roadType
@@ -76,7 +72,7 @@ export function createBuilding(town: any, type: any, base: any) {
       roadName,
       roadType,
       get road() {
-        return this.roadName + " " + this.roadType
+        return `${this.roadName} ${this.roadType}`
       },
       set road(road) {
         const roads = road.toString().split(" ")

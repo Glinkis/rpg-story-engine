@@ -299,9 +299,9 @@ export const npcData = {
             "while passing through",
             "while exploring",
           ])} ${randomValue([
-            tree + " forest",
-            "a field of " + flower,
-            "an orchard of " + fruitTree + " trees",
+            `${tree} forest`,
+            `a field of ${flower}`,
+            `an orchard of ${fruitTree} trees`,
             goodPlace,
           ])}, ${randomValue([
             "I saw",
@@ -310,7 +310,7 @@ export const npcData = {
             "I stumbled upon",
             "I ran into",
             "I caught sight of",
-          ])} ${randomValue([goodCreature, goodCreature, "a giant " + goodAnimal])}!${randomValue([
+          ])} ${randomValue([goodCreature, goodCreature, `a giant ${goodAnimal}`])}!${randomValue([
             "I got pretty close to it before it ran off",
             "I got close enough to touch it",
             "It ran off as soon as it saw me",
@@ -323,14 +323,14 @@ export const npcData = {
             "while passing through",
             "while exploring",
             "while trying to escape",
-          ])} ${randomValue(["the heart of " + tree + " forest", badPlace, badPlace, badPlace])}, ${randomValue([
+          ])} ${randomValue([`the heart of ${tree} forest`, badPlace, badPlace, badPlace])}, ${randomValue([
             "I saw",
             "I spotted",
             "I came across",
             "I stumbled upon",
             "I ran into",
             "I caught sight of",
-          ])} ${randomValue([badCreature, badCreature, "a giant " + badAnimal])}! ${randomValue([
+          ])} ${randomValue([badCreature, badCreature, `a giant ${badAnimal}`])}! ${randomValue([
             "It started chasing me as soon as it saw me, and I barely escaped",
             "I ran as soon as I saw the thing",
             "I snuck up close to get a better look, but ran away after that",
@@ -552,23 +552,12 @@ export const npcData = {
           profession: apprenticeProfession,
           isShallow: true,
         })
-        return (
-          randomValue([
-            "I apprenticed under",
-            "I worked under",
-            "I learned under the tutelage of",
-            "I was a novice to",
-          ]) +
-          " " +
-          profile(teacher, teacher.name) +
-          " " +
-          reputation +
-          " " +
-          apprenticeProfession +
-          ". During that time " +
-          learned +
-          "."
-        )
+        return `${randomValue([
+          "I apprenticed under",
+          "I worked under",
+          "I learned under the tutelage of",
+          "I was a novice to",
+        ])} ${profile(teacher, teacher.name)} ${reputation} ${apprenticeProfession}. During that time ${learned}.`
       },
       profession: [
         "actor",
@@ -638,7 +627,7 @@ export const npcData = {
         const trinket = setup.createMagicTrinket()
         console.log("called lifeEvents.trinket function")
         return (
-          randomValue([
+          `${randomValue([
             "I was given a magical trinket- it's a ",
             "I happened across a ",
             "I found my lost family heirloom, it is a ",
@@ -648,15 +637,9 @@ export const npcData = {
             "I met up with an adventurer who generously gave me a ",
             "I came across a trinket in a field- It's a ",
             "I was on a long journey when I found a ",
-          ]) +
-          trinket.name +
-          "." +
+          ]) + trinket.name}.` +
           "<blockquote>" +
-          "<h4>" +
-          trinket.name +
-          "</h4>" +
-          trinket.description +
-          "</blockquote>"
+          `<h4>${trinket.name}</h4>${trinket.description}</blockquote>`
         )
       },
     },
@@ -677,40 +660,22 @@ export const npcData = {
         const carriage = randomValue(npcData.lifeEvents.nobleEvent.carriage)
         const handshake = randomValue(npcData.lifeEvents.nobleEvent.handshake)
         return randomValue([
-          prefix + " the royal wedding of a local " + profile(noble, "noble") + ".",
-          prefix +
-            " the royal " +
-            randomValue(["banquet", "feast", "gathering"]) +
-            " of a local " +
-            profile(noble, "noble") +
-            " in celebration of " +
-            banquetCelebrate +
-            ".",
-          prefix +
-            " the royal " +
-            randomValue(["ball", "dance", "gala", "masquerade ball"]) +
-            " hosted by a local " +
-            profile(noble, "noble") +
-            " in honor of " +
-            ballCelebrate +
-            ".",
-          "I saw the carriage of a " +
-            profile(noble, "noble") +
-            " " +
-            randomValue([
-              "passing by my house",
-              "while traveling",
-              "going down a city street",
-              "passing through my town",
-            ]) +
-            ", and it was " +
-            carriage +
-            ".",
-          "I shook the hand of a passing " +
-            profile(noble, "noble") +
-            ". If I recall their handshake was " +
-            handshake +
-            ".",
+          `${prefix} the royal wedding of a local ${profile(noble, "noble")}.`,
+          `${prefix} the royal ${randomValue(["banquet", "feast", "gathering"])} of a local ${profile(
+            noble,
+            "noble"
+          )} in celebration of ${banquetCelebrate}.`,
+          `${prefix} the royal ${randomValue(["ball", "dance", "gala", "masquerade ball"])} hosted by a local ${profile(
+            noble,
+            "noble"
+          )} in honor of ${ballCelebrate}.`,
+          `I saw the carriage of a ${profile(noble, "noble")} ${randomValue([
+            "passing by my house",
+            "while traveling",
+            "going down a city street",
+            "passing through my town",
+          ])}, and it was ${carriage}.`,
+          `I shook the hand of a passing ${profile(noble, "noble")}. If I recall their handshake was ${handshake}.`,
         ])
       },
       prefix: [
@@ -893,26 +858,19 @@ export const npcData = {
         const time = randomValue(npcData.lifeEvents.lostChild.time)
         const finder = randomValue(npcData.lifeEvents.lostChild.finder)
         const ending = randomValue(npcData.lifeEvents.lostChild.ending)
-        return (
-          randomValue(["when I was young", "as a young child", "while I was still a kid"]) +
-          " I got lost in " +
-          randomValue([location, treeType + " tree forest"]) +
-          " " +
-          time +
-          ". " +
-          randomValue([
-            "I was found by " + finder,
-            "I was found by " + finder,
-            "I was found by " + finder,
-            "I was found by " + finder,
-            "I was found by " + finder,
-            "I found my own way back",
-            "I eventually found " + finder,
-          ]) +
-          " " +
-          ending +
-          "."
-        )
+        return `${randomValue([
+          "when I was young",
+          "as a young child",
+          "while I was still a kid",
+        ])} I got lost in ${randomValue([location, `${treeType} tree forest`])} ${time}. ${randomValue([
+          `I was found by ${finder}`,
+          `I was found by ${finder}`,
+          `I was found by ${finder}`,
+          `I was found by ${finder}`,
+          `I was found by ${finder}`,
+          "I found my own way back",
+          `I eventually found ${finder}`,
+        ])} ${ending}.`
       },
       location: [
         "a strange desert",
@@ -983,7 +941,7 @@ export const npcData = {
         const location = randomValue(npcData.lifeEvents.pilgrimage.location)
         const journey = randomValue(npcData.lifeEvents.pilgrimage.journey)
         const result = randomValue(npcData.lifeEvents.pilgrimage.result)
-        return prefix + " " + location + ". " + journey + ", " + result + "."
+        return `${prefix} ${location}. ${journey}, ${result}.`
       },
       prefix: [
         "I set off on a pilgrimage by myself to",
@@ -996,7 +954,7 @@ export const npcData = {
         "a far away temple",
         "see the holiest relic of my people",
         "a holy landmark of my god",
-        'an isolated monastery in the <<print either("mountains", "desert", "forest", "depths of a cavern", "bottom of a canyon", "frozen tundra")>>',
+        "an isolated monastery in the <<print either(\"mountains\", \"desert\", \"forest\", \"depths of a cavern\", \"bottom of a canyon\", \"frozen tundra\")>>",
         "the birthplace of my god",
         "the holy city of my god",
         "the highest peak of a holy mountain",
@@ -1007,9 +965,9 @@ export const npcData = {
         "a distant shrine",
       ],
       journey: [
-        'The <<print either("journey", "pilgrimage", "travel", "trek", "trip")>> was <<print either("simple", "harsh", "long", "grueling", "easy", "difficult", "peaceful", "hard", "fantastical", "terrible", "great", "boring", "rough")>>',
-        'It was a <<print either("simple", "harsh", "long", "grueling", "easy", "difficult", "peaceful", "hard", "fantastical", "terrible", "great", "boring", "rough")>> <<print either("journey", "pilgrimage", "travel", "trek", "trip")>>',
-        'I was not prepared enough for the <<print either("journey", "pilgrimage", "travel", "trek", "trip")>>',
+        "The <<print either(\"journey\", \"pilgrimage\", \"travel\", \"trek\", \"trip\")>> was <<print either(\"simple\", \"harsh\", \"long\", \"grueling\", \"easy\", \"difficult\", \"peaceful\", \"hard\", \"fantastical\", \"terrible\", \"great\", \"boring\", \"rough\")>>",
+        "It was a <<print either(\"simple\", \"harsh\", \"long\", \"grueling\", \"easy\", \"difficult\", \"peaceful\", \"hard\", \"fantastical\", \"terrible\", \"great\", \"boring\", \"rough\")>> <<print either(\"journey\", \"pilgrimage\", \"travel\", \"trek\", \"trip\")>>",
+        "I was not prepared enough for the <<print either(\"journey\", \"pilgrimage\", \"travel\", \"trek\", \"trip\")>>",
         "I had waited my whole life for this",
       ],
       result: [
@@ -1047,7 +1005,7 @@ export const npcData = {
             )
           })
           if (friend === undefined) {
-            console.log("Nobody was in the same caste as " + npc.name)
+            console.log(`Nobody was in the same caste as ${npc.name}`)
             friend = setup.createNPC(town, {
               isShallow: true,
               socialClass: npc.socialClass,
@@ -1062,27 +1020,29 @@ export const npcData = {
         if (npc.hasClass === false) {
           // Descriptions and stuff goes here
           return randomValue([
-            "I met my " + profile(friend, "best buddy") + " on some travel.",
-            "I lost contact with an " +
-              profile(friend, "old friend") +
-              ", and reconnected with " +
-              profile(friend, friend.himher) +
-              " on a pilgrimage.",
-            "I made a " + profile(friend, "good friend") + " during a drinking contest.",
-            "we were attacked by raiders, and I was saved by a " +
-              profile(friend, "traveler") +
-              " passing through. We are best of friends to this day.",
+            `I met my ${profile(friend, "best buddy")} on some travel.`,
+            `I lost contact with an ${profile(friend, "old friend")}, and reconnected with ${profile(
+              friend,
+              friend.himher
+            )} on a pilgrimage.`,
+            `I made a ${profile(friend, "good friend")} during a drinking contest.`,
+            `we were attacked by raiders, and I was saved by a ${profile(
+              friend,
+              "traveler"
+            )} passing through. We are best of friends to this day.`,
           ])
         } else {
           return randomValue([
-            "I made a " + profile(friend, "friend") + " for life in my travels.",
-            "I was poor as a churchmouse, but then " +
-              profile(friend, "a total stranger") +
-              " helped me get a job. I owe everything I am today to his compassion.",
+            `I made a ${profile(friend, "friend")} for life in my travels.`,
+            `I was poor as a churchmouse, but then ${profile(
+              friend,
+              "a total stranger"
+            )} helped me get a job. I owe everything I am today to his compassion.`,
             "I went traveling for a while, and found myself in the company of all manner of folk, who I like to think helped teach me how to be a bit wiser.",
-            "I took an odd job delivering a package to the town over. Never would have thought that that sort of thing could be life-changing, but it was- it's where I met my " +
-              profile(friend, "best friend") +
-              ".",
+            `I took an odd job delivering a package to the town over. Never would have thought that that sort of thing could be life-changing, but it was- it's where I met my ${profile(
+              friend,
+              "best friend"
+            )}.`,
           ])
         }
       },
@@ -1104,13 +1064,14 @@ export const npcData = {
         setup.createRelationship(town, npc, enemy, "enemy", "enemy")
         return (
           randomValue([
-            "I made an " + profile(enemy, "enemy") + " for life in my travels- ",
-            "I was framed by a " + profile(enemy, "scoundrel") + " for a crime I didn't commit- ",
-            "I met a " + profile(enemy, "man") + ", and we played cards. He decided that I was cheating- ",
-            "I was a guest in the court of a " + profile(enemy, "lord") + ", and made an embarassment of him- ",
-            "I used to play cards in a pub, and one time supposedly cheated a " +
-              profile(enemy, "man") +
-              " out of his winnings; ",
+            `I made an ${profile(enemy, "enemy")} for life in my travels- `,
+            `I was framed by a ${profile(enemy, "scoundrel")} for a crime I didn't commit- `,
+            `I met a ${profile(enemy, "man")}, and we played cards. He decided that I was cheating- `,
+            `I was a guest in the court of a ${profile(enemy, "lord")}, and made an embarassment of him- `,
+            `I used to play cards in a pub, and one time supposedly cheated a ${profile(
+              enemy,
+              "man"
+            )} out of his winnings; `,
           ]) +
           randomValue([
             "it was a misunderstanding, but I cannot convince him otherwise. ",
@@ -1150,7 +1111,7 @@ export const npcData = {
 
         // force creation of family members when applicable
         if (node.marriages === undefined || node.marriages.length === 0) {
-          console.log(npc.name + " met somebody!")
+          console.log(`${npc.name} met somebody!`)
 
           const newMarriage = setup.createMarriage(town, family, npc, undefined, true)
           node.marriages = [newMarriage]
@@ -1159,9 +1120,9 @@ export const npcData = {
           if (!partnerKey) {
             return "I met the love of my life, who is no longer with me."
           }
-          return "I met the love of my life, " + profile(partnerKey) + "."
+          return `I met the love of my life, ${profile(partnerKey)}.`
         } else {
-          console.log(npc.name + " already met somebody!")
+          console.log(`${npc.name} already met somebody!`)
           console.log(node.marriages)
           const marriage = node.marriages[0]
           partnerKey = marriage.parents.find(key => key !== npc.key)
@@ -1173,13 +1134,13 @@ export const npcData = {
 
         let childMsg, partnerMsg
         if (childKey) {
-          childMsg = "I had a child, " + profile(State.variables.npcs[childKey])
+          childMsg = `I had a child, ${profile(State.variables.npcs[childKey])}`
           partnerMsg = partnerKey
-            ? " with my dear partner " + profile(State.variables.npcs[partnerKey]) + "."
+            ? ` with my dear partner ${profile(State.variables.npcs[partnerKey])}.`
             : " with my dear partner, who is no longer with me."
         } else {
           partnerMsg = partnerKey
-            ? "I met the love of my life, " + profile(partnerKey) + "."
+            ? `I met the love of my life, ${profile(partnerKey)}.`
             : "I met the love of my life, who is no longer with me."
           return
         }
@@ -1222,7 +1183,7 @@ export const npcData = {
       function(town: any, npc: any) {
         console.log("called lifeEvents.meetImportantNPC function")
         return randomValue([
-          randomValue([
+          `${randomValue([
             "I met a famous ",
             "I came across a famous ",
             "for a time, I worked for a famous ",
@@ -1268,11 +1229,10 @@ export const npcData = {
               " in my travels",
               " on the road",
               " while I was traveling",
-              " when I was spending some time as a " + npc.background,
+              ` when I was spending some time as a ${npc.background}`,
               " while on a long journey",
               " during one of my youthful adventures",
-            ]) +
-            ".",
+            ])}.`,
         ])
       },
     },
@@ -1301,14 +1261,8 @@ export const npcData = {
             const weapon = setup.createMagicWeapon()
             console.log("Called weapon function.")
             adventureResults =
-              "came across a magical weapon- this is my trusty " +
-              weapon.name +
-              "<blockquote>" +
-              "<h4>" +
-              weapon.name +
-              "</h4>" +
-              weapon.description +
-              "</blockquote>"
+              `came across a magical weapon- this is my trusty ${weapon.name}<blockquote>` +
+              `<h4>${weapon.name}</h4>${weapon.description}</blockquote>`
           } else if (adventureRoll >= 91) {
             adventureResults = "found a considerable amount of treasure."
             npc.wealth += randomRange(5100, 7150)
@@ -1322,8 +1276,11 @@ export const npcData = {
           } else if (adventureRoll >= 51) {
             adventureResults = "lost something of sentimental value to me."
           } else if (adventureRoll >= 41) {
-            adventureResults =
-              "was poisoned by a " + randomValue(["monster", "trap", "monster"]) + ", but recovered in due time."
+            adventureResults = `was poisoned by a ${randomValue([
+              "monster",
+              "trap",
+              "monster",
+            ])}, but recovered in due time.`
           } else if (adventureRoll >= 31) {
             adventureResults =
               "contracted a disease while exploring a filthy warren. I recovered, but I'm still not quite right."
@@ -1481,7 +1438,7 @@ export const npcData = {
             "I was knocked out, and left for dead. I woke up hours later, after the battle was over, and had to walk injured for days to find aid."
         }
         // eslint-disable-next-line prefer-const
-        warDescription = warStart + " " + warResults
+        warDescription = `${warStart} ${warResults}`
         return warDescription
       },
     },
@@ -1540,165 +1497,146 @@ export const npcData = {
       function(town: any, npc: any) {
         console.log("called lifeEvents.arcaneMatters function")
         return randomValue([
-          "I saw a demon I swear on my life! " +
-            randomValue([
-              "",
-              "It offered to make a deal with me, but I turned it down.",
-              "It challenged me to a lute playing competition.",
-              "I ran away before the thing could see me.",
-              "The image of that thing still haunts me.",
-              "It forced me into a contract, and I'm still not sure what I owe.",
-              "It was trapped inside of a summoning circle.",
-              "The thing tried to kill me but I got away!",
-              "Sometimes I think it is still hunting me.",
-            ]),
-          "I once saw a powerful wizard " +
-            randomValue([
-              randomValue(["enchanting", "disenchanting", "cursing"]) +
-                " a " +
-                randomValue([
-                  "sword",
-                  "mace",
-                  "pair of greaves",
-                  "set of armor",
-                  "longbow",
-                  "large batch of arrows",
-                  "dagger",
-                  "skull",
-                  "large crystal",
-                  "hatchet",
-                  "crossbow",
-                  "thick tome",
-                  "book",
-                  "pair of boots",
-                  "fine looking hat",
-                  "set of robes",
-                  "quill",
-                ]) +
-                ".",
-              "casting a " +
-                randomValue([
-                  "very powerful",
-                  "strong",
-                  "rather weak",
-                  "fairly strong",
-                  "very weak",
-                  "average looking",
-                ]) +
-                " " +
-                randomValue([
-                  "healing",
-                  "lightning",
-                  "fireball",
-                  "fire",
-                  "water",
-                  "poison",
-                  "light",
-                  "wind",
-                  "destruction",
-                  "enchanting",
-                  "illusion",
-                  "magic",
-                ]) +
-                " spell.",
-              "riding on the back of a " +
-                randomValue([
-                  "gryphon",
-                  "unicorn",
-                  "lion",
-                  "tiger",
-                  "bear",
-                  "elk",
-                  "magnificent white steed",
-                  "flying whale",
-                  "giant eagle",
-                  "dragon",
-                  "strange demon",
-                ]),
-            ]),
-          "I once " +
-            randomValue([
-              "got caught in the cross-fires between two dueling",
-              "witnessed a battle between two",
-              "fought in a battle against",
-              "had my home destroyed by",
-              "settled down near a temple of",
-            ]) +
-            " " +
-            randomValue([
-              "wizards",
-              "dragons",
-              "demons",
-              "witches",
-              "warlocks",
-              "necromancers",
-              "minor gods",
-              "magical beings",
-            ]) +
-            ".",
-          "I had a mishap with " +
-            randomValue(["a charm", "an illusion", "a mind control"]) +
-            " spell- " +
-            randomValue([
-              "an old friend",
-              "an enemy",
-              "a dear friend",
-              "a family member",
-              "someone I thought of as family",
-              "an old rival",
-              "a rival of mine",
-            ]) +
-            " " +
-            randomValue([
-              "tried to force me to hand over all my money",
-              "tried to take my family heirloom",
-              "tried to steal my fortune",
-              "tried to force me to give up my ancient relic",
-              "tried to fool me into giving up my title",
-            ]) +
-            ", " +
-            randomValue([
-              "but I luckily managed to resist the spell.",
-              "but their spell failed",
-              "and sadly it worked",
-              "and I failed to resist the spell",
-              "but they were eventually caught by some brave adventurers",
-              "and I have been searching for them ever since",
-            ]) +
-            ".",
-          "I once drank a " +
-            randomValue([
-              "really strong",
-              "crazy strong",
+          `I saw a demon I swear on my life! ${randomValue([
+            "",
+            "It offered to make a deal with me, but I turned it down.",
+            "It challenged me to a lute playing competition.",
+            "I ran away before the thing could see me.",
+            "The image of that thing still haunts me.",
+            "It forced me into a contract, and I'm still not sure what I owe.",
+            "It was trapped inside of a summoning circle.",
+            "The thing tried to kill me but I got away!",
+            "Sometimes I think it is still hunting me.",
+          ])}`,
+          `I once saw a powerful wizard ${randomValue([
+            `${randomValue(["enchanting", "disenchanting", "cursing"])} a ${randomValue([
+              "sword",
+              "mace",
+              "pair of greaves",
+              "set of armor",
+              "longbow",
+              "large batch of arrows",
+              "dagger",
+              "skull",
+              "large crystal",
+              "hatchet",
+              "crossbow",
+              "thick tome",
+              "book",
+              "pair of boots",
+              "fine looking hat",
+              "set of robes",
+              "quill",
+            ])}.`,
+            `casting a ${randomValue([
+              "very powerful",
               "strong",
-              "pretty weak",
-              "kind of weak",
-              "fairly average",
-              "powerful",
-              "rather diluted",
-            ]) +
-            " potion- " +
-            randomValue([
-              "I swear to god, I could taste colours!",
-              "my hair was standing on end!",
-              "my skin turned bright " +
-                randomValue(["red", "purple", "white", "yellow", "green", "orange", "pink", "blue", "violet"]) +
-                " for several days.",
-              "I grew a thick bushy beard in a few hours!",
-              "it sent me into a comma for weeks.",
-              "everyone thought I was attractive for the rest of the day.",
-              "it made my nose glow in the dark for a week!",
-            ]),
-          "I once found a cursed book. The book " +
-            randomValue([
-              "kills all who who read it",
-              "turned the reader blind",
-              "retold the reader's life but with a horrible twist ending",
-              "sucked the reader in to a nightmarish world",
-              "was alive and had gnarled teeth to bite anyone who dared to open it",
-              "forced you to see the dead",
-            ]) +
-            ".",
+              "rather weak",
+              "fairly strong",
+              "very weak",
+              "average looking",
+            ])} ${randomValue([
+              "healing",
+              "lightning",
+              "fireball",
+              "fire",
+              "water",
+              "poison",
+              "light",
+              "wind",
+              "destruction",
+              "enchanting",
+              "illusion",
+              "magic",
+            ])} spell.`,
+            `riding on the back of a ${randomValue([
+              "gryphon",
+              "unicorn",
+              "lion",
+              "tiger",
+              "bear",
+              "elk",
+              "magnificent white steed",
+              "flying whale",
+              "giant eagle",
+              "dragon",
+              "strange demon",
+            ])}`,
+          ])}`,
+          `I once ${randomValue([
+            "got caught in the cross-fires between two dueling",
+            "witnessed a battle between two",
+            "fought in a battle against",
+            "had my home destroyed by",
+            "settled down near a temple of",
+          ])} ${randomValue([
+            "wizards",
+            "dragons",
+            "demons",
+            "witches",
+            "warlocks",
+            "necromancers",
+            "minor gods",
+            "magical beings",
+          ])}.`,
+          `I had a mishap with ${randomValue(["a charm", "an illusion", "a mind control"])} spell- ${randomValue([
+            "an old friend",
+            "an enemy",
+            "a dear friend",
+            "a family member",
+            "someone I thought of as family",
+            "an old rival",
+            "a rival of mine",
+          ])} ${randomValue([
+            "tried to force me to hand over all my money",
+            "tried to take my family heirloom",
+            "tried to steal my fortune",
+            "tried to force me to give up my ancient relic",
+            "tried to fool me into giving up my title",
+          ])}, ${randomValue([
+            "but I luckily managed to resist the spell.",
+            "but their spell failed",
+            "and sadly it worked",
+            "and I failed to resist the spell",
+            "but they were eventually caught by some brave adventurers",
+            "and I have been searching for them ever since",
+          ])}.`,
+          `I once drank a ${randomValue([
+            "really strong",
+            "crazy strong",
+            "strong",
+            "pretty weak",
+            "kind of weak",
+            "fairly average",
+            "powerful",
+            "rather diluted",
+          ])} potion- ${randomValue([
+            "I swear to god, I could taste colours!",
+            "my hair was standing on end!",
+            `my skin turned bright ${randomValue([
+              "red",
+              "purple",
+              "white",
+              "yellow",
+              "green",
+              "orange",
+              "pink",
+              "blue",
+              "violet",
+            ])} for several days.`,
+            "I grew a thick bushy beard in a few hours!",
+            "it sent me into a comma for weeks.",
+            "everyone thought I was attractive for the rest of the day.",
+            "it made my nose glow in the dark for a week!",
+          ])}`,
+          `I once found a cursed book. The book ${randomValue([
+            "kills all who who read it",
+            "turned the reader blind",
+            "retold the reader's life but with a horrible twist ending",
+            "sucked the reader in to a nightmarish world",
+            "was alive and had gnarled teeth to bite anyone who dared to open it",
+            "forced you to see the dead",
+          ])}.`,
         ])
       },
     },
@@ -1710,20 +1648,16 @@ export const npcData = {
       function(town: any, npc: any) {
         console.log("called lifeEvents.weirdStuff function")
         return randomValue([
-          "I came across a genie, " +
-            randomValue([
-              "but squandered the wish on an ex lover",
-              "but wasted the wish on the perfect sandwich",
-              "and used my wish to set him free",
-              "and used my wish to bring prosperity to my town",
-              "and used my wish to curse a rival",
-              "but never used my wishes",
-            ]) +
-            ".",
+          `I came across a genie, ${randomValue([
+            "but squandered the wish on an ex lover",
+            "but wasted the wish on the perfect sandwich",
+            "and used my wish to set him free",
+            "and used my wish to bring prosperity to my town",
+            "and used my wish to curse a rival",
+            "but never used my wishes",
+          ])}.`,
           "I was once swallowed by a giant fish. Spent a bloody month in there, subsisting on fish and the other things it ate as I tried to find my way out.",
-          "I met a " +
-            randomValue(["demigod", "arch-fey", "lich", "demon lord", "titan"]) +
-            " and lived to tell the tale.",
+          `I met a ${randomValue(["demigod", "arch-fey", "lich", "demon lord", "titan"])} and lived to tell the tale.`,
           "I was once captured by a group of cultists. They nearly sacrificed me, but I managed to set one of their robes on fire, and escaped in the confusion.",
           "I really have had some pretty bad luck in my love life in the past- one lover turned out to be a silver dragon. Took all my gold!",
           "I had a bit of a nervous breakdown a while back, and spent a lot of time alone, stark raving mad. But I'm better now! Honest!",
@@ -2388,12 +2322,12 @@ export const npcData = {
     "Undercommon",
   ],
   raceTraits: {
-    dragonborn: {
+    "dragonborn": {
       probability: 1,
       muscleMass: 11,
       bmiModifier: 650,
       ageTraits: {
-        ageDescriptors: [
+        "ageDescriptors": [
           [80, "vulnerably elderly"],
           [75, "withered"],
           [70, "elderly"],
@@ -2423,7 +2357,7 @@ export const npcData = {
           [6, "toddler"],
           [0, "newborn"],
         ],
-        elderly: {
+        "elderly": {
           baseAge: 50,
           ageModifier() {
             return dice(3, 10)
@@ -2441,7 +2375,7 @@ export const npcData = {
             return dice(2, 4)
           },
         },
-        child: {
+        "child": {
           baseAge: 4,
           ageModifier() {
             return dice(3, 4)
@@ -2678,12 +2612,12 @@ export const npcData = {
         "Damage Resistance": "You have resistance to the damage type associated with your draconic ancestry.",
       },
     },
-    dwarf: {
+    "dwarf": {
       probability: 2,
       muscleMass: 11,
       bmiModifier: 500,
       ageTraits: {
-        ageDescriptors: [
+        "ageDescriptors": [
           [200, "vulnerably elderly"],
           [190, "withered"],
           [180, "elderly"],
@@ -2713,7 +2647,7 @@ export const npcData = {
           [6, "toddler"],
           [0, "newborn"],
         ],
-        elderly: {
+        "elderly": {
           baseAge: 197,
           ageModifier() {
             return dice(3, 50)
@@ -2731,7 +2665,7 @@ export const npcData = {
             return dice(4, 8)
           },
         },
-        child: {
+        "child": {
           baseAge: 4,
           ageModifier() {
             return dice(3, 6)
@@ -2956,25 +2890,25 @@ export const npcData = {
         "dreadful beard",
       ],
       abilities: {
-        Darkvision:
+        "Darkvision":
           "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
         "Dwarven Resilience":
           "You have advantage on saving throws against poison, and you have resistance against poison damage.",
         "Dwarven Combat Training": "You have proficiency with the battleaxe, handaxe, light hammer, and warhammer.",
         "Tool Proficiency":
           "You gain proficiency with the artisan's tools of your choice: smith's tools, brewer's supplies, or mason's tools.",
-        Stonecunning:
+        "Stonecunning":
           "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.",
         "Dwarven Toughness":
           "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.",
       },
     },
-    elf: {
+    "elf": {
       probability: 2,
       muscleMass: 9,
       bmiModifier: 703,
       ageTraits: {
-        ageDescriptors: [
+        "ageDescriptors": [
           [800, "vulnerably elderly"],
           [750, "withered"],
           [700, "elderly"],
@@ -3003,7 +2937,7 @@ export const npcData = {
           [10, "toddler"],
           [0, "newborn"],
         ],
-        elderly: {
+        "elderly": {
           baseAge: 650,
           ageModifier() {
             return dice(3, 50)
@@ -3021,7 +2955,7 @@ export const npcData = {
             return dice(4, 75)
           },
         },
-        child: {
+        "child": {
           baseAge: 10,
           ageModifier() {
             return dice(4, 20)
@@ -3247,23 +3181,23 @@ export const npcData = {
         "dreadful beard",
       ],
       abilities: {
-        Darkvision:
+        "Darkvision":
           "Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
         "Keen Senses": "You have proficiency in the Perception skill.",
         "Fey Ancestry": "You have advantage on saving throws against being charmed, and magic can't put you to sleep.",
-        Trance:
+        "Trance":
           "Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is 'trance') While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.",
         "Elf Weapon Training": "You have proficiency with the longsword, shortsword, shortbow, and longbow.",
-        Cantrip:
+        "Cantrip":
           "You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.",
       },
     },
-    gnome: {
+    "gnome": {
       probability: 1,
       muscleMass: 10,
       bmiModifier: 703,
       ageTraits: {
-        ageDescriptors: [
+        "ageDescriptors": [
           [400, "vulnerably elderly"],
           [360, "withered"],
           [320, "elderly"],
@@ -3293,7 +3227,7 @@ export const npcData = {
           [6, "toddler"],
           [0, "newborn"],
         ],
-        elderly: {
+        "elderly": {
           baseAge: 200,
           ageModifier() {
             return dice(3, 100)
@@ -3311,7 +3245,7 @@ export const npcData = {
             return dice(2, 10)
           },
         },
-        child: {
+        "child": {
           baseAge: 6,
           ageModifier() {
             return dice(2, 6)
@@ -3538,12 +3472,12 @@ export const npcData = {
         "dreadful beard",
       ],
       abilities: {
-        Darkvision:
+        "Darkvision":
           "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
         "Gnome Cunning": "You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
         "Artificer's Lore":
           "Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.",
-        Tinker:
+        "Tinker":
           "You have proficiency with artisan's tools (tinker's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.,,When you create a device, choose one of the following options:,,Clockwork Toy. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.,,Fire Starter. The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.,,Music Box. When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed.",
       },
     },
@@ -3552,7 +3486,7 @@ export const npcData = {
       muscleMass: 10,
       bmiModifier: 703,
       ageTraits: {
-        ageDescriptors: [
+        "ageDescriptors": [
           [180, "vulnerably elderly"],
           [150, "withered"],
           [130, "elderly"],
@@ -3582,7 +3516,7 @@ export const npcData = {
           [6, "toddler"],
           [0, "newborn"],
         ],
-        elderly: {
+        "elderly": {
           baseAge: 150,
           ageModifier() {
             return dice(3, 10)
@@ -3600,7 +3534,7 @@ export const npcData = {
             return dice(3, 10)
           },
         },
-        child: {
+        "child": {
           baseAge: 6,
           ageModifier() {
             return dice(3, 4)
@@ -3980,19 +3914,19 @@ export const npcData = {
         "dreadful beard",
       ],
       abilities: {
-        Darkvision:
+        "Darkvision":
           "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
         "Fey Ancestry": "You have advantage on saving throws against being charmed, and magic can't put you to sleep.",
         "Skill Versatility": "You gain proficiency in two skills of your choice.",
-        Languages: "You can speak, read, and write Common, Elvish, and one extra language of your choice.",
+        "Languages": "You can speak, read, and write Common, Elvish, and one extra language of your choice.",
       },
     },
-    halfling: {
+    "halfling": {
       probability: 1,
       muscleMass: 9,
       bmiModifier: 703,
       ageTraits: {
-        ageDescriptors: [
+        "ageDescriptors": [
           [180, "vulnerably elderly"],
           [150, "withered"],
           [130, "elderly"],
@@ -4022,7 +3956,7 @@ export const npcData = {
           [6, "toddler"],
           [0, "newborn"],
         ],
-        elderly: {
+        "elderly": {
           baseAge: 65,
           ageModifier() {
             return dice(3, 10)
@@ -4040,7 +3974,7 @@ export const npcData = {
             return dice(2, 12)
           },
         },
-        child: {
+        "child": {
           baseAge: 4,
           ageModifier() {
             return dice(2, 6)
@@ -4267,10 +4201,10 @@ export const npcData = {
         "dreadful beard",
       ],
       abilities: {
-        Lucky:
+        "Lucky":
           "When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.",
-        Brave: "You have advantage on saving throws against being frightened.",
-        Halfling: "Nimbleness You can move through the space of any creature that is of a size larger than yours.",
+        "Brave": "You have advantage on saving throws against being frightened.",
+        "Halfling": "Nimbleness You can move through the space of any creature that is of a size larger than yours.",
         "Naturally Stealthy":
           "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.",
       },
@@ -4280,7 +4214,7 @@ export const npcData = {
       muscleMass: 12,
       bmiModifier: 600,
       ageTraits: {
-        ageDescriptors: [
+        "ageDescriptors": [
           [80, "vulnerably elderly"],
           [75, "withered"],
           [70, "elderly"],
@@ -4310,7 +4244,7 @@ export const npcData = {
           [6, "toddler"],
           [0, "newborn"],
         ],
-        elderly: {
+        "elderly": {
           baseAge: 57,
           ageModifier() {
             return dice(3, 6)
@@ -4328,7 +4262,7 @@ export const npcData = {
             return dice(3, 12)
           },
         },
-        child: {
+        "child": {
           baseAge: 3,
           ageModifier() {
             return dice(3, 4)
@@ -4518,21 +4452,21 @@ export const npcData = {
         "dreadful beard",
       ],
       abilities: {
-        Darkvision:
+        "Darkvision":
           "Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
-        Menacing: "You gain proficiency in the Intimidation skill.",
+        "Menacing": "You gain proficiency in the Intimidation skill.",
         "Relentless Endurance":
           "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.",
         "Savage Attacks":
           "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
       },
     },
-    human: {
+    "human": {
       probability: 6,
       muscleMass: 10,
       bmiModifier: 703,
       ageTraits: {
-        ageDescriptors: [
+        "ageDescriptors": [
           [80, "vulnerably elderly"],
           [75, "withered"],
           [70, "elderly"],
@@ -4562,7 +4496,7 @@ export const npcData = {
           [6, "toddler"],
           [0, "newborn"],
         ],
-        elderly: {
+        "elderly": {
           baseAge: 65,
           ageModifier() {
             return dice(3, 10)
@@ -4580,7 +4514,7 @@ export const npcData = {
             return dice(3, 6)
           },
         },
-        child: {
+        "child": {
           baseAge: 4,
           ageModifier() {
             return dice(3, 4)
@@ -5187,16 +5121,16 @@ export const npcData = {
       ],
       abilities: {
         "Ability Score": "Increase Two different ability scores of your choice increase by 1.",
-        Skills: "You gain proficiency in one skill of your choice.",
-        Feat: "You gain one feat of your choice.",
+        "Skills": "You gain proficiency in one skill of your choice.",
+        "Feat": "You gain one feat of your choice.",
       },
     },
-    tiefling: {
+    "tiefling": {
       probability: 1,
       muscleMass: 10,
       bmiModifier: 703,
       ageTraits: {
-        ageDescriptors: [
+        "ageDescriptors": [
           [80, "vulnerably elderly"],
           [75, "withered"],
           [70, "elderly"],
@@ -5226,7 +5160,7 @@ export const npcData = {
           [6, "toddler"],
           [0, "newborn"],
         ],
-        elderly: {
+        "elderly": {
           baseAge: 70,
           ageModifier() {
             return dice(3, 10)
@@ -5244,7 +5178,7 @@ export const npcData = {
             return dice(3, 12)
           },
         },
-        child: {
+        "child": {
           baseAge: 4,
           ageModifier() {
             return dice(3, 4)
@@ -5444,7 +5378,7 @@ export const npcData = {
         "dreadful beard",
       ],
       abilities: {
-        Darkvision:
+        "Darkvision":
           "Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
         "Hellish Resistance": "You have resistance to fire damage.",
         "Infernal Legacy":
@@ -6011,7 +5945,7 @@ export const npcData = {
     },
   },
   backgroundTraits: {
-    acolyte: {
+    "acolyte": {
       // 'knownLanguages': function (npc) {
       //   var allLanguages = setup.npcData.standardLanguages.concatUnique(setup.npcData.exoticLanguages)
       //   var availableLanguages = allLanguages.delete(npc.knownLanguages)
@@ -6054,7 +5988,7 @@ export const npcData = {
       ],
       wealth: 1500,
     },
-    charlatan: {
+    "charlatan": {
       // 'knownLanguages': function (npc) { return npc },
       backgroundOrigin: [
         "As a youngster, I was left to my own devices. My knack for manipulating people helped me survive.",
@@ -6082,7 +6016,7 @@ export const npcData = {
         "I pocket anything I see that might have some value.",
       ],
       bond: [
-        'I fleeced the wrong person, a lord called <<print setup.npcData.raceTraits["human"].genderTraits["man"].randomValue(firstName)>>, and must work to ensure that he never crosses paths with me or those I care about.',
+        "I fleeced the wrong person, a lord called <<print setup.npcData.raceTraits[\"human\"].genderTraits[\"man\"].randomValue(firstName)>>, and must work to ensure that he never crosses paths with me or those I care about.",
         "I owe everything to my mentor <<print setup.npcData.raceTraits['human'].genderTraits['man'].randomValue(firstName)>>--a horrible person who's probably rotting in jail somewhere.",
         "Somewhere out there I have a child, litte <<print setup.npcData.raceTraits['human'].genderTraits['man'].randomValue(firstName)>>, who doesn't know me. I'm going to try and make the world better for him.",
         "I come from a noble family, and one day I'll reclaim my lands and title from those who stole them from me.",
@@ -6091,7 +6025,7 @@ export const npcData = {
       ],
       wealth: 1500,
     },
-    criminal: {
+    "criminal": {
       // 'knownLanguages': function (npc) { return npc },
       backgroundOrigin: [
         "I resented authority in my younger days, and I saw a life of crime as a way to get back at those that I thought had wronged me.",
@@ -6120,7 +6054,7 @@ export const npcData = {
       ],
       wealth: 1500,
     },
-    entertainer: {
+    "entertainer": {
       // 'knownLanguages': function (npc) { return npc },
       backgroundOrigin: [
         "Members of my family made ends meet by performing, so it was fitting for me to follow their example",
@@ -6178,7 +6112,7 @@ export const npcData = {
       ],
       wealth: 1000,
     },
-    gladiator: {
+    "gladiator": {
       backgroundOrigin: [
         "I found myself in a fight, and the drunkards around me started to bet on whether I would win. I found that strangely exhilarating, and continued to fight, seeking that thrill.",
         "I was a slave, and was forced to fight for my supper and eventual freedom. By the time I got out, there was nothing else I knew.",
@@ -6233,7 +6167,7 @@ export const npcData = {
       ],
       wealth: 1500,
     },
-    hermit: {
+    "hermit": {
       // 'knownLanguages': function (npc) { return npc },
       backgroundOrigin: [
         "My enemy ruined my reputation, and I had to flee to a life of solitude to escape further disparagement.",
@@ -6261,7 +6195,7 @@ export const npcData = {
       ],
       wealth: 500,
     },
-    noble: {
+    "noble": {
       // 'knownLanguages': function (npc) {
       //   var allLanguages = setup.npcData.standardLanguages.concatUnique(setup.npcData.exoticLanguages)
       //   var availableLanguages = allLanguages.delete(npc.knownLanguages)
@@ -6295,7 +6229,7 @@ export const npcData = {
       ],
       wealth: 2500,
     },
-    outlander: {
+    "outlander": {
       // 'knownLanguages': function (npc) { return npc },
       backgroundOrigin: [
         "I spent a lot of time in the wilderness as a youngster, and I came to love that way of life.",
@@ -6324,7 +6258,7 @@ export const npcData = {
       ],
       wealth: 1000,
     },
-    sage: {
+    "sage": {
       // 'knownLanguages': function (npc) {
       //   var allLanguages = setup.npcData.standardLanguages.concatUnique(setup.npcData.exoticLanguages)
       //   var availableLanguages = allLanguages.delete(npc.knownLanguages)
@@ -6358,7 +6292,7 @@ export const npcData = {
       ],
       wealth: 1000,
     },
-    sailor: {
+    "sailor": {
       // 'knownLanguages': function (npc) { return npc },
       backgroundOrigin: [
         "I was press-ganged by pirates and forced to serve as a deck-hand on their ship until I could escape from their clutches.",
@@ -6387,7 +6321,7 @@ export const npcData = {
       ],
       wealth: 1500,
     },
-    soldier: {
+    "soldier": {
       // 'knownLanguages': function (npc) { return npc },
       backgroundOrigin: [
         "I wanted fame and fortune, so I signed up to the militia to prove my mettle. I don't think I knew what I was doing, but my determination carried me through my contract, and I never stopped.",
@@ -6414,7 +6348,7 @@ export const npcData = {
       ],
       wealth: 1000,
     },
-    urchin: {
+    "urchin": {
       // 'knownLanguages': function (npc) { return npc },
       backgroundOrigin: [
         "My parents died, leaving nobody to look after me, so I took care of myself.",
@@ -6442,7 +6376,7 @@ export const npcData = {
       ],
       wealth: 1500,
     },
-    commoner: {
+    "commoner": {
       // 'knownLanguages': function (npc) { return npc },
       backgroundOrigin: [
         "I was born into poverty. I've slowly worked my way to where I am today.",

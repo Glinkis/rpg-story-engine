@@ -105,57 +105,57 @@ export function priceTalk(alchemist: Alchemist) {
     {
       priceModifier: 5,
       wealth: 80,
-      priceTalk: `Be warned, these prices might be... out of your range`,
+      priceTalk: "Be warned, these prices might be... out of your range",
     },
     {
       priceModifier: 5,
       wealth: 50,
-      priceTalk: `Fair warning; the prices ain't what they used to be, by a long shot.`,
+      priceTalk: "Fair warning; the prices ain't what they used to be, by a long shot.",
     },
     {
       priceModifier: 5,
       wealth: 20,
-      priceTalk: `I'm afraid that times are tough, there's a bit of a surcharge on the fun stuff.`,
+      priceTalk: "I'm afraid that times are tough, there's a bit of a surcharge on the fun stuff.",
     },
     {
       priceModifier: 2,
       wealth: 80,
-      priceTalk: `Fair warning, premium products come with a premium price.`,
+      priceTalk: "Fair warning, premium products come with a premium price.",
     },
     {
       priceModifier: 2,
       wealth: 50,
-      priceTalk: `Fair warning; the prices ain't what they used to be.`,
+      priceTalk: "Fair warning; the prices ain't what they used to be.",
     },
     {
       priceModifier: 2,
       wealth: 20,
-      priceTalk: `Things might be a wee bit more expensive than you're used to, but that's the cost of doing business at the moment.`,
+      priceTalk: "Things might be a wee bit more expensive than you're used to, but that's the cost of doing business at the moment.",
     },
     {
       priceModifier: -2,
       wealth: 80,
-      priceTalk: `These are priced to move, so I can make some space and get some new stock in.`,
+      priceTalk: "These are priced to move, so I can make some space and get some new stock in.",
     },
     {
       priceModifier: -2,
       wealth: 50,
-      priceTalk: `Priced to move!`,
+      priceTalk: "Priced to move!",
     },
     {
       priceModifier: -2,
       wealth: 20,
-      priceTalk: `Priced to sell, so I can afford some new stock!`,
+      priceTalk: "Priced to sell, so I can afford some new stock!",
     },
     {
       priceModifier: -4,
       wealth: 80,
-      priceTalk: `Everything must go! I'm getting in entirely new, custom stock in a couple day's time, and need the space clear.`,
+      priceTalk: "Everything must go! I'm getting in entirely new, custom stock in a couple day's time, and need the space clear.",
     },
     {
       priceModifier: -4,
       wealth: 50,
-      priceTalk: `I've got a massive sale going on at the moment!`,
+      priceTalk: "I've got a massive sale going on at the moment!",
     },
     {
       priceModifier: -4,

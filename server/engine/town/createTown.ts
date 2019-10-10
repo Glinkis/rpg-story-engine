@@ -27,7 +27,7 @@ export function createTown(base: any = {}) {
   const terrain = randomValue(["temperate", "temperate", "temperate", "tropical", "polar", "arid"])
   const season = ["summer", "autumn", "winter", "spring"]
   const townName = createTownName()
-  console.groupCollapsed(townName + " is loading...")
+  console.groupCollapsed(`${townName} is loading...`)
   const economicIdeology = randomValue(townData.type[type].economicIdeology)
   const politicalSource = randomValue(townData.type[type].politicalSource)
   const politicalIdeology = randomValue(townData.politicalSource[politicalSource].politicalIdeology)
@@ -49,7 +49,7 @@ export function createTown(base: any = {}) {
           const temp = town.taxes[tax](this)
           totalTax += temp
         } else {
-          console.log("non-integer tax! " + town.taxes[tax])
+          console.log(`non-integer tax! ${town.taxes[tax]}`)
         }
       })
       return Math.round(totalTax * 100) / 100
@@ -63,7 +63,7 @@ export function createTown(base: any = {}) {
         return "village"
       } else if (this.population > 30) {
         return "hamlet"
-      } else if (this.population <= 30) {
+      } else {
         this.population = 30
         return "hamlet"
       }

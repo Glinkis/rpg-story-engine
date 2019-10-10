@@ -102,7 +102,7 @@ export const misc: Misc = {
 
       medal.readout = `This medal's emblem is made of ${medal.metal} and has a ${medal.material} ribbon. The emblem is ${medal.emblem} and the ribbon is coloured ${medal.colour}.`
 
-      medal.tip = '<b><<tooltip "medal"' + JSON.stringify(medal.readout) + ">></b>"
+      medal.tip = `<b><<tooltip "medal"${JSON.stringify(medal.readout)}>></b>`
 
       return medal
     },
@@ -172,23 +172,11 @@ export const misc: Misc = {
         ...base,
       }
 
-      map.readout =
-        randomValue(["Find the ", "Start at the "]) +
-        map.one +
-        " Then, " +
-        map.two +
-        " until you find the " +
-        map.three +
-        " Then, " +
-        map.four +
-        " until you reach " +
-        map.five +
-        " Then, " +
-        map.six +
-        " You will find the treasure " +
-        map.seven
-      map.tippy = "<span class=tip title=" + JSON.stringify(map.readout) + '><<run setup.tippy("span")>>'
-      map.tippyWord = map.tippy + "<b>map</b></span>"
+      map.readout = `${randomValue(["Find the ", "Start at the "]) + map.one} Then, ${map.two} until you find the ${
+        map.three
+      } Then, ${map.four} until you reach ${map.five} Then, ${map.six} You will find the treasure ${map.seven}`
+      map.tippy = `<span class=tip title=${JSON.stringify(map.readout)}><<run setup.tippy("span")>>`
+      map.tippyWord = `${map.tippy}<b>map</b></span>`
       return map
     },
     one: [
@@ -217,14 +205,14 @@ export const misc: Misc = {
       "yellow barn outside of town",
     ],
     two: [
-      "go north for " + randomRange(1, 4) + " miles",
-      "go south for " + randomRange(1, 4) + " miles",
-      "go east for " + randomRange(1, 4) + " miles",
-      "go west for " + randomRange(1, 4) + " miles",
-      "go northeast for " + randomRange(1, 4) + " miles",
-      "go northwest for " + randomRange(1, 4) + " miles",
-      "go southeast for " + randomRange(1, 4) + " miles",
-      "go southwest for " + randomRange(1, 4) + " miles",
+      `go north for ${randomRange(1, 4)} miles`,
+      `go south for ${randomRange(1, 4)} miles`,
+      `go east for ${randomRange(1, 4)} miles`,
+      `go west for ${randomRange(1, 4)} miles`,
+      `go northeast for ${randomRange(1, 4)} miles`,
+      `go northwest for ${randomRange(1, 4)} miles`,
+      `go southeast for ${randomRange(1, 4)} miles`,
+      `go southwest for ${randomRange(1, 4)} miles`,
     ],
     three: [
       "mountain shaped like a tooth.",
@@ -252,14 +240,14 @@ export const misc: Misc = {
       "stone island in the center of a small lake.",
     ],
     four: [
-      "go north for " + randomRange(1, 4) + " miles",
-      "go south for " + randomRange(1, 4) + " miles",
-      "go east for " + randomRange(1, 4) + " miles",
-      "go west for " + randomRange(1, 4) + " miles",
-      "go northeast for " + randomRange(1, 4) + " miles",
-      "go northwest for " + randomRange(1, 4) + " miles",
-      "go southeast for " + randomRange(1, 4) + " miles",
-      "go southwest for " + randomRange(1, 4) + " miles",
+      `go north for ${randomRange(1, 4)} miles`,
+      `go south for ${randomRange(1, 4)} miles`,
+      `go east for ${randomRange(1, 4)} miles`,
+      `go west for ${randomRange(1, 4)} miles`,
+      `go northeast for ${randomRange(1, 4)} miles`,
+      `go northwest for ${randomRange(1, 4)} miles`,
+      `go southeast for ${randomRange(1, 4)} miles`,
+      `go southwest for ${randomRange(1, 4)} miles`,
     ],
     five: [
       "rock shaped like a heart.",
@@ -290,14 +278,14 @@ export const misc: Misc = {
       "eternally burning campfire.",
     ],
     six: [
-      "go north for " + randomRange(1, 4) + " miles.",
-      "go south for " + randomRange(1, 4) + " miles.",
-      "go east for " + randomRange(1, 4) + " miles.",
-      "go west for " + randomRange(1, 4) + " miles.",
-      "go northeast for " + randomRange(1, 4) + " miles.",
-      "go northwest for " + randomRange(1, 4) + " miles.",
-      "go southeast for " + randomRange(1, 4) + " miles.",
-      "go southwest for " + randomRange(1, 4) + " miles.",
+      `go north for ${randomRange(1, 4)} miles.`,
+      `go south for ${randomRange(1, 4)} miles.`,
+      `go east for ${randomRange(1, 4)} miles.`,
+      `go west for ${randomRange(1, 4)} miles.`,
+      `go northeast for ${randomRange(1, 4)} miles.`,
+      `go northwest for ${randomRange(1, 4)} miles.`,
+      `go southeast for ${randomRange(1, 4)} miles.`,
+      `go southwest for ${randomRange(1, 4)} miles.`,
     ],
     seven: [
       "buried at the foot of a cliff.",
@@ -348,30 +336,17 @@ export const misc: Misc = {
         ...base,
       }
       caravan.master = setup.createNPC(town, misc.caravan.masterType[caravan.masterType])
-      caravan.readout =
-        "The caravan is " +
-        caravan.type +
-        ", with " +
-        caravan.animals +
-        " as the pack animals. They are transporting " +
-        caravan.transporting +
-        ", and the general mood seems to be " +
-        caravan.mood +
-        " The master is " +
-        profile(caravan.master, JSON.stringify(caravan.masterType)) +
-        ", who is looking for " +
-        caravan.masterLooking +
-        ". " +
-        caravan.master.heshe.toUpperFirst() +
-        " is taking special care to avoid " +
-        caravan.masterAvoid +
-        " and is carrying " +
-        caravan.masterCarry +
-        " with " +
-        caravan.master.himher +
-        "."
-      caravan.tippy = "<span class=tip title=" + JSON.stringify(caravan.readout) + '><<run setup.tippy("span")>>'
-      caravan.tippyWord = caravan.tippy + "<b>caravan</b></span>"
+      caravan.readout = `The caravan is ${caravan.type}, with ${
+        caravan.animals
+      } as the pack animals. They are transporting ${caravan.transporting}, and the general mood seems to be ${
+        caravan.mood
+      } The master is ${profile(caravan.master, JSON.stringify(caravan.masterType))}, who is looking for ${
+        caravan.masterLooking
+      }. ${caravan.master.heshe.toUpperFirst()} is taking special care to avoid ${
+        caravan.masterAvoid
+      } and is carrying ${caravan.masterCarry} with ${caravan.master.himher}.`
+      caravan.tippy = `<span class=tip title=${JSON.stringify(caravan.readout)}><<run setup.tippy("span")>>`
+      caravan.tippyWord = `${caravan.tippy}<b>caravan</b></span>`
       return caravan
     },
     caravanType: [
@@ -600,20 +575,9 @@ export const misc: Misc = {
         reaction: randomValue(misc.ghost.reaction),
         ...base,
       }
-      ghost.readout =
-        "This ghost was once " +
-        ghost.profession +
-        ". They died from " +
-        ghost.cause +
-        ", and linger on in this life " +
-        ghost.reason +
-        ". They can move on if " +
-        ghost.release +
-        ". It is " +
-        ghost.reaction +
-        " towards the living."
-      ghost.tippy = "<span class=tip title=" + JSON.stringify(ghost.readout) + '><<run setup.tippy("span")>>'
-      ghost.tippyWord = ghost.tippy + "<b>ghost</b></span>"
+      ghost.readout = `This ghost was once ${ghost.profession}. They died from ${ghost.cause}, and linger on in this life ${ghost.reason}. They can move on if ${ghost.release}. It is ${ghost.reaction} towards the living.`
+      ghost.tippy = `<span class=tip title=${JSON.stringify(ghost.readout)}><<run setup.tippy("span")>>`
+      ghost.tippyWord = `${ghost.tippy}<b>ghost</b></span>`
       return ghost
     },
     profession: [
@@ -928,36 +892,7 @@ export const misc: Misc = {
         slaves: randomValue(misc.orcs.slaves),
         weapons: randomValue(misc.orcs.weapons),
       }
-      orcs.readout =
-        "<blockquote>These orcs are " +
-        orcs.type +
-        ", known for " +
-        orcs.knownFor +
-        ". Their symbol is " +
-        orcs.symbol +
-        ", and they value " +
-        orcs.value +
-        ". Their favourite food is is " +
-        orcs.meat +
-        ", and they fear " +
-        orcs.fear +
-        ". Their leader is " +
-        orcs.leader +
-        ", who wants " +
-        orcs.goals +
-        ". They are " +
-        orcs.attitude +
-        ", and are notorious for " +
-        orcs.notorious +
-        ". They fight with " +
-        orcs.weapons +
-        ", with " +
-        orcs.tactics +
-        ". They have pet " +
-        orcs.pets +
-        ", and keep some " +
-        orcs.slaves +
-        " as slaves.</blockquote"
+      orcs.readout = `<blockquote>These orcs are ${orcs.type}, known for ${orcs.knownFor}. Their symbol is ${orcs.symbol}, and they value ${orcs.value}. Their favourite food is is ${orcs.meat}, and they fear ${orcs.fear}. Their leader is ${orcs.leader}, who wants ${orcs.goals}. They are ${orcs.attitude}, and are notorious for ${orcs.notorious}. They fight with ${orcs.weapons}, with ${orcs.tactics}. They have pet ${orcs.pets}, and keep some ${orcs.slaves} as slaves.</blockquote`
       return orcs
     },
   },
@@ -978,34 +913,9 @@ export const misc: Misc = {
         pets: randomValue(misc.goblins.pets),
         ...base,
       }
-      goblins.readout =
-        "These goblins primarily deal with " +
-        goblins.business +
-        ". Their symbol is " +
-        goblins.symbol +
-        ", and their colours are primarily " +
-        goblins.colours +
-        ". Their lair is " +
-        goblins.lairType +
-        ", located " +
-        goblins.lairLocation +
-        ". Their leader is " +
-        goblins.leaderType +
-        ", who wants " +
-        goblins.goals +
-        ". They like to target " +
-        goblins.target +
-        ", and are currently planning a raid on " +
-        goblins.currentTarget +
-        ". They fight with " +
-        goblins.tactics +
-        ", and occasionally enlist help from " +
-        goblins.accompaniedBy +
-        ". They have some " +
-        goblins.pets +
-        " as pets."
-      goblins.tippy = "<span class=tip title=" + JSON.stringify(goblins.readout) + '><<run setup.tippy("span")>>'
-      goblins.tippyWord = goblins.tippy + "<b>goblins</b></span>"
+      goblins.readout = `These goblins primarily deal with ${goblins.business}. Their symbol is ${goblins.symbol}, and their colours are primarily ${goblins.colours}. Their lair is ${goblins.lairType}, located ${goblins.lairLocation}. Their leader is ${goblins.leaderType}, who wants ${goblins.goals}. They like to target ${goblins.target}, and are currently planning a raid on ${goblins.currentTarget}. They fight with ${goblins.tactics}, and occasionally enlist help from ${goblins.accompaniedBy}. They have some ${goblins.pets} as pets.`
+      goblins.tippy = `<span class=tip title=${JSON.stringify(goblins.readout)}><<run setup.tippy("span")>>`
+      goblins.tippyWord = `${goblins.tippy}<b>goblins</b></span>`
       return goblins
     },
     business: [
@@ -1164,23 +1074,9 @@ export const misc: Misc = {
         looks: randomValue(misc.goblin.looks),
         talent: randomValue(misc.goblin.talent),
       }
-      goblin.readout =
-        "This goblin is " +
-        goblin.type +
-        ", and has a " +
-        goblin.faceFeature +
-        ". It wields " +
-        goblin.carry +
-        " and wears " +
-        goblin.wears +
-        ". This goblin is particularly good at " +
-        goblin.talent +
-        ", and has " +
-        goblin.feature +
-        ". Currently, it is looking to " +
-        goblin.looks
-      goblin.tippy = "<span class=tip title=" + JSON.stringify(goblin.readout) + '><<run setup.tippy("span")>>'
-      goblin.tippyWord = goblin.tippy + "<b>goblin</b></span>"
+      goblin.readout = `This goblin is ${goblin.type}, and has a ${goblin.faceFeature}. It wields ${goblin.carry} and wears ${goblin.wears}. This goblin is particularly good at ${goblin.talent}, and has ${goblin.feature}. Currently, it is looking to ${goblin.looks}`
+      goblin.tippy = `<span class=tip title=${JSON.stringify(goblin.readout)}><<run setup.tippy("span")>>`
+      goblin.tippyWord = `${goblin.tippy}<b>goblin</b></span>`
       return goblin
     },
     type: [
@@ -1417,27 +1313,9 @@ export const misc: Misc = {
         fearedBy: randomValue(misc.bandits.fearedBy),
         ...base,
       }
-      bandits.readout =
-        "These bandits are " +
-        bandits.type +
-        " whose primary business is " +
-        bandits.business +
-        ". Their leader is " +
-        bandits.leader +
-        ", who wants " +
-        bandits.goals +
-        ". Their symbol is " +
-        bandits.symbol +
-        " on a " +
-        bandits.colours +
-        " background. They are feared by " +
-        bandits.fearedBy +
-        ", and they use " +
-        bandits.weapons +
-        ". Their base of operations is " +
-        bandits.lair
-      bandits.tippy = "<span class=tip title=" + JSON.stringify(bandits.readout) + '><<run setup.tippy("span")>>'
-      bandits.tippyWord = bandits.tippy + "<b>bandits</b></span>"
+      bandits.readout = `These bandits are ${bandits.type} whose primary business is ${bandits.business}. Their leader is ${bandits.leader}, who wants ${bandits.goals}. Their symbol is ${bandits.symbol} on a ${bandits.colours} background. They are feared by ${bandits.fearedBy}, and they use ${bandits.weapons}. Their base of operations is ${bandits.lair}`
+      bandits.tippy = `<span class=tip title=${JSON.stringify(bandits.readout)}><<run setup.tippy("span")>>`
+      bandits.tippyWord = `${bandits.tippy}<b>bandits</b></span>`
       return bandits
     },
   },
@@ -1634,7 +1512,7 @@ export const misc: Misc = {
       calmTrait:
         "stoic and pensive. Brugo likes to observe the world and people around him when he has a peaceful moment.",
       vocalPattern:
-        'speak in third person. <descriptive>Hello friend! Brugo has happy to see you! Brugo also have bad commonspeak. Is nature. What is "head-you-kay-shun?" Brugo understand your pain. See? This is where Brugo have scar. 12 years old, mountain lion. Brugo last 5 minutes before elders have to rescue. Claw pain was not bad. The true pain was shame. This why Brugo understand. Brugo is friends with you now? Hmm! (Hmm! = Brugo humming+grunting in a way that can be approval, "OK," excitement, or generally any positive affirmation that he cannot find the words to describe). It is his catch-phrase. "Hey Brugo, do you like ale?" "HMM!" "I almost died of hypothermia one time when I was young." "Hmm, Brugo know this pain." "My mother died when I was a baby." "Hmm, Brugo feel this third pain. Please explain third pain with more story, because Brugo have no mother. So Brugo cannot know this pain."</descriptive>',
+        "speak in third person. <descriptive>Hello friend! Brugo has happy to see you! Brugo also have bad commonspeak. Is nature. What is \"head-you-kay-shun?\" Brugo understand your pain. See? This is where Brugo have scar. 12 years old, mountain lion. Brugo last 5 minutes before elders have to rescue. Claw pain was not bad. The true pain was shame. This why Brugo understand. Brugo is friends with you now? Hmm! (Hmm! = Brugo humming+grunting in a way that can be approval, \"OK,\" excitement, or generally any positive affirmation that he cannot find the words to describe). It is his catch-phrase. \"Hey Brugo, do you like ale?\" \"HMM!\" \"I almost died of hypothermia one time when I was young.\" \"Hmm, Brugo know this pain.\" \"My mother died when I was a baby.\" \"Hmm, Brugo feel this third pain. Please explain third pain with more story, because Brugo have no mother. So Brugo cannot know this pain.\"</descriptive>",
       idle: [
         "Brugo stares at his blood-red, wooden ritual mask, which is carved with an incredible number of horrible and frightening scars.",
       ],
@@ -1722,15 +1600,9 @@ export const misc: Misc = {
           senses: misc.religion.shrine.senses[sensesArray](town),
           ...base,
         }
-        shrine.readout =
-          "You come across a shrine dedicated to " +
-          shrine.god +
-          ". The shrine is " +
-          shrine.material +
-          " " +
-          shrine.senses
-        shrine.tippy = "<span class=tip title=" + JSON.stringify(shrine.readout) + '><<run setup.tippy("span")>>'
-        shrine.tippyWord = shrine.tippy + "<b>shrine</b></span>"
+        shrine.readout = `You come across a shrine dedicated to ${shrine.god}. The shrine is ${shrine.material} ${shrine.senses}`
+        shrine.tippy = `<span class=tip title=${JSON.stringify(shrine.readout)}><<run setup.tippy("span")>>`
+        shrine.tippyWord = `${shrine.tippy}<b>shrine</b></span>`
         return shrine
       },
       // the shrine is _______.
@@ -1788,9 +1660,7 @@ export const misc: Misc = {
         },
         beddingWithNPC(town: any) {
           const npc = setup.createNPC(town)
-          return (
-            "You can see some bedding on the ground near the shrine. The " + profile(npc, "owner") + " is out hunting."
-          )
+          return `You can see some bedding on the ground near the shrine. The ${profile(npc, "owner")} is out hunting.`
         },
       },
     },
@@ -2425,18 +2295,10 @@ export const misc: Misc = {
         favouriteFood: setup.misc.bunny.favouriteFood.seededrandom(),
         markings: setup.misc.bunny.markings.seededrandom(),
       }
-      bunny.readout =
-        "This bunny is " +
-        bunny.size +
-        ", and has a " +
-        bunny.coat +
-        " coat, with " +
-        bunny.markings +
-        ". It loves " +
-        bunny.favouriteFood +
-        "."
-      bunny.tippyWord =
-        "<span class=tip title=" + JSON.stringify(bunny.readout) + '> <b>bunny</b></span><<run setup.tippy("span")>>'
+      bunny.readout = `This bunny is ${bunny.size}, and has a ${bunny.coat} coat, with ${bunny.markings}. It loves ${bunny.favouriteFood}.`
+      bunny.tippyWord = `<span class=tip title=${JSON.stringify(
+        bunny.readout
+      )}> <b>bunny</b></span><<run setup.tippy("span")>>`
       return bunny
     },
     size: [
@@ -2506,25 +2368,10 @@ export const misc: Misc = {
         habit: misc.cat.habit.seededrandom(),
         talent: misc.cat.talent.seededrandom(),
       }
-      cat.readout =
-        "This cat is " +
-        cat.size +
-        ", and has a " +
-        cat.coat +
-        " coat, with " +
-        cat.eyes +
-        " and " +
-        cat.markings +
-        ". This breed was bred " +
-        cat.breedSkill +
-        ", and this cat has " +
-        cat.habit +
-        ". It loves " +
-        cat.favouriteFood +
-        ", and it is particularly good at " +
-        cat.talent
-      cat.tippyWord =
-        "<span class=tip title=" + JSON.stringify(cat.readout) + '> <b>cat</b></span><<run setup.tippy("span")>>'
+      cat.readout = `This cat is ${cat.size}, and has a ${cat.coat} coat, with ${cat.eyes} and ${cat.markings}. This breed was bred ${cat.breedSkill}, and this cat has ${cat.habit}. It loves ${cat.favouriteFood}, and it is particularly good at ${cat.talent}`
+      cat.tippyWord = `<span class=tip title=${JSON.stringify(
+        cat.readout
+      )}> <b>cat</b></span><<run setup.tippy("span")>>`
       return cat
     },
     size: [
@@ -2638,30 +2485,14 @@ export const misc: Misc = {
         personality: randomValue(misc.horse.personality),
         behaviour: randomValue(misc.horse.behaviour),
       }
-      horse.readout =
-        "This horse is " +
-        horse.gender +
-        +" " +
-        horse.type +
-        ", and is " +
-        horse.quality +
-        ". It has a " +
-        horse.colour +
-        " coat, with " +
-        horse.feature +
-        " and " +
-        horse.eyes +
-        ". It is " +
-        horse.flaw +
-        ", which is " +
-        horse.flawSeverity +
-        ". It is " +
-        horse.personality +
-        ", and " +
-        horse.behaviour +
-        "."
-      horse.tippyWord =
-        "<span class=tip title=" + JSON.stringify(horse.readout) + '> <b>horse</b></span><<run setup.tippy("span")>>'
+      horse.readout = `This horse is ${horse.gender}${+" "}${horse.type}, and is ${horse.quality}. It has a ${
+        horse.colour
+      } coat, with ${horse.feature} and ${horse.eyes}. It is ${horse.flaw}, which is ${horse.flawSeverity}. It is ${
+        horse.personality
+      }, and ${horse.behaviour}.`
+      horse.tippyWord = `<span class=tip title=${JSON.stringify(
+        horse.readout
+      )}> <b>horse</b></span><<run setup.tippy("span")>>`
       return horse
     },
     type: [
@@ -2768,25 +2599,9 @@ export const misc: Misc = {
         packStatus: randomValue(misc.wolf.packStatus),
         habitat: randomValue(misc.wolf.habitat),
       }
-      wolf.readout =
-        "This wolf is " +
-        wolf.colour +
-        ", and has " +
-        wolf.markings +
-        " coat, with " +
-        wolf.eyes +
-        ". It is " +
-        wolf.manner +
-        ", and is " +
-        wolf.packStatus +
-        ". This breed thrives in " +
-        wolf.habitat +
-        ". It prefers to " +
-        wolf.tactics +
-        ", and if given the choice, it prefers " +
-        wolf.prey
-      wolf.tippy = "<span class=tip title=" + JSON.stringify(wolf.readout) + '><<run setup.tippy("span")>>'
-      wolf.tippyWord = wolf.tippy + "<b>wolf</b></span>"
+      wolf.readout = `This wolf is ${wolf.colour}, and has ${wolf.markings} coat, with ${wolf.eyes}. It is ${wolf.manner}, and is ${wolf.packStatus}. This breed thrives in ${wolf.habitat}. It prefers to ${wolf.tactics}, and if given the choice, it prefers ${wolf.prey}`
+      wolf.tippy = `<span class=tip title=${JSON.stringify(wolf.readout)}><<run setup.tippy("span")>>`
+      wolf.tippyWord = `${wolf.tippy}<b>wolf</b></span>`
       return wolf
     },
     colour: [
@@ -2806,15 +2621,16 @@ export const misc: Misc = {
       "white or pale fur on one paw",
       "white or pale fur around the face and muzzle",
       "black or dark fur around the face and muzzle",
-      "a banded pattern on its back" + randomValue(["dark grey", "pale grey", "reddish brown", "sandy brown"]),
+      `a banded pattern on its back${randomValue(["dark grey", "pale grey", "reddish brown", "sandy brown"])}`,
       "lighter fur on its belly",
       "darker fur on its belly",
-      "a distinct, " +
-        randomValue(["white", "pale grey"]) +
-        " " +
-        randomValue(["arrowhead", "pair of eye-like spots", "hourglass", "star"]) +
-        " on its chest",
-      "a scar from a past injury on its " + randomValue(["flank", "foreleg", "hindleg", "snout", "eye", "ear"]),
+      `a distinct, ${randomValue(["white", "pale grey"])} ${randomValue([
+        "arrowhead",
+        "pair of eye-like spots",
+        "hourglass",
+        "star",
+      ])} on its chest`,
+      `a scar from a past injury on its ${randomValue(["flank", "foreleg", "hindleg", "snout", "eye", "ear"])}`,
       "no obvious markings",
     ],
     eyes: [
@@ -2902,27 +2718,9 @@ export const misc: Misc = {
         look: randomValue(misc.ogre.look),
         misfortune: randomValue(misc.ogre.misfortune),
       }
-      ogre.readout =
-        "This ogre is a " +
-        ogre.type +
-        ", and carries " +
-        ogre.carry +
-        ". It's hair is " +
-        ogre.hair +
-        ", and its eyes are " +
-        ogre.eyes +
-        ", with " +
-        ogre.eyes +
-        ". It is particularly good at " +
-        ogre.skill +
-        ", and frequently " +
-        ogre.quirk +
-        ". A long time ago, it was " +
-        ogre.misfortune +
-        ". Currently, it is looking for a " +
-        ogre.look
-      ogre.tippy = "<span class=tip title=" + JSON.stringify(ogre.readout) + '><<run setup.tippy("span")>>'
-      ogre.tippyWord = ogre.tippy + "<b>ogre</b></span>"
+      ogre.readout = `This ogre is a ${ogre.type}, and carries ${ogre.carry}. It's hair is ${ogre.hair}, and its eyes are ${ogre.eyes}, with ${ogre.eyes}. It is particularly good at ${ogre.skill}, and frequently ${ogre.quirk}. A long time ago, it was ${ogre.misfortune}. Currently, it is looking for a ${ogre.look}`
+      ogre.tippy = `<span class=tip title=${JSON.stringify(ogre.readout)}><<run setup.tippy("span")>>`
+      ogre.tippyWord = `${ogre.tippy}<b>ogre</b></span>`
       return ogre
     },
     hair: [
@@ -2988,25 +2786,9 @@ export const misc: Misc = {
         webs: randomValue(misc.spider.webs),
         habitat: randomValue(misc.spider.habitat),
       }
-      spider.readout =
-        "This spider is " +
-        spider.colour +
-        ", and has " +
-        spider.markings +
-        ", with " +
-        spider.eyes +
-        " and a mouth " +
-        spider.mouth +
-        ". This breed thrives in " +
-        spider.habitat +
-        ", and their poison causes " +
-        spider.poison +
-        ".Their webs are " +
-        spider.webs +
-        ". It prefers to " +
-        spider.tactics
-      spider.tippy = "<span class=tip title=" + JSON.stringify(spider.readout) + '><<run setup.tippy("span")>>'
-      spider.tippyWord = spider.tippy + "<b>spider</b></span>"
+      spider.readout = `This spider is ${spider.colour}, and has ${spider.markings}, with ${spider.eyes} and a mouth ${spider.mouth}. This breed thrives in ${spider.habitat}, and their poison causes ${spider.poison}.Their webs are ${spider.webs}. It prefers to ${spider.tactics}`
+      spider.tippy = `<span class=tip title=${JSON.stringify(spider.readout)}><<run setup.tippy("span")>>`
+      spider.tippyWord = `${spider.tippy}<b>spider</b></span>`
       return spider
     },
     colour: [
@@ -3022,17 +2804,16 @@ export const misc: Misc = {
     markings: [
       "pale banding on its legs",
       "dark banding on its legs",
-      "bright " + randomValue(["orange", "red", "white", "yellow"]) + " banding on its legs",
+      `bright ${randomValue(["orange", "red", "white", "yellow"])} banding on its legs`,
       "pale stripes down its abdomen",
       "dark stripes down its abdomen",
-      "a distinct, crimson " +
-        randomValue(["arrowhead", "pair of eye-like spots", "hourglass", "star"]) +
-        " on its abdomen",
-      "a distinct, " +
-        randomValue(["black", "dark grey"]) +
-        " " +
-        randomValue(["arrowhead", "pair of eye-like spots", "hourglass", "star"]) +
-        " on its abdomen",
+      `a distinct, crimson ${randomValue(["arrowhead", "pair of eye-like spots", "hourglass", "star"])} on its abdomen`,
+      `a distinct, ${randomValue(["black", "dark grey"])} ${randomValue([
+        "arrowhead",
+        "pair of eye-like spots",
+        "hourglass",
+        "star",
+      ])} on its abdomen`,
       "no obvious markings",
     ],
     eyes: [
@@ -3188,20 +2969,7 @@ export const misc: Misc = {
         hazards: randomValue(misc.cavern.hazards),
         ...base,
       }
-      cavern.readout =
-        "The " +
-        cavern.noun +
-        " entrance is " +
-        cavern.entrance +
-        ". As you enter, you see " +
-        cavern.landmark +
-        ", and " +
-        cavern.feature +
-        ". The walls are " +
-        cavern.walls +
-        ", and the ceiling above is " +
-        cavern.ceiling +
-        "."
+      cavern.readout = `The ${cavern.noun} entrance is ${cavern.entrance}. As you enter, you see ${cavern.landmark}, and ${cavern.feature}. The walls are ${cavern.walls}, and the ceiling above is ${cavern.ceiling}.`
       return cavern
     },
   },
@@ -3214,9 +2982,9 @@ export const misc: Misc = {
         feature: randomValue(misc.tree.biome[biome].feature),
         ...base,
       }
-      tree.readout = "The " + tree.species + " tree is " + tree.size + " " + tree.feature
-      tree.tippy = "<span class=tip title=" + JSON.stringify(tree.readout) + '><<run setup.tippy("span")>>'
-      tree.tippyWord = tree.tippy + "<b>tree</b></span>"
+      tree.readout = `The ${tree.species} tree is ${tree.size} ${tree.feature}`
+      tree.tippy = `<span class=tip title=${JSON.stringify(tree.readout)}><<run setup.tippy("span")>>`
+      tree.tippyWord = `${tree.tippy}<b>tree</b></span>`
       return tree
     },
     biome: {
@@ -3418,24 +3186,9 @@ export const misc: Misc = {
         setup.defineRollDataGetter(cabin, misc.cabin.rollData, propName)
       }
 
-      cabin.readout =
-        "The " +
-        cabin.material +
-        " " +
-        cabin.wordNoun +
-        " is " +
-        cabin.size +
-        ". " +
-        cabin.feature +
-        " Inside, it is " +
-        cabin.cleanliness +
-        ". " +
-        cabin.insideFeature +
-        " There is a bed, which is " +
-        cabin.bedCleanliness +
-        "."
-      cabin.tippy = "<span class=tip title=" + JSON.stringify(cabin.readout) + '><<run setup.tippy("span")>>'
-      cabin.tippyWord = cabin.tippy + "<b>" + cabin.wordNoun + "</b></span>"
+      cabin.readout = `The ${cabin.material} ${cabin.wordNoun} is ${cabin.size}. ${cabin.feature} Inside, it is ${cabin.cleanliness}. ${cabin.insideFeature} There is a bed, which is ${cabin.bedCleanliness}.`
+      cabin.tippy = `<span class=tip title=${JSON.stringify(cabin.readout)}><<run setup.tippy("span")>>`
+      cabin.tippyWord = `${cabin.tippy}<b>${cabin.wordNoun}</b></span>`
       return cabin
     },
     feature: [
@@ -3521,37 +3274,29 @@ export const misc: Misc = {
         encounter: encounters[encounterKey](town),
         ...base,
       }
-      return (
+      return `${randomValue([
+        "You walk along the ",
+        "You trudge along the ",
+        "Making your way across the countryside on the ",
+        "You make your way along the ",
+        "You walk along the ",
+      ]) + road.type}, ${road.traffic}${randomValue([
         randomValue([
-          "You walk along the ",
-          "You trudge along the ",
-          "Making your way across the countryside on the ",
-          "You make your way along the ",
-          "You walk along the ",
-        ]) +
-        road.type +
-        ", " +
-        road.traffic +
-        randomValue([
-          randomValue([
-            " until you come across ",
-            " and encounter ",
-            " and cross paths with ",
-            " and come across ",
-            " and see in the distance ",
-            " and spy in the distance ",
-          ]),
-          ". " +
-            randomValue([
-              "Turning the corner, you come across ",
-              "Then, in the distance, you see ",
-              "You walk for a while, and then come across ",
-              "You walk for a few more minutes, until you come across ",
-              "You walk along for a while, and then encounter ",
-            ]),
-        ]) +
-        road.encounter
-      )
+          " until you come across ",
+          " and encounter ",
+          " and cross paths with ",
+          " and come across ",
+          " and see in the distance ",
+          " and spy in the distance ",
+        ]),
+        `. ${randomValue([
+          "Turning the corner, you come across ",
+          "Then, in the distance, you see ",
+          "You walk for a while, and then come across ",
+          "You walk for a few more minutes, until you come across ",
+          "You walk along for a while, and then encounter ",
+        ])}`,
+      ])}${road.encounter}`
     },
     trail: {
       type: ["hunter's trail", "animal trail", "dirt trail"],
@@ -4124,17 +3869,14 @@ export const misc: Misc = {
         encounter = encounters[encounterKey](town)
       }
       console.log(encounterKey)
-      return (
-        randomValue(["While", "As", "After a while, as"]) +
-        " you " +
-        randomValue(["traverse", "trudge along in", "travel through", "walk through"]) +
-        " the forest, you see " +
-        randomValue(misc.forest.landmark) +
-        ". You notice " +
-        randomValue(misc.forest.feature) +
-        ". Up ahead, you see " +
-        encounter
-      )
+      return `${randomValue(["While", "As", "After a while, as"])} you ${randomValue([
+        "traverse",
+        "trudge along in",
+        "travel through",
+        "walk through",
+      ])} the forest, you see ${randomValue(misc.forest.landmark)}. You notice ${randomValue(
+        misc.forest.feature
+      )}. Up ahead, you see ${encounter}`
     },
     location: [
       "a cavern behind a waterfall",

@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "start": "ts-node server",
-    "start:watch": "nodemon"
+    "start:watch": "nodemon",
+    "lint": "eslint server/**/*.ts --fix"
   },
   "nodemonConfig": {
     "watch": "server",
