@@ -508,16 +508,16 @@ export const npcData = {
               " in the growers competition.",
           ])
         } else {
-          return [
-            [
+          return randomValue([
+            randomValue([
               "some friends and I went to",
               "I went to",
               "I spent a day at",
               "I attended",
               "I went to celebrate at",
-            ].seededrandom() +
+            ]) +
               " " +
-              [
+              randomValue([
                 "a holiday festival",
                 "a spring festival",
                 "a summer festival",
@@ -528,19 +528,19 @@ export const npcData = {
                 "a festival",
                 "a festival for the gods",
                 "a heroe's festival",
-              ].seededrandom() +
+              ]) +
               ". While I was there, I " +
               festivalDid +
               ".",
-            [
+              randomValue([
               "some friends and I went to",
               "I went to",
               "I spent a day at",
               "I attended",
               "I went to celebrate at",
-            ].seededrandom() +
+            ]) +
               " " +
-              [
+              randomValue([
                 "a holiday festival",
                 "a spring festival",
                 "a summer festival",
@@ -551,11 +551,11 @@ export const npcData = {
                 "a festival",
                 "a festival for the gods",
                 "a heroe's festival",
-              ].seededrandom() +
+              ]) +
               ". While I was there, I " +
               festivalDid +
               ".",
-          ].seededrandom()
+          ])
         }
       },
       placement: ["first place", "second place", "third place", "gold", "silver", "bronze", "runner up"],
@@ -939,13 +939,13 @@ export const npcData = {
         const finder = randomValue(npcData.lifeEvents.lostChild.finder)
         const ending = randomValue(npcData.lifeEvents.lostChild.ending)
         return (
-          ["when I was young", "as a young child", "while I was still a kid"].seededrandom() +
+          randomValue(["when I was young", "as a young child", "while I was still a kid"]) +
           " I got lost in " +
-          [location, treeType + " tree forest"].seededrandom() +
+          randomValue([location, treeType + " tree forest"]) +
           " " +
           time +
           ". " +
-          [
+          randomValue([
             "I was found by " + finder,
             "I was found by " + finder,
             "I was found by " + finder,
@@ -953,7 +953,7 @@ export const npcData = {
             "I was found by " + finder,
             "I found my own way back",
             "I eventually found " + finder,
-          ].seededrandom() +
+          ]) +
           " " +
           ending +
           "."
@@ -1267,16 +1267,16 @@ export const npcData = {
       },
       function(town: any, npc: any) {
         console.log("called lifeEvents.meetImportantNPC function")
-        return [
-          [
+        return randomValue([
+          randomValue([
             "I met a famous ",
             "I came across a famous ",
             "for a time, I worked for a famous ",
             "I met a well known ",
             "I had a brief stint working for a famous ",
             "I got an autograph from a famous ",
-          ].seededrandom() +
-            [
+          ]) +
+          randomValue([
               "wizard",
               "bard",
               "priest",
@@ -1309,17 +1309,17 @@ export const npcData = {
               "crime boss",
               "rogue",
               "smuggler",
-            ].seededrandom() +
-            [
+            ]) +
+            randomValue([
               " in my travels",
               " on the road",
               " while I was traveling",
               " when I was spending some time as a " + npc.background,
               " while on a long journey",
               " during one of my youthful adventures",
-            ].seededrandom() +
+            ]) +
             ".",
-        ].seededrandom()
+        ])
       },
     },
     adventure: {
@@ -1338,13 +1338,13 @@ export const npcData = {
           return setup.npcData.lifeEvents.backgroundWork.function(town, npc)
         } else {
           // eslint-disable-next-line no-var
-          var adventurePrefix = [
+          var adventurePrefix =randomValue([
             "I went on an adventure, and ",
             "I went on a hike with a friend, and we got lost. It took us months to get back home, and on the way, I ",
             "I had a spur of the moment whim to go on an adventure, and on my journeys, I ",
             "I got really drunk, and woke up in the middle of nowhere. From there, I had to trek back home, and on the way, I ",
             "there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I ",
-          ].seededrandom()
+          ])
           if (adventureRoll === 100) {
             const weapon = setup.createMagicWeapon()
             console.log("Called weapon function.")
@@ -1371,18 +1371,18 @@ export const npcData = {
             adventureResults = "lost something of sentimental value to me."
           } else if (adventureRoll >= 41) {
             adventureResults =
-              "was poisoned by a " + ["monster", "trap", "monster"].seededrandom() + ", but recovered in due time."
+              "was poisoned by a " + randomValue(["monster", "trap", "monster"]) + ", but recovered in due time."
           } else if (adventureRoll >= 31) {
             adventureResults =
               "contracted a disease while exploring a filthy warren. I recovered, but I'm still not quite right."
-            npc.physicalTrait = ["pockmarked face", "grey hair"].seededrandom()
+            npc.physicalTrait = randomValue(["pockmarked face", "grey hair"])
           } else if (adventureRoll >= 21) {
             adventureResults = "was wounded, but recovered in time."
           } else if (adventureRoll >= 11) {
             adventureResults = "was greivously wounded, but recovered in time. It still hurts, from time to time."
           } else if (adventureRoll < 11) {
             adventureResults = "nearly died- that's how I got the scars."
-            npc.physicalTrait = ["a missing ear", "a missing finger", "two missing fingers"].seededrandom()
+            npc.physicalTrait = randomValue(["a missing ear", "a missing finger", "two missing fingers"])
           }
         }
         return adventurePrefix + adventureResults
@@ -1395,14 +1395,14 @@ export const npcData = {
       },
       function(town, npc) {
         console.log("called lifeEvents.supernatural function")
-        return [
+        return randomValue([
           "I came across a horde of ghouls feasting on a dead body in my youth.",
           "I was ensorcelled by a fey for a year. It played tricks on my mind, making me see things which were not there, and not see things which were there.",
           "I once woke up miles away from my home- I don't know if it was due to drinking or some other, magical force at work, but I've sworn off the grog ever since.",
           "I had gone for a walk, when I found a horse. It spoke to me, and told me to leave the town I was in before sundown. I was planning on leaving anyway, so I did, and then when I had reached the next town, there were rumours that the village had been attacked by ghouls.",
           "I went to find a sheep that had gone missing, and must have gotten lost- I ended up in a strange land, where the colours were not as they should have been. I eventually found my way back, but never found the missing sheep. It turned up, completely skeletised in my bed three days later.",
           "I saw a miracle- honest to god. This old man had told us that he was the physical aspect of a deity, and one of the boys did not believe him. Then, with a wave of his hand, the boy vanished.",
-        ].seededrandom()
+        ])
       },
     },
     miracle: {
@@ -1412,35 +1412,36 @@ export const npcData = {
       },
       function(town, npc) {
         console.log("called lifeEvents.miracle function")
-        const miracleGiver = setup.npcData.lifeEvents.miracle.miracleGiver.seededrandom()
-        const trueBelief = setup.npcData.lifeEvents.miracle.trueBelief.seededrandom()
-        const falseBelief = setup.npcData.lifeEvents.miracle.falseBelief.seededrandom()
-        const miracle = setup.npcData.lifeEvents.miracle.miracle.seededrandom()
-        const curse = setup.npcData.lifeEvents.miracle.curse.seededrandom()
-        return [
-          [
+        const miracleGiver = randomValue(setup.npcData.lifeEvents.miracle.miracleGiver)
+        const trueBelief = randomValue(setup.npcData.lifeEvents.miracle.trueBelief)
+        const falseBelief = randomValue(setup.npcData.lifeEvents.miracle.falseBelief)
+        const miracle = randomValue(setup.npcData.lifeEvents.miracle.miracle)
+        const curse = randomValue(setup.npcData.lifeEvents.miracle.curse)
+        return randomValue([
+        const curse = randomValue(setup.npcData.lifeEvents.miracle.curse)
+        randomValue([
             "I witnessed a miracle once- Honest to god. ",
             "I once saw a true miracle. ",
             "one time, I was part of a real miracle. ",
-          ].seededrandom() +
+          ]) +
             miracleGiver +
             ", " +
-            [trueBelief, falseBelief].seededrandom() +
+            randomValue([trueBelief, falseBelief]) +
             " " +
             miracle +
             ".",
-          [
+            randomValue([
             "I witnessed a terrible curse once- Honest to god. ",
             "I once saw a true curse. ",
             "one time, I was part of a real curse. ",
-          ].seededrandom() +
+          ]) +
             miracleGiver +
             ", " +
-            [falseBelief].seededrandom() +
+            randomValue([falseBelief]) +
             " " +
             curse +
             ".",
-        ].seededrandom()
+        ])
       },
       miracleGiver: [
         "This old man had told us that he was the physical aspect of a deity and that he could prove it",
@@ -1501,14 +1502,14 @@ export const npcData = {
       function(town, npc) {
         console.log("called lifeEvents.war function")
         const warRoll = random(1, 12)
-        const warStart = [
+        const warStart = randomValue([
           "there was a minor skirmish with some orcs that I was involved with.",
           "there was a small skirmish with a rivaling faction that I was drafted into.",
           "there was a small war between a rival lord that I was forced to take part with.",
           "there were some goblin raids which I had to defend my town from.",
           "there was a pretty nasty zombie outbreak which I had to defend my town against.",
           "there was a civil war within the town that I fought in.",
-        ].seededrandom()
+        ])
         let warResults
         let warDescription
         if (warRoll === 12) {
@@ -1521,7 +1522,7 @@ export const npcData = {
           warResults = "I suffered only minor injuries, and the wounds all healed without leaving any scars."
         } else if (warRoll >= 2) {
           warResults = "I suffered some serious injuries, and had to be carried off the field."
-          npc.physicalTrait = [
+          npc.physicalTrait = randomValue([
             "a long, thin scar running up the arm",
             "a scar on the eye",
             "a scar around the neck",
@@ -1537,7 +1538,7 @@ export const npcData = {
             "a scar down the forehead",
             "a scar in the middle of the hand",
             "a crooked scar along the jaw",
-          ].seededrandom()
+          ])
         } else if (warRoll === 1) {
           warResults =
             "I was knocked out, and left for dead. I woke up hours later, after the battle was over, and had to walk injured for days to find aid."
@@ -1556,7 +1557,7 @@ export const npcData = {
       },
       function(town, npc) {
         console.log("called lifeEvents.crime function")
-        const crime = [
+        const crime = randomValue([
           "murder",
           "theft",
           "arson",
@@ -1569,7 +1570,7 @@ export const npcData = {
           "fraud",
           "illegal gambling",
           "selling contraband ",
-        ].seededrandom()
+        ])
         const crimeRoll = random(1, 12)
         let crimeReadout
         if (crimeRoll >= 9) {
@@ -1579,9 +1580,9 @@ export const npcData = {
             ", and spent " +
             random(1, 4) +
             " years " +
-            ["in jail", "chained to an oar", "doing hard labour"].seededrandom() +
+            randomValue(["in jail", "chained to an oar", "doing hard labour"]) +
             " before " +
-            ["being released.", "managing to escape."].seededrandom()
+            randomValue(["being released.", "managing to escape."])
         } else if (crimeRoll >= 7) {
           crimeReadout =
             "I was nearly caught and convicted in the middle of " +
@@ -1592,7 +1593,7 @@ export const npcData = {
             "I was caught aiding and abetting the crime of " +
             crime +
             ", but due to " +
-            ["being forced to do it against my will", "my amazing lawyer", "being under a spell"].seededrandom() +
+            randomValue(["being forced to do it against my will", "my amazing lawyer", "being under a spell"]) +
             ", I was found not guilty."
         } else {
           crimeReadout =
@@ -1610,9 +1611,9 @@ export const npcData = {
       },
       function(town, npc) {
         console.log("called lifeEvents.arcaneMatters function")
-        return [
+        return randomValue([
           "I saw a demon I swear on my life! " +
-            [
+          randomValue([
               "",
               "It offered to make a deal with me, but I turned it down.",
               "It challenged me to a lute playing competition.",
@@ -1622,12 +1623,12 @@ export const npcData = {
               "It was trapped inside of a summoning circle.",
               "The thing tried to kill me but I got away!",
               "Sometimes I think it is still hunting me.",
-            ].seededrandom(),
+            ]),
           "I once saw a powerful wizard " +
-            [
-              ["enchanting", "disenchanting", "cursing"].seededrandom() +
+          randomValue([
+              randomValue(["enchanting", "disenchanting", "cursing"]) +
                 " a " +
-                [
+                randomValue([
                   "sword",
                   "mace",
                   "pair of greaves",
@@ -1645,19 +1646,19 @@ export const npcData = {
                   "fine looking hat",
                   "set of robes",
                   "quill",
-                ].seededrandom() +
+                ]) +
                 ".",
               "casting a " +
-                [
+              randomValue([
                   "very powerful",
                   "strong",
                   "rather weak",
                   "fairly strong",
                   "very weak",
                   "average looking",
-                ].seededrandom() +
+                ]) +
                 " " +
-                [
+                randomValue([
                   "healing",
                   "lightning",
                   "fireball",
@@ -1670,10 +1671,10 @@ export const npcData = {
                   "enchanting",
                   "illusion",
                   "magic",
-                ].seededrandom() +
+                ]) +
                 " spell.",
               "riding on the back of a " +
-                [
+              randomValue([
                   "gryphon",
                   "unicorn",
                   "lion",
@@ -1685,18 +1686,18 @@ export const npcData = {
                   "giant eagle",
                   "dragon",
                   "strange demon",
-                ].seededrandom(),
-            ].seededrandom(),
+                ]),
+            ]),
           "I once " +
-            [
+          randomValue([
               "got caught in the cross-fires between two dueling",
               "witnessed a battle between two",
               "fought in a battle against",
               "had my home destroyed by",
               "settled down near a temple of",
-            ].seededrandom() +
+            ]) +
             " " +
-            [
+            randomValue([
               "wizards",
               "dragons",
               "demons",
@@ -1705,12 +1706,12 @@ export const npcData = {
               "necromancers",
               "minor gods",
               "magical beings",
-            ].seededrandom() +
+            ]) +
             ".",
           "I had a mishap with " +
-            ["a charm", "an illusion", "a mind control"].seededrandom() +
+          randomValue(["a charm", "an illusion", "a mind control"]) +
             " spell- " +
-            [
+            randomValue([
               "an old friend",
               "an enemy",
               "a dear friend",
@@ -1718,27 +1719,27 @@ export const npcData = {
               "someone I thought of as family",
               "an old rival",
               "a rival of mine",
-            ].seededrandom() +
+            ]) +
             " " +
-            [
+            randomValue([
               "tried to force me to hand over all my money",
               "tried to take my family heirloom",
               "tried to steal my fortune",
               "tried to force me to give up my ancient relic",
               "tried to fool me into giving up my title",
-            ].seededrandom() +
+            ]) +
             ", " +
-            [
+            randomValue([
               "but I luckily managed to resist the spell.",
               "but their spell failed",
               "and sadly it worked",
               "and I failed to resist the spell",
               "but they were eventually caught by some brave adventurers",
               "and I have been searching for them ever since",
-            ].seededrandom() +
+            ]) +
             ".",
           "I once drank a " +
-            [
+          randomValue([
               "really strong",
               "crazy strong",
               "strong",
@@ -1747,30 +1748,30 @@ export const npcData = {
               "fairly average",
               "powerful",
               "rather diluted",
-            ].seededrandom() +
+            ]) +
             " potion- " +
-            [
+            randomValue([
               "I swear to god, I could taste colours!",
               "my hair was standing on end!",
               "my skin turned bright " +
-                ["red", "purple", "white", "yellow", "green", "orange", "pink", "blue", "violet"].seededrandom() +
+              randomValue(["red", "purple", "white", "yellow", "green", "orange", "pink", "blue", "violet"]) +
                 " for several days.",
               "I grew a thick bushy beard in a few hours!",
               "it sent me into a comma for weeks.",
               "everyone thought I was attractive for the rest of the day.",
               "it made my nose glow in the dark for a week!",
-            ].seededrandom(),
+            ]),
           "I once found a cursed book. The book " +
-            [
+          randomValue([
               "kills all who who read it",
               "turned the reader blind",
               "retold the reader's life but with a horrible twist ending",
               "sucked the reader in to a nightmarish world",
               "was alive and had gnarled teeth to bite anyone who dared to open it",
               "forced you to see the dead",
-            ].seededrandom() +
+            ]) +
             ".",
-        ].seededrandom()
+        ])
       },
     },
     weirdStuff: {
@@ -1780,27 +1781,27 @@ export const npcData = {
       },
       function(town: any, npc: any) {
         console.log("called lifeEvents.weirdStuff function")
-        return [
+        return randomValue([
           "I came across a genie, " +
-            [
+          randomValue([
               "but squandered the wish on an ex lover",
               "but wasted the wish on the perfect sandwich",
               "and used my wish to set him free",
               "and used my wish to bring prosperity to my town",
               "and used my wish to curse a rival",
               "but never used my wishes",
-            ].seededrandom() +
+            ]) +
             ".",
           "I was once swallowed by a giant fish. Spent a bloody month in there, subsisting on fish and the other things it ate as I tried to find my way out.",
           "I met a " +
-            ["demigod", "arch-fey", "lich", "demon lord", "titan"].seededrandom() +
+          randomValue(["demigod", "arch-fey", "lich", "demon lord", "titan"]) +
             " and lived to tell the tale.",
           "I was once captured by a group of cultists. They nearly sacrificed me, but I managed to set one of their robes on fire, and escaped in the confusion.",
           "I really have had some pretty bad luck in my love life in the past- one lover turned out to be a silver dragon. Took all my gold!",
           "I had a bit of a nervous breakdown a while back, and spent a lot of time alone, stark raving mad. But I'm better now! Honest!",
           "some bloody dragon held me as prisoner for a couple months. I was forced to polish all its gold! Luckily, I managed to escape when it tried to torch the nearby village.",
           "believe it or not, I was a stone statue for quite a while; I only recently was released. I still feel pretty stiff, to be honest.",
-        ].seededrandom()
+        ])
       },
     },
   },
@@ -6163,11 +6164,11 @@ export const npcData = {
         "I pocket anything I see that might have some value.",
       ],
       bond: [
-        'I fleeced the wrong person, a lord called <<print setup.npcData.raceTraits["human"].genderTraits["man"].firstName.seededrandom()>>, and must work to ensure that he never crosses paths with me or those I care about.',
-        "I owe everything to my mentor <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.seededrandom()>>--a horrible person who's probably rotting in jail somewhere.",
-        "Somewhere out there I have a child, litte <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.seededrandom()>>, who doesn't know me. I'm going to try and make the world better for him.",
+        'I fleeced the wrong person, a lord called <<print setup.npcData.raceTraits["human"].genderTraits["man"].randomValue(firstName)>>, and must work to ensure that he never crosses paths with me or those I care about.',
+        "I owe everything to my mentor <<print setup.npcData.raceTraits['human'].genderTraits['man'].randomValue(firstName)>>--a horrible person who's probably rotting in jail somewhere.",
+        "Somewhere out there I have a child, litte <<print setup.npcData.raceTraits['human'].genderTraits['man'].randomValue(firstName)>>, who doesn't know me. I'm going to try and make the world better for him.",
         "I come from a noble family, and one day I'll reclaim my lands and title from those who stole them from me.",
-        "A powerful person, Lord <<print setup.npcData.raceTraits['human'].genderTraits['man'].firstName.seededrandom()>>, killed someone I love. Some day soon, I'll have my revenge.",
+        "A powerful person, Lord <<print setup.npcData.raceTraits['human'].genderTraits['man'].randomValue(firstName)>>, killed someone I love. Some day soon, I'll have my revenge.",
         "I swindled and ruined a person who didn't deserve it, and now I seek to atone for my misdeeds but might never be able to forgive myself.",
       ],
       wealth: 1500,
