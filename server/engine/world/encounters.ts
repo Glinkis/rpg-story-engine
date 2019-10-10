@@ -65,7 +65,7 @@ export const encounters: Encounters = {
     }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
   "a rowdy mercenary troop"(town) {
-    const mercenaries = setup.createMercenaries(town)
+    const mercenaries = createMercenaries(town)
     return `a mercenary troop, armed to the teeth with ${mercenaries.weapon}, wearing ${
       mercenaries.colours
     } livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${
@@ -77,7 +77,7 @@ export const encounters: Encounters = {
     }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
   "a band of mercenaries"(town) {
-    const mercenaries = setup.createMercenaries(town)
+    const mercenaries = createMercenaries(town)
     return `a mercenary troop, armed to the teeth with ${mercenaries.weapon}, wearing ${
       mercenaries.colours
     } livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${
@@ -89,7 +89,7 @@ export const encounters: Encounters = {
     }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
   "a marching army": town => {
-    const mercenaries = setup.createMercenaries(town)
+    const mercenaries = createMercenaries(town)
     return `a small army, armed to the teeth with ${mercenaries.weapon}, wearing ${
       mercenaries.colours
     } livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${
