@@ -16,6 +16,7 @@ import { createSocialClass } from "./createSocialClass"
 import { createLifestyleStandards } from "./createLifestyleStandards"
 import { variables } from "../global"
 import { createDescriptors } from "./createDescriptors"
+import { createBackground } from "./createBackground"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
@@ -267,7 +268,7 @@ export function createNPC(town: any, base?: any) {
   }
 
   createClass(npc)
-  // TODO: createBackground(npc)
+  createBackground(npc)
   createDescriptors(npc)
 
   npc.formalName = npc.formalName || `${npc.title} ${npc.lastName}`
