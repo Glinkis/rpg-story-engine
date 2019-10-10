@@ -55,146 +55,145 @@ export function createNPC(town: any, base?: any) {
     base.hasClass = true
   }
 
-  // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
-  const npc = Object.assign(
-    {
-      key: base.key || Math.random(),
-      passageName: "NPCProfile",
-      _gender: gender,
-      _race: race,
-      firstName,
-      lastName,
-      get name() {
-        return `${this.firstName} ${this.lastName}`
-      },
-      set name(name) {
-        const words = name.toString().split(" ")
-        this.firstName = words[0] || ""
-        this.lastName = words[1] || ""
-      },
-      ageStage,
-      ageYears:
-        data.raceTraits[race].ageTraits[ageStage].baseAge + data.raceTraits[race].ageTraits[ageStage].ageModifier(),
-      muscleMass: data.raceTraits[race].muscleMass + dice(5, 4) - 12,
-      calmTrait: randomValue(data.calmTrait),
-      stressTrait: randomValue(data.stressTrait),
-      pronouns: {},
-      relationships: {},
-      roll: {
-        _wageVariation: dice(5, 10) - 27,
-        wageVariation(town: any) {
-          // _wageVariation is static; it's the "luck" that the NPC has in their profession.
-          // town.roll.wealth increases or decreases it by 10%, reflecting the strength of the economy.
-          // expected range should be between -25 and 25.
-          return calcPercentage(npc.roll._wageVariation, (town.roll.wealth - 50) / 5)
-        },
-      },
-      finances: {
-        grossIncome(town: any, npc: any) {
-          // TODO add hobbies
-          console.log(`Returning ${npc.name}'s gross income...`)
-          const profession = setup.findProfession(town, npc)
-          return Math.round(
-            setup.calcPercentage(profession.dailyWage, [npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3])
-          )
-        },
-        netIncome(town: any, npc: any) {
-          console.log(`Returning ${npc.name}'s net income...`)
-          return Math.round(setup.calcPercentage(npc.finances.grossIncome(town, npc), -town.taxRate(town)))
-        },
-        lifestyleStandard(town: any, npc: any) {
-          console.log(`Returning ${npc.name}'s lifestyle standard...`)
-          const income = npc.finances.netIncome(town, npc)
-          let lifestyleStandard
-          for (let i = 0; i < setup.lifestyleStandards.length; i++) {
-            if (income >= setup.lifestyleStandards[i][0]) {
-              return setup.lifestyleStandards[i]
-            }
-          }
-          // lifestyleStandard returns the unmodified array of [100, 'modest', 30]
-          // various bits use all three, so it was easier to specify which than create three virtually identical functions.
-          return lifestyleStandard
-        },
-        lifestyleExpenses(town: any, npc: any) {
-          console.log(`Returning ${npc.name}'s lifestyle expenses...`)
-          const income = npc.finances.grossIncome(town, npc)
-          const living = npc.finances.lifestyleStandard(town, npc)
-          const ratio = setup.lifestyleStandards.find(desc => desc[1] === living[1])
-          return Math.round(income * (ratio[2] / 100))
-        },
-        profit(town: any, npc: any) {
-          console.log(`Returning ${npc.name}'s profit...`)
-          return Math.round(
-            npc.finances.netIncome(town, npc) -
-              npc.finances.lifestyleStandard(town, npc)[0] -
-              npc.finances.lifestyleExpenses(town, npc)
-          )
-        },
-      },
-      hairColour: randomValue(data.hairColour),
-      hairType: randomValue(data.hairType),
-      get hair() {
-        return `${this.hairType} ${this.hairColour} hair`
-      },
-      set hair(hair) {
-        const hairs = hair.toString().split(" ")
-        this.hairType = hairs[0] || ""
-        this.hairColour = hairs[1] || ""
-      },
-      get descriptor() {
-        return randomValue(this.descriptors)
-      },
-      set descriptorsAdd(description: any) {
-        if (typeof description === "string") {
-          console.log(this.descriptors)
-          if (this.descriptors.includes(description)) {
-            console.log("Throwing out duplicate description...")
-          } else {
-            this.descriptors.push(description)
-          }
-        } else {
-          console.log(`Expected a string operand and received ${description}`)
-        }
-      },
-      eyes: data.raceTraits[race].eyes.seededrandom(),
-      skinColour: data.skinColour.seededrandom(),
-      dndClass,
-      profession,
-      pockets: data.pockets.seededrandom(),
-      wealth: dice(2, 50),
-      trait: data.trait.seededrandom(),
-      currentMood: data.currentMood,
-      hasHistory: base.hasHistory || false,
-      // id: Math.floor(randomFloat(1) * 0x10000),
-      idle: data.idle,
-      get gender() {
-        return this._gender
-      },
-      set gender(gender) {
-        this._gender = gender
-        Object.assign(this, data.gender[gender])
-      },
-      get race() {
-        return this._race
-      },
-      set race(race) {
-        this._race = race
-        Object.assign(this, data.raceTraits[race].raceWords)
-      },
-      get raceNote() {
-        if (this._race === "human") {
-          return `${this.height} ${this.gender}`
-        } else {
-          return data.raceTraits[this._race].raceWords.raceName
-        }
-      },
-      knownLanguages: data.raceTraits[race].knownLanguages,
-      reading: randomValue(data.reading),
+  const raceTraits = data.raceTraits[race]
 
-      family: undefined,
+  // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
+  const npc = {
+    key: Math.random(),
+    passageName: "NPCProfile",
+    _gender: gender,
+    _race: race,
+    firstName,
+    lastName,
+    get name() {
+      return `${this.firstName} ${this.lastName}`
     },
-    base
-  )
+    set name(name) {
+      const words = name.toString().split(" ")
+      this.firstName = words[0] || ""
+      this.lastName = words[1] || ""
+    },
+    ageStage,
+    ageYears: raceTraits.ageTraits[ageStage].baseAge + raceTraits.ageTraits[ageStage].ageModifier(),
+    muscleMass: raceTraits.muscleMass + dice(5, 4) - 12,
+    calmTrait: randomValue(data.calmTrait),
+    stressTrait: randomValue(data.stressTrait),
+    pronouns: {},
+    relationships: {},
+    roll: {
+      _wageVariation: dice(5, 10) - 27,
+      wageVariation(town: any) {
+        // _wageVariation is static; it's the "luck" that the NPC has in their profession.
+        // town.roll.wealth increases or decreases it by 10%, reflecting the strength of the economy.
+        // expected range should be between -25 and 25.
+        return calcPercentage(npc.roll._wageVariation, (town.roll.wealth - 50) / 5)
+      },
+    },
+    finances: {
+      grossIncome(town: any, npc: any) {
+        // TODO add hobbies
+        console.log(`Returning ${npc.name}'s gross income...`)
+        const profession = setup.findProfession(town, npc)
+        return Math.round(
+          calcPercentage(profession.dailyWage, [npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3])
+        )
+      },
+      netIncome(town: any, npc: any) {
+        console.log(`Returning ${npc.name}'s net income...`)
+        return Math.round(calcPercentage(npc.finances.grossIncome(town, npc), -town.taxRate(town)))
+      },
+      lifestyleStandard(town: any, npc: any) {
+        console.log(`Returning ${npc.name}'s lifestyle standard...`)
+        const income = npc.finances.netIncome(town, npc)
+        let lifestyleStandard
+        for (let i = 0; i < setup.lifestyleStandards.length; i++) {
+          if (income >= setup.lifestyleStandards[i][0]) {
+            return setup.lifestyleStandards[i]
+          }
+        }
+        // lifestyleStandard returns the unmodified array of [100, 'modest', 30]
+        // various bits use all three, so it was easier to specify which than create three virtually identical functions.
+        return lifestyleStandard
+      },
+      lifestyleExpenses(town: any, npc: any) {
+        console.log(`Returning ${npc.name}'s lifestyle expenses...`)
+        const income = npc.finances.grossIncome(town, npc)
+        const living = npc.finances.lifestyleStandard(town, npc)
+        const ratio = setup.lifestyleStandards.find(desc => desc[1] === living[1])
+        return Math.round(income * (ratio[2] / 100))
+      },
+      profit(town: any, npc: any) {
+        console.log(`Returning ${npc.name}'s profit...`)
+        return Math.round(
+          npc.finances.netIncome(town, npc) -
+            npc.finances.lifestyleStandard(town, npc)[0] -
+            npc.finances.lifestyleExpenses(town, npc)
+        )
+      },
+    },
+    hairColour: randomValue(data.hairColour),
+    hairType: randomValue(data.hairType),
+    get hair() {
+      return `${this.hairType} ${this.hairColour} hair`
+    },
+    set hair(hair) {
+      const hairs = hair.toString().split(" ")
+      this.hairType = hairs[0] || ""
+      this.hairColour = hairs[1] || ""
+    },
+    get descriptor() {
+      return randomValue(this.descriptors)
+    },
+    set descriptorsAdd(description: any) {
+      if (typeof description === "string") {
+        console.log(this.descriptors)
+        if (this.descriptors.includes(description)) {
+          console.log("Throwing out duplicate description...")
+        } else {
+          this.descriptors.push(description)
+        }
+      } else {
+        console.log(`Expected a string operand and received ${description}`)
+      }
+    },
+    eyes: randomValue(data.raceTraits[race].eyes),
+    skinColour: randomValue(data.skinColour),
+    dndClass,
+    profession,
+    pockets: randomValue(data.pockets),
+    wealth: dice(2, 50),
+    trait: randomValue(data.trait),
+    currentMood: data.currentMood,
+    hasHistory: base.hasHistory || false,
+    // id: Math.floor(randomFloat(1) * 0x10000),
+    idle: data.idle,
+    get gender() {
+      return this._gender
+    },
+    set gender(gender) {
+      this._gender = gender
+      Object.assign(this, data.gender[gender])
+    },
+    get race() {
+      return this._race
+    },
+    set race(race) {
+      this._race = race
+      Object.assign(this, data.raceTraits[race].raceWords)
+    },
+    get raceNote() {
+      if (this._race === "human") {
+        return `${this.height} ${this.gender}`
+      } else {
+        return data.raceTraits[this._race].raceWords.raceName
+      }
+    },
+    knownLanguages: data.raceTraits[race].knownLanguages,
+    reading: randomValue(data.reading),
+
+    family: undefined,
+    ...base,
+  }
 
   npc.gender = npc.gender || npc._gender
   npc.race = npc.race || npc._race
