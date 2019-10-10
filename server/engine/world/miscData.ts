@@ -4,6 +4,7 @@ import { locations } from "./locations"
 import { encounters } from "./encounters"
 import { profile } from "../npc-generation/profile"
 import { createNPC } from "../npc-generation/createNPC"
+import { defineRollDataGetter } from "../tools/defineRollDataGetter"
 
 interface Misc {
   [key: string]: any
@@ -3174,7 +3175,7 @@ export const misc: Misc = {
 
       const rollDataVariables = [`size`, `cleanliness`, `bedCleanliness`]
       for (const propName of rollDataVariables) {
-        setup.defineRollDataGetter(cabin, misc.cabin.rollData, propName)
+        defineRollDataGetter(cabin, misc.cabin.rollData, propName)
       }
 
       cabin.readout = `The ${cabin.material} ${cabin.wordNoun} is ${cabin.size}. ${cabin.feature} Inside, it is ${cabin.cleanliness}. ${cabin.insideFeature} There is a bed, which is ${cabin.bedCleanliness}.`
@@ -3243,7 +3244,7 @@ export const misc: Misc = {
   },
   town: {
     create(town: any) {
-      return weightedRandomFetcher(town, plothooks, ``, misc.town.type.event)
+      //TODO: return weightedRandomFetcher(town, plothooks, ``, misc.town.type.event)
     },
     type: {
       event(town: any, arg: any) {

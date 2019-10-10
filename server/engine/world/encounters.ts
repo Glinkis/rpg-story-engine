@@ -101,11 +101,11 @@ export const encounters: Encounters = {
     }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
   "a small merchant caravan": town => {
-    const caravan = setup.misc.caravan.create(town)
+    const caravan = misc.caravan.create(town)
     return `a small merchant caravan. ${caravan.readout}`
   },
   "a merchant caravan": town => {
-    const caravan = setup.misc.caravan.create(town)
+    const caravan = misc.caravan.create(town)
     return `a merchant caravan. ${caravan.readout}`
   },
   "a clan of orcs": town => {
@@ -262,7 +262,7 @@ export const encounters: Encounters = {
     return `a solitary ${profile(npc, `troubador`)}`
   },
   "an adventurer on a horse": town => {
-    const horse = setup.misc.horse.create()
+    const horse = misc.horse.create()
     const npc = createNPC(town, {
       dndClass: randomValue([`fighter`, `fighter`, `paladin`]),
       background: randomValue([`noble`, `soldier`, `soldier`]),
@@ -285,7 +285,7 @@ export const encounters: Encounters = {
   "some graverobbers": () => `some graverobbers`,
   "some farmers": () => `some farmers`,
   "a plague-infested cabin"() {
-    const cabin = setup.misc.cabin.create()
+    const cabin = misc.cabin.create()
     return `a plague-infested ${cabin.tippyWord}.`
   },
   "some beserkers": () => `some beserkers`,
@@ -293,15 +293,15 @@ export const encounters: Encounters = {
   "a knight errant": town => {
     const npc = createNPC(town, {
       dndClass: `paladin`,
-      background: [`noble`, `soldier`, `soldier`].seededrandom(),
+      background: randomValue([`noble`, `soldier`, `soldier`]),
       isThrowaway: true,
     })
     return `a ${profile(npc, `knight errant`)}`
   },
   "a wounded knight": town => {
     const npc = createNPC(town, {
-      dndClass: [`fighter`, `fighter`, `paladin`].seededrandom(),
-      background: [`noble`, `soldier`, `soldier`].seededrandom(),
+      dndClass: randomValue([`fighter`, `fighter`, `paladin`]),
+      background: randomValue([`noble`, `soldier`, `soldier`]),
       isThrowaway: true,
     })
     return `an injured ${profile(npc, `knight`)}`
@@ -327,7 +327,7 @@ export const encounters: Encounters = {
   "a funeral procession": () => `a funeral procession`,
   "a plague cart": () => `a plague cart`,
   "a lone horse, trotting the other way"() {
-    const horse = setup.misc.horse.create()
+    const horse = misc.horse.create()
     return `a lone ${horse.tippyWord}, trotting the other way`
   },
   "a traveling theatre troupe": () => `a traveling theatre troupe`,
@@ -390,12 +390,12 @@ export const encounters: Encounters = {
     return `a mounted barbarian ${profile(npc, `scout`)}`
   },
   "the ghost of a traveler"() {
-    const ghost = setup.misc.ghost.create()
+    const ghost = misc.ghost.create()
     return `the ${ghost.tippyWord} of a traveler. `
   },
   "a poisonous snake": () => `a poisonous snake`,
   "a giant spider"() {
-    const spider = setup.misc.spider.create()
+    const spider = misc.spider.create()
     return `a giant ${spider.tippyWord}`
   },
   "a giant scorpion": () => `a giant scorpion`,
@@ -582,7 +582,7 @@ export const encounters: Encounters = {
     return `a reclusive ${profile(npc, `shapeshifter`)}`
   },
   "a restless ghost"() {
-    const ghost = setup.misc.ghost.create()
+    const ghost = misc.ghost.create()
     return `a restless ${ghost.tippyWord}`
   },
   "a dangerous fugitive": town => {
@@ -598,7 +598,7 @@ export const encounters: Encounters = {
     return `a dangerous ${profile(npc, `fugitive`)}`
   },
   "spiders and rats"() {
-    const spider = setup.misc.spider.create()
+    const spider = misc.spider.create()
     return `${spider.tippyWord}<b>s</b>` + ` and rats`
   },
   "a treasure hunter": town => {
@@ -612,7 +612,7 @@ export const encounters: Encounters = {
       isThrowaway: true,
       canBeCustom: true,
     })
-    const map = setup.misc.treasureMap.create()
+    const map = misc.treasureMap.create()
     return `a ${profile(npc, `treasure-hunter`)} with a ${map.tippyWord}`
   },
   "a wasteland druid": town => {
@@ -654,7 +654,7 @@ export const encounters: Encounters = {
     return `a mad ${profile(npc, `witch`)}`
   },
   "restless ghosts"() {
-    const ghost = setup.misc.ghost.create()
+    const ghost = misc.ghost.create()
     return `a restless ${ghost.tippyWord}`
   },
   "an outcast orc": town => {
@@ -732,7 +732,7 @@ export const encounters: Encounters = {
   "several homeless dwarves": town => `several homeless dwarves`,
   "an angry wraith": town => `an angry wraith`,
   "a malevolent ghost"() {
-    const ghost = setup.misc.ghost.create({ reaction: `murderous and cruel` })
+    const ghost = misc.ghost.create({ reaction: `murderous and cruel` })
     return `a malevolent ${ghost.tippyWord}`
   },
   "a mated pair of manticores": town => `a mated pair of manticores`,
@@ -742,7 +742,7 @@ export const encounters: Encounters = {
   "a beggarly bandit": town => {
     const npc = createNPC(town, {
       background: `criminal`,
-      dndClass: [`fighter`, `rogue`, `rogue`].seededrandom(),
+      dndClass: randomValue([`fighter`, `rogue`, `rogue`]),
       isThrowaway: true,
     })
     return `a beggarly ${profile(npc, `bandit`)}`
@@ -802,11 +802,11 @@ export const encounters: Encounters = {
   "a large bear": () => `a large bear`,
   "a bear cub": () => `a bear cub`,
   "a wailing ghost"() {
-    const ghost = setup.misc.ghost.create()
+    const ghost = misc.ghost.create()
     return `a wailing ${ghost.tippyWord}`
   },
   "giant spiders"() {
-    const spider = setup.misc.spider.create()
+    const spider = misc.spider.create()
     return `giant ${spider.tippyWord}<b>s</b><<run setup.tippy("span")>>`
   },
   "hungry zombies": () => `hungry zombies`,
