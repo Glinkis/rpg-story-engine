@@ -4,6 +4,7 @@ import { flora } from "../dictionary/flora"
 import { profile } from "./profile"
 import { createNPC, globalNPCs } from "./createNPC"
 import { createMagicWeapon } from "../misc/createMagicWeapon"
+import { createMarriage } from "./createFamilyMembers"
 
 export const npcData: any = {
   gender: {
@@ -1114,7 +1115,7 @@ export const npcData: any = {
         if (node.marriages === undefined || node.marriages.length === 0) {
           console.log(`${npc.name} met somebody!`)
 
-          const newMarriage = createMarriage(town, family, npc, undefined, true)
+          const newMarriage = createMarriage(town, family, npc, true)
           node.marriages = [newMarriage]
           partnerKey = newMarriage.parents.find(key => key !== npc.key)
 

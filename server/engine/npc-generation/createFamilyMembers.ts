@@ -3,6 +3,7 @@ import { createNPC } from "./createNPC"
 import { relativeSocialClass } from "./createSocialClass"
 import { isOfAge } from "./createAge"
 import { npcData } from "./npcData"
+import { familyData } from "./familyData"
 
 // General function for inserting individual relatives.
 // Returns the corresponding relative, or undefined
