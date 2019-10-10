@@ -2,6 +2,7 @@ import { findProfession } from "./findProfession"
 import { dice, randomRange } from "../rolls"
 import { clamp } from "../math"
 import { variables } from "../global"
+import { Marriage } from "./createFamilyMembers"
 
 const socialClasses = [
   [195, `aristocracy`, 5],
@@ -62,7 +63,7 @@ export function relativeSocialClass(npcClass: string) {
   return socialClassArray[newIndex]
 }
 
-export function familySocialClass(marriage: any) {
+export function familySocialClass(marriage: Marriage) {
   if (marriage.parents.length === 0) {
     if (marriage.children.length === 0) {
       return `commoner`

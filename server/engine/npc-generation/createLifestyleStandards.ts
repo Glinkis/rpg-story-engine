@@ -1,5 +1,6 @@
 import { randomValue } from "../rolls"
 import { findProfession } from "./findProfession"
+import { Marriage } from "./createFamilyMembers"
 
 const lifestyleTables: Record<string, [number, string][]> = {
   "aristocracy": [[5, `comfortable`], [15, `wealthy`], [80, `aristocratic`]],
@@ -68,7 +69,7 @@ export function createLifestyleStandards(town: any, npc: any) {
   return npc
 }
 
-export function createFamilyLifestyle(marriage: any) {
+export function createFamilyLifestyle(marriage: Marriage) {
   const lifestyle = rollFromTable(lifestyleTables[marriage.socialClass], 100)
   const home = rollFromTable(homeTable, 100, homeBiases[marriage.lifestyle])
   return Object.assign(marriage, { lifestyle, home })

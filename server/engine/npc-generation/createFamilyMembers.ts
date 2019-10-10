@@ -5,6 +5,13 @@ import { isOfAge } from "./createAge"
 import { npcData } from "./npcData"
 import { familyData } from "./familyData"
 
+export interface Marriage {
+  parents: string[]
+  children: string[]
+  lifestyle?: string
+  socialClass?: string
+}
+
 // General function for inserting individual relatives.
 // Returns the corresponding relative, or undefined
 export function createRelative(town, family, base, force = false) {
@@ -45,7 +52,7 @@ export function createParentage(town, family, npc, forceFather = false, forceMot
     if (randomRange(1, 100) <= familyData.orphanPercent && !forceFather && !forceMother) {
       node.parentMarriage = null
     } else {
-      const marriage = {
+      const marriage: Marriage = {
         parents: [],
         children: [npc.key],
       }
@@ -57,10 +64,10 @@ export function createParentage(town, family, npc, forceFather = false, forceMot
       const fatherBase = {
         ...familyData.relativeBase(npc),
         gender: `man`,
-        ageYears: setup.familyData.parentAge(npc),
+        ageYears: familyData.parentAge(npc),
         race: fatherRace,
         lastName: fatherSurname,
-        socialClass: setup.relativeSocialClass(npc.socialClass),
+        socialClass: relativeSocialClass(npc.socialClass),
       }
 
       const motherBase = {
@@ -73,12 +80,14 @@ export function createParentage(town, family, npc, forceFather = false, forceMot
       }
 
       // TODO finish support for non-heterosexual marriages
-      const father = setup.createRelative(town, family, fatherBase, forceFather)
-      const mother = setup.createRelative(town, family, motherBase, forceMother)
+      const father = createRelative(town, family, fatherBase, forceFather)
+      const mother = createRelative(town, family, motherBase, forceMother)
+
       if (father) {
         marriage.parents.push(father.key)
         family.members[father.key].marriages = [marriage]
       }
+
       if (mother) {
         marriage.parents.push(mother.key)
         family.members[mother.key].marriages = [marriage]
@@ -146,7 +155,7 @@ export function createChildren(
 
 export function createMarriage(town, family, npc, force = false) {
   const marriageMin = npcData.raceTraits[npc.race].ageTraits[`young adult`].baseAge
-  const newMarriage = {
+  const newMarriage: Marriage = {
     parents: [npc.key],
     children: [],
   }

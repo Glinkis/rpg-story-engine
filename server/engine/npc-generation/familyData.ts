@@ -1,6 +1,7 @@
 import { randomRange } from "../rolls"
 import { npcData } from "./npcData"
 import { variables } from "../global"
+import { Marriage } from "./createFamilyMembers"
 
 export const familyData = {
   // These numbers are all made up, feel free to change them
@@ -27,7 +28,7 @@ export const familyData = {
     return npc.ageYears + randomRange(-baseAge, baseAge)
   },
 
-  childAge: marriage => {
+  childAge(marriage: Marriage) {
     if (marriage.parents.length > 0) {
       // find the youngest parent
       const youngest = marriage.parents
