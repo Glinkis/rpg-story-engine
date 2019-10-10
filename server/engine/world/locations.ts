@@ -12,12 +12,12 @@ export const locations: Locations = {
   "a cavern behind a waterfall"(town, biome) {
     const cavern = misc.cavern.create({ entrance: "somewhat hidden behind a roaring waterfall" })
     const contents = contentsFetcher(town, biome, misc[biome].cave, encounters)
-    return "a cavern. " + cavern.readout + " <blockquote>The cavern is now home to " + contents + ".</blockquote>"
+    return `a cavern. ${cavern.readout} <blockquote>The cavern is now home to ${contents}.</blockquote>`
   },
   "a small cave in the bank of a creek"(town, biome) {
     const cavern = misc.cavern.create({ entrance: "in the bank of a creek" })
     const contents = contentsFetcher(town, biome, misc[biome].cave, encounters)
-    return "a small cave. " + cavern.readout + " <blockquote>The cave is home to " + contents + ".</blockquote>"
+    return `a small cave. ${cavern.readout} <blockquote>The cave is home to ${contents}.</blockquote>`
   },
   "an entrance to a rocky cave"(town, biome) {
     const cavern = misc.cavern.create()
