@@ -4,6 +4,7 @@ import { relativeSocialClass, familySocialClass } from "./createSocialClass"
 import { isOfAge } from "./createAge"
 import { npcData } from "./npcData"
 import { familyData } from "./familyData"
+import { setAsPartners } from "./setAsPartners"
 
 export interface Marriage {
   parents: string[]
