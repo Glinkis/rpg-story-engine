@@ -29,6 +29,7 @@ export function createTown(base: any = {}) {
   const economicIdeology = randomValue(townData.type[type].economicIdeology)
   const politicalSource = randomValue(townData.type[type].politicalSource)
   const politicalIdeology = randomValue(townData.politicalSource[politicalSource].politicalIdeology)
+
   const town = {
     passageName: `TownOutput`,
     name: townName,
@@ -78,8 +79,6 @@ export function createTown(base: any = {}) {
     families: {},
     population: townData.type[type].population(),
     _demographic: {},
-    // Clone the raw demographic data for the town type.
-    // _baseDemographics: clone(setup.townData.type['hamlet'].demographics.seededrandom().output),
     get baseDemographics() {
       return this._baseDemographics
     },
@@ -89,7 +88,6 @@ export function createTown(base: any = {}) {
       }
     },
     get demographic(): any {
-      // console.log('Getting demographic percent.')
       // Get an array of the demographic keys (race names).
       const races = Object.keys(this.baseDemographics)
       // Calculate the sum of the raw demographic values.
@@ -128,12 +126,10 @@ export function createTown(base: any = {}) {
       if (this._politicalSource === `absolute monarchy` || this._politicalSource === `constitutional monarchy`) {
         if (this.politicalIdeology === `autocracy`) {
           return source.autocracy.politicalSourceDescription
-        } else {
-          return source.default.politicalSourceDescription
         }
-      } else {
-        return source.politicalSourceDescription
+        return source.default.politicalSourceDescription
       }
+      return source.politicalSourceDescription
     },
     get wealth() {
       let wealth = townData.rollData.wealth.find(descriptor => descriptor[0] <= this.roll.wealth)
