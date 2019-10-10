@@ -4,6 +4,7 @@ import { clamp, fm } from "../math"
 import { townDemographics } from "./townDemographics"
 import { createTownName } from "./createTownName"
 import { townData } from "./townData"
+import { townRender } from "./townRender"
 
 interface Town {
   [key: string]: any
@@ -70,7 +71,6 @@ export function createTown(base: any = {}) {
     set type(this: any, value) {
       this._type = value
     },
-    // type: type,
     terrain,
     currentSeason: randomValue(season),
     season,
@@ -212,7 +212,7 @@ export function createTown(base: any = {}) {
     clamp(town.roll[roll], 1, 100)
   }
 
-  // TODO: setup.townRender(town)
+  townRender(town)
   // TODO: setup.createStartBuildings(town)
   // TODO: setup.createStartFactions(town)
 
