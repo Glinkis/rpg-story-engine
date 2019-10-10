@@ -151,11 +151,11 @@ export const locations = {
     const caravan = misc.caravan.create(town)
     return `a merchant caravan's camp. ${caravan.readout}`
   },
-  "a peculiar tent": (town: any, biome: string) => {
+  "a peculiar tent"(town: any, biome: string) {
     const lived = misc[biome].camped.seededrandom()
     return `an peculiar tent, which looks to have been occupied previously by ${lived}`
   },
-  "an old watchtower": (town: any, biome: string) => {
+  "an old watchtower"(town: any, biome: string) {
     // intentionally uses the mountain biome
     const encounter = setup.contentsFetcher(town, biome, misc.mountain.watchtowerLives, encounters)
     const built = randomValue(misc.mountain.watchtowerBuilt)
