@@ -2,6 +2,7 @@ import { randomValue } from "../rolls"
 import { findProfession } from "./findProfession"
 import { Marriage } from "./createFamilyMembers"
 import { rollFromTable } from "../tools/rollFromTable"
+import { toUpperFirst } from "../tools/toUpperFirst"
 
 const lifestyleTables: Record<string, [number, string][]> = {
   "aristocracy": [[5, `comfortable`], [15, `wealthy`], [80, `aristocratic`]],
@@ -41,7 +42,7 @@ export function createLifestyleStandards(town: any, npc: any) {
   const isHaving = randomValue([`has been having`, `has recently had`, `is having`, `is currently having`])
   const desc = findProfession(town, npc)
   const tippy = `<span id=${JSON.stringify(npc.firstName)} class=tip title=${JSON.stringify(
-    desc.description.toUpperFirst()
+    toUpperFirst(desc.description)
   )}><b>${npc.dndClass}</b></span>`
 
   const wageVarianceNotes: [number, string][] = [
@@ -71,7 +72,9 @@ export function createLifestyleStandards(town: any, npc: any) {
 }
 
 export function createFamilyLifestyle(marriage: Marriage) {
-  const lifestyle = rollFromTable(lifestyleTables[marriage.socialClass], 100)
-  const home = rollFromTable(homeTable, 100, homeBiases[marriage.lifestyle])
-  return Object.assign(marriage, { lifestyle, home })
+  if (marriage.socialClass && marriage.lifestyle) {
+    const lifestyle = rollFromTable(lifestyleTables[marriage.socialClass], 100)
+    const home = rollFromTable(homeTable, 100, homeBiases[marriage.lifestyle])
+    return Object.assign(marriage, { lifestyle, home })
+  }
 }
