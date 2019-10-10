@@ -1,6 +1,7 @@
 import { randomRange, randomValue } from "../rolls"
 import { npcData } from "./npcData"
 import { bmiDescriptions } from "./bmiDescriptions"
+import { closestMatch } from "../tools/closestMatch"
 
 export function createRace(npc: any) {
   console.log(`assigning racial traits to ${npc.name}...`)
