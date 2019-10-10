@@ -7,6 +7,7 @@ import { toUpperFirst } from "../tools/toUpperFirst"
 import { createSexuality } from "./createSexuality"
 import { createClass } from "./createClass"
 import { fetchRace } from "./fetchRace"
+import { fetchProfessionChance } from "./fetchProfessionChance"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
@@ -35,7 +36,7 @@ export function createNPC(town: any, base?: any) {
   const gender = base.gender || randomValue([`man`, `woman`])
   const race = base.race || fetchRace(town, base)
   console.log(`Loading profession:`)
-  const profession = base.profession || setup.fetchProfessionChance(town, base)
+  const profession = base.profession || fetchProfessionChance(town, base)
 
   const firstName = base.firstName || toUpperFirst(randomValue(data.raceTraits[race].genderTraits[gender].firstName))
   const lastName = base.lastName || toUpperFirst(randomValue(data.raceTraits[race].lastName))

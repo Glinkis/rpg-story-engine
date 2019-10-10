@@ -1,10 +1,11 @@
 import { townData } from "../town/townData"
+import { fetchProfessionChance } from "./fetchProfessionChance"
 
 export function findProfession(town: any, npc: any, profession?: string) {
   profession = profession || npc.dndClass || npc.profession
 
   if (!profession && npc.socialClass) {
-    profession = setup.fetchProfessionChance(town, npc)
+    profession = fetchProfessionChance(town, npc)
   }
 
   if (profession && townData.professions[profession]) {
