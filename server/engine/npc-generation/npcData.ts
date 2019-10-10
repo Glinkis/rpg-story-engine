@@ -2,7 +2,7 @@ import { random, dice, randomValue, randomRange } from "../rolls"
 import { townData } from "../town/townData"
 import { flora } from "../dictionary/flora"
 import { profile } from "./profile"
-import { createNPC } from "./createNPC"
+import { createNPC, globalNPCs } from "./createNPC"
 import { createMagicWeapon } from "../misc/createMagicWeapon"
 
 export const npcData: any = {
@@ -999,12 +999,8 @@ export const npcData: any = {
         let friend: any
         if (random(100) > 50) {
           console.log(`Finding an already existing friend!`)
-          // eslint-disable-next-line no-var
-          friend = Object.keys(State.variables.npcs).find(name => {
-            return (
-              State.variables.npcs[name].socialClass === npc.socialClass &&
-              !State.variables.npcs[name].relationships[npc.key]
-            )
+          friend = Array.from(globalNPCs).find(([name, npc]) => {
+            return npc.socialClass === npc.socialClass && !npc.relationships[npc.key]
           })
           if (friend === undefined) {
             console.log(`Nobody was in the same caste as ${npc.name}`)
@@ -1134,18 +1130,20 @@ export const npcData: any = {
           }
         }
 
-        let childMsg, partnerMsg
+        let childMsg = ``
+        let partnerMsg = ``
+
         if (childKey) {
-          childMsg = `I had a child, ${profile(State.variables.npcs[childKey])}`
+          childMsg = `I had a child, ${profile(globalNPCs.get(childKey))}`
           partnerMsg = partnerKey
-            ? ` with my dear partner ${profile(State.variables.npcs[partnerKey])}.`
+            ? ` with my dear partner ${profile(globalNPCs.get(partnerKey))}.`
             : ` with my dear partner, who is no longer with me.`
         } else {
           partnerMsg = partnerKey
-            ? `I met the love of my life, ${profile(partnerKey)}.`
+            ? `I met the love of my life, ${profile(globalNPCs.get(partnerKey))}.`
             : `I met the love of my life, who is no longer with me.`
-          return
         }
+
         return childMsg + partnerMsg
       },
     },

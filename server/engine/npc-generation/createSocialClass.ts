@@ -1,6 +1,7 @@
 import { findProfession } from "./findProfession"
 import { dice, randomRange } from "../rolls"
 import { clamp } from "../math"
+import { globalNPCs } from "./createNPC"
 
 const socialClasses = [
   [195, `aristocracy`, 5],
@@ -66,10 +67,12 @@ export function familySocialClass(marriage: any) {
     if (marriage.children.length === 0) {
       return `commoner`
     } else {
-      return State.variables.npcs[marriage.children[0]].socialClass
+      return globalNPCs.get(marriage.children[0]).socialClass
     }
   } else {
-    const classArray = marriage.parents.map(key => socialClassArray.indexOf(State.variables.npcs[key].socialClass))
+    const classArray = marriage.parents.map(key => {
+      return socialClassArray.indexOf(globalNPCs.get(key).socialClass)
+    })
 
     const mean = Math.round(classArray.reduce((a, b) => a + b) / classArray.length)
     return socialClassArray[mean]

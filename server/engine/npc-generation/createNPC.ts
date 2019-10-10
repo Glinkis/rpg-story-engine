@@ -15,6 +15,8 @@ import { createRace } from "./createRace"
 import { createSocialClass } from "./createSocialClass"
 import { createLifestyleStandards } from "./createLifestyleStandards"
 
+export const globalNPCs = new Map()
+
 export function createNPC(town: any, base?: any) {
   if (!town) {
     console.error(`Town is not defined! NPC cannot be created. Please report this bug.`)
@@ -271,7 +273,7 @@ export function createNPC(town: any, base?: any) {
   npc.formalName = npc.formalName || `${npc.title} ${npc.lastName}`
 
   if (!npc.keyIsAlreadyDefined) {
-    // TODO: State.variables.npcs[npc.key] = npc
+    globalNPCs.set(npc.key, npc)
   }
 
   npc.profile = (npc: any, base: any) => {
