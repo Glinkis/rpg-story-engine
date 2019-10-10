@@ -30,7 +30,7 @@ export function weightedRandomFetcher(
     defaultProbability = 10
   }
 
-  const pool = []
+  const pool: any[] = []
 
   let totalWeight = 0
   exclusionFunction = exclusionFunction || true

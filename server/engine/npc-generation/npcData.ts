@@ -1103,15 +1103,18 @@ export const npcData: any = {
       },
       function(town: any, npc: any) {
         console.log(`called lifeEvents.meetPartnerNPC function`)
+
         const family = town.families[npc.family]
         const node = family.members[npc.key]
-        let partnerKey, childKey
+
+        let partnerKey
+        let childKey
 
         // force creation of family members when applicable
         if (node.marriages === undefined || node.marriages.length === 0) {
           console.log(`${npc.name} met somebody!`)
 
-          const newMarriage = setup.createMarriage(town, family, npc, undefined, true)
+          const newMarriage = createMarriage(town, family, npc, undefined, true)
           node.marriages = [newMarriage]
           partnerKey = newMarriage.parents.find(key => key !== npc.key)
 
