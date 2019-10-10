@@ -179,9 +179,9 @@ export function createTown(base: any = {}) {
   town.origin = randomValue(townData.terrain[town.terrain].location[town.location].origin)
   town.vegetation = randomValue(townData.terrain[town.terrain].location[town.location].vegetation)
 
-  Object.keys(town.roll).forEach(roll => {
-    clamp(town.roll[roll], 1, 100)
-  })
+  for (const roll of town.roll) {
+    town.roll[roll] = clamp(town.roll[roll], 1, 100)
+  }
 
   console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   const townSizeModifiers = townData.type[town.type].modifiers
