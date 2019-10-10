@@ -1,3 +1,10 @@
+import { randomValue } from "../rolls"
+import { RollData } from "../../../shared/types"
+
+interface Rollable {
+  roll: Record<string, any>
+}
+
 /**
  * This handles setting up getters and setters for attributes like wealth,
  * cleanliness and such.
@@ -14,9 +21,9 @@
  * when you have multiple descriptions tied to the same thing
  * (long and short descriptions, or cleanliness controlling bedCleanliness as well.)
  */
-export function defineRollDataGetter(
-  baseObj: any,
-  rollDataObj: any,
+export function defineRollDataGetter<T extends Rollable>(
+  baseObj: T,
+  rollDataObj: RollData,
   propName: string,
   keyName?: string,
   indexNumber?: number,
@@ -39,9 +46,9 @@ export function defineRollDataGetter(
   }
 
   Object.defineProperty(baseObj, propName, {
-    get() {
+    get(this: T) {
       console.log(`Fetching ${this.name} ${propName}.`)
-      const rollArray = rollDataObj[keyName]
+      const rollArray = keyName ? rollDataObj[keyName] : []
       let result = rollArray.find(desc => {
         if (rollLocation) {
           return desc[0] <= rollLocation[keyName]
@@ -54,7 +61,7 @@ export function defineRollDataGetter(
         result = rollArray[rollArray.length - 1]
       }
       if (Array.isArray(result[indexNumber])) {
-        result[indexNumber] = result[indexNumber].seededrandom()
+        result[indexNumber] = randomValue(result[indexNumber])
       }
       this[`_${propName}`] = result[indexNumber] || result
       return this[`_${propName}`]
