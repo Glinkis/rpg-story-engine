@@ -6,6 +6,7 @@ import { npcData } from "./npcData"
 import { familyData } from "./familyData"
 import { setAsPartners } from "./setAsPartners"
 import { findPartnerRace, findChildRace, findParentRaces } from "./familyRaces"
+import { getParentSurnames, getChildSurname } from "./familySurnames"
 
 export interface Marriage {
   parents: string[]
