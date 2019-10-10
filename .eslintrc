@@ -8,7 +8,11 @@
     "node": true
   },
   "rules": {
-    "@typescript-eslint/no-explicit-any": 0,
-    "@typescript-eslint/explicit-function-return-type": 0
+    "no-undef": "off",
+    "prefer-template": "warn",
+    "quotes": ["warn", "double"],
+    "quote-props": ["warn", "consistent-as-needed"],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-function-return-type": "off"
   }
 }

@@ -11,19 +11,19 @@ export const encounters: Encounters = {
     const bandits = misc.bandits.create(town, {
       business: "scamming people into paying a toll to use the trail (despite it clearly not being crown-maintained)",
     })
-    return "a group of " + bandits.tippyWord + " operating a toll road. "
+    return `a group of ${bandits.tippyWord} operating a toll road. `
   },
   "a band of robbers"(town) {
     const bandits = misc.bandits.create(town, { business: "attacking people using the trail" })
-    return bandits.tippy + "<b>a band of robbers.</b></span>"
+    return `${bandits.tippy}<b>a band of robbers.</b></span>`
   },
   "some robbers"(town) {
     const bandits = misc.bandits.create(town, { business: "attacking people using the trail" })
-    return bandits.tippy + "<b>some robbers.</b></span>"
+    return `${bandits.tippy}<b>some robbers.</b></span>`
   },
   "a party of raiders"(town) {
     const bandits = misc.bandits.create(town)
-    return bandits.tippy + "<b>a party of raiders.</b></span>"
+    return `${bandits.tippy}<b>a party of raiders.</b></span>`
   },
   "a pair of outlaws"(town) {
     const npc = setup.createNPC(town, {
@@ -34,221 +34,149 @@ export const encounters: Encounters = {
       background: "criminal",
       isThrowaway: true,
     })
-    return (
-      "a pair of two outlaws; one " +
-      profile(npc, npc.descriptor) +
-      " and a " +
-      profile(secondNpc, secondNpc.descriptor)
-    )
+    return `a pair of two outlaws; one ${profile(npc, npc.descriptor)} and a ${profile(
+      secondNpc,
+      secondNpc.descriptor
+    )}`
   },
   "a band of desperate outlaws"(town) {
     const bandits = misc.bandits.create(town)
-    return bandits.tippy + "<b>a band of desperate outlaws.</b></span>"
+    return `${bandits.tippy}<b>a band of desperate outlaws.</b></span>`
   },
   "some bandits"(town) {
     const bandits = misc.bandits.create(town, { business: "attacking people using the trail" })
-    return bandits.tippy + "<b>some bandits.</b></span>"
+    return `${bandits.tippy}<b>some bandits.</b></span>`
   },
   "some outlaws’ hideout"(town) {
     const bandits = misc.bandits.create(town)
-    return bandits.tippy + "a hideout belonging to <b>some outlaws</b></span>"
+    return `${bandits.tippy}a hideout belonging to <b>some outlaws</b></span>`
   },
   "a disciplined military company"(town) {
     const mercenaries = setup.createMercenaries(town)
-    return (
-      "a military company, armed to the teeth with " +
-      mercenaries.weapon +
-      ", wearing " +
-      mercenaries.colours +
-      " livery over their " +
-      mercenaries.armour +
-      " with an insignia of " +
-      mercenaries.insignia +
-      ". They are " +
-      mercenaries.attitude +
-      " towards their <<profile `$npcs[" +
-      JSON.stringify(mercenaries.captain.key) +
-      "]` commander>>, who is " +
-      mercenaries.commanderTrait +
-      ". They specialise in " +
-      mercenaries.specializes +
-      ", and are notorious for " +
-      mercenaries.notorious +
-      ". They are famous for their " +
-      mercenaries.tactics +
-      ", and are currently " +
-      mercenaries.currently +
-      "."
-    )
+    return `a military company, armed to the teeth with ${mercenaries.weapon}, wearing ${
+      mercenaries.colours
+    } livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${
+      mercenaries.attitude
+    } towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${
+      mercenaries.commanderTrait
+    }. They specialise in ${mercenaries.specializes}, and are notorious for ${
+      mercenaries.notorious
+    }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
   "a rowdy mercenary troop"(town) {
     const mercenaries = setup.createMercenaries(town)
-    return (
-      "a mercenary troop, armed to the teeth with " +
-      mercenaries.weapon +
-      ", wearing " +
-      mercenaries.colours +
-      " livery over their " +
-      mercenaries.armour +
-      " with an insignia of " +
-      mercenaries.insignia +
-      ". They are " +
-      mercenaries.attitude +
-      " towards their <<profile `$npcs[" +
-      JSON.stringify(mercenaries.captain.key) +
-      "]` commander>>, who is " +
-      mercenaries.commanderTrait +
-      ". They specialise in " +
-      mercenaries.specializes +
-      ", and are notorious for " +
-      mercenaries.notorious +
-      ". They are famous for their " +
-      mercenaries.tactics +
-      ", and are currently " +
-      mercenaries.currently +
-      "."
-    )
+    return `a mercenary troop, armed to the teeth with ${mercenaries.weapon}, wearing ${
+      mercenaries.colours
+    } livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${
+      mercenaries.attitude
+    } towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${
+      mercenaries.commanderTrait
+    }. They specialise in ${mercenaries.specializes}, and are notorious for ${
+      mercenaries.notorious
+    }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
   "a band of mercenaries"(town) {
     const mercenaries = setup.createMercenaries(town)
-    return (
-      "a mercenary troop, armed to the teeth with " +
-      mercenaries.weapon +
-      ", wearing " +
-      mercenaries.colours +
-      " livery over their " +
-      mercenaries.armour +
-      " with an insignia of " +
-      mercenaries.insignia +
-      ". They are " +
-      mercenaries.attitude +
-      " towards their <<profile `$npcs[" +
-      JSON.stringify(mercenaries.captain.key) +
-      "]` commander>>, who is " +
-      mercenaries.commanderTrait +
-      ". They specialise in " +
-      mercenaries.specializes +
-      ", and are notorious for " +
-      mercenaries.notorious +
-      ". They are famous for their " +
-      mercenaries.tactics +
-      ", and are currently " +
-      mercenaries.currently +
-      "."
-    )
+    return `a mercenary troop, armed to the teeth with ${mercenaries.weapon}, wearing ${
+      mercenaries.colours
+    } livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${
+      mercenaries.attitude
+    } towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${
+      mercenaries.commanderTrait
+    }. They specialise in ${mercenaries.specializes}, and are notorious for ${
+      mercenaries.notorious
+    }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
   "a marching army": town => {
     const mercenaries = setup.createMercenaries(town)
-    return (
-      "a small army, armed to the teeth with " +
-      mercenaries.weapon +
-      ", wearing " +
-      mercenaries.colours +
-      " livery over their " +
-      mercenaries.armour +
-      " with an insignia of " +
-      mercenaries.insignia +
-      ". They are " +
-      mercenaries.attitude +
-      " towards their <<profile `$npcs[" +
-      JSON.stringify(mercenaries.captain.key) +
-      "]` commander>>, who is " +
-      mercenaries.commanderTrait +
-      ". They specialise in " +
-      mercenaries.specializes +
-      ", and are notorious for " +
-      mercenaries.notorious +
-      ". They are famous for their " +
-      mercenaries.tactics +
-      ", and are currently " +
-      mercenaries.currently +
-      "."
-    )
+    return `a small army, armed to the teeth with ${mercenaries.weapon}, wearing ${
+      mercenaries.colours
+    } livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${
+      mercenaries.attitude
+    } towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${
+      mercenaries.commanderTrait
+    }. They specialise in ${mercenaries.specializes}, and are notorious for ${
+      mercenaries.notorious
+    }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
   "a small merchant caravan": town => {
     const caravan = setup.misc.caravan.create(town)
-    return "a small merchant caravan. " + caravan.readout
+    return `a small merchant caravan. ${caravan.readout}`
   },
   "a merchant caravan": town => {
     const caravan = setup.misc.caravan.create(town)
-    return "a merchant caravan. " + caravan.readout
+    return `a merchant caravan. ${caravan.readout}`
   },
   "a clan of orcs": town => {
     const orcs = misc.orcs.create()
-    return "a clan of orcs. " + orcs.readout
+    return `a clan of orcs. ${orcs.readout}`
   },
   "several orc raiders": town => {
     const orcs = misc.orcs.create()
-    return "several orc raiders. " + orcs.readout
+    return `several orc raiders. ${orcs.readout}`
   },
   "an orkish war band"() {
     const orcs = misc.orcs.create()
-    return "an orc war band. " + orcs.readout
+    return `an orc war band. ${orcs.readout}`
   },
   "an orc war band"() {
     const orcs = misc.orcs.create()
-    return "an orc war band. " + orcs.readout
+    return `an orc war band. ${orcs.readout}`
   },
   "a handful of ogres"() {
     const ogre = misc.ogre.create()
-    return "a handful of " + ogre.tippyWord + "s."
+    return `a handful of ${ogre.tippyWord}s.`
   },
   "an ogre"() {
     const ogre = misc.ogre.create()
-    return "a lone " + ogre.tippyWord + "."
+    return `a lone ${ogre.tippyWord}.`
   },
   "an ogre's lair"() {
     const ogre = misc.ogre.create()
-    return "a lair belonging to an " + ogre.tippyWord
+    return `a lair belonging to an ${ogre.tippyWord}`
   },
   "some goblins' hideout": town => {
     const goblins = misc.goblins.create(town)
-    return "a goblin hideout. " + goblins.readout
+    return `a goblin hideout. ${goblins.readout}`
   },
   "a pair of goblin scouts": () => "a pair of goblin scouts",
   "a lone goblin"() {
     const goblin = misc.goblin.create()
-    return (
-      "a lone " +
-      goblin.tippyWord +
-      " " +
-      randomValue([
-        "trying to hide from you.",
-        "lying in wait for you.",
-        "lying down, asleep.",
-        "crawling away from you, clearly bleeding.",
-      ])
-    )
+    return `a lone ${goblin.tippyWord} ${randomValue([
+      "trying to hide from you.",
+      "lying in wait for you.",
+      "lying down, asleep.",
+      "crawling away from you, clearly bleeding.",
+    ])}`
   },
   "a goblin war party"() {
     const goblins = misc.goblins.create()
-    return "a goblin war party. " + goblins.readout
+    return `a goblin war party. ${goblins.readout}`
   },
   "a goblin patrol": () =>
-    "a goblin patrol " +
-    randomValue([
+    `a goblin patrol ${randomValue([
       "lying in ambush.",
       "squabbling over something.",
       "in the middle of a meal.",
       "arguing amongst themselves over something.",
       "jumping up and down, for some reason.",
-    ]),
+    ])}`,
   "several giant spiders"() {
     const spider = misc.spider.create()
-    return "several giant " + spider.tippyWord + "<b>s</b>."
+    return `several giant ${spider.tippyWord}<b>s</b>.`
   },
   "a pack of wolves"() {
     const wolf = misc.wolf.create()
-    const wolves = wolf.tippy + "<b>wolves</b></span>."
-    return "a pack of " + wolves
+    const wolves = `${wolf.tippy}<b>wolves</b></span>.`
+    return `a pack of ${wolves}`
   },
   "a lone wolf"() {
     const wolf = misc.wolf.create()
-    return "a lone " + wolf.tippyWord + "."
+    return `a lone ${wolf.tippyWord}.`
   },
   "a hunting cat"() {
     const cat = misc.cat.create()
-    return "a hunting " + cat.tippyWord + "."
+    return `a hunting ${cat.tippyWord}.`
   },
   "an itinerant priest": town => {
     const npc = setup.createNPC(town, {
@@ -257,7 +185,7 @@ export const encounters: Encounters = {
       profession: "priest",
       isThrowaway: true,
     })
-    return "an itinerant " + profile(npc, "priest")
+    return `an itinerant ${profile(npc, "priest")}`
   },
   "a hermit": town => {
     const npc = setup.createNPC(town, {
@@ -266,7 +194,7 @@ export const encounters: Encounters = {
       profession: "hermit",
       isThrowaway: true,
     })
-    return "a " + profile(npc, "hermit")
+    return `a ${profile(npc, "hermit")}`
   },
   "a solitary hunter": town => {
     const npc = setup.createNPC(town, {
@@ -274,7 +202,7 @@ export const encounters: Encounters = {
       background: "outlander",
       isThrowaway: true,
     })
-    return "a solitary " + profile(npc, "hunter")
+    return `a solitary ${profile(npc, "hunter")}`
   },
   "a solitary bandit": town => {
     const npc = setup.createNPC(town, {
@@ -282,7 +210,7 @@ export const encounters: Encounters = {
       background: "criminal",
       isThrowaway: true,
     })
-    return "a solitary " + profile(npc, "bandit")
+    return `a solitary ${profile(npc, "bandit")}`
   },
   "an injured knight": town => {
     const npc = setup.createNPC(town, {
@@ -290,7 +218,7 @@ export const encounters: Encounters = {
       background: randomValue(["noble", "soldier", "soldier"]),
       isThrowaway: true,
     })
-    return "an injured " + profile(npc, "knight")
+    return `an injured ${profile(npc, "knight")}`
   },
   "a ranger": town => {
     const npc = setup.createNPC(town, {
@@ -298,7 +226,7 @@ export const encounters: Encounters = {
       background: "outlander",
       isThrowaway: true,
     })
-    return "a solitary " + profile(npc, "hunter")
+    return `a solitary ${profile(npc, "hunter")}`
   },
   "a diseased animal corpse": () => "a diseased animal corpse",
   "a dead body": () => "a dead body",
@@ -321,7 +249,7 @@ export const encounters: Encounters = {
       profession: "merchant",
       isThrowaway: true,
     })
-    return "a traveling " + profile(npc, "peddler")
+    return `a traveling ${profile(npc, "peddler")}`
   },
   "a solitary troubador": town => {
     const npc = setup.createNPC(town, {
@@ -330,7 +258,7 @@ export const encounters: Encounters = {
       profession: "troubador",
       isThrowaway: true,
     })
-    return "a solitary " + profile(npc, "troubador")
+    return `a solitary ${profile(npc, "troubador")}`
   },
   "an adventurer on a horse": town => {
     const horse = setup.misc.horse.create()
@@ -339,7 +267,7 @@ export const encounters: Encounters = {
       background: randomValue(["noble", "soldier", "soldier"]),
       isThrowaway: true,
     })
-    return "an " + profile(npc, "adventurer") + " on a " + horse.tippyWord
+    return `an ${profile(npc, "adventurer")} on a ${horse.tippyWord}`
   },
   "a mounted messenger": town => {
     const npc = setup.createNPC(town, {
@@ -347,7 +275,7 @@ export const encounters: Encounters = {
       profession: "messenger",
       isThrowaway: true,
     })
-    return "a mounted " + profile(npc, "messenger")
+    return `a mounted ${profile(npc, "messenger")}`
   },
   "a work gang heading home": () => "a work gang heading home",
   "the road wardens": () => "the road wardens",
@@ -357,7 +285,7 @@ export const encounters: Encounters = {
   "some farmers": () => "some farmers",
   "a plague-infested cabin"() {
     const cabin = setup.misc.cabin.create()
-    return "a plague-infested " + cabin.tippyWord + "."
+    return `a plague-infested ${cabin.tippyWord}.`
   },
   "some beserkers": () => "some beserkers",
   "a caravan of gypsies": () => "a caravan of gypsies",
@@ -367,7 +295,7 @@ export const encounters: Encounters = {
       background: ["noble", "soldier", "soldier"].seededrandom(),
       isThrowaway: true,
     })
-    return "a " + profile(npc, "knight errant")
+    return `a ${profile(npc, "knight errant")}`
   },
   "a wounded knight": town => {
     const npc = setup.createNPC(town, {
@@ -375,7 +303,7 @@ export const encounters: Encounters = {
       background: ["noble", "soldier", "soldier"].seededrandom(),
       isThrowaway: true,
     })
-    return "an injured " + profile(npc, "knight")
+    return `an injured ${profile(npc, "knight")}`
   },
   "a traveling lady": town => {
     const npc = setup.createNPC(town, {
@@ -383,7 +311,7 @@ export const encounters: Encounters = {
       background: "noble",
       isThrowaway: true,
     })
-    return "a traveling " + profile(npc, "lady")
+    return `a traveling ${profile(npc, "lady")}`
   },
   "a courier": town => {
     const npc = setup.createNPC(town, {
@@ -391,7 +319,7 @@ export const encounters: Encounters = {
       profession: "courier",
       isThrowaway: true,
     })
-    return "a " + profile(npc, "courier")
+    return `a ${profile(npc, "courier")}`
   },
   "a wedding party": () => "a wedding party",
   "a group of pilgrims": () => "a group of pilgrims",
@@ -399,7 +327,7 @@ export const encounters: Encounters = {
   "a plague cart": () => "a plague cart",
   "a lone horse, trotting the other way"() {
     const horse = setup.misc.horse.create()
-    return "a lone " + horse.tippyWord + ", trotting the other way"
+    return `a lone ${horse.tippyWord}, trotting the other way`
   },
   "a traveling theatre troupe": () => "a traveling theatre troupe",
   "some beggars": () => "some beggars",
@@ -411,7 +339,7 @@ export const encounters: Encounters = {
       isThrowaway: true,
       canBeCustom: true,
     })
-    return "a strange " + profile(npc, "hermit")
+    return `a strange ${profile(npc, "hermit")}`
   },
   "a lost traveler": town => {
     const npc = setup.createNPC(town, {
@@ -421,7 +349,7 @@ export const encounters: Encounters = {
       isThrowaway: true,
       canBeCustom: true,
     })
-    return "a lost " + profile(npc, "traveler")
+    return `a lost ${profile(npc, "traveler")}`
   },
   "a poor nomad": town => {
     const npc = setup.createNPC(town, {
@@ -430,7 +358,7 @@ export const encounters: Encounters = {
       profession: "nomad",
       isThrowaway: true,
     })
-    return "a poor " + profile(npc, "nomad")
+    return `a poor ${profile(npc, "nomad")}`
   },
   "a suspicious miner": town => {
     const npc = setup.createNPC(town, {
@@ -440,7 +368,7 @@ export const encounters: Encounters = {
       note: "This person is hiding something.",
       isThrowaway: true,
     })
-    return "a suspicious " + profile(npc, "miner")
+    return `a suspicious ${profile(npc, "miner")}`
   },
   "a barbarian hunter": town => {
     const npc = setup.createNPC(town, {
@@ -449,7 +377,7 @@ export const encounters: Encounters = {
       profession: "hunter",
       isThrowaway: true,
     })
-    return "a barbarian " + profile(npc, "hunter")
+    return `a barbarian ${profile(npc, "hunter")}`
   },
   "a mounted barbarian scout": town => {
     const npc = setup.createNPC(town, {
@@ -458,16 +386,16 @@ export const encounters: Encounters = {
       profession: "scout",
       isThrowaway: true,
     })
-    return "a mounted barbarian " + profile(npc, "scout")
+    return `a mounted barbarian ${profile(npc, "scout")}`
   },
   "the ghost of a traveler"() {
     const ghost = setup.misc.ghost.create()
-    return "the " + ghost.tippyWord + " of a traveler. "
+    return `the ${ghost.tippyWord} of a traveler. `
   },
   "a poisonous snake": () => "a poisonous snake",
   "a giant spider"() {
     const spider = setup.misc.spider.create()
-    return "a giant " + spider.tippyWord
+    return `a giant ${spider.tippyWord}`
   },
   "a giant scorpion": () => "a giant scorpion",
   "a giant centipede": () => "a giant centipede",
@@ -498,7 +426,7 @@ export const encounters: Encounters = {
       note: "This prophet is as crazy as can be.",
       isThrowaway: true,
     })
-    return "a half-mad " + profile(npc, "prophet")
+    return `a half-mad ${profile(npc, "prophet")}`
   },
   "a reclusive sorcerer": town => {
     const npc = setup.createNPC(town, {
@@ -507,7 +435,7 @@ export const encounters: Encounters = {
       calmTrait: "withdrawn",
       isThrowaway: true,
     })
-    return "a reclusive " + profile(npc, "sorcerer")
+    return `a reclusive ${profile(npc, "sorcerer")}`
   },
   "a merchant of exotic goods": town => {
     const npc = setup.createNPC(town, {
@@ -516,7 +444,7 @@ export const encounters: Encounters = {
       hasClass: false,
       isThrowaway: true,
     })
-    return "a strange " + profile(npc, "merchant") + " of exotic goods"
+    return `a strange ${profile(npc, "merchant")} of exotic goods`
   },
   "a misanthropic shapeshifter": town => {
     const npc = setup.createNPC(town, {
@@ -528,7 +456,7 @@ export const encounters: Encounters = {
       hasClass: false,
       isThrowaway: true,
     })
-    return "a misanthropic " + profile(npc, "shapeshifter")
+    return `a misanthropic ${profile(npc, "shapeshifter")}`
   },
   "an eccentric monk": town => {
     const npc = setup.createNPC(town, {
@@ -539,7 +467,7 @@ export const encounters: Encounters = {
       dndClass: "monk",
       isThrowaway: true,
     })
-    return "an eccentric " + profile(npc, "monk")
+    return `an eccentric ${profile(npc, "monk")}`
   },
   "a nomadic herder": town => {
     const npc = setup.createNPC(town, {
@@ -548,7 +476,7 @@ export const encounters: Encounters = {
       hasClass: false,
       isThrowaway: true,
     })
-    return "a nomadic " + profile(npc, "herder")
+    return `a nomadic ${profile(npc, "herder")}`
   },
   "a nomadic warrior": town => {
     const npc = setup.createNPC(town, {
@@ -557,7 +485,7 @@ export const encounters: Encounters = {
       dndClass: "fighter",
       isThrowaway: true,
     })
-    return "a nomadic " + profile(npc, "warrior")
+    return `a nomadic ${profile(npc, "warrior")}`
   },
   "an outcast elf": town => {
     const npc = setup.createNPC(town, {
@@ -568,7 +496,7 @@ export const encounters: Encounters = {
       race: "elf",
       isThrowaway: true,
     })
-    return "an outcast " + profile(npc, "elf")
+    return `an outcast ${profile(npc, "elf")}`
   },
   "a reclusive scholar": town => {
     const npc = setup.createNPC(town, {
@@ -578,7 +506,7 @@ export const encounters: Encounters = {
       calmTrait: "withdrawn",
       isThrowaway: true,
     })
-    return "a reclusive " + profile(npc, "scholar")
+    return `a reclusive ${profile(npc, "scholar")}`
   },
   "an eccentric healer": town => {
     const npc = setup.createNPC(town, {
@@ -587,7 +515,7 @@ export const encounters: Encounters = {
       note: "This healer is rather odd.",
       isThrowaway: true,
     })
-    return "an eccentric " + profile(npc, "healer")
+    return `an eccentric ${profile(npc, "healer")}`
   },
   "a poor goatherder": town => {
     const npc = setup.createNPC(town, {
@@ -597,7 +525,7 @@ export const encounters: Encounters = {
       note: "This goatherder is very poor, but knows the area well.",
       isThrowaway: true,
     })
-    return "a poor " + profile(npc, "goatherder")
+    return `a poor ${profile(npc, "goatherder")}`
   },
   "a mining prospector": town => {
     const npc = setup.createNPC(town, {
@@ -606,7 +534,7 @@ export const encounters: Encounters = {
       profession: "prospector",
       isThrowaway: true,
     })
-    return "a mining " + profile(npc, "prospector")
+    return `a mining ${profile(npc, "prospector")}`
   },
   "a religious fanatic with his many wives": town => {
     const npc = setup.createNPC(town, {
@@ -615,7 +543,7 @@ export const encounters: Encounters = {
       note: "Has multiple wives.",
       isThrowaway: true,
     })
-    return "a religious " + profile(npc, "fanatic") + " with his many wives"
+    return `a religious ${profile(npc, "fanatic")} with his many wives`
   },
   "poisonous snakes": town => "poisonous snakes",
   "a pair of orcs": town => "a pair of orcs",
@@ -628,7 +556,7 @@ export const encounters: Encounters = {
       note: "This person is totally mad.",
       isThrowaway: true,
     })
-    return "a mad " + profile(npc, "sorcerer")
+    return `a mad ${profile(npc, "sorcerer")}`
   },
   "a paranoid shapeshifter": town => {
     const npc = setup.createNPC(town, {
@@ -640,7 +568,7 @@ export const encounters: Encounters = {
       note: "This person is a paranoid shapeshifter.",
       isThrowaway: true,
     })
-    return "a paranoid " + profile(npc, "shapeshifter")
+    return `a paranoid ${profile(npc, "shapeshifter")}`
   },
   "a reclusive shapeshifter": town => {
     const npc = setup.createNPC(town, {
@@ -650,11 +578,11 @@ export const encounters: Encounters = {
       note: "This person is a shapeshifter.",
       isThrowaway: true,
     })
-    return "a reclusive " + profile(npc, "shapeshifter")
+    return `a reclusive ${profile(npc, "shapeshifter")}`
   },
   "a restless ghost"() {
     const ghost = setup.misc.ghost.create()
-    return "a restless " + ghost.tippyWord
+    return `a restless ${ghost.tippyWord}`
   },
   "a dangerous fugitive": town => {
     const npc = setup.createNPC(town, {
@@ -666,11 +594,11 @@ export const encounters: Encounters = {
       note: "This person is a wanted criminal for high treason against the crown.",
       isThrowaway: true,
     })
-    return "a dangerous " + profile(npc, "fugitive")
+    return `a dangerous ${profile(npc, "fugitive")}`
   },
   "spiders and rats"() {
     const spider = setup.misc.spider.create()
-    return spider.tippyWord + "<b>s</b>" + " and rats"
+    return `${spider.tippyWord}<b>s</b>` + " and rats"
   },
   "a treasure hunter": town => {
     const npc = setup.createNPC(town, {
@@ -684,7 +612,7 @@ export const encounters: Encounters = {
       canBeCustom: true,
     })
     const map = setup.misc.treasureMap.create()
-    return "a " + profile(npc, "treasure-hunter") + " with a " + map.tippyWord
+    return `a ${profile(npc, "treasure-hunter")} with a ${map.tippyWord}`
   },
   "a wasteland druid": town => {
     const npc = setup.createNPC(town, {
@@ -694,7 +622,7 @@ export const encounters: Encounters = {
       calmTrait: "understanding",
       isThrowaway: true,
     })
-    return "a wasteland " + profile(npc, "druid")
+    return `a wasteland ${profile(npc, "druid")}`
   },
   "cursed mummies": town => "cursed mummies",
   "a hobgoblin warlord": town => "a hobgoblin warlord",
@@ -722,11 +650,11 @@ export const encounters: Encounters = {
       note: "This witch is as mad as a cut snake.",
       isThrowaway: true,
     })
-    return "a mad " + profile(npc, "witch")
+    return `a mad ${profile(npc, "witch")}`
   },
   "restless ghosts"() {
     const ghost = setup.misc.ghost.create()
-    return "a restless " + ghost.tippyWord
+    return `a restless ${ghost.tippyWord}`
   },
   "an outcast orc": town => {
     const npc = setup.createNPC(town, {
@@ -735,7 +663,7 @@ export const encounters: Encounters = {
       note: "This person is either an orc that was outcast, or a half orc.",
       isThrowaway: true,
     })
-    return "a reclusive " + profile(npc, "shapeshifter")
+    return `a reclusive ${profile(npc, "shapeshifter")}`
   },
   "an owlbear": town => "an owlbear",
   "a troll": town => "a troll",
@@ -750,7 +678,7 @@ export const encounters: Encounters = {
       note: "This person is very lost.",
       isThrowaway: true,
     })
-    return "a lost " + profile(npc, "prospector")
+    return `a lost ${profile(npc, "prospector")}`
   },
   "a solemn warrior": town => {
     const npc = setup.createNPC(town, {
@@ -761,7 +689,7 @@ export const encounters: Encounters = {
       stressTrait: "determined",
       isThrowaway: true,
     })
-    return "a solemn looking " + profile(npc, "warrior")
+    return `a solemn looking ${profile(npc, "warrior")}`
   },
   "a seasoned mountaineer": town => {
     const npc = setup.createNPC(town, {
@@ -771,7 +699,7 @@ export const encounters: Encounters = {
       note: "Never gets lost.",
       isThrowaway: true,
     })
-    return "a seasoned " + profile(npc, "mountaineer")
+    return `a seasoned ${profile(npc, "mountaineer")}`
   },
 
   "an eccentric witch": town => {
@@ -783,7 +711,7 @@ export const encounters: Encounters = {
       note: "This witch is as crazy as a cut snake.",
       isThrowaway: true,
     })
-    return "an eccentric " + profile(npc, "witch")
+    return `an eccentric ${profile(npc, "witch")}`
   },
   "a contemplative monk": town => {
     const npc = setup.createNPC(town, {
@@ -794,7 +722,7 @@ export const encounters: Encounters = {
       stressTrait: "determined",
       isThrowaway: true,
     })
-    return "a contemplative " + profile(npc, "monk")
+    return `a contemplative ${profile(npc, "monk")}`
   },
   "a hunting peryton": town => "a hunting peryton",
   "a mountain lion": town => "a mountain lion",
@@ -804,7 +732,7 @@ export const encounters: Encounters = {
   "an angry wraith": town => "an angry wraith",
   "a malevolent ghost"() {
     const ghost = setup.misc.ghost.create({ reaction: "murderous and cruel" })
-    return "a malevolent " + ghost.tippyWord
+    return `a malevolent ${ghost.tippyWord}`
   },
   "a mated pair of manticores": town => "a mated pair of manticores",
   "a trio of monstrous trolls": town => "a trio of monstrous trolls",
@@ -816,7 +744,7 @@ export const encounters: Encounters = {
       dndClass: ["fighter", "rogue", "rogue"].seededrandom(),
       isThrowaway: true,
     })
-    return "a beggarly " + profile(npc, "bandit")
+    return `a beggarly ${profile(npc, "bandit")}`
   },
   "an old witch": town => {
     const npc = setup.createNPC(town, {
@@ -826,7 +754,7 @@ export const encounters: Encounters = {
       ageStage: "elderly",
       isThrowaway: true,
     })
-    return "an old " + profile(npc, "witch")
+    return `an old ${profile(npc, "witch")}`
   },
   "a curious herbalist": town => {
     const npc = setup.createNPC(town, {
@@ -835,14 +763,14 @@ export const encounters: Encounters = {
       profession: "herbalist",
       isThrowaway: true,
     })
-    return "a curious " + profile(npc, "herbalist")
+    return `a curious ${profile(npc, "herbalist")}`
   },
   "a lost child": town => {
     const npc = setup.createNPC(town, {
       ageStage: "child",
       isThrowaway: true,
     })
-    return "a lost " + profile(npc, "child")
+    return `a lost ${profile(npc, "child")}`
   },
   "a woodcutter busy with the day’s work": town => {
     const npc = setup.createNPC(town, {
@@ -851,7 +779,7 @@ export const encounters: Encounters = {
       profession: "woodcutter",
       isThrowaway: true,
     })
-    return "a <<profile `$npcs[" + JSON.stringify(npc.key) + "]` woodcutter>>, busy with the day's work"
+    return `a <<profile \`$npcs[${JSON.stringify(npc.key)}]\` woodcutter>>, busy with the day's work`
   },
   "an intrepid hunter": town => {
     const npc = setup.createNPC(town, {
@@ -859,7 +787,7 @@ export const encounters: Encounters = {
       background: "outlander",
       isThrowaway: true,
     })
-    return "an intrepid " + profile(npc, "hunter")
+    return `an intrepid ${profile(npc, "hunter")}`
   },
   "an elvish ranger": town => {
     const npc = setup.createNPC(town, {
@@ -868,17 +796,17 @@ export const encounters: Encounters = {
       background: "outlander",
       isThrowaway: true,
     })
-    return "an elvish " + profile(npc, "ranger")
+    return `an elvish ${profile(npc, "ranger")}`
   },
   "a large bear": () => "a large bear",
   "a bear cub": () => "a bear cub",
   "a wailing ghost"() {
     const ghost = setup.misc.ghost.create()
-    return "a wailing " + ghost.tippyWord
+    return `a wailing ${ghost.tippyWord}`
   },
   "giant spiders"() {
     const spider = setup.misc.spider.create()
-    return "giant " + spider.tippyWord + '<b>s</b><<run setup.tippy("span")>>'
+    return `giant ${spider.tippyWord}<b>s</b><<run setup.tippy("span")>>`
   },
   "hungry zombies": () => "hungry zombies",
   "a lonely old woman": town => {
@@ -889,7 +817,7 @@ export const encounters: Encounters = {
       calmTrait: "quiet",
       isThrowaway: true,
     })
-    return "a lonely old " + profile(npc, "woman")
+    return `a lonely old ${profile(npc, "woman")}`
   },
   "a beautiful witch": town => {
     const npc = setup.createNPC(town, {
@@ -899,7 +827,7 @@ export const encounters: Encounters = {
       note: "This witch is very beautiful.",
       isThrowaway: true,
     })
-    return "a beautiful " + profile(npc, "witch")
+    return `a beautiful ${profile(npc, "witch")}`
   },
   "a horrible witch": town => {
     const npc = setup.createNPC(town, {
@@ -910,7 +838,7 @@ export const encounters: Encounters = {
       stressTrait: "cruel",
       isThrowaway: true,
     })
-    return "a horrible " + profile(npc, "witch")
+    return `a horrible ${profile(npc, "witch")}`
   },
   "an outcast dwarf": town => {
     const npc = setup.createNPC(town, {
@@ -920,7 +848,7 @@ export const encounters: Encounters = {
       calmTrait: "quiet",
       isThrowaway: true,
     })
-    return "an outcast " + profile(npc, "dwarf")
+    return `an outcast ${profile(npc, "dwarf")}`
   },
   "a dwarf prospector": town => {
     const npc = setup.createNPC(town, {
@@ -930,7 +858,7 @@ export const encounters: Encounters = {
       profession: "prospector",
       isThrowaway: true,
     })
-    return "a mining " + profile(npc, "prospector")
+    return `a mining ${profile(npc, "prospector")}`
   },
   "a wood elf druid": town => {
     const npc = setup.createNPC(town, {
@@ -939,7 +867,7 @@ export const encounters: Encounters = {
       race: "elf",
       isThrowaway: true,
     })
-    return "a wood elf " + profile(npc, "druid")
+    return `a wood elf ${profile(npc, "druid")}`
   },
   "some irritable trolls": () => "some irritable trolls",
 }
