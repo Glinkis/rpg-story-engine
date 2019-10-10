@@ -23,7 +23,7 @@ export function weightedRandomFetcher(
   defaultProbability?: any
 ) {
   if (!output) {
-    output = "function"
+    output = `function`
   }
 
   if (!defaultProbability) {
@@ -38,7 +38,7 @@ export function weightedRandomFetcher(
   for (const arg in args) {
     let isValid
     let fnValid
-    if (args[arg].exclusions && typeof args[arg].exclusions === "function") {
+    if (args[arg].exclusions && typeof args[arg].exclusions === `function`) {
       isValid = args[arg].exclusions(town, obj)
     } else {
       isValid = true
@@ -48,7 +48,7 @@ export function weightedRandomFetcher(
       isValid = false
     }
 
-    if (typeof exclusionFunction === "function") {
+    if (typeof exclusionFunction === `function`) {
       fnValid = exclusionFunction(town, args[arg])
     } else {
       fnValid = true
@@ -71,13 +71,13 @@ export function weightedRandomFetcher(
     }
   }
 
-  if (!selected[output] && output !== "object") {
+  if (!selected[output] && output !== `object`) {
     console.error(`The randomly fetched object does not have the attribute ${output}.`)
   }
 
-  if (output === "object") {
+  if (output === `object`) {
     return selected
-  } else if (typeof selected[output] === "function") {
+  } else if (typeof selected[output] === `function`) {
     return selected[output](town, obj)
   } else {
     return selected[output]

@@ -17,7 +17,7 @@ export function clone<T>(orig: T): T {
   /*
     Immediately return the primitives and functions.
   */
-  if (typeof orig !== "object" || orig === null) {
+  if (typeof orig !== `object` || orig === null) {
     return orig
   }
 

@@ -16,13 +16,13 @@ export function alchemistModifiers(alchemist: Alchemist) {
   }
 
   switch (alchemist.material) {
-    case "hewn rock":
+    case `hewn rock`:
       alchemist.roll.roughness += 3
       break
-    case "chiseled stone":
+    case `chiseled stone`:
       alchemist.roll.roughness -= 1
       break
-    case "marble":
+    case `marble`:
       alchemist.roll.cleanliness += 5
       alchemist.roll.wealth += 6
       break
@@ -84,35 +84,35 @@ export function alchemistModifiers(alchemist: Alchemist) {
   }
 
   if (alchemist.roll.activity > 80) {
-    alchemist.activity = "extremely busy"
+    alchemist.activity = `extremely busy`
     alchemist.roll.reputation += 5
     alchemist.roll.cleanliness -= 5
   } else if (alchemist.roll.activity > 70) {
-    alchemist.activity = "very busy"
+    alchemist.activity = `very busy`
     alchemist.roll.reputation += 3
     alchemist.roll.cleanliness -= 3
   } else if (alchemist.roll.activity > 60) {
-    alchemist.activity = "rather busy"
+    alchemist.activity = `rather busy`
     alchemist.roll.reputation += 2
     alchemist.roll.cleanliness -= 2
   } else if (alchemist.roll.activity > 50) {
-    alchemist.activity = "reasonably busy"
+    alchemist.activity = `reasonably busy`
     alchemist.roll.reputation += 1
     alchemist.roll.cleanliness -= 1
   } else if (alchemist.roll.activity > 40) {
-    alchemist.activity = "not terribly busy"
+    alchemist.activity = `not terribly busy`
     alchemist.roll.reputation -= 1
     alchemist.roll.cleanliness += 1
   } else if (alchemist.roll.activity > 30) {
-    alchemist.activity = "not busy"
+    alchemist.activity = `not busy`
     alchemist.roll.reputation -= 2
     alchemist.roll.cleanliness += 2
   } else if (alchemist.roll.activity > 20) {
-    alchemist.activity = "rather quiet"
+    alchemist.activity = `rather quiet`
     alchemist.roll.reputation -= 3
     alchemist.roll.cleanliness += 3
   } else if (alchemist.roll.activity <= 20) {
-    alchemist.activity = "very quiet"
+    alchemist.activity = `very quiet`
     alchemist.roll.reputation -= 5
     alchemist.roll.cleanliness += 5
   }

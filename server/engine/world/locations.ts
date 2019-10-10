@@ -10,12 +10,12 @@ interface Locations {
 
 export const locations: Locations = {
   "a cavern behind a waterfall"(town, biome) {
-    const cavern = misc.cavern.create({ entrance: "somewhat hidden behind a roaring waterfall" })
+    const cavern = misc.cavern.create({ entrance: `somewhat hidden behind a roaring waterfall` })
     const contents = contentsFetcher(town, biome, misc[biome].cave, encounters)
     return `a cavern. ${cavern.readout} <blockquote>The cavern is now home to ${contents}.</blockquote>`
   },
   "a small cave in the bank of a creek"(town, biome) {
-    const cavern = misc.cavern.create({ entrance: "in the bank of a creek" })
+    const cavern = misc.cavern.create({ entrance: `in the bank of a creek` })
     const contents = contentsFetcher(town, biome, misc[biome].cave, encounters)
     return `a small cave. ${cavern.readout} <blockquote>The cave is home to ${contents}.</blockquote>`
   },
@@ -27,7 +27,7 @@ export const locations: Locations = {
   "a hole under a large tree"(town, biome) {
     let contents = randomValue(misc[biome].hole)
     // this is lazy. Will change hole from an array to an object once I make more creators.
-    if (contents === "a spider") {
+    if (contents === `a spider`) {
       const spider = misc.spider.create()
       contents = `a ${spider.tippyWord}.`
     }
@@ -49,7 +49,7 @@ export const locations: Locations = {
   "a peculiar cottage"(town, biome) {
     const contents = contentsFetcher(town, biome, misc[biome].cottageLives, encounters)
     const cabin = misc.cabin.create(town, biome, {
-      wordNoun: "cottage",
+      wordNoun: `cottage`,
     })
     return `a peculiar ${cabin.tippyWord}. <blockquote>${contents} lives here.</blockquote>`
   },
@@ -63,8 +63,8 @@ export const locations: Locations = {
     const contents = contentsFetcher(town, biome, misc[biome].cabinLives, encounters)
     const lived = randomValue(misc[biome].cabinLived)
     const cabin = misc.cabin.create(town, biome, {
-      wordNoun: "cabin",
-      size: "little",
+      wordNoun: `cabin`,
+      size: `little`,
     })
     return `a cozy little ${cabin.tippyWord}. <blockquote>${lived} once lived here. Now, ${contents} lives here.</blockquote>`
   },
@@ -79,14 +79,14 @@ export const locations: Locations = {
     return `an abandoned campsite, which looks to have been occupied previously by ${contents}`
   },
   "a sacred grove"() {
-    return "a sacred grove."
+    return `a sacred grove.`
   },
   "a shrine"(town) {
     const shrine = misc.religion.shrine.create(town)
     return `a shrine dedicated to ${shrine.god}. The shrine is ${shrine.material} ${shrine.senses}`
   },
   "a grave with an illegible headstone"() {
-    return "a grave with an illegible headstone."
+    return `a grave with an illegible headstone.`
   },
   "ancient ruins"(town, biome) {
     const contents = contentsFetcher(town, biome, misc[biome].ruinsLives, encounters)
@@ -94,17 +94,17 @@ export const locations: Locations = {
     return `ancient ruins. <blockquote>The ruins were built by ${lived}. Now, ${contents} lives here.</blockquote>`
   },
   "a cavern in a canyon wall"(town, biome) {
-    const cavern = misc.cavern.create({ entrance: "in a canyon wall" })
+    const cavern = misc.cavern.create({ entrance: `in a canyon wall` })
     const encounter = contentsFetcher(town, biome, misc[biome].encounter, encounters)
     return `a cavern. ${cavern.readout}<blockquote>The cavern is home to ${encounter}.</blockquote>`
   },
   "a cave entrance, hidden by a boulder"(town, biome) {
-    const cavern = misc.cavern.create({ entrance: "hidden by a boulder" })
+    const cavern = misc.cavern.create({ entrance: `hidden by a boulder` })
     const encounter = contentsFetcher(town, biome, misc[biome].encounter, encounters)
     return `a cavern. ${cavern.readout}<blockquote>The cavern is home to ${encounter}.</blockquote>`
   },
   "a small cave in the crook of a rock wall"(town, biome) {
-    const cavern = misc.cavern.create({ entrance: "in the crook of a rock wall" })
+    const cavern = misc.cavern.create({ entrance: `in the crook of a rock wall` })
     const contents = contentsFetcher(town, biome, misc[biome].cave, encounters)
     return `a small cave. ${cavern.readout}<blockquote>The cave is home to ${contents}.</blockquote>`
   },
@@ -132,18 +132,18 @@ export const locations: Locations = {
     const lived = misc[biome].houseLived.seededrandom()
     const encounter = contentsFetcher(town, biome, misc[biome].houseLives, encounters)
     const cabin = misc.cabin.create(town, biome, {
-      material: "stone",
-      wordNoun: "house",
+      material: `stone`,
+      wordNoun: `house`,
     })
     return `an abandoned ${cabin.tippy}<b>stone house</b></span>. <blockquote>${lived} once lived here. Now, ${encounter} lives here.</blockquote>`
   },
   "a stone house"(town, biome) {
     const lived = randomValue(misc[biome].houseLived)
-    const shelter = randomValue(["canyon", "gorge", "bluff"])
+    const shelter = randomValue([`canyon`, `gorge`, `bluff`])
     const encounter = contentsFetcher(town, biome, misc[biome].houseLives, encounters)
     const cabin = misc.cabin.create(town, biome, {
-      material: "stone",
-      wordNoun: "house",
+      material: `stone`,
+      wordNoun: `house`,
     })
     return `a ${cabin.tippy}<b>stone house</b></span> sheltered by a ${shelter}<blockquote>${lived} once lived here. Now, ${encounter} lives here.</blockquote>`
   },
@@ -200,27 +200,27 @@ export const locations: Locations = {
     return `a ruined monastery. <blockquote>These ruins are currently occupied by ${encounter}.</blockquote>`
   },
   "a village of primitive canyon dwellers"() {
-    return "a village of primitive canyon dwellers"
+    return `a village of primitive canyon dwellers`
   },
   "some nomad's camp"() {
-    return "some nomad's camp"
+    return `some nomad's camp`
   },
   "an ancient tomb"() {
-    return "an ancient tomb"
+    return `an ancient tomb`
   },
   "a dark tunnel leading under the mountain"() {
-    return "a dark tunnel leading under the mountain"
+    return `a dark tunnel leading under the mountain`
   },
   "a tunnel in a cliff face"() {
-    return "a tunnel in a cliff face"
+    return `a tunnel in a cliff face`
   },
   "a tunnel leading into an abandoned mine"() {
-    return "a tunnel leading into an abandoned mine"
+    return `a tunnel leading into an abandoned mine`
   },
   "an enormous bird’s nest"() {
-    return "the nest of an enormous bird"
+    return `the nest of an enormous bird`
   },
   "a poorly marked grave or tomb"() {
-    return "a crudely marked grave of someone long gone"
+    return `a crudely marked grave of someone long gone`
   },
 }

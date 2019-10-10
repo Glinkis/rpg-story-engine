@@ -13,26 +13,26 @@ interface Town {
 
 export function createTown(base: any = {}) {
   const type = randomValue([
-    "hamlet",
-    "hamlet",
-    "village",
-    "village",
-    "village",
-    "town",
-    "town",
-    "town",
-    "city",
-    "city",
+    `hamlet`,
+    `hamlet`,
+    `village`,
+    `village`,
+    `village`,
+    `town`,
+    `town`,
+    `town`,
+    `city`,
+    `city`,
   ])
-  const terrain = randomValue(["temperate", "temperate", "temperate", "tropical", "polar", "arid"])
-  const season = ["summer", "autumn", "winter", "spring"]
+  const terrain = randomValue([`temperate`, `temperate`, `temperate`, `tropical`, `polar`, `arid`])
+  const season = [`summer`, `autumn`, `winter`, `spring`]
   const townName = createTownName()
   console.groupCollapsed(`${townName} is loading...`)
   const economicIdeology = randomValue(townData.type[type].economicIdeology)
   const politicalSource = randomValue(townData.type[type].politicalSource)
   const politicalIdeology = randomValue(townData.politicalSource[politicalSource].politicalIdeology)
   const town = {
-    passageName: "TownOutput",
+    passageName: `TownOutput`,
     name: townName,
     taxes: {
       base: 7,
@@ -43,9 +43,9 @@ export function createTown(base: any = {}) {
     taxRate(town: Town) {
       let totalTax = 0
       Object.keys(town.taxes).forEach(function(this: any, tax) {
-        if (typeof town.taxes[tax] === "number") {
+        if (typeof town.taxes[tax] === `number`) {
           totalTax += town.taxes[tax]
-        } else if (typeof town.taxes[tax] === "function") {
+        } else if (typeof town.taxes[tax] === `function`) {
           const temp = town.taxes[tax](this)
           totalTax += temp
         } else {
@@ -56,16 +56,16 @@ export function createTown(base: any = {}) {
     },
     get type() {
       if (this.population > 3000) {
-        return "city"
+        return `city`
       } else if (this.population > 1000) {
-        return "town"
+        return `town`
       } else if (this.population > 300) {
-        return "village"
+        return `village`
       } else if (this.population > 30) {
-        return "hamlet"
+        return `hamlet`
       } else {
         this.population = 30
-        return "hamlet"
+        return `hamlet`
       }
     },
     set type(this: any, value) {
@@ -127,8 +127,8 @@ export function createTown(base: any = {}) {
     },
     get politicalSourceDescription(): any {
       const source = townData.politicalSource[this._politicalSource]
-      if (this._politicalSource === "absolute monarchy" || this._politicalSource === "constitutional monarchy") {
-        if (this.politicalIdeology === "autocracy") {
+      if (this._politicalSource === `absolute monarchy` || this._politicalSource === `constitutional monarchy`) {
+        if (this.politicalIdeology === `autocracy`) {
           return source.autocracy.politicalSourceDescription
         } else {
           return source.default.politicalSourceDescription

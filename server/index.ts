@@ -7,8 +7,8 @@ const app = express()
 // Compress responses.
 app.use(compression({ threshold: 8 }))
 
-app.get("/", (req, res) => {
-  res.header("Content-Type", "application/json")
+app.get(`/`, (req, res) => {
+  res.header(`Content-Type`, `application/json`)
   try {
     res.send(JSON.stringify(createTown(), null, 2))
   } catch (error) {

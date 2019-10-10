@@ -8,9 +8,9 @@ import { createSexuality } from "./createSexuality"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
-    console.error("Town is not defined! NPC cannot be created. Please report this bug.")
+    console.error(`Town is not defined! NPC cannot be created. Please report this bug.`)
   }
-  console.log("Base:", { base })
+  console.log(`Base:`, { base })
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
   const data = npcData
 
@@ -21,7 +21,7 @@ export function createNPC(town: any, base?: any) {
   }
 
   if (base.isShallow === true) {
-    console.log("NPC flagged as shallow.")
+    console.log(`NPC flagged as shallow.`)
     base.isThrowaway = base.isThrowaway || true
     base.hasHistory = base.hasHistory || false
   }
@@ -30,9 +30,9 @@ export function createNPC(town: any, base?: any) {
     base = objectArrayFetcher(misc.patreonCharacters, town)
   }
 
-  const gender = base.gender || randomValue(["man", "woman"])
+  const gender = base.gender || randomValue([`man`, `woman`])
   const race = base.race || setup.fetchRace(town, base)
-  console.log("Loading profession:")
+  console.log(`Loading profession:`)
   const profession = base.profession || setup.fetchProfessionChance(town, base)
 
   const firstName = base.firstName || toUpperFirst(randomValue(data.raceTraits[race].genderTraits[gender].firstName))
@@ -41,14 +41,14 @@ export function createNPC(town: any, base?: any) {
   const ageStage =
     base.ageStage ||
     randomValue([
-      "young adult",
-      "young adult",
-      "young adult",
-      "young adult",
-      "settled adult",
-      "settled adult",
-      "settled adult",
-      "elderly",
+      `young adult`,
+      `young adult`,
+      `young adult`,
+      `young adult`,
+      `settled adult`,
+      `settled adult`,
+      `settled adult`,
+      `elderly`,
     ])
   const dndClass = base.dndClass || randomValue(data.dndClass)
   if (base.dndClass) {
@@ -60,7 +60,7 @@ export function createNPC(town: any, base?: any) {
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
   const npc = {
     key: Math.random(),
-    passageName: "NPCProfile",
+    passageName: `NPCProfile`,
     _gender: gender,
     _race: race,
     firstName,
@@ -69,9 +69,9 @@ export function createNPC(town: any, base?: any) {
       return `${this.firstName} ${this.lastName}`
     },
     set name(name) {
-      const words = name.toString().split(" ")
-      this.firstName = words[0] || ""
-      this.lastName = words[1] || ""
+      const words = name.toString().split(` `)
+      this.firstName = words[0] || ``
+      this.lastName = words[1] || ``
     },
     ageStage,
     ageYears: raceTraits.ageTraits[ageStage].baseAge + raceTraits.ageTraits[ageStage].ageModifier(),
@@ -137,18 +137,18 @@ export function createNPC(town: any, base?: any) {
       return `${this.hairType} ${this.hairColour} hair`
     },
     set hair(hair) {
-      const hairs = hair.toString().split(" ")
-      this.hairType = hairs[0] || ""
-      this.hairColour = hairs[1] || ""
+      const hairs = hair.toString().split(` `)
+      this.hairType = hairs[0] || ``
+      this.hairColour = hairs[1] || ``
     },
     get descriptor() {
       return randomValue(this.descriptors)
     },
     set descriptorsAdd(description: any) {
-      if (typeof description === "string") {
+      if (typeof description === `string`) {
         console.log(this.descriptors)
         if (this.descriptors.includes(description)) {
-          console.log("Throwing out duplicate description...")
+          console.log(`Throwing out duplicate description...`)
         } else {
           this.descriptors.push(description)
         }
@@ -182,7 +182,7 @@ export function createNPC(town: any, base?: any) {
       Object.assign(this, data.raceTraits[race].raceWords)
     },
     get raceNote() {
-      if (this._race === "human") {
+      if (this._race === `human`) {
         return `${this.height} ${this.gender}`
       } else {
         return data.raceTraits[this._race].raceWords.raceName
@@ -209,13 +209,13 @@ export function createNPC(town: any, base?: any) {
       npc.hasClass = false
       npc.dndClass = npc.profession
     } else {
-      npc.adventure = randomValue(data.adventure) || "looking for work"
+      npc.adventure = randomValue(data.adventure) || `looking for work`
       npc.hasClass = true
     }
   } else if (!npc.hasClass) {
     npc.dndClass = npc.profession
   } else {
-    npc.adventure = randomValue(data.adventure) || "looking for work"
+    npc.adventure = randomValue(data.adventure) || `looking for work`
   }
 
   if (!npc.vocalPattern) {

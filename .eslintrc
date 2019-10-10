@@ -10,7 +10,7 @@
   "rules": {
     "no-undef": "off",
     "prefer-template": "warn",
-    "quotes": ["warn", "double"],
+    "quotes": ["warn", "backtick"],
     "quote-props": ["warn", "consistent-as-needed"],
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",

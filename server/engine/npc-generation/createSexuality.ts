@@ -49,13 +49,13 @@ export function createSexuality(npc: any) {
   const kinsey: Kinsey = {
     // true = male, false = female. Very basic function, am aware.
     0: {
-      sexuality: "heterosexual",
+      sexuality: `heterosexual`,
       partnerGenderProbability(npc) {
         return npcData.gender[npc.gender].oppositeGender
       },
     },
     1: {
-      sexuality: "heterosexual with passing interest in other $currentNPC.menwomen",
+      sexuality: `heterosexual with passing interest in other $currentNPC.menwomen`,
       partnerGenderProbability(npc) {
         if (random(100) < 90) {
           return npcData.gender[npc.gender].oppositeGender
@@ -65,7 +65,7 @@ export function createSexuality(npc: any) {
       },
     },
     2: {
-      sexuality: "predominantly heterosexual, but with more than a passing interest in $currentNPC.menwomen",
+      sexuality: `predominantly heterosexual, but with more than a passing interest in $currentNPC.menwomen`,
       partnerGenderProbability(npc) {
         if (random(100) < 70) {
           return npcData.gender[npc.gender].oppositeGender
@@ -75,7 +75,7 @@ export function createSexuality(npc: any) {
       },
     },
     3: {
-      sexuality: "bisexual",
+      sexuality: `bisexual`,
       partnerGenderProbability(npc) {
         if (random(100) < 50) {
           return npcData.gender[npc.gender].oppositeGender
@@ -85,7 +85,7 @@ export function createSexuality(npc: any) {
       },
     },
     4: {
-      sexuality: "mostly homosexual, but with more than a passing interest in the opposite sex",
+      sexuality: `mostly homosexual, but with more than a passing interest in the opposite sex`,
       partnerGenderProbability(npc) {
         if (random(100) < 70) {
           return npc.gender
@@ -95,7 +95,7 @@ export function createSexuality(npc: any) {
       },
     },
     5: {
-      sexuality: "homosexual with passing interest in the opposite sex",
+      sexuality: `homosexual with passing interest in the opposite sex`,
       partnerGenderProbability(npc) {
         if (random(100) < 90) {
           return npc.gender
@@ -105,7 +105,7 @@ export function createSexuality(npc: any) {
       },
     },
     6: {
-      sexuality: "homosexual",
+      sexuality: `homosexual`,
       partnerGenderProbability(npc) {
         return npc.gender
       },
