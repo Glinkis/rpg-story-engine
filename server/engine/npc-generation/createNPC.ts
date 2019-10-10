@@ -15,7 +15,6 @@ export function createNPC(town: any, base?: any) {
   }
   console.log(`Base:`, { base })
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
-  const data = npcData
 
   if (!base) {
     base = {
@@ -38,8 +37,8 @@ export function createNPC(town: any, base?: any) {
   console.log(`Loading profession:`)
   const profession = base.profession || fetchProfessionChance(town, base)
 
-  const firstName = base.firstName || toUpperFirst(randomValue(data.raceTraits[race].genderTraits[gender].firstName))
-  const lastName = base.lastName || toUpperFirst(randomValue(data.raceTraits[race].lastName))
+  const firstName = base.firstName || toUpperFirst(randomValue(npcData.raceTraits[race].genderTraits[gender].firstName))
+  const lastName = base.lastName || toUpperFirst(randomValue(npcData.raceTraits[race].lastName))
   console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage =
     base.ageStage ||
@@ -53,12 +52,12 @@ export function createNPC(town: any, base?: any) {
       `settled adult`,
       `elderly`,
     ])
-  const dndClass = base.dndClass || randomValue(data.dndClass)
+  const dndClass = base.dndClass || randomValue(npcData.dndClass)
   if (base.dndClass) {
     base.hasClass = true
   }
 
-  const raceTraits = data.raceTraits[race]
+  const raceTraits = npcData.raceTraits[race]
 
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
   const npc = {
@@ -79,8 +78,8 @@ export function createNPC(town: any, base?: any) {
     ageStage,
     ageYears: raceTraits.ageTraits[ageStage].baseAge + raceTraits.ageTraits[ageStage].ageModifier(),
     muscleMass: raceTraits.muscleMass + dice(5, 4) - 12,
-    calmTrait: randomValue(data.calmTrait),
-    stressTrait: randomValue(data.stressTrait),
+    calmTrait: randomValue(npcData.calmTrait),
+    stressTrait: randomValue(npcData.stressTrait),
     pronouns: {},
     relationships: {},
     roll: {
@@ -134,8 +133,8 @@ export function createNPC(town: any, base?: any) {
         )
       },
     },
-    hairColour: randomValue(data.hairColour),
-    hairType: randomValue(data.hairType),
+    hairColour: randomValue(npcData.hairColour),
+    hairType: randomValue(npcData.hairType),
     get hair() {
       return `${this.hairType} ${this.hairColour} hair`
     },
@@ -159,40 +158,40 @@ export function createNPC(town: any, base?: any) {
         console.log(`Expected a string operand and received ${description}`)
       }
     },
-    eyes: randomValue(data.raceTraits[race].eyes),
-    skinColour: randomValue(data.skinColour),
+    eyes: randomValue(npcData.raceTraits[race].eyes),
+    skinColour: randomValue(npcData.skinColour),
     dndClass,
     profession,
-    pockets: randomValue(data.pockets),
+    pockets: randomValue(npcData.pockets),
     wealth: dice(2, 50),
-    trait: randomValue(data.trait),
-    currentMood: data.currentMood,
+    trait: randomValue(npcData.trait),
+    currentMood: npcData.currentMood,
     hasHistory: base.hasHistory || false,
     // id: Math.floor(randomFloat(1) * 0x10000),
-    idle: data.idle,
+    idle: npcData.idle,
     get gender() {
       return this._gender
     },
     set gender(gender) {
       this._gender = gender
-      Object.assign(this, data.gender[gender])
+      Object.assign(this, npcData.gender[gender])
     },
     get race() {
       return this._race
     },
     set race(race) {
       this._race = race
-      Object.assign(this, data.raceTraits[race].raceWords)
+      Object.assign(this, npcData.raceTraits[race].raceWords)
     },
     get raceNote() {
       if (this._race === `human`) {
         return `${this.height} ${this.gender}`
       } else {
-        return data.raceTraits[this._race].raceWords.raceName
+        return npcData.raceTraits[this._race].raceWords.raceName
       }
     },
-    knownLanguages: data.raceTraits[race].knownLanguages,
-    reading: randomValue(data.reading),
+    knownLanguages: npcData.raceTraits[race].knownLanguages,
+    reading: randomValue(npcData.reading),
 
     family: undefined,
     ...base,
@@ -201,29 +200,29 @@ export function createNPC(town: any, base?: any) {
   npc.gender = npc.gender || npc._gender
   npc.race = npc.race || npc._race
 
-  Object.assign(npc, data.gender[npc.gender])
-  Object.assign(npc.pronouns, data.gender[npc.gender])
-  Object.assign(npc, data.raceTraits[npc.race].raceWords)
+  Object.assign(npc, npcData.gender[npc.gender])
+  Object.assign(npc.pronouns, npcData.gender[npc.gender])
+  Object.assign(npc, npcData.raceTraits[npc.race].raceWords)
 
-  npc.availableLanguages = [data.standardLanguages.concat(data.exoticLanguages) - npc.knownLanguages]
+  npc.availableLanguages = [npcData.standardLanguages.concat(npcData.exoticLanguages) - npc.knownLanguages]
 
   if (npc.hasClass === undefined) {
     if (random(100) > 70) {
       npc.hasClass = false
       npc.dndClass = npc.profession
     } else {
-      npc.adventure = randomValue(data.adventure) || `looking for work`
+      npc.adventure = randomValue(npcData.adventure) || `looking for work`
       npc.hasClass = true
     }
   } else if (!npc.hasClass) {
     npc.dndClass = npc.profession
   } else {
-    npc.adventure = randomValue(data.adventure) || `looking for work`
+    npc.adventure = randomValue(npcData.adventure) || `looking for work`
   }
 
   if (!npc.vocalPattern) {
     if (dice(2, 50) >= 75) {
-      npc.vocalPattern = randomValue(data.vocalPattern)
+      npc.vocalPattern = randomValue(npcData.vocalPattern)
     }
   }
 
@@ -252,11 +251,11 @@ export function createNPC(town: any, base?: any) {
   } else if (physicalTraitRoll > 13) {
     npc.physicalTrait = npc.physicalTrait || legs
   } else if (physicalTraitRoll > 8) {
-    npc.physicalTrait = npc.physicalTrait || randomValue(data.scar)
+    npc.physicalTrait = npc.physicalTrait || randomValue(npcData.scar)
   } else if (physicalTraitRoll > 5) {
     npc.physicalTrait = npc.physicalTrait || npc.hair
   } else {
-    npc.physicalTrait = npc.physicalTrait || randomValue(data.tattoo)
+    npc.physicalTrait = npc.physicalTrait || randomValue(npcData.tattoo)
   }
 
   createClass(npc)
