@@ -22,31 +22,29 @@ export const locations: Locations = {
   "an entrance to a rocky cave"(town, biome) {
     const cavern = misc.cavern.create()
     const contents = contentsFetcher(town, biome, misc[biome].cave, encounters)
-    return "a rocky cave. " + cavern.readout + " <blockquote>The cave is home to " + contents + ".</blockquote>"
+    return `a rocky cave. ${cavern.readout}<blockquote>The cave is home to ${contents}.</blockquote>`
   },
   "a hole under a large tree"(town, biome) {
     let contents = randomValue(misc[biome].hole)
     // this is lazy. Will change hole from an array to an object once I make more creators.
     if (contents === "a spider") {
       const spider = misc.spider.create()
-      contents = "a " + spider.tippyWord + "."
+      contents = `a ${spider.tippyWord}.`
     }
     const tree = misc.tree.create(town, biome)
-    // let contents = contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
-    return "a hole under a large " + tree.tippyWord + ". <blockquote>Inside is " + contents + ".</blockquote>"
+    return `a hole under a large ${tree.tippyWord}. <blockquote>Inside is ${contents}.</blockquote>`
   },
   "a hole under a sheer cliff"(town, biome) {
     const contents = randomValue(misc[biome].hole)
-    return "a hole under a sheer cliff. <blockquote> Inside is " + contents + ".</blockquote>"
+    return `a hole under a sheer cliff. <blockquote> Inside is ${contents}.</blockquote>`
   },
   "a hole under a sheer cliff face"(town, biome) {
     const contents = randomValue(misc[biome].hole)
-    return "a hole under a sheer cliff face. <blockquote> Inside is " + contents + ".</blockquote>"
+    return `a hole under a sheer cliff face. <blockquote> Inside is ${contents}.</blockquote>`
   },
   "a large burrow"(town, biome) {
     const contents = randomValue(misc[biome].hole)
-    // let contents = contentsFetcher(town, biome, setup.misc[biome].hole, setup.misc[biome].hole)
-    return "a large burrow <blockquote>Inside is " + contents + ".</blockquote>"
+    return `a large burrow <blockquote>Inside is ${contents}.</blockquote>`
   },
   "a peculiar cottage"(town, biome) {
     const contents = contentsFetcher(town, biome, misc[biome].cottageLives, encounters)
@@ -78,61 +76,57 @@ export const locations: Locations = {
   },
   "an abandoned campsite"(town, biome) {
     const contents = contentsFetcher(town, biome, misc[biome].camped, encounters)
-    return "an abandoned campsite, which looks to have been occupied previously by " + contents
+    return `an abandoned campsite, which looks to have been occupied previously by ${contents}`
   },
   "a sacred grove"() {
     return "a sacred grove."
   },
   "a shrine"(town, biome) {
     const shrine = misc.religion.shrine.create(town)
-    return "a shrine dedicated to " + shrine.god + ". The shrine is " + shrine.material + " " + shrine.senses
+    return `a shrine dedicated to ${shrine.god}. The shrine is ${shrine.material} ${shrine.senses}`
   },
   "a grave with an illegible headstone"() {
     return "a grave with an illegible headstone."
   },
   "ancient ruins"(town, biome) {
     const contents = contentsFetcher(town, biome, misc[biome].ruinsLives, encounters)
-    return (
-      "ancient ruins. <blockquote>The ruins were built by " +
-      randomValue(misc[biome].ruinsLived) +
-      ". Now, " +
-      contents +
-      " lives here.</blockquote>"
-    )
+    const lived = randomValue(misc[biome].ruinsLived)
+    return `ancient ruins. <blockquote>The ruins were built by ${lived}. Now, ${contents} lives here.</blockquote>`
   },
   "a cavern in a canyon wall"(town, biome) {
     const cavern = misc.cavern.create({ entrance: "in a canyon wall" })
     const encounter = contentsFetcher(town, biome, misc[biome].encounter, encounters)
-    return "a cavern. " + cavern.readout + " <blockquote>The cavern is home to " + encounter + ".</blockquote>"
+    return `a cavern. ${cavern.readout}<blockquote>The cavern is home to ${encounter}.</blockquote>`
   },
   "a cave entrance, hidden by a boulder"(town, biome) {
     const cavern = misc.cavern.create({ entrance: "hidden by a boulder" })
     const encounter = contentsFetcher(town, biome, misc[biome].encounter, encounters)
-    return "a cavern. " + cavern.readout + " <blockquote>The cavern is home to " + encounter + ".</blockquote>"
+    return `a cavern. ${cavern.readout}<blockquote>The cavern is home to ${encounter}.</blockquote>`
   },
   "a small cave in the crook of a rock wall"(town, biome) {
     const cavern = misc.cavern.create({ entrance: "in the crook of a rock wall" })
     const contents = contentsFetcher(town, biome, misc[biome].cave, encounters)
-    return "a small cave. " + cavern.readout + " <blockquote>The cave is home to " + contents + ".</blockquote>"
+    return `a small cave. ${cavern.readout}<blockquote>The cave is home to ${contents}.</blockquote>`
   },
   "a small cave next to a dry river bed"(town, biome) {
     const cavern = misc.cavern.create()
     const encounter = contentsFetcher(town, biome, misc[biome].encounter, encounters)
-    return "a cavern. " + cavern.readout + " <blockquote>The cavern is home to " + encounter + ".</blockquote>"
+    return `a cavern. ${cavern.readout}<blockquote>The cavern is home to ${encounter}.</blockquote>`
   },
   // mining is intentionally using the mountain biome
   "an old mine in a canyon"(town, biome) {
-    return `an old mine in a canyon <blockquote>The mine was built by by ${randomValue(
-      misc.mountain.miners
-    )}, looking for ${randomValue(misc.mountain.minersGoal)}.</blockquote>`
+    const miners = randomValue(misc.mountain.miners)
+    const goal = randomValue(misc.mountain.minersGoal)
+    return `an old mine in a canyon <blockquote>The mine was built by by ${miners}, looking for ${goal}.</blockquote>`
   },
   "an active mining camp"(town, biome) {
-    return `an active mining camp, manned by ${randomValue(misc.mountain.miners)}, looking for ${randomValue(
-      misc.mountain.minersGoal
-    )}`
+    const miners = randomValue(misc.mountain.miners)
+    const goal = randomValue(misc.mountain.minersGoal)
+    return `an active mining camp, manned by ${miners}, looking for ${goal}`
   },
   "a hole under a large boulder"(town, biome) {
-    return "a hole under a large boulder <blockquote> Inside is " + randomValue(misc.desert.hole) + "</blockquote>"
+    const content = randomValue(misc.desert.hole)
+    return `a hole under a large boulder <blockquote> Inside is ${content}</blockquote>`
   },
   "an abandoned stone house"(town, biome) {
     const lived = misc[biome].houseLived.seededrandom()
@@ -203,7 +197,7 @@ export const locations: Locations = {
   },
   "a ruined monastery"(town, biome) {
     const encounter = contentsFetcher(town, biome, misc[biome].ruinsLives, encounters)
-    return "a ruined monastery. <blockquote>These ruins are currently occupied by " + encounter + ".</blockquote>"
+    return `a ruined monastery. <blockquote>These ruins are currently occupied by ${encounter}.</blockquote>`
   },
   "a village of primitive canyon dwellers"(town, biome) {
     return "a village of primitive canyon dwellers"
