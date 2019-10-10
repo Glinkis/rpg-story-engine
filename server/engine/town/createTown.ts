@@ -5,6 +5,7 @@ import { townDemographics } from "./townDemographics"
 import { createTownName } from "./createTownName"
 import { townData } from "./townData"
 import { townRender } from "./townRender"
+import { createGuard } from "./createGuard"
 
 interface Town {
   [key: string]: any
@@ -190,7 +191,7 @@ export function createTown(base: any = {}) {
     town.roll[modifier] = fm(town.roll[modifier], townSizeModifiers[modifier])
   }
 
-  // TODO: town.guard = setup.createGuard(town)
+  town.guard = createGuard(town)
 
   console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   const economicIdeologyModifiers = townData.economicIdeology[town.economicIdeology].modifiers
