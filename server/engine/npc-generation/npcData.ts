@@ -1259,7 +1259,7 @@ export const npcData: any = {
             `there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I `,
           ])
           if (adventureRoll === 100) {
-            const weapon = setup.createMagicWeapon()
+            const weapon = createMagicWeapon()
             console.log(`Called weapon function.`)
             adventureResults =
               `came across a magical weapon- this is my trusty ${weapon.name}<blockquote>` +

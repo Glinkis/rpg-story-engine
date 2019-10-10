@@ -265,13 +265,13 @@ export function createNPC(town: any, base?: any) {
   }
 
   createClass(npc)
-  createBackground(npc)
-  createDescriptors(npc)
+  // TODO: createBackground(npc)
+  // TODO: createDescriptors(npc)
 
   npc.formalName = npc.formalName || `${npc.title} ${npc.lastName}`
 
   if (!npc.keyIsAlreadyDefined) {
-    State.variables.npcs[npc.key] = npc
+    // TODO: State.variables.npcs[npc.key] = npc
   }
 
   npc.profile = (npc: any, base: any) => {
