@@ -1407,39 +1407,27 @@ export const npcData = {
     },
     miracle: {
       probability: 2,
-      exclusions(town, npc) {
+      exclusions(town: any, npc: any) {
         return true
       },
-      function(town, npc) {
+      function(town: any, npc: any) {
         console.log("called lifeEvents.miracle function")
-        const miracleGiver = randomValue(setup.npcData.lifeEvents.miracle.miracleGiver)
-        const trueBelief = randomValue(setup.npcData.lifeEvents.miracle.trueBelief)
-        const falseBelief = randomValue(setup.npcData.lifeEvents.miracle.falseBelief)
-        const miracle = randomValue(setup.npcData.lifeEvents.miracle.miracle)
-        const curse = randomValue(setup.npcData.lifeEvents.miracle.curse)
+        const miracleGiver = randomValue(npcData.lifeEvents.miracle.miracleGiver)
+        const trueBelief = randomValue(npcData.lifeEvents.miracle.trueBelief)
+        const falseBelief = randomValue(npcData.lifeEvents.miracle.falseBelief)
+        const miracle = randomValue(npcData.lifeEvents.miracle.miracle)
+        const curse = randomValue(npcData.lifeEvents.miracle.curse)
         return randomValue([
-          randomValue([
+          `${randomValue([
             "I witnessed a miracle once- Honest to god. ",
             "I once saw a true miracle. ",
             "one time, I was part of a real miracle. ",
-          ]) +
-            miracleGiver +
-            ", " +
-            randomValue([trueBelief, falseBelief]) +
-            " " +
-            miracle +
-            ".",
-          randomValue([
+          ])} ${miracleGiver}, ${randomValue([trueBelief, falseBelief])} ${miracle}.`,
+          `${randomValue([
             "I witnessed a terrible curse once- Honest to god. ",
             "I once saw a true curse. ",
             "one time, I was part of a real curse. ",
-          ]) +
-            miracleGiver +
-            ", " +
-            randomValue([falseBelief]) +
-            " " +
-            curse +
-            ".",
+          ])} ${miracleGiver}, ${randomValue([falseBelief])} ${curse}.`,
         ])
       },
       miracleGiver: [
