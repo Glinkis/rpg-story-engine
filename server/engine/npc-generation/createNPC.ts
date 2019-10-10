@@ -9,6 +9,7 @@ import { createClass } from "./createClass"
 import { fetchRace } from "./fetchRace"
 import { fetchProfessionChance } from "./fetchProfessionChance"
 import { lifestyleStandards } from "../town/lifestyleStandards"
+import { findProfession } from "./findProfession"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
@@ -96,7 +97,7 @@ export function createNPC(town: any, base?: any) {
       grossIncome(town: any, npc: any) {
         // TODO add hobbies
         console.log(`Returning ${npc.name}'s gross income...`)
-        const profession = setup.findProfession(town, npc)
+        const profession = findProfession(town, npc)
         return Math.round(
           calcPercentage(profession.dailyWage, [npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3])
         )
