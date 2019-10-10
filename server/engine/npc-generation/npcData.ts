@@ -7,6 +7,7 @@ import { createMagicWeapon } from "../misc/createMagicWeapon"
 import { createMarriage } from "./createFamilyMembers"
 import { misc } from "../world/miscData"
 import { createMagicTrinket } from "../misc/createMagicTrinket"
+import { createRelationship } from "./createRelationship"
 
 export const npcData: any = {
   gender: {
