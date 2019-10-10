@@ -10,6 +10,7 @@ import { fetchRace } from "./fetchRace"
 import { fetchProfessionChance } from "./fetchProfessionChance"
 import { lifestyleStandards } from "../town/lifestyleStandards"
 import { findProfession } from "./findProfession"
+import { createAge } from "./createAge"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
@@ -227,7 +228,7 @@ export function createNPC(town: any, base?: any) {
     }
   }
 
-  setup.createAge(npc)
+  createAge(npc)
   setup.createRace(npc)
 
   // This sets up the physical traits of NPCs
