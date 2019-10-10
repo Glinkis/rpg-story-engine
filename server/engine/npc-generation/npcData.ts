@@ -5,6 +5,7 @@ import { profile } from "./profile"
 import { createNPC, globalNPCs } from "./createNPC"
 import { createMagicWeapon } from "../misc/createMagicWeapon"
 import { createMarriage } from "./createFamilyMembers"
+import { misc } from "../world/miscData"
 
 export const npcData: any = {
   gender: {
@@ -218,7 +219,7 @@ export const npcData: any = {
       },
       function(town: any, npc: any) {
         console.log(`called lifeEvents.magicalCreature function`)
-        const medal = setup.misc.medal.create()
+        const medal = misc.medal.create()
         const medalType = randomValue(npcData.lifeEvents.warMedal.medalType)
         const medalStatus = randomValue(npcData.lifeEvents.warMedal.medalStatus)
         if (townData.professions[npc.profession].sector === `military`) {
@@ -627,7 +628,7 @@ export const npcData: any = {
         return true
       },
       function() {
-        const trinket = setup.createMagicTrinket()
+        const trinket = createMagicTrinket()
         console.log(`called lifeEvents.trinket function`)
         return (
           `${randomValue([
@@ -1015,7 +1016,7 @@ export const npcData: any = {
             isShallow: true,
           })
         }
-        setup.createRelationship(town, npc, friend, `friend`, `friend`)
+        createRelationship(town, npc, friend, `friend`, `friend`)
         if (npc.hasClass === false) {
           // Descriptions and stuff goes here
           return randomValue([
@@ -1060,7 +1061,7 @@ export const npcData: any = {
           background: `noble`,
           isShallow: true,
         })
-        setup.createRelationship(town, npc, enemy, `enemy`, `enemy`)
+        createRelationship(town, npc, enemy, `enemy`, `enemy`)
         return (
           randomValue([
             `I made an ${profile(enemy, `enemy`)} for life in my travels- `,
