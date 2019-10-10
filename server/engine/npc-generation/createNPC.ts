@@ -6,6 +6,7 @@ import { calcPercentage } from "../tools/calcPercentage"
 import { toUpperFirst } from "../tools/toUpperFirst"
 import { createSexuality } from "./createSexuality"
 import { createClass } from "./createClass"
+import { fetchRace } from "./fetchRace"
 
 export function createNPC(town: any, base?: any) {
   if (!town) {
@@ -32,7 +33,7 @@ export function createNPC(town: any, base?: any) {
   }
 
   const gender = base.gender || randomValue([`man`, `woman`])
-  const race = base.race || setup.fetchRace(town, base)
+  const race = base.race || fetchRace(town, base)
   console.log(`Loading profession:`)
   const profession = base.profession || setup.fetchProfessionChance(town, base)
 
