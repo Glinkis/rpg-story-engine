@@ -1,5 +1,6 @@
 import { misc } from "./miscData"
 import { randomValue } from "../rolls"
+import { profile } from "../npc-generation/profile"
 
 interface Encounters {
   [encounter: string]: (town: any) => string
@@ -35,9 +36,9 @@ export const encounters: Encounters = {
     })
     return (
       "a pair of two outlaws; one " +
-      setup.profile(npc, npc.descriptor) +
+      profile(npc, npc.descriptor) +
       " and a " +
-      setup.profile(secondNpc, secondNpc.descriptor)
+      profile(secondNpc, secondNpc.descriptor)
     )
   },
   "a band of desperate outlaws"(town) {
@@ -256,7 +257,7 @@ export const encounters: Encounters = {
       profession: "priest",
       isThrowaway: true,
     })
-    return "an itinerant " + setup.profile(npc, "priest")
+    return "an itinerant " + profile(npc, "priest")
   },
   "a hermit": town => {
     const npc = setup.createNPC(town, {
@@ -265,7 +266,7 @@ export const encounters: Encounters = {
       profession: "hermit",
       isThrowaway: true,
     })
-    return "a " + setup.profile(npc, "hermit")
+    return "a " + profile(npc, "hermit")
   },
   "a solitary hunter": town => {
     const npc = setup.createNPC(town, {
@@ -273,7 +274,7 @@ export const encounters: Encounters = {
       background: "outlander",
       isThrowaway: true,
     })
-    return "a solitary " + setup.profile(npc, "hunter")
+    return "a solitary " + profile(npc, "hunter")
   },
   "a solitary bandit": town => {
     const npc = setup.createNPC(town, {
@@ -281,7 +282,7 @@ export const encounters: Encounters = {
       background: "criminal",
       isThrowaway: true,
     })
-    return "a solitary " + setup.profile(npc, "bandit")
+    return "a solitary " + profile(npc, "bandit")
   },
   "an injured knight": town => {
     const npc = setup.createNPC(town, {
@@ -289,7 +290,7 @@ export const encounters: Encounters = {
       background: randomValue(["noble", "soldier", "soldier"]),
       isThrowaway: true,
     })
-    return "an injured " + setup.profile(npc, "knight")
+    return "an injured " + profile(npc, "knight")
   },
   "a ranger": town => {
     const npc = setup.createNPC(town, {
@@ -297,7 +298,7 @@ export const encounters: Encounters = {
       background: "outlander",
       isThrowaway: true,
     })
-    return "a solitary " + setup.profile(npc, "hunter")
+    return "a solitary " + profile(npc, "hunter")
   },
   "a diseased animal corpse": () => "a diseased animal corpse",
   "a dead body": () => "a dead body",
@@ -320,7 +321,7 @@ export const encounters: Encounters = {
       profession: "merchant",
       isThrowaway: true,
     })
-    return "a traveling " + setup.profile(npc, "peddler")
+    return "a traveling " + profile(npc, "peddler")
   },
   "a solitary troubador": town => {
     const npc = setup.createNPC(town, {
@@ -329,7 +330,7 @@ export const encounters: Encounters = {
       profession: "troubador",
       isThrowaway: true,
     })
-    return "a solitary " + setup.profile(npc, "troubador")
+    return "a solitary " + profile(npc, "troubador")
   },
   "an adventurer on a horse": town => {
     const horse = setup.misc.horse.create()
@@ -338,7 +339,7 @@ export const encounters: Encounters = {
       background: randomValue(["noble", "soldier", "soldier"]),
       isThrowaway: true,
     })
-    return "an " + setup.profile(npc, "adventurer") + " on a " + horse.tippyWord
+    return "an " + profile(npc, "adventurer") + " on a " + horse.tippyWord
   },
   "a mounted messenger": town => {
     const npc = setup.createNPC(town, {
@@ -346,7 +347,7 @@ export const encounters: Encounters = {
       profession: "messenger",
       isThrowaway: true,
     })
-    return "a mounted " + setup.profile(npc, "messenger")
+    return "a mounted " + profile(npc, "messenger")
   },
   "a work gang heading home": () => "a work gang heading home",
   "the road wardens": () => "the road wardens",
@@ -366,7 +367,7 @@ export const encounters: Encounters = {
       background: ["noble", "soldier", "soldier"].seededrandom(),
       isThrowaway: true,
     })
-    return "a " + setup.profile(npc, "knight errant")
+    return "a " + profile(npc, "knight errant")
   },
   "a wounded knight": town => {
     const npc = setup.createNPC(town, {
@@ -374,7 +375,7 @@ export const encounters: Encounters = {
       background: ["noble", "soldier", "soldier"].seededrandom(),
       isThrowaway: true,
     })
-    return "an injured " + setup.profile(npc, "knight")
+    return "an injured " + profile(npc, "knight")
   },
   "a traveling lady": town => {
     const npc = setup.createNPC(town, {
@@ -382,7 +383,7 @@ export const encounters: Encounters = {
       background: "noble",
       isThrowaway: true,
     })
-    return "a traveling " + setup.profile(npc, "lady")
+    return "a traveling " + profile(npc, "lady")
   },
   "a courier": town => {
     const npc = setup.createNPC(town, {
@@ -390,7 +391,7 @@ export const encounters: Encounters = {
       profession: "courier",
       isThrowaway: true,
     })
-    return "a " + setup.profile(npc, "courier")
+    return "a " + profile(npc, "courier")
   },
   "a wedding party": () => "a wedding party",
   "a group of pilgrims": () => "a group of pilgrims",
@@ -410,7 +411,7 @@ export const encounters: Encounters = {
       isThrowaway: true,
       canBeCustom: true,
     })
-    return "a strange " + setup.profile(npc, "hermit")
+    return "a strange " + profile(npc, "hermit")
   },
   "a lost traveler": town => {
     const npc = setup.createNPC(town, {
@@ -420,7 +421,7 @@ export const encounters: Encounters = {
       isThrowaway: true,
       canBeCustom: true,
     })
-    return "a lost " + setup.profile(npc, "traveler")
+    return "a lost " + profile(npc, "traveler")
   },
   "a poor nomad": town => {
     const npc = setup.createNPC(town, {
@@ -429,7 +430,7 @@ export const encounters: Encounters = {
       profession: "nomad",
       isThrowaway: true,
     })
-    return "a poor " + setup.profile(npc, "nomad")
+    return "a poor " + profile(npc, "nomad")
   },
   "a suspicious miner": town => {
     const npc = setup.createNPC(town, {
@@ -439,7 +440,7 @@ export const encounters: Encounters = {
       note: "This person is hiding something.",
       isThrowaway: true,
     })
-    return "a suspicious " + setup.profile(npc, "miner")
+    return "a suspicious " + profile(npc, "miner")
   },
   "a barbarian hunter": town => {
     const npc = setup.createNPC(town, {
@@ -448,7 +449,7 @@ export const encounters: Encounters = {
       profession: "hunter",
       isThrowaway: true,
     })
-    return "a barbarian " + setup.profile(npc, "hunter")
+    return "a barbarian " + profile(npc, "hunter")
   },
   "a mounted barbarian scout": town => {
     const npc = setup.createNPC(town, {
@@ -457,7 +458,7 @@ export const encounters: Encounters = {
       profession: "scout",
       isThrowaway: true,
     })
-    return "a mounted barbarian " + setup.profile(npc, "scout")
+    return "a mounted barbarian " + profile(npc, "scout")
   },
   "the ghost of a traveler"() {
     const ghost = setup.misc.ghost.create()
@@ -497,7 +498,7 @@ export const encounters: Encounters = {
       note: "This prophet is as crazy as can be.",
       isThrowaway: true,
     })
-    return "a half-mad " + setup.profile(npc, "prophet")
+    return "a half-mad " + profile(npc, "prophet")
   },
   "a reclusive sorcerer": town => {
     const npc = setup.createNPC(town, {
@@ -506,7 +507,7 @@ export const encounters: Encounters = {
       calmTrait: "withdrawn",
       isThrowaway: true,
     })
-    return "a reclusive " + setup.profile(npc, "sorcerer")
+    return "a reclusive " + profile(npc, "sorcerer")
   },
   "a merchant of exotic goods": town => {
     const npc = setup.createNPC(town, {
@@ -515,7 +516,7 @@ export const encounters: Encounters = {
       hasClass: false,
       isThrowaway: true,
     })
-    return "a strange " + setup.profile(npc, "merchant") + " of exotic goods"
+    return "a strange " + profile(npc, "merchant") + " of exotic goods"
   },
   "a misanthropic shapeshifter": town => {
     const npc = setup.createNPC(town, {
@@ -527,7 +528,7 @@ export const encounters: Encounters = {
       hasClass: false,
       isThrowaway: true,
     })
-    return "a misanthropic " + setup.profile(npc, "shapeshifter")
+    return "a misanthropic " + profile(npc, "shapeshifter")
   },
   "an eccentric monk": town => {
     const npc = setup.createNPC(town, {
@@ -538,7 +539,7 @@ export const encounters: Encounters = {
       dndClass: "monk",
       isThrowaway: true,
     })
-    return "an eccentric " + setup.profile(npc, "monk")
+    return "an eccentric " + profile(npc, "monk")
   },
   "a nomadic herder": town => {
     const npc = setup.createNPC(town, {
@@ -547,7 +548,7 @@ export const encounters: Encounters = {
       hasClass: false,
       isThrowaway: true,
     })
-    return "a nomadic " + setup.profile(npc, "herder")
+    return "a nomadic " + profile(npc, "herder")
   },
   "a nomadic warrior": town => {
     const npc = setup.createNPC(town, {
@@ -556,7 +557,7 @@ export const encounters: Encounters = {
       dndClass: "fighter",
       isThrowaway: true,
     })
-    return "a nomadic " + setup.profile(npc, "warrior")
+    return "a nomadic " + profile(npc, "warrior")
   },
   "an outcast elf": town => {
     const npc = setup.createNPC(town, {
@@ -567,7 +568,7 @@ export const encounters: Encounters = {
       race: "elf",
       isThrowaway: true,
     })
-    return "an outcast " + setup.profile(npc, "elf")
+    return "an outcast " + profile(npc, "elf")
   },
   "a reclusive scholar": town => {
     const npc = setup.createNPC(town, {
@@ -577,7 +578,7 @@ export const encounters: Encounters = {
       calmTrait: "withdrawn",
       isThrowaway: true,
     })
-    return "a reclusive " + setup.profile(npc, "scholar")
+    return "a reclusive " + profile(npc, "scholar")
   },
   "an eccentric healer": town => {
     const npc = setup.createNPC(town, {
@@ -586,7 +587,7 @@ export const encounters: Encounters = {
       note: "This healer is rather odd.",
       isThrowaway: true,
     })
-    return "an eccentric " + setup.profile(npc, "healer")
+    return "an eccentric " + profile(npc, "healer")
   },
   "a poor goatherder": town => {
     const npc = setup.createNPC(town, {
@@ -596,7 +597,7 @@ export const encounters: Encounters = {
       note: "This goatherder is very poor, but knows the area well.",
       isThrowaway: true,
     })
-    return "a poor " + setup.profile(npc, "goatherder")
+    return "a poor " + profile(npc, "goatherder")
   },
   "a mining prospector": town => {
     const npc = setup.createNPC(town, {
@@ -605,7 +606,7 @@ export const encounters: Encounters = {
       profession: "prospector",
       isThrowaway: true,
     })
-    return "a mining " + setup.profile(npc, "prospector")
+    return "a mining " + profile(npc, "prospector")
   },
   "a religious fanatic with his many wives": town => {
     const npc = setup.createNPC(town, {
@@ -614,7 +615,7 @@ export const encounters: Encounters = {
       note: "Has multiple wives.",
       isThrowaway: true,
     })
-    return "a religious " + setup.profile(npc, "fanatic") + " with his many wives"
+    return "a religious " + profile(npc, "fanatic") + " with his many wives"
   },
   "poisonous snakes": town => "poisonous snakes",
   "a pair of orcs": town => "a pair of orcs",
@@ -627,7 +628,7 @@ export const encounters: Encounters = {
       note: "This person is totally mad.",
       isThrowaway: true,
     })
-    return "a mad " + setup.profile(npc, "sorcerer")
+    return "a mad " + profile(npc, "sorcerer")
   },
   "a paranoid shapeshifter": town => {
     const npc = setup.createNPC(town, {
@@ -639,7 +640,7 @@ export const encounters: Encounters = {
       note: "This person is a paranoid shapeshifter.",
       isThrowaway: true,
     })
-    return "a paranoid " + setup.profile(npc, "shapeshifter")
+    return "a paranoid " + profile(npc, "shapeshifter")
   },
   "a reclusive shapeshifter": town => {
     const npc = setup.createNPC(town, {
@@ -649,7 +650,7 @@ export const encounters: Encounters = {
       note: "This person is a shapeshifter.",
       isThrowaway: true,
     })
-    return "a reclusive " + setup.profile(npc, "shapeshifter")
+    return "a reclusive " + profile(npc, "shapeshifter")
   },
   "a restless ghost"() {
     const ghost = setup.misc.ghost.create()
@@ -665,7 +666,7 @@ export const encounters: Encounters = {
       note: "This person is a wanted criminal for high treason against the crown.",
       isThrowaway: true,
     })
-    return "a dangerous " + setup.profile(npc, "fugitive")
+    return "a dangerous " + profile(npc, "fugitive")
   },
   "spiders and rats"() {
     const spider = setup.misc.spider.create()
@@ -683,7 +684,7 @@ export const encounters: Encounters = {
       canBeCustom: true,
     })
     const map = setup.misc.treasureMap.create()
-    return "a " + setup.profile(npc, "treasure-hunter") + " with a " + map.tippyWord
+    return "a " + profile(npc, "treasure-hunter") + " with a " + map.tippyWord
   },
   "a wasteland druid": town => {
     const npc = setup.createNPC(town, {
@@ -693,7 +694,7 @@ export const encounters: Encounters = {
       calmTrait: "understanding",
       isThrowaway: true,
     })
-    return "a wasteland " + setup.profile(npc, "druid")
+    return "a wasteland " + profile(npc, "druid")
   },
   "cursed mummies": town => "cursed mummies",
   "a hobgoblin warlord": town => "a hobgoblin warlord",
@@ -721,7 +722,7 @@ export const encounters: Encounters = {
       note: "This witch is as mad as a cut snake.",
       isThrowaway: true,
     })
-    return "a mad " + setup.profile(npc, "witch")
+    return "a mad " + profile(npc, "witch")
   },
   "restless ghosts"() {
     const ghost = setup.misc.ghost.create()
@@ -734,7 +735,7 @@ export const encounters: Encounters = {
       note: "This person is either an orc that was outcast, or a half orc.",
       isThrowaway: true,
     })
-    return "a reclusive " + setup.profile(npc, "shapeshifter")
+    return "a reclusive " + profile(npc, "shapeshifter")
   },
   "an owlbear": town => "an owlbear",
   "a troll": town => "a troll",
@@ -749,7 +750,7 @@ export const encounters: Encounters = {
       note: "This person is very lost.",
       isThrowaway: true,
     })
-    return "a lost " + setup.profile(npc, "prospector")
+    return "a lost " + profile(npc, "prospector")
   },
   "a solemn warrior": town => {
     const npc = setup.createNPC(town, {
@@ -760,7 +761,7 @@ export const encounters: Encounters = {
       stressTrait: "determined",
       isThrowaway: true,
     })
-    return "a solemn looking " + setup.profile(npc, "warrior")
+    return "a solemn looking " + profile(npc, "warrior")
   },
   "a seasoned mountaineer": town => {
     const npc = setup.createNPC(town, {
@@ -770,7 +771,7 @@ export const encounters: Encounters = {
       note: "Never gets lost.",
       isThrowaway: true,
     })
-    return "a seasoned " + setup.profile(npc, "mountaineer")
+    return "a seasoned " + profile(npc, "mountaineer")
   },
 
   "an eccentric witch": town => {
@@ -782,7 +783,7 @@ export const encounters: Encounters = {
       note: "This witch is as crazy as a cut snake.",
       isThrowaway: true,
     })
-    return "an eccentric " + setup.profile(npc, "witch")
+    return "an eccentric " + profile(npc, "witch")
   },
   "a contemplative monk": town => {
     const npc = setup.createNPC(town, {
@@ -793,7 +794,7 @@ export const encounters: Encounters = {
       stressTrait: "determined",
       isThrowaway: true,
     })
-    return "a contemplative " + setup.profile(npc, "monk")
+    return "a contemplative " + profile(npc, "monk")
   },
   "a hunting peryton": town => "a hunting peryton",
   "a mountain lion": town => "a mountain lion",
@@ -815,7 +816,7 @@ export const encounters: Encounters = {
       dndClass: ["fighter", "rogue", "rogue"].seededrandom(),
       isThrowaway: true,
     })
-    return "a beggarly " + setup.profile(npc, "bandit")
+    return "a beggarly " + profile(npc, "bandit")
   },
   "an old witch": town => {
     const npc = setup.createNPC(town, {
@@ -825,7 +826,7 @@ export const encounters: Encounters = {
       ageStage: "elderly",
       isThrowaway: true,
     })
-    return "an old " + setup.profile(npc, "witch")
+    return "an old " + profile(npc, "witch")
   },
   "a curious herbalist": town => {
     const npc = setup.createNPC(town, {
@@ -834,14 +835,14 @@ export const encounters: Encounters = {
       profession: "herbalist",
       isThrowaway: true,
     })
-    return "a curious " + setup.profile(npc, "herbalist")
+    return "a curious " + profile(npc, "herbalist")
   },
   "a lost child": town => {
     const npc = setup.createNPC(town, {
       ageStage: "child",
       isThrowaway: true,
     })
-    return "a lost " + setup.profile(npc, "child")
+    return "a lost " + profile(npc, "child")
   },
   "a woodcutter busy with the day’s work": town => {
     const npc = setup.createNPC(town, {
@@ -858,7 +859,7 @@ export const encounters: Encounters = {
       background: "outlander",
       isThrowaway: true,
     })
-    return "an intrepid " + setup.profile(npc, "hunter")
+    return "an intrepid " + profile(npc, "hunter")
   },
   "an elvish ranger": town => {
     const npc = setup.createNPC(town, {
@@ -867,7 +868,7 @@ export const encounters: Encounters = {
       background: "outlander",
       isThrowaway: true,
     })
-    return "an elvish " + setup.profile(npc, "ranger")
+    return "an elvish " + profile(npc, "ranger")
   },
   "a large bear": () => "a large bear",
   "a bear cub": () => "a bear cub",
@@ -888,7 +889,7 @@ export const encounters: Encounters = {
       calmTrait: "quiet",
       isThrowaway: true,
     })
-    return "a lonely old " + setup.profile(npc, "woman")
+    return "a lonely old " + profile(npc, "woman")
   },
   "a beautiful witch": town => {
     const npc = setup.createNPC(town, {
@@ -898,7 +899,7 @@ export const encounters: Encounters = {
       note: "This witch is very beautiful.",
       isThrowaway: true,
     })
-    return "a beautiful " + setup.profile(npc, "witch")
+    return "a beautiful " + profile(npc, "witch")
   },
   "a horrible witch": town => {
     const npc = setup.createNPC(town, {
@@ -909,7 +910,7 @@ export const encounters: Encounters = {
       stressTrait: "cruel",
       isThrowaway: true,
     })
-    return "a horrible " + setup.profile(npc, "witch")
+    return "a horrible " + profile(npc, "witch")
   },
   "an outcast dwarf": town => {
     const npc = setup.createNPC(town, {
@@ -919,7 +920,7 @@ export const encounters: Encounters = {
       calmTrait: "quiet",
       isThrowaway: true,
     })
-    return "an outcast " + setup.profile(npc, "dwarf")
+    return "an outcast " + profile(npc, "dwarf")
   },
   "a dwarf prospector": town => {
     const npc = setup.createNPC(town, {
@@ -929,7 +930,7 @@ export const encounters: Encounters = {
       profession: "prospector",
       isThrowaway: true,
     })
-    return "a mining " + setup.profile(npc, "prospector")
+    return "a mining " + profile(npc, "prospector")
   },
   "a wood elf druid": town => {
     const npc = setup.createNPC(town, {
@@ -938,7 +939,7 @@ export const encounters: Encounters = {
       race: "elf",
       isThrowaway: true,
     })
-    return "a wood elf " + setup.profile(npc, "druid")
+    return "a wood elf " + profile(npc, "druid")
   },
   "some irritable trolls": () => "some irritable trolls",
 }
