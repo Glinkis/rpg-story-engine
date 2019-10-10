@@ -215,24 +215,26 @@ export function townRender(town) {
       }
   }
 
-  if (town.roll.guardFunding > 90) {
-    town.guard.funding = `The guards are extremely well funded, and are extensively armed. They regularly have training exercises, and their officers are held to extremely high standards.`
-  } else if (town.roll.guardFunding > 80) {
-    town.guard.funding = `The guards are well funded, and are armed more than adequately. They regularly have training exercises, and their officers are held to high standards.`
-  } else if (town.roll.guardFunding > 70) {
-    town.guard.funding = `The guards are well funded, and are armed. They perform annual training exercises, and their officers are held to high standards.`
-  } else if (town.roll.guardFunding > 60) {
-    town.guard.funding = `The guard is well funded, and armed according to budget. They have training exercises, and their officers are held accountable for their actions.`
-  } else if (town.roll.guardFunding > 50) {
-    town.guard.funding = `The guard is funded and armed according to the town budget. Their officers are held accountable for their actions.`
-  } else if (town.roll.guardFunding > 40) {
-    town.guard.funding = `The guard is slightly underfunded, and their equipment sometimes falls into slight disrepair. Their officers are held accountable for their actions, though $town.guard.name does not have the funding to perform regular training exercises.`
-  } else if (town.roll.guardFunding > 30) {
-    town.guard.funding = `The guard is underfunded, and their equipment is always in slight disrepair. Their officers are held accountable for their actions when public pressure fors for it, though $town.guard.name does not have the funding to perform training exercises.`
-  } else if (town.roll.guardFunding > 20) {
-    town.guard.funding = `The guard is quite underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when public pressure calls for it, though $town.guard.name does not have the funding to perform any training exercises.`
-  } else {
-    town.guard.funding = `The guard is severely underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when $town.rulerType calls for it, though $town.guard.name does not have the funding to train their recruits, resulting in bullies being commonplace.`
+  if (town.guard) {
+    if (town.roll.guardFunding > 90) {
+      town.guard.funding = `The guards are extremely well funded, and are extensively armed. They regularly have training exercises, and their officers are held to extremely high standards.`
+    } else if (town.roll.guardFunding > 80) {
+      town.guard.funding = `The guards are well funded, and are armed more than adequately. They regularly have training exercises, and their officers are held to high standards.`
+    } else if (town.roll.guardFunding > 70) {
+      town.guard.funding = `The guards are well funded, and are armed. They perform annual training exercises, and their officers are held to high standards.`
+    } else if (town.roll.guardFunding > 60) {
+      town.guard.funding = `The guard is well funded, and armed according to budget. They have training exercises, and their officers are held accountable for their actions.`
+    } else if (town.roll.guardFunding > 50) {
+      town.guard.funding = `The guard is funded and armed according to the town budget. Their officers are held accountable for their actions.`
+    } else if (town.roll.guardFunding > 40) {
+      town.guard.funding = `The guard is slightly underfunded, and their equipment sometimes falls into slight disrepair. Their officers are held accountable for their actions, though $town.guard.name does not have the funding to perform regular training exercises.`
+    } else if (town.roll.guardFunding > 30) {
+      town.guard.funding = `The guard is underfunded, and their equipment is always in slight disrepair. Their officers are held accountable for their actions when public pressure fors for it, though $town.guard.name does not have the funding to perform training exercises.`
+    } else if (town.roll.guardFunding > 20) {
+      town.guard.funding = `The guard is quite underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when public pressure calls for it, though $town.guard.name does not have the funding to perform any training exercises.`
+    } else {
+      town.guard.funding = `The guard is severely underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when $town.rulerType calls for it, though $town.guard.name does not have the funding to train their recruits, resulting in bullies being commonplace.`
+    }
   }
 
   if (town.roll.sin > 75 && town.population > 300) {
