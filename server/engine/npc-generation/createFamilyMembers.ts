@@ -118,9 +118,6 @@ export function createChildren(
     amount -= marriage.children.length
   }
 
-  console.log(`Creating ${amount} siblings...`)
-  console.log(family)
-
   const surname = getChildSurname(marriage)
   const siblingClass = marriage.socialClass
 

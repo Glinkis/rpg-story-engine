@@ -2,8 +2,6 @@ import { variables } from "../global"
 
 export function createRelationship(town, npc, targetNPC, type, targetType) {
   console.log(`Forming a relationship.`)
-  console.log(npc)
-  console.log(targetNPC)
 
   if (typeof npc === `string`) {
     console.error(`First argument was passed a string!`)

@@ -15,7 +15,6 @@ export function fetchRace(town: any, saveLoc?: any) {
   }
 
   const args = town._demographic
-  console.log(args)
   const pool: any[] = []
   const namePool = Object.keys(args)
   let totalWeight = 0

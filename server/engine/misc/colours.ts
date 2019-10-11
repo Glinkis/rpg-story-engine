@@ -308,13 +308,11 @@ export function createColour(filters: any = {}) {
   const { bannedColours = [] } = filters
 
   const availableColours = Object.keys(colours)
-  console.log(availableColours)
 
   for (const colour in Object.keys(colours)) {
     if (bannedColours.includes(colour)) {
       continue
     }
-    console.log(colours[colour])
 
     for (const filter in Object.keys(filters)) {
       if (filters[filter] === bannedColours) {
