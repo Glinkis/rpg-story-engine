@@ -2282,10 +2282,10 @@ export const misc: Misc = {
   bunny: {
     create() {
       const bunny: any = {
-        size: misc.bunny.size.seededrandom(),
-        coat: misc.bunny.coat.seededrandom(),
-        favouriteFood: misc.bunny.favouriteFood.seededrandom(),
-        markings: misc.bunny.markings.seededrandom(),
+        size: randomValue(misc.bunny.size),
+        coat: randomValue(misc.bunny.coat),
+        favouriteFood: randomValue(misc.bunny.favouriteFood),
+        markings: randomValue(misc.bunny.markings),
       }
       bunny.readout = `This bunny is ${bunny.size}, and has a ${bunny.coat} coat, with ${bunny.markings}. It loves ${bunny.favouriteFood}.`
       bunny.tippyWord = `<span class=tip title=${JSON.stringify(
@@ -2351,14 +2351,14 @@ export const misc: Misc = {
   cat: {
     create() {
       const cat: any = {
-        size: misc.cat.size.seededrandom(),
-        coat: misc.cat.coat.seededrandom(),
-        eyes: misc.cat.eyes.seededrandom(),
-        breedSkill: misc.cat.breedSkill.seededrandom(),
-        favouriteFood: misc.cat.favouriteFood.seededrandom(),
-        markings: misc.cat.markings.seededrandom(),
-        habit: misc.cat.habit.seededrandom(),
-        talent: misc.cat.talent.seededrandom(),
+        size: randomValue(misc.cat.size),
+        coat: randomValue(misc.cat.coat),
+        eyes: randomValue(misc.cat.eyes,
+        breedSkill: randomValue(misc.cat.breedSkill),
+        favouriteFood: randomValue(misc.cat.favouriteFood),
+        markings: randomValue(misc.cat.markings),
+        habit: randomValue(misc.cat.habit),
+        talent: randomValue(misc.cat.talent),
       }
       cat.readout = `This cat is ${cat.size}, and has a ${cat.coat} coat, with ${cat.eyes} and ${cat.markings}. This breed was bred ${cat.breedSkill}, and this cat has ${cat.habit}. It loves ${cat.favouriteFood}, and it is particularly good at ${cat.talent}`
       cat.tippyWord = `<span class=tip title=${JSON.stringify(
@@ -2366,14 +2366,14 @@ export const misc: Misc = {
       )}> <b>cat</b></span><<run setup.tippy("span")>>`
       return cat
     },
-    size: [
+    size: randomValue([
       `all skin and bones`,
       `a little scrawny`,
       `pretty average in size`,
       `a little long and lanky`,
       `fat`,
       `extremely fat`,
-    ],
+    ]),
     coat: [
       `solid white`,
       `solid black`,
