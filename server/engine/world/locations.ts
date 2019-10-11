@@ -129,7 +129,7 @@ export const locations: Locations = {
     return `a hole under a large boulder <blockquote> Inside is ${content}</blockquote>`
   },
   "an abandoned stone house"(town, biome) {
-    const lived = misc[biome].houseLived.seededrandom()
+    const lived = randomValue(misc[biome].houseLived)
     const encounter = contentsFetcher(town, biome, misc[biome].houseLives, encounters)
     const cabin = misc.cabin.create(town, biome, {
       material: `stone`,
@@ -152,7 +152,7 @@ export const locations: Locations = {
     return `a merchant caravan's camp. ${caravan.readout}`
   },
   "a peculiar tent"(town, biome) {
-    const lived = misc[biome].camped.seededrandom()
+    const lived = randomValue(misc[biome].camped)
     return `an peculiar tent, which looks to have been occupied previously by ${lived}`
   },
   "an old watchtower"(town, biome) {

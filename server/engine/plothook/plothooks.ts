@@ -30,11 +30,11 @@ export const plothooks = {
     },
     function(town) {
       const npc = setup.createNPC(town, {
-        dndClass: [`sorcerer`, `wizard`, `warlock`].seededrandom(),
+        dndClass: randomValue([`sorcerer`, `wizard`, `warlock`]),
         gender: `man`,
       })
       return (
-        `<<guard $town.guard>> think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the ${
+        `<<guard ${town.guard}>> think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the ${
         setup.profile(npc, `real culprit`)
         } before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?`
       )
@@ -684,7 +684,7 @@ export const plothooks = {
       const npc = setup.createNPC(town, {
         profession: `merchant`,
         hasClass: false,
-        background: [`noble`, `commoner`].seededrandom(),
+        background: randomValue([`noble`, `commoner`]),
       })
       return (
         `${
@@ -780,7 +780,7 @@ export const plothooks = {
         hasClass: false,
         background: `noble`,
         gender: `woman`,
-        ageStage: [`child`, `young adult`].seededrandom(),
+        ageStage: randomValue([`child`, `young adult`]),
       })
       return (
         `Bandit Kidnappers! Our ${
@@ -795,7 +795,7 @@ export const plothooks = {
       const npc = setup.createNPC(town, {
         hasClass: true,
         dndClass: `fighter`,
-        ageStage: [`child`, `young adult`].seededrandom(),
+        ageStage: randomValue([`child`, `young adult`]),
         gender: `man`,
       })
       return (
@@ -1312,7 +1312,7 @@ export const plothooks = {
     function(town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: [`warlock`, `wizard`].seededrandom(),
+        dndClass: randomValue([`warlock`, `wizard`]),
       })
       return `Need basilisk eggs for experiment! Big reward! Please contact ${  setup.profile(npc)  } for details.`
     },
@@ -1322,7 +1322,7 @@ export const plothooks = {
     function(town) {
       const npc = setup.createNPC(town, {
         hasClass: true,
-        dndClass: [`warlock`, `wizard`].seededrandom(),
+        dndClass: randomValue([`warlock`, `wizard`]),
       })
       return (
         `Missing: One (1) semi-intelligent skeleton. 5 feet 10 inches. Last seen wearing blue cloak. He was sent to the market for some groceries five days ago, and hasn’t come home. His creator misses him very much. <<money 5000>> & four (4) Stones of Farspeech upon return. Please contact ${
@@ -1532,7 +1532,7 @@ export const plothooks = {
         hasClass: true,
         ageStage: `elderly`,
         gender: `woman`,
-        dndClass: [`sorcerer`, `warlock`, `warlock`].seededrandom(),
+        dndClass: randomValue([`sorcerer`, `warlock`, `warlock`]),
         note: `Is not a very nice witch.`,
       })
       return (
