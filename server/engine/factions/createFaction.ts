@@ -4,6 +4,7 @@ import { factionData } from "./factionData"
 import { ageFaction } from "./ageFaction"
 import { nameFaction } from "./nameFaction"
 import { sizeFaction } from "./sizeFaction"
+import { reputationFaction } from "./repuationFaction"
 
 export function createFaction(town, opts = {}) {
   const type = randomValue(factionTypes)
@@ -33,7 +34,7 @@ export function createFaction(town, opts = {}) {
   faction.name = nameFaction(town.name, faction.type)
   faction.age = ageFaction(faction)
 
-  // TODO: setup.reputationFaction(faction)
+  reputationFaction(faction)
 
   sizeFaction(town, faction)
 
