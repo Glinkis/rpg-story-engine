@@ -2,6 +2,7 @@ import { dice, randomFloat, randomValue } from "../rolls"
 import { createUniqueKey } from "../tools/createUniqueKey"
 import { factionData } from "./factionData"
 import { ageFaction } from "./ageFaction"
+import { nameFaction } from "./nameFaction"
 
 export function createFaction(town, opts = {}) {
   const type = randomValue(factionTypes)
@@ -28,11 +29,8 @@ export function createFaction(town, opts = {}) {
     ...opts,
   }
 
-  // TODO: faction.name = setup.nameFaction(town.name, faction.type)
-
-  console.groupCollapsed(`${faction.name} the ${faction.type} have loaded.`)
-
-  ageFaction(faction)
+  faction.name = nameFaction(town.name, faction.type)
+  faction.age = ageFaction(faction)
 
   // TODO: setup.reputationFaction(faction)
 
@@ -56,7 +54,6 @@ export function createFaction(town, opts = {}) {
 
   faction.tippyDescription = `A ${faction.size} ${faction.type} ${faction.wordNoun} called ${faction.name}`
 
-  console.groupEnd()
   return faction
 }
 

@@ -1,17 +1,17 @@
 export function ageFaction(faction) {
-  faction.age = `well established`
+  let age = `well established`
 
   for (const [num, description] of ranks) {
     if (faction.roll.age > num) {
-      faction.age = description
+      age = description
       break
     }
   }
 
-  return faction.age
+  return age
 }
 
-const ranks = [
+const ranks: [number, string][] = [
   [95, `ancient`],
   [90, `extremely old`],
   [80, `very old`],
