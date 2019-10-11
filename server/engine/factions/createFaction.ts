@@ -1,6 +1,7 @@
 import { dice, randomFloat, randomValue } from "../rolls"
 import { createUniqueKey } from "../tools/createUniqueKey"
 import { factionData } from "./factionData"
+import { ageFaction } from "./ageFaction"
 
 export function createFaction(town, opts = {}) {
   const type = randomValue(factionTypes)
@@ -31,7 +32,7 @@ export function createFaction(town, opts = {}) {
 
   console.groupCollapsed(`${faction.name} the ${faction.type} have loaded.`)
 
-  // TODO; setup.ageFaction(faction)
+  ageFaction(faction)
 
   // TODO: setup.reputationFaction(faction)
 
