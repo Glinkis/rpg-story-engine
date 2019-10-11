@@ -8,11 +8,8 @@
   "private": true,
   "scripts": {
     "start": "ts-node server",
-    "start:watch": "nodemon"
-  },
-  "engines": {
-    "node": ">=10.5.0",
-    "yarn": "^1.15.0"
+    "start:watch": "nodemon",
+    "lint": "eslint server/**/*.ts --fix"
   },
   "nodemonConfig": {
     "watch": "server",
@@ -29,5 +26,11 @@
     "randoma": "1.3.0",
     "ts-node": "8.4.1",
     "typescript": "3.6.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "2.3.3",
+    "@typescript-eslint/parser": "2.3.3",
+    "eslint": "6.5.1",
+    "eslint-config-prettier": "6.4.0"
   }
 }

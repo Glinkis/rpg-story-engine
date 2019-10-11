@@ -2,59 +2,59 @@ import { RollData } from "../../../shared/types"
 
 export const rollData: RollData = {
   wealth: [
-    [95, "kingly"],
-    [80, "aristocratic"],
-    [70, "wealthy"],
-    [60, "comfortable"],
-    [50, "modest"],
-    [25, "poor"],
-    [15, "squalid"],
-    [0, "destitute"],
+    [95, `kingly`],
+    [80, `aristocratic`],
+    [70, `wealthy`],
+    [60, `comfortable`],
+    [50, `modest`],
+    [25, `poor`],
+    [15, `squalid`],
+    [0, `destitute`],
   ],
   size: [
-    [95, "cavernous"],
-    [80, "huge"],
-    [70, "quite large"],
-    [60, "large"],
-    [50, "spacious"],
-    [40, "average sized"],
-    [30, "somewhat cramped"],
-    [20, "small"],
-    [10, "tiny"],
-    [0, "extremely cramped"],
+    [95, `cavernous`],
+    [80, `huge`],
+    [70, `quite large`],
+    [60, `large`],
+    [50, `spacious`],
+    [40, `average sized`],
+    [30, `somewhat cramped`],
+    [20, `small`],
+    [10, `tiny`],
+    [0, `extremely cramped`],
   ],
   cleanliness: [
-    [80, "fastidious"],
-    [70, "very tidy"],
-    [60, "tidy"],
-    [50, "reasonably tidy"],
-    [40, "somewhat messy"],
-    [30, "rather messy"],
-    [20, "very messy"],
-    [10, "extremely messy"],
-    [0, "dangerously messy"],
+    [80, `fastidious`],
+    [70, `very tidy`],
+    [60, `tidy`],
+    [50, `reasonably tidy`],
+    [40, `somewhat messy`],
+    [30, `rather messy`],
+    [20, `very messy`],
+    [10, `extremely messy`],
+    [0, `dangerously messy`],
   ],
   expertise: [
-    [80, "masterful"],
-    [70, "exceptional"],
-    [60, "superior quality"],
-    [50, "finely crafted"],
-    [40, "well crafted"],
-    [30, "sloppily made"],
-    [20, "somewhat amateur"],
-    [10, "amateur"],
-    [0, "blatantly amateur"],
+    [80, `masterful`],
+    [70, `exceptional`],
+    [60, `superior quality`],
+    [50, `finely crafted`],
+    [40, `well crafted`],
+    [30, `sloppily made`],
+    [20, `somewhat amateur`],
+    [10, `amateur`],
+    [0, `blatantly amateur`],
   ],
   activity: [
-    [80, "extremely busy"],
-    [70, "very busy"],
-    [60, "rather busy"],
-    [50, "reasonably busy"],
-    [40, "not terribly busy"],
-    [30, "reasonably quiet"],
-    [20, "rather quiet"],
-    [10, "totally empty"],
-    [0, "totally empty"],
+    [80, `extremely busy`],
+    [70, `very busy`],
+    [60, `rather busy`],
+    [50, `reasonably busy`],
+    [40, `not terribly busy`],
+    [30, `reasonably quiet`],
+    [20, `rather quiet`],
+    [10, `totally empty`],
+    [0, `totally empty`],
   ],
 }
 
@@ -112,7 +112,8 @@ export function lookAround(smithy: Smithy) {
     {
       cleanliness: 10,
       wealth: 10,
-      note: `The smithy is filthy, with smoke having blackened the walls and a thick layer of grime and dust coating every surface. The smell of various burnt woods, coals, and other things permeates your nostrils, and your boots leave visible footprints in the ash underfoot`,
+      note:
+        `The smithy is filthy, with smoke having blackened the walls and a thick layer of grime and dust coating every surface. The smell of various burnt woods, coals, and other things permeates your nostrils, and your boots leave visible footprints in the ash underfoot`,
     },
   ]
 }
@@ -122,42 +123,50 @@ export function expertise(smithy: Smithy) {
     {
       expertise: 80,
       wealth: 10,
-      note: `On the bench lies a <<print either($smithy.weapons)>>, and just by looking at it, you can tell that the blacksmith is extremely talented at $blacksmith.hisher craft; this is a weapon clearly fit for a king.`,
+      note:
+        `On the bench lies a <<print either($smithy.weapons)>>, and just by looking at it, you can tell that the blacksmith is extremely talented at $blacksmith.hisher craft; this is a weapon clearly fit for a king.`,
     },
     {
       expertise: 70,
       wealth: 10,
-      note: `On the bench lies a <<print either($smithy.weapons)>>, and looking at it, you can tell that the blacksmith is talented at $blacksmith.hisher craft; this is a well made weapon.`,
+      note:
+        `On the bench lies a <<print either($smithy.weapons)>>, and looking at it, you can tell that the blacksmith is talented at $blacksmith.hisher craft; this is a well made weapon.`,
     },
     {
       expertise: 60,
       wealth: 10,
-      note: `On the bench is a <<print either($smithy.weapons)>>, and you can tell that $blacksmith.name is well trained; the weapon is more than servicable, and carries a nice heft to it.`,
+      note:
+        `On the bench is a <<print either($smithy.weapons)>>, and you can tell that $blacksmith.name is well trained; the weapon is more than servicable, and carries a nice heft to it.`,
     },
     {
       expertise: 50,
       wealth: 10,
-      note: `On the bench lies a <<print either($smithy.weapons)>>. Inspecting it, it's of slightly above average quality, and is made well.`,
+      note:
+        `On the bench lies a <<print either($smithy.weapons)>>. Inspecting it, it's of slightly above average quality, and is made well.`,
     },
     {
       expertise: 40,
       wealth: 10,
-      note: `On the bench is a <<print either($smithy.weapons)>>. Inspecting it, it's of slightly below average quality, and has an odd weight to it.`,
+      note:
+        `On the bench is a <<print either($smithy.weapons)>>. Inspecting it, it's of slightly below average quality, and has an odd weight to it.`,
     },
     {
       expertise: 30,
       wealth: 10,
-      note: `On the bench lies a <<print either($smithy.weapons)>>. Looking at it, you can see that it's not very well made.`,
+      note:
+        `On the bench lies a <<print either($smithy.weapons)>>. Looking at it, you can see that it's not very well made.`,
     },
     {
       expertise: 20,
       wealth: 10,
-      note: `On the bench lies a <<print either($smithy.weapons)>>. It's a respectable effort for an amateur, but for a professional blacksmith, it's rather poor quality.`,
+      note:
+        `On the bench lies a <<print either($smithy.weapons)>>. It's a respectable effort for an amateur, but for a professional blacksmith, it's rather poor quality.`,
     },
     {
       expertise: 10,
       wealth: 10,
-      note: `On the bench lies a <<print either($smithy.weapons)>>. It's obviously amateurish. $blacksmith.firstName moves around the shop, unsure of $blacksmith.himherself, betraying $blacksmith.hisher lack of skills.`,
+      note:
+        `On the bench lies a <<print either($smithy.weapons)>>. It's obviously amateurish. $blacksmith.firstName moves around the shop, unsure of $blacksmith.himherself, betraying $blacksmith.hisher lack of skills.`,
     },
   ]
 }

@@ -4,8 +4,8 @@ import { clamp, fm } from "../math"
 import { townDemographics } from "./townDemographics"
 import { createTownName } from "./createTownName"
 import { townData } from "./townData"
-
-const setup = {} as any
+import { townRender } from "./townRender"
+import { createGuard } from "./createGuard"
 
 interface Town {
   [key: string]: any
@@ -13,26 +13,27 @@ interface Town {
 
 export function createTown(base: any = {}) {
   const type = randomValue([
-    "hamlet",
-    "hamlet",
-    "village",
-    "village",
-    "village",
-    "town",
-    "town",
-    "town",
-    "city",
-    "city",
+    `hamlet`,
+    `hamlet`,
+    `village`,
+    `village`,
+    `village`,
+    `town`,
+    `town`,
+    `town`,
+    `city`,
+    `city`,
   ])
-  const terrain = randomValue(["temperate", "temperate", "temperate", "tropical", "polar", "arid"])
-  const season = ["summer", "autumn", "winter", "spring"]
+  const terrain = randomValue([`temperate`, `temperate`, `temperate`, `tropical`, `polar`, `arid`])
+  const season = [`summer`, `autumn`, `winter`, `spring`]
   const townName = createTownName()
-  console.groupCollapsed(townName + " is loading...")
+  console.groupCollapsed(`${townName} is loading...`)
   const economicIdeology = randomValue(townData.type[type].economicIdeology)
   const politicalSource = randomValue(townData.type[type].politicalSource)
   const politicalIdeology = randomValue(townData.politicalSource[politicalSource].politicalIdeology)
+
   const town = {
-    passageName: "TownOutput",
+    passageName: `TownOutput`,
     name: townName,
     taxes: {
       base: 7,
@@ -43,35 +44,34 @@ export function createTown(base: any = {}) {
     taxRate(town: Town) {
       let totalTax = 0
       Object.keys(town.taxes).forEach(function(this: any, tax) {
-        if (typeof town.taxes[tax] === "number") {
+        if (typeof town.taxes[tax] === `number`) {
           totalTax += town.taxes[tax]
-        } else if (typeof town.taxes[tax] === "function") {
+        } else if (typeof town.taxes[tax] === `function`) {
           const temp = town.taxes[tax](this)
           totalTax += temp
         } else {
-          console.log("non-integer tax! " + town.taxes[tax])
+          console.log(`non-integer tax! ${town.taxes[tax]}`)
         }
       })
       return Math.round(totalTax * 100) / 100
     },
     get type() {
       if (this.population > 3000) {
-        return "city"
+        return `city`
       } else if (this.population > 1000) {
-        return "town"
+        return `town`
       } else if (this.population > 300) {
-        return "village"
+        return `village`
       } else if (this.population > 30) {
-        return "hamlet"
-      } else if (this.population <= 30) {
+        return `hamlet`
+      } else {
         this.population = 30
-        return "hamlet"
+        return `hamlet`
       }
     },
     set type(this: any, value) {
       this._type = value
     },
-    // type: type,
     terrain,
     currentSeason: randomValue(season),
     season,
@@ -80,8 +80,6 @@ export function createTown(base: any = {}) {
     families: {},
     population: townData.type[type].population(),
     _demographic: {},
-    // Clone the raw demographic data for the town type.
-    // _baseDemographics: clone(setup.townData.type['hamlet'].demographics.seededrandom().output),
     get baseDemographics() {
       return this._baseDemographics
     },
@@ -91,7 +89,6 @@ export function createTown(base: any = {}) {
       }
     },
     get demographic(): any {
-      // console.log('Getting demographic percent.')
       // Get an array of the demographic keys (race names).
       const races = Object.keys(this.baseDemographics)
       // Calculate the sum of the raw demographic values.
@@ -127,15 +124,13 @@ export function createTown(base: any = {}) {
     },
     get politicalSourceDescription(): any {
       const source = townData.politicalSource[this._politicalSource]
-      if (this._politicalSource === "absolute monarchy" || this._politicalSource === "constitutional monarchy") {
-        if (this.politicalIdeology === "autocracy") {
+      if (this._politicalSource === `absolute monarchy` || this._politicalSource === `constitutional monarchy`) {
+        if (this.politicalIdeology === `autocracy`) {
           return source.autocracy.politicalSourceDescription
-        } else {
-          return source.default.politicalSourceDescription
         }
-      } else {
-        return source.politicalSourceDescription
+        return source.default.politicalSourceDescription
       }
+      return source.politicalSourceDescription
     },
     get wealth() {
       let wealth = townData.rollData.wealth.find(descriptor => descriptor[0] <= this.roll.wealth)
@@ -185,9 +180,9 @@ export function createTown(base: any = {}) {
   town.origin = randomValue(townData.terrain[town.terrain].location[town.location].origin)
   town.vegetation = randomValue(townData.terrain[town.terrain].location[town.location].vegetation)
 
-  Object.keys(town.roll).forEach(roll => {
-    clamp(town.roll[roll], 1, 100)
-  })
+  for (const roll of Object.keys(town.roll)) {
+    town.roll[roll] = clamp(town.roll[roll], 1, 100)
+  }
 
   console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   const townSizeModifiers = townData.type[town.type].modifiers
@@ -196,7 +191,7 @@ export function createTown(base: any = {}) {
     town.roll[modifier] = fm(town.roll[modifier], townSizeModifiers[modifier])
   }
 
-  // TODO: town.guard = setup.createGuard(town)
+  town.guard = createGuard(town)
 
   console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   const economicIdeologyModifiers = townData.economicIdeology[town.economicIdeology].modifiers
@@ -218,7 +213,7 @@ export function createTown(base: any = {}) {
     clamp(town.roll[roll], 1, 100)
   }
 
-  // TODO: setup.townRender(town)
+  townRender(town)
   // TODO: setup.createStartBuildings(town)
   // TODO: setup.createStartFactions(town)
 

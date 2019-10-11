@@ -1,5 +1,5 @@
-import { townData } from "../town/townData"
 import { dice, randomFloatRange } from "../rolls"
+import { professions } from "../npc-generation/professions"
 
 /**
  * This is run on start up.
@@ -9,10 +9,10 @@ import { dice, randomFloatRange } from "../rolls"
  * function located in `NPCGeneration/fetchProfessionChance.js`
  */
 export function fetchProfessions(town?: any) {
-  town = town //|| State.variables.town
+  // TODO: town = town || State.variables.town
   town.professions = {}
 
-  for (const [name, profession] of Object.entries(townData.professions)) {
+  for (const [name, profession] of Object.entries(professions)) {
     const townPop = town.population
     const newSv = profession.sv + (dice(4, 4) - 10) * 10
     /* Set the number of professions equal = the town's population divided by how many people are needed = support that type of business */

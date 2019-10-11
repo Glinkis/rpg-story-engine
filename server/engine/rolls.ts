@@ -52,7 +52,7 @@ export function either<T>(...values: T[]) {
  * Rolls a number of dices with n-number of sides.
  */
 export function dice(amount: number, sides: number) {
-  const rolls = []
+  const rolls: number[] = []
   while (amount > rolls.length) {
     rolls.push(seeded.integerInRange(0, sides))
   }
