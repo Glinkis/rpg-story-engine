@@ -23,7 +23,6 @@ interface TownType {
   modifiers: Record<string, number>
   roadDuplication: number
   population(): number
-  startFactionsNumber(): number
 }
 
 interface TownData {
@@ -415,9 +414,6 @@ export const townData: TownData = {
       population() {
         return randomRange(30, 300)
       },
-      startFactionsNumber() {
-        return randomValue([1, 1, 1, 1, 1, 2])
-      },
       // roadDuplication: d100 of whether to create a new road (new one if under).
       roadDuplication: 40,
       modifiers: {
@@ -531,9 +527,6 @@ export const townData: TownData = {
       population() {
         return randomRange(301, 1000)
       },
-      startFactionsNumber() {
-        return randomValue([1, 1, 1, 2, 2, 2])
-      },
       roadDuplication: 50,
       modifiers: {
         wealth: -10,
@@ -645,9 +638,6 @@ export const townData: TownData = {
       politicalSource: [`absolute monarchy`, `constitutional monarchy`, `republic`, `republic`, `republic`, `anarchy`],
       population() {
         return randomRange(1001, 3000)
-      },
-      startFactionsNumber() {
-        return randomValue([1, 1, 2, 2, 2, 3, 3])
       },
       roadDuplication: 70,
       modifiers: {
@@ -768,9 +758,6 @@ export const townData: TownData = {
       ],
       population() {
         return randomRange(3001, 6000)
-      },
-      startFactionsNumber() {
-        return randomValue([1, 1, 2, 2, 2, 3, 3, 3, 3, 4])
       },
       roadDuplication: 90,
       modifiers: {

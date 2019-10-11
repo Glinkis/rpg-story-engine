@@ -49,6 +49,16 @@ export function either<T>(...values: T[]) {
 }
 
 /**
+ * Randomly removes an element from the base array and returns it.
+ */
+export function pluck<T>(array: T[]) {
+  if (array.length) {
+    const index = randomRange(0, array.length - 1)
+    return array.splice(index, 1)
+  }
+}
+
+/**
  * Rolls a number of dices with n-number of sides.
  */
 export function dice(amount: number, sides: number) {
