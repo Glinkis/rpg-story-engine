@@ -3,6 +3,8 @@ import { misc } from "../world/miscData"
 import { profile } from "../npc-generation/profile"
 import { createNPC } from "../npc-generation/createNPC"
 import { objectArrayFetcher } from "../tools/objectArrayFetcher"
+import { createRelationship } from "../npc-generation/createRelationship"
+import { createTownName } from "../town/createTownName"
 
 export const plothooks = {
   "Roleplay Questions": {
@@ -558,7 +560,7 @@ export const plothooks = {
         hasClass: false,
         background: randomValue([`noble`, `commoner`]),
       })
-      return `${profile(npc, `Merchant`)} looking for armed security to escort us to ${setup.createTownName()}.`
+      return `${profile(npc, `Merchant`)} looking for armed security to escort us to ${createTownName()}.`
     },
   },
   "Mushroom Forager": {
@@ -574,23 +576,21 @@ export const plothooks = {
         background: `noble`,
         hasClass: false,
       })
-      return `Lost mail! Important documents might have been intercepted. The courier I’ve been expecting has not arrived. Please inquire at the City Hall, ask for ${profile(
-        npc
-      )}.`
+      const npcProfile = profile(npc)
+      return `Lost mail! Important documents might have been intercepted. The courier I’ve been expecting has not arrived. Please inquire at the City Hall, ask for ${npcProfile}.`
     },
   },
   "Sporting Match": {
     type: [`paper`],
-    exclusions(town, npc) {
+    exclusions() {
       return true
     },
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
       })
-      return `The town of ${setup.createTownName()} has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ${profile(
-        npc
-      )} for details.`
+      const npcProfile = profile(npc)
+      return `The town of ${createTownName()} has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ${npcProfile} for details.`
     },
   },
   "Tarot Cards": {
@@ -611,7 +611,7 @@ export const plothooks = {
     type: [`paper`],
     function(town) {
       const blacksmithPool = town.buildings.smithy
-      const smithy = setup.objectArrayFetcher(blacksmithPool)
+      const smithy = objectArrayFetcher(blacksmithPool)
       return `Koboliam Ore Needed: A local ${profile(
         smithy.blacksmith,
         `blacksmith`
@@ -741,7 +741,7 @@ export const plothooks = {
   "Need Bartender": {
     type: [`paper`],
     function(town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = objectArrayFetcher(town.buildings.tavern)
       return `Needed bartender. Looking to employ a bartender for my inn, ${profile(
         building,
         ``,
@@ -910,28 +910,24 @@ export const plothooks = {
   },
   "A Muse-ment": {
     type: [`paper`],
-    exclusions(town, npc) {
+    exclusions() {
       return true
     },
     function(town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = objectArrayFetcher(town.buildings.tavern)
       const npc = createNPC(town, {
         hasClass: false,
         background: `entertainer`,
         profession: `entertainer`,
       })
-      return `A Muse-ment Please: My brother, the head writer of our musical comedy duo is in a rut. He hasn’t been writing any good jokes for a while and I just can’t play backup to another lukewarm song like ‘there’s gnome place like home’. He needs something hilarious and inspiring to jump-start his creativity again. I’m taking him to ${profile(
-        building,
-        ``,
-        `town.buildings.tavern`
-      )} tonight for drinks, and if you manage to orchestrate some weird and hilarious scene I’ll pay you <<money 1000>>. (by the way, don’t tell him I paid for this, just say I owe you money or something I don’t care) -${profile(
-        npc
-      )}`
+      const buildingProfile = profile(building, ``, `town.buildings.tavern`)
+      const npcProfile = profile(npc)
+      return `A Muse-ment Please: My brother, the head writer of our musical comedy duo is in a rut. He hasn’t been writing any good jokes for a while and I just can’t play backup to another lukewarm song like ‘there’s gnome place like home’. He needs something hilarious and inspiring to jump-start his creativity again. I’m taking him to ${buildingProfile} tonight for drinks, and if you manage to orchestrate some weird and hilarious scene I’ll pay you <<money 1000>>. (by the way, don’t tell him I paid for this, just say I owe you money or something I don’t care) -${npcProfile}`
     },
   },
   "Strange Doll": {
     type: [`paper`],
-    exclusions(town, npc) {
+    exclusions() {
       return true
     },
     function(town) {
@@ -946,7 +942,7 @@ export const plothooks = {
   },
   "Lost Shorts": {
     type: [`paper`],
-    exclusions(town, npc) {
+    exclusions() {
       return true
     },
     function(town) {
@@ -965,7 +961,7 @@ export const plothooks = {
       return true
     },
     function(town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = objectArrayFetcher(town.buildings.tavern)
       const npc = createNPC(town, {
         hasClass: false,
         background: `noble`,
@@ -984,7 +980,7 @@ export const plothooks = {
       return true
     },
     function(town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = objectArrayFetcher(town.buildings.tavern)
       // #
       return `${profile(
         building,
@@ -1268,7 +1264,7 @@ export const plothooks = {
   "Berate Me": {
     type: [`paper`],
     function(town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = objectArrayFetcher(town.buildings.tavern)
       const npc = createNPC(town, {
         hasClass: false,
         background: `commoner`,
@@ -1318,7 +1314,7 @@ export const plothooks = {
   "Huckleberry": {
     type: [`paper`],
     function(town) {
-      const building = setup.objectArrayFetcher(town.buildings.tavern)
+      const building = objectArrayFetcher(town.buildings.tavern)
       const npc = createNPC(town, {
         hasClass: false,
         background: `commoner`,
@@ -1511,9 +1507,8 @@ export const plothooks = {
         background: `acolyte`,
         profession: `priest (and also mobster)`,
       })
-      return `Victimless Instigators of Loot Extraction is seeking henchmen for transportation of merchandise. Some risk is involved. Must be capable of intercepting and stopping pursuers. If interested, head to Church of St. Deegho and ask for ${profile(
-        npc
-      )}.`
+      const npcProfile = profile(npc)
+      return `Victimless Instigators of Loot Extraction is seeking henchmen for transportation of merchandise. Some risk is involved. Must be capable of intercepting and stopping pursuers. If interested, head to Church of St. Deegho and ask for ${npcProfile}.`
     },
   },
   "Trapped": {
@@ -1527,13 +1522,10 @@ export const plothooks = {
         hasClass: true,
         gender: `man`,
       })
-      setup.createRelationship(town, npc, secondNpc, `friend`, `friend`)
-      return `Help! My good friend ${profile(
-        secondNpc
-      )} has been trapped! My scrying reveals he is stuck in a 10-foot room. He has a chest of valuables with him, but needs help getting it and him out of the dungeon safely! Come to the Tower Tisential if you are willing to help! -the Wizard ${profile(
-        npc,
-        npc.firstName
-      )}.`
+      createRelationship(town, npc, secondNpc, `friend`, `friend`)
+      const npcProfile = profile(npc, npc.firstName)
+      const secondNpcProfile = profile(secondNpc)
+      return `Help! My good friend ${secondNpcProfile} has been trapped! My scrying reveals he is stuck in a 10-foot room. He has a chest of valuables with him, but needs help getting it and him out of the dungeon safely! Come to the Tower Tisential if you are willing to help! -the Wizard ${npcProfile}.`
     },
   },
   "Bardic Inspiration Needed": {
@@ -1544,10 +1536,8 @@ export const plothooks = {
         background: `entertainer`,
         dndClass: `bard`,
       })
-      return `Seasoned adventurers needed! ${profile(
-        npc,
-        `Bard`
-      )} here, tell me the tales of your great adventures, I need some inspiration for my books/songs. Payment will be determined by how good your stories are.`
+      const npcProfile = profile(npc, `Bard`)
+      return `Seasoned adventurers needed! ${npcProfile} here, tell me the tales of your great adventures, I need some inspiration for my books/songs. Payment will be determined by how good your stories are.`
     },
   },
   "The Old Mill": {
@@ -1576,14 +1566,11 @@ export const plothooks = {
         background: `noble`,
         race: `elf`,
       })
-      setup.createRelationship(town, npc, secondNpc, `rival`, `rival`)
-      return `Help settle a minor dispute between two noble Elven houses! House ${profile(
-        npc,
-        npc.lastName
-      )} is looking for adventurers to help draw the domain lines with the House ${profile(
-        secondNpc,
-        secondNpc.lastName
-      )} border. If you are strong of arm and fleet of foot, inquire at the ${profile(npc, npc.lastName)} Manor.`
+      createRelationship(town, npc, secondNpc, `rival`, `rival`)
+      const npcProfile = profile(npc, npc.lastName)
+      const secondNpcProfile = profile(secondNpc, secondNpc.lastName)
+      const familyProfile = profile(npc, npc.lastName)
+      return `Help settle a minor dispute between two noble Elven houses! House ${npcProfile} is looking for adventurers to help draw the domain lines with the House ${secondNpcProfile} border. If you are strong of arm and fleet of foot, inquire at the ${familyProfile} Manor.`
     },
   },
   "The Cock-Fight": {
@@ -1635,7 +1622,7 @@ export const plothooks = {
       object: `building`,
       type: `tavern`,
     },
-    function(town) {
+    function() {
       return `Ten sailors come up to the party, laughing drunkenly. They seem interested in buying you all drinks, and are more than happy to chat and joke with anyone who seems jovial. If any PCs accept their offer of drinks, they will wake up to find themselves press-ganged into service on a pirate ship.`
     },
   },
