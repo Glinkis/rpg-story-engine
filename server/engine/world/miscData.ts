@@ -2353,7 +2353,7 @@ export const misc: Misc = {
       const cat: any = {
         size: randomValue(misc.cat.size),
         coat: randomValue(misc.cat.coat),
-        eyes: randomValue(misc.cat.eyes,
+        eyes: randomValue(misc.cat.eyes),
         breedSkill: randomValue(misc.cat.breedSkill),
         favouriteFood: randomValue(misc.cat.favouriteFood),
         markings: randomValue(misc.cat.markings),
