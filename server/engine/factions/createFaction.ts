@@ -3,6 +3,7 @@ import { createUniqueKey } from "../tools/createUniqueKey"
 import { factionData } from "./factionData"
 import { ageFaction } from "./ageFaction"
 import { nameFaction } from "./nameFaction"
+import { sizeFaction } from "./sizeFaction"
 
 export function createFaction(town, opts = {}) {
   const type = randomValue(factionTypes)
@@ -34,7 +35,7 @@ export function createFaction(town, opts = {}) {
 
   // TODO: setup.reputationFaction(faction)
 
-  // TODO: setup.sizeFaction(town, faction)
+  sizeFaction(town, faction)
 
   // TODO: setup.influenceFaction(faction)
 
