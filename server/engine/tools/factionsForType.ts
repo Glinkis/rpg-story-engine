@@ -15,9 +15,9 @@ import { createFaction } from "../factions/createFaction"
  * This is for plot hooks that require a wizard's college, etc.
  */
 export function factionsForType(town, key: string, value: any) {
-  const found: string[] = []
+  const found: any[] = []
 
-  for (const faction in town.factions) {
+  for (const faction of Object.values<any>(town.factions)) {
     if (faction[key] === value) {
       found.push(clone(faction))
     }

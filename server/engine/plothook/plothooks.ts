@@ -5,6 +5,7 @@ import { createNPC } from "../npc-generation/createNPC"
 import { objectArrayFetcher } from "../tools/objectArrayFetcher"
 import { createRelationship } from "../npc-generation/createRelationship"
 import { createTownName } from "../town/createTownName"
+import { factionsForType } from "../tools/factionsForType"
 
 export const plothooks = {
   "Roleplay Questions": {
@@ -191,7 +192,7 @@ export const plothooks = {
       return town.population > 3000 && town.roll.wealth < 90
     },
     function(town) {
-      const faction = setup.factionsForType(town, `type`, `wizards`)
+      const faction = factionsForType(town, `type`, `wizards`)
       const npc = createNPC(town, {
         background: `scholar`,
         dndClass: `wizard`,
@@ -290,7 +291,7 @@ export const plothooks = {
       type: [`thieves`, `assassins`],
     },
     function(town) {
-      const faction = setup.factionsForType(town, `type`, `thieves`)
+      const faction = factionsForType(town, `type`, `thieves`)
       const factionProfile = profile(faction, `guild of thieves`, `town.factions`)
       return `PCs are marked by a ${factionProfile}, for a contest. Low-skill, would-be guild members keep targeting the party with attempts on their health or goods.`
     },
@@ -403,7 +404,7 @@ export const plothooks = {
       }
     },
     function(town) {
-      const faction = setup.factionsForType(town, `type`, `wizards`)
+      const faction = factionsForType(town, `type`, `wizards`)
       return `${`‘Missing: a large turtle named Hubert who has escaped from the research department at ` +
         `<<link "`}${JSON.stringify(faction.name)}">><<set $selected to {faction: ${JSON.stringify(
         faction
@@ -1591,7 +1592,7 @@ export const plothooks = {
         dndClass: `druid`,
         ageStage: `adult`,
       })
-      const faction = setup.factionsForType(town, `type`, `druids`)
+      const faction = factionsForType(town, `type`, `druids`)
       const factionProfile = profile(faction, ``, `town.factions`)
       return `A dog and a large lizard are fighting each other in the center of town, surrounded by a crowd of onlookers. If asked, any of the bystanders will tell the party that these are two local druids who put on these shows in exchange for donations. The two druids, ${druid1} and ${druid2}, are more than happy to introduce the party to ${factionProfile}.`
     },
@@ -1611,7 +1612,7 @@ export const plothooks = {
   "The Crack": {
     type: [`event`],
     function(town) {
-      const faction = setup.factionsForType(town, `type`, `mercenaries`)
+      const faction = factionsForType(town, `type`, `mercenaries`)
       const factionProfile = profile(faction, ``, `town.factions`)
       return `A huge crack has recently appeared in the center of the town square. ${factionProfile} are keeping everyone away from the fissure, especially since it smells of sulfur and green fumes will occasionally puff out of it.`
     },
@@ -1665,7 +1666,7 @@ export const plothooks = {
   "Brimstone!": {
     type: [`paper`],
     function(town) {
-      const faction = setup.factionsForType(town, `type`, `clergy`)
+      const faction = factionsForType(town, `type`, `clergy`)
       const factionProfile = profile(faction, ``, `town.factions`)
       return `Fire and brimstone! Eternal torture and damnation! That is what awaits those who reject ${factionProfile}!`
     },

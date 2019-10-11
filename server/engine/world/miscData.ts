@@ -5,6 +5,7 @@ import { encounters } from "./encounters"
 import { profile } from "../npc-generation/profile"
 import { createNPC } from "../npc-generation/createNPC"
 import { defineRollDataGetter } from "../tools/defineRollDataGetter"
+import { plothooks } from "../plothook/plothooks"
 
 interface Misc {
   [key: string]: any
@@ -3244,7 +3245,7 @@ export const misc: Misc = {
   },
   town: {
     create(town: any) {
-      //TODO: return weightedRandomFetcher(town, plothooks, ``, misc.town.type.event)
+      return weightedRandomFetcher(town, plothooks, ``, misc.town.type.event)
     },
     type: {
       event(town: any, arg: any) {
