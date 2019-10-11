@@ -6,6 +6,7 @@ import { createTownName } from "./createTownName"
 import { townData } from "./townData"
 import { townRender } from "./townRender"
 import { createGuard } from "./createGuard"
+import { createStartFactions } from "./createStartFactions"
 
 interface Town {
   [key: string]: any
@@ -215,7 +216,7 @@ export function createTown(base: any = {}) {
 
   townRender(town)
   // TODO: setup.createStartBuildings(town)
-  // TODO: setup.createStartFactions(town)
+  createStartFactions(town)
 
   console.groupEnd()
   console.log(`${town.name} has loaded.`)
