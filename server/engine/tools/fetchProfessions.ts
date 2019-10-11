@@ -30,9 +30,7 @@ export function fetchProfessions(town?: any) {
     }
 
     if (professionCount >= 1) {
-      profession.population = professionCount
-      profession.name = name
-      town.professions[name] = profession
+      town.professions[name] = professionCount
     }
   }
 
