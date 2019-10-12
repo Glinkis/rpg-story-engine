@@ -5,7 +5,7 @@ import { variables } from "../global"
 import { Marriage } from "./createFamilyMembers"
 import { rollFromTable } from "../tools/rollFromTable"
 
-const socialClasses = [
+const socialClasses: [number, string, number][] = [
   [195, `aristocracy`, 5],
   [95, `aristocracy`, 5],
   [80, `nobility`, 4],
@@ -27,7 +27,6 @@ export function createSocialClass(town: any, npc: any) {
 
   npc.roll.socialClass = npc.roll.socialClass || profession.socialClassRoll || 40 + dice(8, 6)
 
-  console.log({ npc })
   if (!npc.socialClass) {
     console.log(`Social class not predefined. Searching for the social class of a ${npc.profession}...`)
     // if .socialClass is defined in the professions.js, then that's all dandy.

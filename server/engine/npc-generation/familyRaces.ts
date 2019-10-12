@@ -115,10 +115,8 @@ export function findChildRace(town, motherRace, fatherRace) {
     const halfbreeds = [`half-orc`, `half-elf`, `tiefling`, `dragonborn`]
 
     if (races.find(race => halfbreeds.includes(race))) {
-      const otherRace = races.find(race => race !== `human`)
-      console.log(races, otherRace)
       if (random(100) > 70) {
-        return otherRace
+        return races.find(race => race !== `human`)
       } else {
         return `human`
       }

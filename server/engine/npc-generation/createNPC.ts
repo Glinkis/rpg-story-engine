@@ -22,7 +22,6 @@ export function createNPC(town: any, base?: any) {
   if (!town) {
     console.error(`Town is not defined! NPC cannot be created. Please report this bug.`)
   }
-  console.log(`Base:`, { base })
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
 
   if (!base) {
@@ -156,7 +155,6 @@ export function createNPC(town: any, base?: any) {
     },
     set descriptorsAdd(description: any) {
       if (typeof description === `string`) {
-        console.log(this.descriptors)
         if (this.descriptors.includes(description)) {
           console.log(`Throwing out duplicate description...`)
         } else {
