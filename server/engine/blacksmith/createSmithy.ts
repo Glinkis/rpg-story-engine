@@ -1,13 +1,18 @@
 import { randomValue } from "../rolls"
 import { structure } from "../building/buildingData"
 import { defineRollDataGetter } from "../tools/defineRollDataGetter"
-import { createBuilding } from "../building/createBuilding"
+import { createBuilding, Building } from "../building/createBuilding"
 import { createBlacksmith } from "./createBlacksmith"
 import { createSmithyName } from "./createSmithyName"
 
-export function createSmithy(town, opts = {}) {
+export interface Smithy extends Building {
+  weapons: string[]
+  mundane: string[]
+}
+
+export function createSmithy(town, opts = {}): Smithy {
   const smithy = (opts[`newBuilding`] || createBuilding)(town, `smithy`)
-  smithy.blacksmith = createBlacksmith(town, smithy)
+  smithy.blacksmith = createBlacksmith(town)
   createSmithyName(town, smithy)
   Object.assign(smithy, {
     wordNoun: randomValue([`smithy`, `blacksmith`, `smithery`, `farrier shop`]),
