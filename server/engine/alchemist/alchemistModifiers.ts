@@ -11,7 +11,7 @@ export function alchemistModifiers(alchemist: Alchemist) {
     alchemist.roll.activity += 1
   } else if (alchemist.roll.size > 20) {
     alchemist.roll.activity += 1
-  } else if (alchemist.roll.size <= 20) {
+  } else {
     alchemist.roll.activity += 3
   }
 
@@ -47,7 +47,7 @@ export function alchemistModifiers(alchemist: Alchemist) {
   } else if (alchemist.roll.cleanliness > 20) {
     alchemist.roll.expertise -= 5
     alchemist.roll.activity -= 6
-  } else if (alchemist.roll.cleanliness <= 20) {
+  } else {
     alchemist.roll.expertise -= 7
     alchemist.roll.activity -= 10
   }
@@ -77,7 +77,7 @@ export function alchemistModifiers(alchemist: Alchemist) {
     alchemist.priceModifier -= 1
     alchemist.roll.reputation -= 7
     alchemist.roll.cleanliness -= 15
-  } else if (alchemist.roll.wealth <= 30) {
+  } else {
     alchemist.priceModifier -= 2
     alchemist.roll.reputation -= 10
     alchemist.roll.cleanliness -= 25
@@ -111,7 +111,7 @@ export function alchemistModifiers(alchemist: Alchemist) {
     alchemist.activity = `rather quiet`
     alchemist.roll.reputation -= 3
     alchemist.roll.cleanliness += 3
-  } else if (alchemist.roll.activity <= 20) {
+  } else {
     alchemist.activity = `very quiet`
     alchemist.roll.reputation -= 5
     alchemist.roll.cleanliness += 5
