@@ -16,7 +16,6 @@ export interface FactionRoll {
 }
 
 export interface Faction {
-  id: number
   key: string
   passageName: string
   associatedTown: string
@@ -39,8 +38,7 @@ export function createFaction(town, opts: Partial<Faction> = {}): Faction {
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 
   const faction = {
-    id: createUniqueKey(),
-    key: randomFloat(1).toString(16),
+    key: createUniqueKey(),
     passageName: `FactionProfile`,
     associatedTown: town.name,
     type,

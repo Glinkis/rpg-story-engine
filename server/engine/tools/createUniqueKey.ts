@@ -5,5 +5,5 @@ let uniqueKey = 0
  * Useful for identifing objects.
  */
 export function createUniqueKey() {
-  return uniqueKey++
+  return String(uniqueKey++)
 }
