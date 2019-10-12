@@ -1,6 +1,16 @@
 import { randomRange, randomValue } from "../rolls"
 
-export function createMagicWeapon() {
+interface MagicWeapon {
+  name: string
+  type: string
+  description: string
+  prefixWeapon: string
+  suffixWeapon: string
+  prefixProperty: string
+  suffixProperty: string
+}
+
+export function createMagicWeapon(): MagicWeapon {
   const prefixWeaponRoll = randomRange(0, propertyWeapon.length - 1)
   const suffixWeaponRoll = randomRange(0, propertyWeapon.length - 1)
 
