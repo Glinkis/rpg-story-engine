@@ -7,7 +7,15 @@ import { createRelationship } from "../npc-generation/createRelationship"
 import { createTownName } from "../town/createTownName"
 import { factionsForType } from "../tools/factionsForType"
 
-export const plothooks = {
+interface Plothook {
+  probability?: number
+  questGiver?: object
+  type: string[]
+  exclusions?(town: any, npc: any): boolean
+  function(town: any, npc: any): string
+}
+
+export const plothooks: Record<string, Plothook> = {
   "Roleplay Questions": {
     probability: 50,
     type: [`event`],
@@ -123,9 +131,7 @@ export const plothooks = {
   "The Zoo": {
     type: [`event`],
     exclusions(town) {
-      if (town.population > 4000 && town.wealth > 50) {
-        return true
-      }
+      return town.population > 4000 && town.wealth > 50
     },
     function(town) {
       return `The city has a zoo filled with wondrous and dangerous creatures brought from far places. Just recently, some of the creatures escaped and now there is a royal reward for recovering the rare animals unharmed. How can this be done?`
@@ -340,9 +346,7 @@ export const plothooks = {
   "The Umber Hulk": {
     type: [`event`],
     exclusions(town) {
-      if (town.population > 3500) {
-        return true
-      }
+      return town.population > 3500
     },
     function() {
       return `As the PCs are travelling from one district to another they are confronted by a traffic jam. A building has fallen in and the umber hulk responsible is hiding, waiting for a snack to move near it.`
@@ -426,9 +430,7 @@ export const plothooks = {
   "Guard The Garlic": {
     type: [`paper`],
     exclusions(town) {
-      if (town.population > 500) {
-        return true
-      }
+      return town.population > 500
     },
     function(town) {
       const npc = createNPC(town, {
@@ -715,10 +717,8 @@ export const plothooks = {
   },
   "Destroy The Bell": {
     type: [`paper`],
-    exclusions(town, npc) {
-      if (town.population > 5000) {
-        return true
-      }
+    exclusions(town) {
+      return town.population > 5000
     },
     function(town) {
       const npc = createNPC(town, {
@@ -1528,9 +1528,7 @@ export const plothooks = {
   "The Cock-Fight": {
     type: [`event`],
     exclusions(town) {
-      if (town.population < 500 && town.wealth < 10) {
-        return true
-      }
+      return town.population < 500 && town.wealth < 10
     },
     function(town) {
       const druid1 = createNPC(town, {
