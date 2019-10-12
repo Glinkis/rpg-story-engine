@@ -2,9 +2,40 @@ import { random, randomValue, randomFloat, randomRange } from "../rolls"
 import { clamp } from "../math"
 import { townData } from "../town/townData"
 
-export function createBuilding(town: any, type: any, base: any) {
-  let roadName
-  let roadType
+export interface BuildingRoll {
+  magic: number
+  size: number
+  diversity: number
+  wealth: number
+  population: number
+  reputation: number
+  sin: number
+  roughness: number
+  cleanliness: number
+  expertise: number
+  activity: number
+}
+
+export interface Building {
+  key: string
+  roadName: string
+  roadType: string
+  road: string
+  associatedTown: string
+  type: string
+  lighting: string
+  outside: string
+  material: string
+  roll: BuildingRoll
+  priceModifier: number
+  isThrowaway?: boolean
+}
+
+export const buildings: Building[] = []
+
+export function createBuilding(town: any, type: string, base: Partial<Building> = {}): Building {
+  let roadName: string
+  let roadType: string
 
   // Tables used later
   if (random(100) < townData.type[town.type].roadDuplication && Object.keys(town.roads).length > 0) {
@@ -66,56 +97,47 @@ export function createBuilding(town: any, type: any, base: any) {
     `marble`,
   ])
 
-  const building = Object.assign(
-    {
-      key: randomFloat(1).toString(16),
-      roadName,
-      roadType,
-      get road() {
-        return `${this.roadName} ${this.roadType}`
-      },
-      set road(road) {
-        const roads = road.toString().split(` `)
-        this.roadName = roads[0] || ``
-        this.roadType = roads[1] || ``
-      },
-      associatedTown: town.name,
-      type,
-      lighting,
-      outside,
-      material,
-      roll: {
-        magic: Math.floor(randomFloat(1) * 80) + 20,
-        size: Math.floor(randomFloat(1) * 80) + 20,
-        diversity: Math.floor(randomFloat(1) * 80) + 20,
-        wealth: randomRange(1, 100),
-        population: randomRange(1, 100),
-        reputation: randomRange(1, 100),
-        sin: randomRange(1, 100),
-        roughness: randomRange(1, 100),
-        cleanliness: randomRange(1, 100),
-        expertise: randomRange(1, 100),
-        activity: randomRange(1, 100),
-      },
-      priceModifier: Math.floor(randomFloat(1) * 10) - randomValue([0, 10]),
+  const building: Building = {
+    key: randomFloat(1).toString(16),
+    roadName,
+    roadType,
+    get road() {
+      return `${this.roadName} ${this.roadType}`
     },
-    base
-  )
+    set road(road) {
+      const roads = road.toString().split(` `)
+      this.roadName = roads[0] || ``
+      this.roadType = roads[1] || ``
+    },
+    associatedTown: town.name,
+    type,
+    lighting,
+    outside,
+    material,
+    roll: {
+      magic: Math.floor(randomFloat(1) * 80) + 20,
+      size: Math.floor(randomFloat(1) * 80) + 20,
+      diversity: Math.floor(randomFloat(1) * 80) + 20,
+      wealth: randomRange(1, 100),
+      population: randomRange(1, 100),
+      reputation: randomRange(1, 100),
+      sin: randomRange(1, 100),
+      roughness: randomRange(1, 100),
+      cleanliness: randomRange(1, 100),
+      expertise: randomRange(1, 100),
+      activity: randomRange(1, 100),
+    },
+    priceModifier: Math.floor(randomFloat(1) * 10) - randomValue([0, 10]),
+    ...base,
+  }
 
   town.roads[building.key] = building.road
 
-  building.roll.wealth = clamp(building.roll.wealth, 1, 100)
   building.priceModifier = clamp(building.priceModifier, -10, 10)
-  building.roll.reputation = clamp(building.roll.reputation, 1, 100)
-  building.roll.sin = clamp(building.roll.sin, 1, 100)
-  building.roll.diversity = clamp(building.roll.diversity, 1, 100)
-  building.roll.magic = clamp(building.roll.magic, 1, 100)
-  building.roll.size = clamp(building.roll.size, 1, 100)
-  building.roll.population = clamp(building.roll.population, 1, 100)
-  building.roll.roughness = clamp(building.roll.roughness, 1, 100)
-  building.roll.cleanliness = clamp(building.roll.cleanliness, 1, 100)
-  building.roll.expertise = clamp(building.roll.expertise, 1, 100)
-  building.roll.activity = clamp(building.roll.activity, 1, 100)
+
+  for (const roll in building.roll) {
+    building.roll[roll] = clamp(building.roll[roll], 1, 100)
+  }
 
   if (type) {
     if (!town.buildings[type]) {
@@ -123,6 +145,7 @@ export function createBuilding(town: any, type: any, base: any) {
     }
     town.buildings[type][building.key] = building
   }
+
   if (!building.isThrowaway) {
     buildings.push(building)
   }
