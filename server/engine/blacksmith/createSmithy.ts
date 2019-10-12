@@ -6,6 +6,9 @@ import { createBlacksmith } from "./createBlacksmith"
 import { createSmithyName } from "./createSmithyName"
 
 export interface Smithy extends Building {
+  name: string
+  blacksmith: any
+  assistant: any
   weapons: string[]
   mundane: string[]
 }
