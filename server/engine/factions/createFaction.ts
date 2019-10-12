@@ -31,6 +31,7 @@ export interface Faction {
   membersTrait: string
   leadershipType: string
   tippyDescription: string
+  isThrowaway?: boolean
 }
 
 export function createFaction(town, opts: Partial<Faction> = {}): Faction {

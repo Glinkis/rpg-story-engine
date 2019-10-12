@@ -54,7 +54,7 @@ export function either<T>(...values: T[]) {
 export function pluck<T>(array: T[]) {
   if (array.length) {
     const index = randomRange(0, array.length - 1)
-    return array.splice(index, 1)
+    return array.splice(index, 1)[0]
   }
 }
 
