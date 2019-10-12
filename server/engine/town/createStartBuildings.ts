@@ -1,3 +1,5 @@
+import { createNewBuilding } from "./createNewBuilding"
+
 export function createStartBuildings(town) {
   const buildingType = [`Town Square`, `Tavern`, `Alchemist`, `General Store`, `Smithy`, `Market`, `Temple`]
 
