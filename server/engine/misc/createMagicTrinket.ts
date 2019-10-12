@@ -1,6 +1,16 @@
 import { randomRange, randomValue } from "../rolls"
 
-export function createMagicTrinket() {
+export interface MagicTrinket {
+  name: string
+  type: string
+  description: string
+  prefixTrinket: string
+  suffixTrinket: string
+  prefixProperty: string
+  suffixProperty: string
+}
+
+export function createMagicTrinket(): MagicTrinket {
   const prefixTrinketRoll = randomRange(0, propertyTrinket.length - 1)
   const suffixTrinketRoll = randomRange(0, propertyTrinket.length - 1)
 
