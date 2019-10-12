@@ -1,14 +1,13 @@
-export function ageFaction(faction) {
-  let age = `well established`
+import { Faction } from "./createFaction"
 
+export function ageFaction(faction: Faction) {
   for (const [num, description] of ranks) {
     if (faction.roll.age > num) {
-      age = description
-      break
+      return description
     }
   }
 
-  return age
+  return `well established`
 }
 
 const ranks: [number, string][] = [

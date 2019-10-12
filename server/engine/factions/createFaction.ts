@@ -6,19 +6,51 @@ import { nameFaction } from "./nameFaction"
 import { sizeFaction } from "./sizeFaction"
 import { reputationFaction } from "./repuationFaction"
 
-export function createFaction(town, opts = {}) {
+export interface FactionRoll {
+  influence: number
+  reputation: number
+  age: number
+  size: number
+  stability: number
+  resources: number
+}
+
+export interface Faction {
+  id: number
+  key: string
+  passageName: string
+  associatedTown: string
+  type: string
+  name: string
+  age: string
+  roll: FactionRoll
+  size: string
+  wordNoun: string
+  motivation: string
+  reputation: string
+  membersTrait: string
+  leadershipType: string
+  tippyDescription: string
+}
+
+export function createFaction(town, opts: Partial<Faction> = {}): Faction {
   const type = randomValue(factionTypes)
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 
-  const faction = opts[`newFaction`] || {
+  const faction = {
     id: createUniqueKey(),
     key: randomFloat(1).toString(16),
     passageName: `FactionProfile`,
     associatedTown: town.name,
     type,
+    name: ``,
+    age: ``,
+    size: ``,
+    tippyDescription: ``,
     wordNoun: factionData.type[type].wordNoun,
-    motivation: randomValue(factionData.type[type].motivation),
-    membersTrait: randomValue(factionData.type[type].membersTrait),
+    reputation: ``,
+    motivation: randomValue(factionData.type[type].motivation) as string,
+    membersTrait: randomValue(factionData.type[type].membersTrait) as string,
     leadershipType: randomValue([`individual`, `individual`, `individual`, `group`, `group`]),
     roll: {
       influence: dice(2, 50),
@@ -56,7 +88,7 @@ export function createFaction(town, opts = {}) {
 
   faction.tippyDescription = `A ${faction.size} ${faction.type} ${faction.wordNoun} called ${faction.name}`
 
-  return faction
+  return faction as Faction
 }
 
 const factionTypes = [

@@ -1,6 +1,7 @@
 import { fm } from "../math"
+import { Faction } from "./createFaction"
 
-export function reputationFaction(faction) {
+export function reputationFaction(faction: Faction) {
   switch (faction.age) {
     case `ancient`:
       faction.roll.reputation += fm(faction.roll.reputation, 30)
