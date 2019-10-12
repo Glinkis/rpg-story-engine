@@ -88,7 +88,7 @@ export function createFaction(town, opts: Partial<Faction> = {}): Faction {
 
   faction.tippyDescription = `A ${faction.size} ${faction.type} ${faction.wordNoun} called ${faction.name}`
 
-  return faction as Faction
+  return faction
 }
 
 const factionTypes = [
