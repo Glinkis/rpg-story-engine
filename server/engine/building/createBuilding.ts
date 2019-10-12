@@ -1,6 +1,7 @@
 import { random, randomValue, randomFloat, randomRange } from "../rolls"
 import { clamp } from "../math"
 import { townData } from "../town/townData"
+import { createUniqueKey } from "../tools/createUniqueKey"
 
 export interface BuildingRoll {
   magic: number
@@ -98,7 +99,7 @@ export function createBuilding(town: any, type: string, base: Partial<Building> 
   ])
 
   const building: Building = {
-    key: randomFloat(1).toString(16),
+    key: createUniqueKey(),
     roadName,
     roadType,
     get road() {
