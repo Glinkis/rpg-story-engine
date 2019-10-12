@@ -1,3 +1,7 @@
+import { defineRollDataGetter } from "../tools/defineRollDataGetter"
+import { weightedRandomFetcher } from "../tools/weightedRandomFetcher"
+import { randomValue } from "../rolls"
+
 export const structure = {
   create(town, building, opts?) {
     console.groupCollapsed(`Creating the structure for a ${building.wordNoun || `building`}`)
@@ -27,25 +31,24 @@ export const structure = {
         roof: {},
       }
     }
-    let tempMaterial = setup.weightedRandomFetcher(town, setup.structure.material.types, ``, ``, `object`)
+    let tempMaterial = weightedRandomFetcher(town, structure.material.types, ``, ``, `object`)
     if (Object.keys(tempMaterial).includes(`variations`)) {
       console.log(`Building material has variations. `)
-      tempMaterial = setup.weightedRandomFetcher(town, tempMaterial.variations, ``, ``, `object`)
+      tempMaterial = weightedRandomFetcher(town, tempMaterial.variations, ``, ``, `object`)
     }
     console.log(`tempMaterial`)
     console.log(tempMaterial)
     building.structure.material = tempMaterial.words
 
-    let tempRoof = setup.weightedRandomFetcher(town, setup.structure.roof.types, ``, ``, `object`)
+    let tempRoof = weightedRandomFetcher(town, structure.roof.types, ``, ``, `object`)
     if (Object.keys(tempRoof).includes(`variations`)) {
       console.log(`Building roof has variations.`)
-      tempRoof = setup.weightedRandomFetcher(town, tempMaterial.variations, ``, ``, `object`)
-      // tempMaterial = temp2
+      tempRoof = weightedRandomFetcher(town, tempMaterial.variations, ``, ``, `object`)
       console.log(tempRoof.words)
     }
     if (tempRoof.canBeColoured === true) {
-      const colour = setup.structure.data.colour.seededrandom()
-      Object.keys(tempRoof.words).forEach(function(roof) {
+      const colour = randomValue(structure.data.colour)
+      Object.keys(tempRoof.words).forEach(roof => {
         tempRoof.words[roof] = `${colour} ${tempRoof.words[roof]}`
       })
     }
@@ -54,33 +57,19 @@ export const structure = {
     console.log({ building })
 
     console.log(`Roof getter:`)
-    setup.defineRollDataGetter(
-      building.structure.roof,
-      setup.structure.roof.rollData,
-      `wealth`,
-      `wealth`,
-      ``,
-      building.roll
-    )
+    defineRollDataGetter(building.structure.roof, structure.roof.rollData, `wealth`, `wealth`, building.roll)
     console.log(`Material getter:`)
-    setup.defineRollDataGetter(
-      building.structure.material,
-      setup.structure.material.rollData,
-      `wealth`,
-      `wealth`,
-      ``,
-      building.roll
-    )
+    defineRollDataGetter(building.structure.material, structure.material.rollData, `wealth`, `wealth`, building.roll)
 
     building.structure.descriptors = [
-      `${building.structure.material.indefiniteArticle} ${building.structure.material.noun} ${[
+      `${building.structure.material.indefiniteArticle} ${building.structure.material.noun} ${randomValue([
         building.wordNoun,
         `building`,
-      ].random()} with a ${building.structure.roof.wealth} ${building.structure.roof.verb} roof`,
-      `a ${building.structure.material.wealth} ${building.structure.material.noun} ${[
+      ])} with a ${building.structure.roof.wealth} ${building.structure.roof.verb} roof`,
+      `a ${building.structure.material.wealth} ${building.structure.material.noun} ${randomValue([
         building.wordNoun,
         `building`,
-      ].random()} with a ${building.structure.roof.verb} roof`,
+      ])} with a ${building.structure.roof.verb} roof`,
     ]
 
     if (building.size) {
@@ -121,7 +110,7 @@ export const structure = {
         [20, `run down`],
         [10, `crumbling`],
         [0, `structurally unsound`],
-      ],
+      ] as [number, string][],
     },
     types: {
       "wood": {
@@ -290,7 +279,7 @@ export const structure = {
         [30, `moss covered`],
         [20, `patchy`],
         [0, `hole riddled`],
-      ],
+      ] as [number, string][],
     },
     types: {
       thatch: {
