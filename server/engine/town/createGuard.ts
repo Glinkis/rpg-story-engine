@@ -2,10 +2,18 @@ import { createNPC } from "../npc-generation/createNPC"
 import { guardData } from "./guardData"
 import { randomRange, randomValue } from "../rolls"
 
-export function createGuard(town) {
+interface Guard {
+  name: string
+  associatedTown: string
+  captain: any
+  passageName: string
+  livery: string
+}
+
+export function createGuard(town): Guard {
   console.groupCollapsed(`creating the guard...`)
 
-  const guard = {
+  const guard: Guard = {
     name: `default`,
     associatedTown: town.name,
     captain: createNPC(town, {
@@ -20,7 +28,6 @@ export function createGuard(town) {
   }
 
   const nameRoll = randomRange(1, 8)
-  console.log(`nameRoll is ${nameRoll}`)
 
   const { name } = guardData
 
@@ -43,9 +50,6 @@ export function createGuard(town) {
   } else if (nameRoll === 8) {
     guard.name = `The ${randomValue(name.group)} ${randomValue(name.noun)} of ${town.name}`
   }
-
-  console.log(`${guard.name} is the name of the guard.`)
-  console.groupEnd()
 
   return guard
 }
