@@ -215,7 +215,7 @@ export function createTown(base: any = {}) {
   }
 
   townRender(town)
-  // TODO: setup.createStartBuildings(town)
+  //TODO: createStartBuildings(town)
   createStartFactions(town)
 
   console.groupEnd()
