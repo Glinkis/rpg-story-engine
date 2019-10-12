@@ -2,28 +2,11 @@ import { randomValue } from "../rolls"
 import { variables } from "../global"
 import { createNPC } from "../npc-generation/createNPC"
 import { factionData } from "../factions/factionData"
+import { allColours } from "./colours"
 
 export function createMercenaries(town) {
   const mercenaries = {
-    colours: randomValue([
-      `black`,
-      `red`,
-      `scarlet`,
-      `gold`,
-      `forest green`,
-      `royal blue`,
-      `brown`,
-      `dark grey`,
-      `gunmetal`,
-      `maroon`,
-      `navy blue`,
-      `dark brown`,
-      `steel`,
-      `light blue`,
-      `magenta`,
-      `dark green`,
-      `olive green`,
-    ]),
+    colours: randomValue(allColours()),
     insignia: randomValue([
       `a skull`,
       `a ghost`,

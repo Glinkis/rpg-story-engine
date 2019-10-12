@@ -338,3 +338,8 @@ export function createColour(filters: any = {}) {
     `${randomValue(colours[selectedColour].coloured)} coloured`,
   ])
 }
+
+export function allColours(): string[] {
+  const keys = Object.keys(colours)
+  return keys.map(key => colours[key].colour)
+}
