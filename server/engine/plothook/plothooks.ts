@@ -391,17 +391,14 @@ export const plothooks = {
         dndClass: `barbarian`,
         background: `bandit`,
       })
-      return `Wanted Dead or Alive – ${profile(
-        npc
-      )}, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: <<money 100000>>’`
+      const npcProfile = profile(npc)
+      return `Wanted Dead or Alive – ${npcProfile}, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: <<money 100000>>’`
     },
   },
   "Hubert": {
     type: [`paper`],
     exclusions(town) {
-      if (town.population > 3000 || town.roll.magic > 70) {
-        return true
-      }
+      return town.population > 3000 || town.roll.magic > 70
     },
     function(town) {
       const faction = factionsForType(town, `type`, `wizards`)
@@ -743,11 +740,8 @@ export const plothooks = {
     type: [`paper`],
     function(town) {
       const building = objectArrayFetcher(town.buildings.tavern)
-      return `Needed bartender. Looking to employ a bartender for my inn, ${profile(
-        building,
-        ``,
-        `town.buildings.tavern`
-      )}. Must be able to listen to political rants on the slower days. NO GOBLINS`
+      const buildingProfile = profile(building, ``, `town.buildings.tavern`)
+      return `Needed bartender. Looking to employ a bartender for my inn, ${buildingProfile}. Must be able to listen to political rants on the slower days. NO GOBLINS`
     },
   },
   "Weird Well Water": {
@@ -764,15 +758,13 @@ export const plothooks = {
         ageStage: `child`,
         gender: `man`,
       })
-      return `LOST! Young boy named ${profile(
-        npc,
-        npc.firstName
-      )}, he has been missing for over a week and was last seen going of to play by the river. Reward if found.`
+      const npcProfile = profile(npc, npc.firstName)
+      return `LOST! Young boy named ${npcProfile}, he has been missing for over a week and was last seen going of to play by the river. Reward if found.`
     },
   },
   "Lab Assistant": {
     type: [`paper`],
-    exclusions(town, npc) {
+    exclusions() {
       return true
     },
     function(town) {
@@ -788,7 +780,7 @@ export const plothooks = {
   },
   "Mole Dispatch": {
     type: [`paper`],
-    exclusions(town, npc) {
+    exclusions() {
       return true
     },
     function(town) {
@@ -803,7 +795,7 @@ export const plothooks = {
   },
   "Sheep Disappearing": {
     type: [`paper`],
-    exclusions(town, npc) {
+    exclusions() {
       return true
     },
     function(town) {
@@ -819,16 +811,16 @@ export const plothooks = {
   },
   "Mines Hiring": {
     type: [`paper`],
-    exclusions(town, npc) {
+    exclusions() {
       return true
     },
-    function(town) {
+    function() {
       return `A notice to those on hard times that the mines are hiring, the tag line on the bottom says ‘We’ve cleared out the danger that once struck our mine and threatened the safety of the miners, we are confident that resuming our operations shall be fruitful and safe for all.’ (Underneath that is a hand written note directly under the text, ‘So much for your confidence.’)`
     },
   },
   "Deal of a Lifetime": {
     type: [`paper`],
-    exclusions(town, npc) {
+    exclusions() {
       return true
     },
     function(town) {
@@ -842,7 +834,7 @@ export const plothooks = {
   },
   "Daughter Dying": {
     type: [`paper`],
-    exclusions(town, npc) {
+    exclusions() {
       return true
     },
     function(town) {
