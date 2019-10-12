@@ -1263,15 +1263,9 @@ export const plothooks = {
         background: `commoner`,
         note: `For whatever reason, loves being abused.`,
       })
-      // #
-      return `NEEDED: Someone competent in the ways of word to berate, yell, and speak ill of ${profile(
-        npc,
-        `me`
-      )}. Willing to pay. Discretion is key. Meet me during the night 2 alleys up from ${profile(
-        building,
-        ``,
-        `town.buildings.tavern`
-      )} in order to discuss terms.`
+      const npcProfile = profile(npc, `me`)
+      const buildingProfile = profile(building, ``, `town.buildings.tavern`)
+      return `NEEDED: Someone competent in the ways of word to berate, yell, and speak ill of ${npcProfile}. Willing to pay. Discretion is key. Meet me during the night 2 alleys up from ${buildingProfile} in order to discuss terms.`
     },
   },
   "Pirates Lost Stuff": {
@@ -1282,10 +1276,8 @@ export const plothooks = {
         background: `sailor`,
         profession: `pirate`,
       })
-      // #
-      return `LOST: 3 peg legs, a hook, 5 eye patches, and a talking parrot. If found please return to ${profile(
-        npc
-      )} of ‘The Luckiest Crew’ down at the pier.`
+      const npcProfile = profile(npc)
+      return `LOST: 3 peg legs, a hook, 5 eye patches, and a talking parrot. If found please return to ${npcProfile} of ‘The Luckiest Crew’ down at the pier.`
     },
   },
   "Furniture Movers": {
@@ -1298,10 +1290,8 @@ export const plothooks = {
         dndClass: randomValue([`sorcerer`, `warlock`, `warlock`]),
         note: `Is not a very nice witch.`,
       })
-      return `HELP WANTED: ${profile(
-        npc,
-        `poor old widow`
-      )} requests the assistance of any strong and able persons to rearrange some furnishings. (She is a witch in a small town of elderly folks that help her trick strong strangers in order to preserve their own lives.)`
+      const npcProfile = profile(npc, `poor old widow`)
+      return `HELP WANTED: ${npcProfile} requests the assistance of any strong and able persons to rearrange some furnishings. (She is a witch in a small town of elderly folks that help her trick strong strangers in order to preserve their own lives.)`
     },
   },
   "Huckleberry": {
@@ -1312,13 +1302,9 @@ export const plothooks = {
         hasClass: false,
         background: `commoner`,
       })
-      // #
-      // <<link ' + JSON.stringify(tavern.name) + '>><<set $selected to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + ', building: ' + tavern + '}>><<run console.log("Set $selected.")>><<set $tavern to ' + tavern + '>><<goto "TavernOutput">><</link>>
-      return `Fence need painted. Good pay. Contact ${profile(npc)} at ${profile(
-        building,
-        ``,
-        `town.buildings.tavern`
-      )}. Twist is, the fence is 10 feet tall and almost a mile long.`
+      const npcProfile = profile(npc)
+      const buildingProfile = profile(building, ``, `town.buildings.tavern`)
+      return `Fence need painted. Good pay. Contact ${npcProfile} at ${buildingProfile}. Twist is, the fence is 10 feet tall and almost a mile long.`
     },
   },
   "Teddy Wanted": {
@@ -1330,10 +1316,8 @@ export const plothooks = {
         gender: `woman`,
         race: `half-orc`,
       })
-      return `ISO: Skilled toymaker, it’s my daughter’s birthday and she wants a teddy. I can compensate for any materials you use. (This was posted by an ${profile(
-        npc,
-        `orc`
-      )} and her husband, there’s an address near the bottom with a smiley face. The 6-year old half-orc wants a GIANT teddy.)`
+      const npcProfile = profile(npc, `orc`)
+      return `ISO: Skilled toymaker, it’s my daughter’s birthday and she wants a teddy. I can compensate for any materials you use. (This was posted by an ${npcProfile} and her husband, there’s an address near the bottom with a smiley face. The 6-year old half-orc wants a GIANT teddy.)`
     },
   },
   "Durable Idiot": {
@@ -1343,10 +1327,8 @@ export const plothooks = {
         hasClass: true,
         dndClass: `wizard`,
       })
-      return `IN NEED OF DURABLE IDIOT, WILL BE WORKING WITH IMPOSSIBLE GEOMETRIES. IDIOCY NOT NEEDED BUT DESIRED. BRING FRIENDS. snacks provided! (This was wrote incredibly hastily by a ${profile(
-        npc,
-        `desperate wizard`
-      )}, and his wife. The words ‘snacks provided’ are in much cleaner handwriting toward the bottom, obviously added as it was being posted.)`
+      const npcProfile = profile(npc, `desperate wizard`)
+      return `IN NEED OF DURABLE IDIOT, WILL BE WORKING WITH IMPOSSIBLE GEOMETRIES. IDIOCY NOT NEEDED BUT DESIRED. BRING FRIENDS. snacks provided! (This was wrote incredibly hastily by a ${npcProfile}, and his wife. The words ‘snacks provided’ are in much cleaner handwriting toward the bottom, obviously added as it was being posted.)`
     },
   },
   "Candy Wanted": {
@@ -1357,10 +1339,8 @@ export const plothooks = {
         background: `commoner`,
         ageStage: `child`,
       })
-      return `My brother an ${profile(
-        npc,
-        `me`
-      )} want candy!!! (This note is barely legible and is tacked at the very bottom of the board.)`
+      const npcProfile = profile(npc, `me`)
+      return `My brother an ${npcProfile} want candy!!! (This note is barely legible and is tacked at the very bottom of the board.)`
     },
   },
   "Book Stacking": {
@@ -1372,20 +1352,13 @@ export const plothooks = {
         ageStage: `elderly`,
         gender: `woman`,
       })
-      return `Having trouble stocking all these books! Will pay for some big and strong people to help me! (This was posted by a ${profile(
-        npc,
-        `small old woman`
-      )} who owns the local library.)`
+      const npcProfile = profile(npc, `small old woman`)
+      return `Having trouble stocking all these books! Will pay for some big and strong people to help me! (This was posted by a ${npcProfile} who owns the local library.)`
     },
   },
   "Thieves Cant Thieve Here": {
     type: [`paper`],
-    function(town) {
-      // var npc = createNPC(town, {
-      //   hasClass: false,
-      //   background: 'commoner'
-      // })
-      // #
+    function() {
       return `A set of seemingly innocuous symbols is carved into the side of a barrel underneath the board, all in Thieves’ Cant. The symbols are being used for a purpose they’re very much not meant for, and the message is patchy and uncertain. ‘Dangerous Area.’ ‘Owner not home.’ ‘Owner is Vigilant.’ Meaning: One for the rogues! The local thieves’ guild has found that their missions in the area have ended… poorly. Their new recruits are raving about some kind of spirit, and the veterans insist that something just isn’t right.`
     },
   },
@@ -1397,10 +1370,8 @@ export const plothooks = {
         background: `commoner`,
         profession: `demolition company contractor`,
       })
-      return `Need demolition help: A demolition company ${profile(
-        npc,
-        `contractor`
-      )} is looking for outside help to clear out and then tear down a vacant house. The reward can be money or allowing the players to scavenge what they find inside the house. (What the company doesn’t tell the adventurers is that no one will do the job because of the powerful stench coming from the house. Exploring the house reveals a locked (mechanically or magically) wooden door leading to the basement of the house. The basement contains 1d4 Dretchs accidentally summoned by the previous owner.)`
+      const npcProfile = profile(npc, `contractor`)
+      return `Need demolition help: A demolition company ${npcProfile} is looking for outside help to clear out and then tear down a vacant house. The reward can be money or allowing the players to scavenge what they find inside the house. (What the company doesn’t tell the adventurers is that no one will do the job because of the powerful stench coming from the house. Exploring the house reveals a locked (mechanically or magically) wooden door leading to the basement of the house. The basement contains 1d4 Dretchs accidentally summoned by the previous owner.)`
     },
   },
   "Mimic Hunt": {
@@ -1410,9 +1381,8 @@ export const plothooks = {
         hasClass: false,
         background: `commoner`,
       })
-      return `Mimic hunt! Mimics are running rampant throughout a house. Find and kill 2D6 mimics. 1-6 mimics gets <<money 10000>>, 7-11 gets <<money 30000>>, and 12 kills gets <<money 50000>>. Contact ${profile(
-        npc
-      )} for the location.`
+      const npcProfile = profile(npc)
+      return `Mimic hunt! Mimics are running rampant throughout a house. Find and kill 2D6 mimics. 1-6 mimics gets <<money 10000>>, 7-11 gets <<money 30000>>, and 12 kills gets <<money 50000>>. Contact ${npcProfile} for the location.`
     },
   },
   "Crawling Claws": {
@@ -1422,9 +1392,8 @@ export const plothooks = {
         hasClass: false,
         background: `commoner`,
       })
-      return `Being followed by crawling claws. Kill 1D4 crawling claws. Reward of <<money 4000>>. Contact ${profile(
-        npc
-      )} for details.`
+      const npcProfile = profile(npc)
+      return `Being followed by crawling claws. Kill 1D4 crawling claws. Reward of <<money 4000>>. Contact ${npcProfile} for details.`
     },
   },
   "More Rats": {
@@ -1434,9 +1403,8 @@ export const plothooks = {
         hasClass: false,
         background: `commoner`,
       })
-      return `House is overrun with rats. Exterminate 4D10 rats and 2D4 dire rats. Reward of <<money 4500>>. Contact ${profile(
-        npc
-      )} for details.`
+      const npcProfile = profile(npc)
+      return `House is overrun with rats. Exterminate 4D10 rats and 2D4 dire rats. Reward of <<money 4500>>. Contact ${npcProfile} for details.`
     },
   },
   "Lost Cat": {
@@ -1460,20 +1428,13 @@ export const plothooks = {
         background: `commoner`,
         profession: `baker`,
       })
-      return `The ${profile(
-        npc,
-        `baker`
-      )} has put out a poster, looking for someone to deliver pastries to the mischievous yet kind faeiry dragon that watches over the town from its lair in the woods outside.`
+      const npcProfile = profile(npc, `baker`)
+      return `The ${npcProfile} has put out a poster, looking for someone to deliver pastries to the mischievous yet kind faeiry dragon that watches over the town from its lair in the woods outside.`
     },
   },
   "Riddle Maker Needed": {
     type: [`paper`],
-    function(town) {
-      // var npc = createNPC(town, {
-      //   hasClass: false,
-      //   background: 'commoner'
-      // })
-      // #
+    function() {
       return `Looking for riddle maker. You make riddles, we buy ’em! For more information contact your local Wizards Association.`
     },
   },
@@ -1487,9 +1448,8 @@ export const plothooks = {
         note: `Wants to be an adventurer.`,
         ageStage: `young adult`,
       })
-      return `WANTED: Internship with seasoned adventurers. I’ve admired heroes all my life and want to try my hand at it! I’m hardworking, loyal, and a team player. Can give references. Contact ${profile(
-        npc
-      )} for my resume.`
+      const npcProfile = profile(npc)
+      return `WANTED: Internship with seasoned adventurers. I’ve admired heroes all my life and want to try my hand at it! I’m hardworking, loyal, and a team player. Can give references. Contact ${npcProfile} for my resume.`
     },
   },
   "Thieves Guild Movers Needed": {
@@ -1541,9 +1501,8 @@ export const plothooks = {
         background: `commoner`,
         profession: `miller`,
       })
-      return `Just bought the old mill outside of town. But there’s something living in it. Will pay <<money 5000>> and free milling service for a year to anybody who clears out the infestation and makes it safe for our family to set up! Contact ${profile(
-        npc
-      )} for details.`
+      const npcProfile = profile(npc)
+      return `Just bought the old mill outside of town. But there’s something living in it. Will pay <<money 5000>> and free milling service for a year to anybody who clears out the infestation and makes it safe for our family to set up! Contact ${npcProfile} for details.`
     },
   },
   "Domain Lines": {
