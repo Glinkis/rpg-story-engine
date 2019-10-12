@@ -1,7 +1,7 @@
 import { randomValue } from "../rolls"
 import { structure } from "../building/buildingData"
 import { defineRollDataGetter } from "../tools/defineRollDataGetter"
-import { createBuilding } from "../building/create"
+import { createBuilding } from "../building/createBuilding"
 import { createBlacksmith } from "./createBlacksmith"
 import { createSmithyName } from "./createSmithyName"
 
