@@ -14,6 +14,12 @@ export interface PriceTalk {
   readonly priceTalk: string
 }
 
+export interface Expertise {
+  readonly expertise: number
+  readonly wealth: number
+  readonly note: string
+}
+
 export type Biome = `desert` | `mountain` | `forest`
 
 export interface Terrain {
