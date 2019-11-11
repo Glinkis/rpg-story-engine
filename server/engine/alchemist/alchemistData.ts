@@ -106,7 +106,13 @@ export function lookAround(alchemist: Alchemist): LookAround[] {
   ]
 }
 
-export function priceTalk(alchemist: Alchemist) {
+interface PriceTalk {
+  readonly priceModifier: number
+  readonly wealth: number
+  readonly priceTalk: string
+}
+
+export function priceTalk(alchemist: Alchemist): PriceTalk[] {
   return [
     {
       priceModifier: 5,
