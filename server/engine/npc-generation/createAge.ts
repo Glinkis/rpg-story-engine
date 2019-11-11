@@ -1,10 +1,10 @@
 import { npcData } from "./npcData"
 
 export function createAge(npc: Npc) {
-  if (npcData.raceTraits[npc.race].ageTraits.ageDescriptors) {
-    const age = npcData.raceTraits[npc.race].ageTraits.ageDescriptors.find(descriptor => {
-      return descriptor[0] <= npc.ageYears
-    })
+  const { ageDescriptors } = npcData.raceTraits[npc.race].ageTraits
+
+  if (ageDescriptors) {
+    const age = ageDescriptors.find(([years]) => years <= npc.ageYears)
     npc.age = age && age[1]
   } else {
     console.log(`Called age descriptor without a valid array.`)
