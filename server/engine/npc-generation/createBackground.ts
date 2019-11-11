@@ -2,8 +2,6 @@ import { npcData } from "./npcData"
 import { randomValue } from "../rolls"
 
 export function createBackground(npc) {
-  console.log(`assigning background traits to ${npc.name}...`)
-
   let backgroundOrigin
   let bond
   let ideal
