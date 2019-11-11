@@ -21,4 +21,5 @@ export interface NPC {
   descriptorsAdd: any
   heightRoll: any
   weightRoll: any
+  socialClass: string
 }

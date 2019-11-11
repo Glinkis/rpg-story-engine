@@ -1,8 +1,9 @@
 import { fetchProfessionChance } from "./fetchProfessionChance"
 import { findInContainer } from "../tools/findInContainer"
 import { professions } from "./professions"
+import { NPC } from "./npc"
 
-export function findProfession(town: any, npc: any, profession?: string) {
+export function findProfession(town: any, npc: NPC, profession?: string) {
   profession = profession || npc.dndClass || npc.profession
 
   if (!profession && npc.socialClass) {
