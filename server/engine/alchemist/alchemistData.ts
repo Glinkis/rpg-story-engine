@@ -55,7 +55,13 @@ export interface Alchemist {
   activity: string
 }
 
-export function lookAround(alchemist: Alchemist) {
+interface LookAround {
+  readonly cleanliness: number
+  readonly wealth: number
+  readonly note: string
+}
+
+export function lookAround(alchemist: Alchemist): LookAround[] {
   return [
     {
       cleanliness: 80,
