@@ -1,4 +1,5 @@
 import { RollData, LookAround, Expertise } from "../../../shared/types"
+import { Smithy } from "./smithy"
 
 export const rollData: RollData = {
   wealth: [
@@ -56,18 +57,6 @@ export const rollData: RollData = {
     [10, `totally empty`],
     [0, `totally empty`],
   ],
-}
-
-interface Smithy {
-  name: string
-  activity: string
-  weapons: string[]
-  blacksmith: Blacksmith
-}
-
-interface Blacksmith {
-  firstName: string
-  lastName: string
 }
 
 export function lookAround(smithy: Smithy): LookAround[] {

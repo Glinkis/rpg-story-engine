@@ -1,17 +1,10 @@
 import { randomValue } from "../rolls"
 import { structure } from "../building/buildingData"
 import { defineRollDataGetter } from "../tools/defineRollDataGetter"
-import { createBuilding, Building } from "../building/createBuilding"
+import { createBuilding } from "../building/createBuilding"
 import { createBlacksmith } from "./createBlacksmith"
 import { createSmithyName } from "./createSmithyName"
-
-export interface Smithy extends Building {
-  name: string
-  blacksmith: any
-  assistant: any
-  weapons: string[]
-  mundane: string[]
-}
+import { Smithy } from "./smithy"
 
 export function createSmithy(town, opts = {}): Smithy {
   const smithy = (opts[`newBuilding`] || createBuilding)(town, `smithy`)
