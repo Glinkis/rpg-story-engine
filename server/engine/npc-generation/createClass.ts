@@ -2,10 +2,9 @@ import { npcData } from "./npcData"
 import { randomValue } from "../rolls"
 
 export function createClass(npc: any) {
-  console.log(`assigning class traits to ${npc.name}...`)
-  let dndClassOrigin
-  let background
-  let classWeapon
+  let dndClassOrigin: string
+  let background: string
+  let classWeapon: string
 
   const classTraits = npcData.classTraits[npc.dndClass]
   const professionTraits = npcData.professionTraits[npc.profession]
