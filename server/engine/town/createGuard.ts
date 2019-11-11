@@ -30,25 +30,24 @@ export function createGuard(town): Guard {
   const nameRoll = randomRange(1, 8)
 
   const { name } = guardData
+  const { group, adjective, noun, alternateAdjective } = name
 
   if (nameRoll === 1) {
-    guard.name = `The ${randomValue(name.group)} of ${town.name}`
+    guard.name = `The ${randomValue(group)} of ${town.name}`
   } else if (nameRoll === 2) {
-    guard.name = `The ${town.name} ${randomValue(name.group)}`
+    guard.name = `The ${town.name} ${randomValue(group)}`
   } else if (nameRoll === 3) {
-    guard.name = `The ${randomValue(name.group)} of ${randomValue(name.alternateAdjective)}`
+    guard.name = `The ${randomValue(group)} of ${randomValue(alternateAdjective)}`
   } else if (nameRoll === 4) {
-    guard.name = `The ${randomValue(name.adjective)} ${randomValue(name.group)}`
+    guard.name = `The ${randomValue(adjective)} ${randomValue(group)}`
   } else if (nameRoll === 5) {
-    guard.name = `The ${randomValue(name.adjective)} ${randomValue(name.noun)}`
+    guard.name = `The ${randomValue(adjective)} ${randomValue(noun)}`
   } else if (nameRoll === 6) {
-    guard.name = `The ${randomValue(name.adjective)} ${randomValue(name.noun)} of ${randomValue(
-      name.alternateAdjective
-    )}`
+    guard.name = `The ${randomValue(adjective)} ${randomValue(noun)} of ${randomValue(alternateAdjective)}`
   } else if (nameRoll === 7) {
-    guard.name = `The ${randomValue(name.adjective)} ${randomValue(name.noun)} of ${town.name}`
+    guard.name = `The ${randomValue(adjective)} ${randomValue(noun)} of ${town.name}`
   } else if (nameRoll === 8) {
-    guard.name = `The ${randomValue(name.group)} ${randomValue(name.noun)} of ${town.name}`
+    guard.name = `The ${randomValue(group)} ${randomValue(noun)} of ${town.name}`
   }
 
   return guard
