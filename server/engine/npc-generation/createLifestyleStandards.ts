@@ -64,7 +64,6 @@ const homeTable: [number, string][] = [
 ]
 
 export function createLifestyleStandards(town: any, npc: any) {
-  console.groupCollapsed(`Creating living standards for ${npc.name}`)
   const isCurrently = randomValue([`has been`, `has recently been`, `is`, `is currently`])
   const isHaving = randomValue([`has been having`, `has recently had`, `is having`, `is currently having`])
   const desc = findProfession(town, npc)
@@ -92,8 +91,6 @@ export function createLifestyleStandards(town: any, npc: any) {
   })
 
   npc.professionSuccess = (note && `${npc.firstName} ${note[1]}`) || wageVarianceNotes[5][1]
-
-  console.groupEnd()
 
   return npc
 }
