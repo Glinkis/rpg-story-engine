@@ -1,4 +1,4 @@
-import { Alchemist } from "./alchemistData"
+import { Alchemist } from "./alchemist"
 
 export function alchemistModifiers(alchemist: Alchemist) {
   if (alchemist.roll.size > 80) {
