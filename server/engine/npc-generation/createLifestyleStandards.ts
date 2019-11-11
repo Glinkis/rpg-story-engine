@@ -5,12 +5,39 @@ import { rollFromTable } from "../tools/rollFromTable"
 import { toUpperFirst } from "../tools/toUpperFirst"
 
 const lifestyleTables: Record<string, [number, string][]> = {
-  "aristocracy": [[5, `comfortable`], [15, `wealthy`], [80, `aristocratic`]],
-  "nobility": [[5, `modest`], [30, `comfortable`], [60, `wealthy`], [5, `aristocratic`]],
-  "commoner": [[5, `poor`], [45, `modest`], [45, `comfortable`], [5, `wealthy`]],
-  "peasantry": [[5, `squalid`], [60, `poor`], [30, `modest`], [5, `comfortable`]],
-  "paupery": [[5, `wretched`], [75, `squalid`], [15, `poor`], [5, `modest`]],
-  "indentured servitude": [[95, `wretched`], [5, `squalid`]],
+  "aristocracy": [
+    [5, `comfortable`],
+    [15, `wealthy`],
+    [80, `aristocratic`],
+  ],
+  "nobility": [
+    [5, `modest`],
+    [30, `comfortable`],
+    [60, `wealthy`],
+    [5, `aristocratic`],
+  ],
+  "commoner": [
+    [5, `poor`],
+    [45, `modest`],
+    [45, `comfortable`],
+    [5, `wealthy`],
+  ],
+  "peasantry": [
+    [5, `squalid`],
+    [60, `poor`],
+    [30, `modest`],
+    [5, `comfortable`],
+  ],
+  "paupery": [
+    [5, `wretched`],
+    [75, `squalid`],
+    [15, `poor`],
+    [5, `modest`],
+  ],
+  "indentured servitude": [
+    [95, `wretched`],
+    [5, `squalid`],
+  ],
 }
 
 const homeBiases: Record<string, number> = {
