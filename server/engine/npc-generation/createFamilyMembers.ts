@@ -19,19 +19,19 @@ export interface Marriage {
 // Returns the corresponding relative, or undefined
 export function createRelative(town, family, base, force = false) {
   // sanity-check
-  if (base.ageYears <= 0) return undefined
-  if (base.race === `devil`) return undefined
+  if (base.ageYears <= 0) return
+  if (base.race === `devil`) return
   if (!base.lastName) delete base.lastName
 
   // Avoid secondary NPC spam
   if (!force) {
     if (randomRange(1, 100) <= familyData.absencePercent) {
-      return undefined
+      return
     }
     if (isOfAge(`elderly`, base.race, base.ageYears)) {
-      if (randomRange(1, 100) <= familyData.oldAbsencePercent) return undefined
+      if (randomRange(1, 100) <= familyData.oldAbsencePercent) return
       if (base.ageYears >= npcData.raceTraits[base.race].ageTraits.ageDescriptors[0]) {
-        if (randomRange(1, 100) <= familyData.veryOldAbsencePercent) return undefined
+        if (randomRange(1, 100) <= familyData.veryOldAbsencePercent) return
       }
     }
   }
