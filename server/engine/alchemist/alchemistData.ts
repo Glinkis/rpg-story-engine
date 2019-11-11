@@ -1,4 +1,5 @@
 import { RollData } from "../../../shared/types"
+import { Alchemist } from "./alchemist"
 
 export const rollData: RollData = {
   wealth: [
@@ -45,14 +46,6 @@ export const rollData: RollData = {
     [10, `amateur`],
     [0, `blatantly amateur`],
   ],
-}
-
-export interface Alchemist {
-  name: string
-  roll: Record<string, number>
-  material: string
-  priceModifier: number
-  activity: string
 }
 
 interface LookAround {
