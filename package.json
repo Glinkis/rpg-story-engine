@@ -19,6 +19,7 @@
     "@types/compression": "1.0.1",
     "@types/express": "4.17.1",
     "@types/node": "12.7.12",
+    "chalk": "3.0.0",
     "compression": "1.7.4",
     "express": "4.17.1",
     "nodemon": "1.19.3",

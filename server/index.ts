@@ -1,5 +1,6 @@
 import compression from "compression"
 import express from "express"
+import chalk from "chalk"
 import { createTown } from "./engine/town/createTown"
 
 const app = express()
@@ -17,4 +18,8 @@ app.get(`/`, (req, res) => {
   }
 })
 
-app.listen(process.env.PORT || 5000)
+app.listen(process.env.PORT || 5000, () => {
+  console.clear()
+  console.log(chalk.green(`The server has started, and is available at:`))
+  console.log(chalk.cyan(`http://localhost:5000`))
+})
