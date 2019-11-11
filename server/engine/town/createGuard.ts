@@ -44,7 +44,9 @@ function createGuardName(name: any, town: any) {
       return `The ${randomValue(adjective)} ${randomValue(noun)} of ${randomValue(alternateAdjective)}`
     case 7:
       return `The ${randomValue(adjective)} ${randomValue(noun)} of ${town.name}`
-    default:
+    case 8:
       return `The ${randomValue(group)} ${randomValue(noun)} of ${town.name}`
   }
+
+  throw new RangeError(`Roll out of option range.`)
 }
