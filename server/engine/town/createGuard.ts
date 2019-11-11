@@ -1,3 +1,4 @@
+import { rt } from "../tools/randomTemplate"
 import { createNPC } from "../npc-generation/createNPC"
 import { guardData } from "./guardData"
 import { randomRange, randomValue } from "../rolls"
@@ -12,7 +13,7 @@ interface Guard {
 
 export function createGuard(town): Guard {
   return {
-    name: createGuardName(guardData.name, town),
+    name: createGuardName(town),
     associatedTown: town.name,
     captain: createNPC(town, {
       dndClass: `fighter`,
@@ -26,26 +27,26 @@ export function createGuard(town): Guard {
   }
 }
 
-function createGuardName(name: any, town: any) {
-  const { group, adjective, noun, alternateAdjective } = name
+function createGuardName(town: any) {
+  const { group, adjective, noun, alternateAdjective } = guardData.name
 
   switch (randomRange(1, 8)) {
     case 1:
-      return `The ${randomValue(group)} of ${town.name}`
+      return rt`The ${group} of ${town.name}`
     case 2:
-      return `The ${town.name} ${randomValue(group)}`
+      return rt`The ${town.name} ${group}`
     case 3:
-      return `The ${randomValue(group)} of ${randomValue(alternateAdjective)}`
+      return rt`The ${group} of ${alternateAdjective}`
     case 4:
-      return `The ${randomValue(adjective)} ${randomValue(group)}`
+      return rt`The ${adjective} ${group}`
     case 5:
-      return `The ${randomValue(adjective)} ${randomValue(noun)}`
+      return rt`The ${adjective} ${noun}`
     case 6:
-      return `The ${randomValue(adjective)} ${randomValue(noun)} of ${randomValue(alternateAdjective)}`
+      return rt`The ${adjective} ${noun} of ${alternateAdjective}`
     case 7:
-      return `The ${randomValue(adjective)} ${randomValue(noun)} of ${town.name}`
+      return rt`The ${adjective} ${noun} of ${town.name}`
     case 8:
-      return `The ${randomValue(group)} ${randomValue(noun)} of ${town.name}`
+      return rt`The ${group} ${noun} of ${town.name}`
   }
 
   throw new RangeError(`Roll out of option range.`)
