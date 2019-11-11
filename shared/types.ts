@@ -2,6 +2,18 @@ export type Roll = [number, ...(string | number)[]]
 
 export type RollData = Record<string, Roll[]>
 
+export interface LookAround {
+  readonly cleanliness: number
+  readonly wealth: number
+  readonly note: string
+}
+
+export interface PriceTalk {
+  readonly priceModifier: number
+  readonly wealth: number
+  readonly priceTalk: string
+}
+
 export type Biome = `desert` | `mountain` | `forest`
 
 export interface Terrain {
