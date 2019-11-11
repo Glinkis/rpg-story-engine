@@ -4,6 +4,7 @@
     "module": "commonjs",
     "strict": true,
     "lib": ["esnext"],
+    "noEmit": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
