@@ -2,7 +2,7 @@ export type Roll = [number, ...(string | number)[]]
 
 export type RollData = Record<string, Roll[]>
 
-export type Biome = "desert" | "mountain" | "forest"
+export type Biome = `desert` | `mountain` | `forest`
 
 export interface Terrain {
   weather: Weather
