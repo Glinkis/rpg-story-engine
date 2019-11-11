@@ -11,10 +11,8 @@ interface Guard {
 }
 
 export function createGuard(town): Guard {
-  console.groupCollapsed(`creating the guard...`)
-
-  const guard: Guard = {
-    name: `default`,
+  return {
+    name: createGuardName(guardData.name, town),
     associatedTown: town.name,
     captain: createNPC(town, {
       dndClass: `fighter`,
@@ -26,29 +24,27 @@ export function createGuard(town): Guard {
       guardData.secondaryColours
     )} livery adorned with an image of ${randomValue(guardData.insignia)}`,
   }
+}
 
-  const nameRoll = randomRange(1, 8)
-
-  const { name } = guardData
+function createGuardName(name: any, town: any) {
   const { group, adjective, noun, alternateAdjective } = name
 
-  if (nameRoll === 1) {
-    guard.name = `The ${randomValue(group)} of ${town.name}`
-  } else if (nameRoll === 2) {
-    guard.name = `The ${town.name} ${randomValue(group)}`
-  } else if (nameRoll === 3) {
-    guard.name = `The ${randomValue(group)} of ${randomValue(alternateAdjective)}`
-  } else if (nameRoll === 4) {
-    guard.name = `The ${randomValue(adjective)} ${randomValue(group)}`
-  } else if (nameRoll === 5) {
-    guard.name = `The ${randomValue(adjective)} ${randomValue(noun)}`
-  } else if (nameRoll === 6) {
-    guard.name = `The ${randomValue(adjective)} ${randomValue(noun)} of ${randomValue(alternateAdjective)}`
-  } else if (nameRoll === 7) {
-    guard.name = `The ${randomValue(adjective)} ${randomValue(noun)} of ${town.name}`
-  } else if (nameRoll === 8) {
-    guard.name = `The ${randomValue(group)} ${randomValue(noun)} of ${town.name}`
+  switch (randomRange(1, 8)) {
+    case 1:
+      return `The ${randomValue(group)} of ${town.name}`
+    case 2:
+      return `The ${town.name} ${randomValue(group)}`
+    case 3:
+      return `The ${randomValue(group)} of ${randomValue(alternateAdjective)}`
+    case 4:
+      return `The ${randomValue(adjective)} ${randomValue(group)}`
+    case 5:
+      return `The ${randomValue(adjective)} ${randomValue(noun)}`
+    case 6:
+      return `The ${randomValue(adjective)} ${randomValue(noun)} of ${randomValue(alternateAdjective)}`
+    case 7:
+      return `The ${randomValue(adjective)} ${randomValue(noun)} of ${town.name}`
+    default:
+      return `The ${randomValue(group)} ${randomValue(noun)} of ${town.name}`
   }
-
-  return guard
 }
