@@ -1,15 +1,20 @@
 interface Npc {
-  age: any
-  height: any
-  weight: any
+  name: string
+  race: string
+  gender: string
   raceName: string
   skinColour: string
+  age: any
+  ageYears: number
   ageStage: string
-  descriptors: string[]
-  gender: string
-  physicalTrait: string
+  profession: string
+  background: string
   beard: any
-  dndClass: any
+  height: any
+  weight: any
+  physicalTrait: string
+  dndClass: string
   hasClass: boolean
+  descriptors: string[]
   descriptorsAdd: any
 }

@@ -1,8 +1,7 @@
 import { npcData } from "./npcData"
 
-export function createAge(npc: any) {
-  console.log(`ageing ${npc.name}...`)
-  if (typeof npcData.raceTraits[npc.race].ageTraits.ageDescriptors !== `undefined`) {
+export function createAge(npc: Npc) {
+  if (npcData.raceTraits[npc.race].ageTraits.ageDescriptors) {
     const age = npcData.raceTraits[npc.race].ageTraits.ageDescriptors.find(descriptor => {
       return descriptor[0] <= npc.ageYears
     })
