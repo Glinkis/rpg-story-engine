@@ -1,6 +1,7 @@
 import { npcData } from "./npcData"
+import { NPC } from "./npc"
 
-export function createAge(npc: Npc) {
+export function createAge(npc: NPC) {
   const { ageDescriptors } = npcData.raceTraits[npc.race].ageTraits
 
   if (ageDescriptors) {

@@ -1,4 +1,6 @@
-export function createDescriptors(npc: Npc) {
+import { NPC } from "./npc"
+
+export function createDescriptors(npc: NPC) {
   // remember adjectival precedence!
   // opinion  size    age   shape       colour  origin  material  purpose     noun
   // lovely   little  old   rectangular green   French  silver    whittling   knife
