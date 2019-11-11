@@ -13,9 +13,9 @@ interface AgeTraits {
 
 interface GenderTrait {
   firstName: string[]
-  beardProbability: number
   baseHeight: number
   baseWeight: number
+  beardProbability: number
   heightModifier(): number
   weightModifier(): number
 }
