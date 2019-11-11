@@ -2,12 +2,10 @@ import { randomFloat } from "../rolls"
 
 // This gets the starting profession.
 export function fetchProfessionChance(town: any, npc: any) {
-  console.log(`Fetching profession...`)
   // TODO: town = town || State.variables.town
   let professions = Object.keys(town.professions)
 
   if (npc.socialClass) {
-    console.log(`Social class was defined, so filtering to the available professions!`)
     professions = professions.filter(profession => town.professions[profession].socialClass === npc.socialClass)
   }
 

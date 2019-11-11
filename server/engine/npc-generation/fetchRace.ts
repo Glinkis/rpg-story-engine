@@ -1,8 +1,6 @@
 import { randomFloat } from "../rolls"
 
 export function fetchRace(town: any, saveLoc?: any) {
-  console.log(`Fetching race...`)
-
   // FIXME upon migration to React, reimplement getters and setters.
   const races = Object.keys(town.baseDemographics)
 

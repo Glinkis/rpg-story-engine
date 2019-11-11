@@ -35,14 +35,14 @@ export function getChildSurname(marriage: Marriage) {
     return variables.npcs[marriage.children[0]].lastName
   }
 
-  if (marriage.parents.length === 0) return undefined
+  if (marriage.parents.length) {
+    const familyGender = marriageIsMatrilineal(marriage) ? `woman` : `man`
+    const maidenGender = npcData.gender[familyGender].oppositeGender
 
-  const familyGender = marriageIsMatrilineal(marriage) ? `woman` : `man`
-  const maidenGender = npcData.gender[familyGender].oppositeGender
+    let head = marriage.parents.find(key => variables.npcs[key].gender === familyGender)
+    if (head) return variables.npcs[head].lastName
 
-  let head = marriage.parents.find(key => variables.npcs[key].gender === familyGender)
-  if (head) return variables.npcs[head].lastName
-
-  head = marriage.parents.find(key => variables.npcs[key].gender === maidenGender)
-  if (head) return variables.npcs[head].lastName
+    head = marriage.parents.find(key => variables.npcs[key].gender === maidenGender)
+    if (head) return variables.npcs[head].lastName
+  }
 }

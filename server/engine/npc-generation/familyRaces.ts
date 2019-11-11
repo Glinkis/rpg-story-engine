@@ -91,8 +91,6 @@ export function findParentRaces(npc) {
 }
 
 export function findChildRace(town, motherRace, fatherRace) {
-  console.log(`Handling ${motherRace}+${fatherRace} marriage!`)
-
   motherRace = motherRace || fatherRace || fetchRace(town)
   fatherRace = fatherRace || motherRace || fetchRace(town)
 
