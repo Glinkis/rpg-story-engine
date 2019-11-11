@@ -153,7 +153,6 @@ export function createTown(base: any = {}) {
     primaryExport: randomValue(townData.misc.primaryExport),
     landmark: randomValue(townData.misc.landmark),
     currentEvent: randomValue(townData.misc.currentEvent),
-    microEvent: townData.misc.microEvent,
     roll: {
       wealth: randomRange(1, 100),
       reputation: randomRange(1, 100),
