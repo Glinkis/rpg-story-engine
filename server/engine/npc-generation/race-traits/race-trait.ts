@@ -11,9 +11,18 @@ interface AgeTraits {
   [`child`]: AgeTrait
 }
 
+interface GenderTrait {
+  firstName: string[]
+  beardProbability: number
+  baseHeight: number
+  baseWeight: number
+  heightModifier(): number
+  weightModifier(): number
+}
+
 interface GenderTraits {
-  man: any
-  woman: any
+  man: GenderTrait
+  woman: GenderTrait
 }
 
 interface RaceWords {
