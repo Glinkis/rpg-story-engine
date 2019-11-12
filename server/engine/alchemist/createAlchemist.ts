@@ -3,6 +3,7 @@ import { createBuilding } from "../building/createBuilding"
 import { structure } from "../building/buildingData"
 import { randomValue } from "../rolls"
 import { alchemistModifiers } from "./alchemistModifiers"
+import { createAlchemistName } from "./createAlchemistName"
 import { rollData } from "./alchemistData"
 
 export function createAlchemist(town, opts = {}) {
