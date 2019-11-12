@@ -4,6 +4,7 @@ import chalk from "chalk"
 import { createTown } from "./engine/town/createTown"
 import { randomValue } from "./engine/rolls"
 import { inventory } from "./engine/world/inventory"
+import { createColour } from "./engine/misc/colours"
 
 const app = express()
 
@@ -25,6 +26,10 @@ app.get(`/`, (req, res) => {
 
 app.get(`/inventory`, (req, res) => {
   sendJson(res, randomValue(inventory))
+})
+
+app.get(`/colour`, (req, res) => {
+  sendJson(res, createColour())
 })
 
 app.listen(process.env.PORT || 5000, () => {
