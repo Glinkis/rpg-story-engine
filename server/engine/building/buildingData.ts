@@ -11,7 +11,7 @@ export const structure = {
         get descriptor() {
           return this.descriptors.seededrandom()
         },
-        set descriptorsAdd(description) {
+        set descriptorsAdd(description: string) {
           if (typeof description === `string`) {
             if (this.descriptors.includes(description)) {
               console.log(`Throwing out duplicate description...`)
