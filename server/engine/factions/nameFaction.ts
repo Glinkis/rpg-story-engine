@@ -6,14 +6,15 @@ type FactionType = keyof typeof factionData.type
 
 export function nameFaction(town: string, type: string) {
   const data = factionData.type[type as FactionType]
+  const { group, adjective, main, unique } = data
 
   const name = randomValue([
-    rt`The ${data.group} of ${data.adjective} ${data.main}`,
-    rt`The ${data.group} of ${data.main}`,
-    rt`The ${data.adjective} ${data.group}`,
-    rt`The ${data.main} of ${town}`,
-    rt`The ${town} ${data.main}`,
-    rt`${data.unique}`,
+    rt`The ${group} of ${adjective} ${main}`,
+    rt`The ${group} of ${main}`,
+    rt`The ${adjective} ${group}`,
+    rt`The ${main} of ${town}`,
+    rt`The ${town} ${main}`,
+    rt`${unique}`,
   ])
 
   return name
