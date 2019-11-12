@@ -3,11 +3,7 @@ import { weightedRandomFetcher } from "../tools/weightedRandomFetcher"
 import { randomValue } from "../rolls"
 
 export const structure = {
-  create(town, building, opts?) {
-    console.groupCollapsed(`Creating the structure for a ${building.wordNoun || `building`}`)
-    if (!building) {
-      building = {}
-    }
+  create(town, building = {}, opts = {}) {
     building.wordNoun = building.wordNoun || opts.wordNoun || `building`
 
     if (!building.structure) {
@@ -30,34 +26,29 @@ export const structure = {
         roof: {},
       }
     }
+
     let tempMaterial = weightedRandomFetcher(town, structure.material.types, ``, ``, `object`)
     if (Object.keys(tempMaterial).includes(`variations`)) {
-      console.log(`Building material has variations. `)
       tempMaterial = weightedRandomFetcher(town, tempMaterial.variations, ``, ``, `object`)
     }
-    console.log(`tempMaterial`)
-    console.log(tempMaterial)
+
     building.structure.material = tempMaterial.words
 
     let tempRoof = weightedRandomFetcher(town, structure.roof.types, ``, ``, `object`)
     if (Object.keys(tempRoof).includes(`variations`)) {
-      console.log(`Building roof has variations.`)
       tempRoof = weightedRandomFetcher(town, tempMaterial.variations, ``, ``, `object`)
-      console.log(tempRoof.words)
     }
+
     if (tempRoof.canBeColoured === true) {
       const colour = randomValue(structure.data.colour)
       Object.keys(tempRoof.words).forEach(roof => {
         tempRoof.words[roof] = `${colour} ${tempRoof.words[roof]}`
       })
     }
-    building.structure.roof = tempRoof.words
-    console.log(`Got up to here`)
-    console.log({ building })
 
-    console.log(`Roof getter:`)
+    building.structure.roof = tempRoof.words
+
     defineRollDataGetter(building.structure.roof, structure.roof.rollData, `wealth`, `wealth`, building.roll)
-    console.log(`Material getter:`)
     defineRollDataGetter(building.structure.material, structure.material.rollData, `wealth`, `wealth`, building.roll)
 
     building.structure.descriptors = [
@@ -76,8 +67,7 @@ export const structure = {
         `a ${building.size} and ${building.structure.material.wealth} ${building.structure.material.noun} ${building.wordNoun} with a ${building.structure.roof.verb} roof`
       )
     }
-    console.log(building.structure)
-    console.groupEnd()
+
     return building
   },
   data: {
