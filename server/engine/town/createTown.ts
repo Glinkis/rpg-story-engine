@@ -7,42 +7,20 @@ import { townData } from "./townData"
 import { townRender } from "./townRender"
 import { createGuard } from "./createGuard"
 import { createStartFactions } from "./createStartFactions"
+import { Town } from "./town"
 
-interface Taxes {
-  base: number
-  welfare: number
-  military: number
-  tithe: number
-}
-
-// TODO: Fill out.
-export interface Town {
-  name: string
-  taxes: Taxes
-  terrain: string
-  location: string
-  population: number
-  roads: Record<string, any>
-  families: Record<string, any>
-  factions: Record<string, any>
-  buildings: Record<string, any>
-  taxRate(town: Town): number
-  [key: string]: any
-}
-
-export function createTown(base: any = {}) {
+export function createTown(base: Partial<Town> = {}) {
   const type = randomValue(TYPES)
   const terrain = randomValue(TERRAINS)
   const season = [`summer`, `autumn`, `winter`, `spring`]
-  const townName = createTownName()
-  console.groupCollapsed(`${townName} is loading...`)
+
   const economicIdeology = randomValue(townData.type[type].economicIdeology)
   const politicalSource = randomValue(townData.type[type].politicalSource)
   const politicalIdeology = randomValue(townData.politicalSource[politicalSource].politicalIdeology)
 
   const town: Town = {
     passageName: `TownOutput`,
-    name: townName,
+    name: createTownName(),
     taxes: {
       base: 7,
       welfare: 1,
