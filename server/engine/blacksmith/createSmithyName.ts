@@ -3,8 +3,9 @@ import { createNPC } from "../npc-generation/createNPC"
 import { toUpperFirst } from "../tools/toUpperFirst"
 import { randomValue, randomRange } from "../rolls"
 import { Smithy } from "./smithy"
+import { Town } from "../town/town"
 
-export function createSmithyName(town, smithy: Smithy) {
+export function createSmithyName(town: Town, smithy: Smithy) {
   const smithyNameRoll = randomRange(1, 5)
 
   const adjective = randomValue([

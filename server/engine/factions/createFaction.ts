@@ -5,6 +5,7 @@ import { ageFaction } from "./ageFaction"
 import { nameFaction } from "./nameFaction"
 import { sizeFaction } from "./sizeFaction"
 import { reputationFaction } from "./repuationFaction"
+import { Town } from "../town/town"
 
 export interface FactionRoll {
   influence: number
@@ -33,7 +34,7 @@ export interface Faction {
   isThrowaway?: boolean
 }
 
-export function createFaction(town, opts: Partial<Faction> = {}): Faction {
+export function createFaction(town: Town, opts: Partial<Faction> = {}): Faction {
   const type = randomValue(factionTypes)
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 

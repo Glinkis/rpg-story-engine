@@ -5,8 +5,9 @@ import { createBuilding } from "../building/createBuilding"
 import { createBlacksmith } from "./createBlacksmith"
 import { createSmithyName } from "./createSmithyName"
 import { Smithy } from "./smithy"
+import { Town } from "../town/town"
 
-export function createSmithy(town, opts = {}): Smithy {
+export function createSmithy(town: Town, opts = {}): Smithy {
   const smithy = (opts[`newBuilding`] || createBuilding)(town, `smithy`)
   smithy.blacksmith = createBlacksmith(town)
   createSmithyName(town, smithy)

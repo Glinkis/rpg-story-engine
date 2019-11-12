@@ -1,6 +1,7 @@
 import { Faction } from "./createFaction"
+import { Town } from "../town/town"
 
-export function sizeFaction(town, faction: Faction) {
+export function sizeFaction(town: Town, faction: Faction) {
   if (faction.roll.age > 95) {
     faction.roll.size += 20
   } else if (faction.roll.age > 90) {

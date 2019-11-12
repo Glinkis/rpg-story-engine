@@ -6,8 +6,9 @@ import { alchemistModifiers } from "./alchemistModifiers"
 import { createAlchemistName } from "./createAlchemistName"
 import { createChemist } from "./createChemist"
 import { rollData } from "./alchemistData"
+import { Town } from "../town/town"
 
-export function createAlchemist(town, opts = {}) {
+export function createAlchemist(town: Town, opts = {}) {
   const chemist = createChemist(town)
 
   const alchemist = {

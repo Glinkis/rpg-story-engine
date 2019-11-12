@@ -1,9 +1,10 @@
 import { defineRollDataGetter } from "../tools/defineRollDataGetter"
 import { weightedRandomFetcher } from "../tools/weightedRandomFetcher"
 import { randomValue } from "../rolls"
+import { Town } from "../town/town"
 
 export const structure = {
-  create(town, building = {}, opts = {}) {
+  create(town: Town, building = {}, opts = {}) {
     building.wordNoun = building.wordNoun || opts.wordNoun || `building`
 
     if (!building.structure) {

@@ -1,5 +1,7 @@
 import { randomRange, random } from "../rolls"
 import { fetchRace } from "./fetchRace"
+import { Town } from "../town/town"
+import { NPC } from "./npc"
 
 // Given a NPC to be married, determine the partner race
 const marriagePools = {
@@ -90,7 +92,7 @@ export function findParentRaces(npc) {
   return { motherRace, fatherRace, lineage }
 }
 
-export function findChildRace(town, motherRace, fatherRace) {
+export function findChildRace(town: Town, motherRace: string, fatherRace: string) {
   motherRace = motherRace || fatherRace || fetchRace(town)
   fatherRace = fatherRace || motherRace || fetchRace(town)
 
@@ -124,7 +126,7 @@ export function findChildRace(town, motherRace, fatherRace) {
   }
 }
 
-export function findPartnerRace(town, npc) {
+export function findPartnerRace(town: Town, npc: NPC) {
   if (!(npc.race in marriagePools)) {
     return npc.race
   }

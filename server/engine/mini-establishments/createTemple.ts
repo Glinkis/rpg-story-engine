@@ -4,8 +4,9 @@ import { misc } from "../world/miscData"
 import { randomValue } from "../rolls"
 import { structure } from "../building/buildingData"
 import { rt } from "../tools/randomTemplate"
+import { Town } from "../town/town"
 
-export function createTemple(town) {
+export function createTemple(town: Town) {
   const temple = createBuilding(town, `temple`)
 
   const data = setup.temple

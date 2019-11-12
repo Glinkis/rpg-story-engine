@@ -17,8 +17,9 @@ import { createLifestyleStandards } from "./createLifestyleStandards"
 import { variables } from "../global"
 import { createDescriptors } from "./createDescriptors"
 import { createBackground } from "./createBackground"
+import { Town } from "../town/town"
 
-export function createNPC(town: any, base?: any) {
+export function createNPC(town: Town, base?: any) {
   if (!town) {
     console.error(`Town is not defined! NPC cannot be created. Please report this bug.`)
   }

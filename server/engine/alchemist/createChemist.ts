@@ -1,7 +1,8 @@
 import { createNPC } from "../npc-generation/createNPC"
 import { randomValue } from "../rolls"
+import { Town } from "../town/town"
 
-export function createChemist(town) {
+export function createChemist(town: Town) {
   return createNPC(town, {
     associatedTown: town.name,
     dndClass: randomValue(DND_CLASSES),

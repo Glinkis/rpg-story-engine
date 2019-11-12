@@ -1,6 +1,7 @@
 import { variables } from "../global"
+import { Town } from "../town/town"
 
-export function createRelationship(town, npc, targetNPC, type, targetType) {
+export function createRelationship(town: Town, npc, targetNPC, type, targetType) {
   console.log(`Forming a relationship.`)
 
   if (typeof npc === `string`) {

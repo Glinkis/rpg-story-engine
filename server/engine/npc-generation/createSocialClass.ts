@@ -4,6 +4,7 @@ import { clamp } from "../math"
 import { variables } from "../global"
 import { Marriage } from "./createFamilyMembers"
 import { rollFromTable } from "../tools/rollFromTable"
+import { Town } from "../town/town"
 
 const socialClasses: [number, string, number][] = [
   [195, `aristocracy`, 5],
@@ -17,7 +18,7 @@ const socialClasses: [number, string, number][] = [
 
 const socialClassArray = [`indentured servitude`, `paupery`, `peasantry`, `commoner`, `nobility`, `aristocracy`]
 
-export function createSocialClass(town: any, npc: any) {
+export function createSocialClass(town: Town, npc: any) {
   console.log(`Creating social class...`)
 
   if (!npc.roll) {
@@ -51,7 +52,13 @@ export function createSocialClass(town: any, npc: any) {
 }
 
 // Introduce modifiers for adult family members.
-const adultSocialMobilityTable: [number, number][] = [[6, -2], [18, -1], [60, 0], [14, 1], [2, 2]]
+const adultSocialMobilityTable: [number, number][] = [
+  [6, -2],
+  [18, -1],
+  [60, 0],
+  [14, 1],
+  [2, 2],
+]
 
 export function relativeSocialClass(npcClass: string) {
   let classIndex = socialClassArray.indexOf(npcClass)

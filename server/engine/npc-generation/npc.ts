@@ -1,6 +1,7 @@
 export interface NPC {
   name: string
   race: string
+  family: any
   gender: string
   raceName: string
   skinColour: string

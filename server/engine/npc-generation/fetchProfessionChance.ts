@@ -1,7 +1,8 @@
 import { randomFloat } from "../rolls"
+import { Town } from "../town/town"
 
 // This gets the starting profession.
-export function fetchProfessionChance(town: any, npc: any) {
+export function fetchProfessionChance(town: Town, npc: any) {
   // TODO: town = town || State.variables.town
   let professions = Object.keys(town.professions)
 

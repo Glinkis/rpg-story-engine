@@ -1,7 +1,8 @@
 import { createNPC } from "../npc-generation/createNPC"
 import { randomValue } from "../rolls"
+import { Town } from "../town/town"
 
-export function createBlacksmith(town) {
+export function createBlacksmith(town: Town) {
   return createNPC(town, {
     dndClass: `blacksmith`,
     hasClass: false,

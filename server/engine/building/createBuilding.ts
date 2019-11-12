@@ -2,6 +2,7 @@ import { random, randomValue, randomFloat, randomRange } from "../rolls"
 import { clamp } from "../math"
 import { townData } from "../town/townData"
 import { createUniqueKey } from "../tools/createUniqueKey"
+import { Town } from "../town/town"
 
 export interface BuildingRoll {
   magic: number
@@ -34,7 +35,7 @@ export interface Building {
 
 export const buildings: Building[] = []
 
-export function createBuilding(town: any, type: string, base: Partial<Building> = {}): Building {
+export function createBuilding(town: Town, type: string, base: Partial<Building> = {}): Building {
   let roadName: string
   let roadType: string
 
