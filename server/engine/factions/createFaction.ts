@@ -7,6 +7,7 @@ import { sizeFaction } from "./sizeFaction"
 import { reputationFaction } from "./repuationFaction"
 import { Town } from "../town/town"
 import { createMisc } from "./createMisc"
+import { influenceFaction } from "./influenceFaction"
 
 export interface FactionRoll {
   influence: number
@@ -28,6 +29,7 @@ export interface Faction {
   size: string
   misc: string
   wordNoun: string
+  influence: string
   motivation: string
   reputation: string
   membersTrait: string
@@ -51,6 +53,7 @@ export function createFaction(town: Town, opts: Partial<Faction> = {}): Faction 
     misc: ``,
     tippyDescription: ``,
     wordNoun: factionData.type[type].wordNoun,
+    influence: ``,
     reputation: ``,
     motivation: randomValue(factionData.type[type].motivation) as string,
     membersTrait: randomValue(factionData.type[type].membersTrait) as string,
@@ -73,7 +76,7 @@ export function createFaction(town: Town, opts: Partial<Faction> = {}): Faction 
 
   sizeFaction(town, faction)
 
-  // TODO: setup.influenceFaction(faction)
+  influenceFaction(faction)
 
   // TODO: setup.resourcesFaction(faction)
 
