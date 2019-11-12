@@ -7,8 +7,9 @@ import { variables } from "../global"
  * For buildings, point towards town.buildings.tavern
  * For factions, point towards town.factions
  */
-export function profile(obj: any, base?: any, type?: any) {
+export function profile(obj: any, base?: any, type?: string) {
   type = type || `npcs`
+
   if (typeof obj === `string`) {
     console.error(`Profile function for ${obj} called with a string.`)
     obj = variables[type][obj]
