@@ -1,21 +1,30 @@
 import compression from "compression"
-import express from "express"
+import express, { Response } from "express"
 import chalk from "chalk"
 import { createTown } from "./engine/town/createTown"
+import { randomValue } from "./engine/rolls"
+import { inventory } from "./engine/world/inventory"
 
 const app = express()
 
 // Compress responses.
 app.use(compression({ threshold: 8 }))
 
-app.get(`/`, (req, res) => {
+function sendJson(res: Response, object: any) {
   res.header(`Content-Type`, `application/json`)
   try {
-    res.send(JSON.stringify(createTown(), null, 2))
+    res.send(JSON.stringify(object, null, 2))
   } catch (error) {
-    console.error(error)
     res.send(error.stack)
   }
+}
+
+app.get(`/`, (req, res) => {
+  sendJson(res, createTown())
+})
+
+app.get(`/inventory`, (req, res) => {
+  sendJson(res, randomValue(inventory))
 })
 
 app.listen(process.env.PORT || 5000, () => {
