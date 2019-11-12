@@ -19,11 +19,10 @@ const socialClasses: [number, string, number][] = [
 const socialClassArray = [`indentured servitude`, `paupery`, `peasantry`, `commoner`, `nobility`, `aristocracy`]
 
 export function createSocialClass(town: Town, npc: any) {
-  console.log(`Creating social class...`)
-
   if (!npc.roll) {
     npc.roll = {}
   }
+
   const profession = findProfession(town, npc)
 
   npc.roll.socialClass = npc.roll.socialClass || profession.socialClassRoll || 40 + dice(8, 6)

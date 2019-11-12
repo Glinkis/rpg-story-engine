@@ -169,25 +169,19 @@ export function createTown(base: Partial<Town> = {}) {
     town.roll[roll] = clamp(town.roll[roll], 1, 100)
   }
 
-  console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   const townSizeModifiers = townData.type[town.type].modifiers
-
   for (const modifier of Object.keys(townSizeModifiers)) {
     town.roll[modifier] = fm(town.roll[modifier], townSizeModifiers[modifier])
   }
 
   town.guard = createGuard(town)
 
-  console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   const economicIdeologyModifiers = townData.economicIdeology[town.economicIdeology].modifiers
-
   for (const modifier of Object.keys(economicIdeologyModifiers)) {
     town.roll[modifier] = fm(town.roll[modifier], economicIdeologyModifiers[modifier])
   }
 
-  console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
   const politicalIdeologyModifiers = townData.politicalIdeology[town.politicalIdeology].modifiers
-
   for (const modifier of Object.keys(politicalIdeologyModifiers)) {
     town.roll[modifier] = fm(town.roll[modifier], politicalIdeologyModifiers[modifier])
   }
