@@ -1,5 +1,6 @@
 import { randomValue } from "../rolls"
 import { factionData } from "./factionData"
+import { rt } from "../tools/randomTemplate"
 
 type FactionType = keyof typeof factionData.type
 
@@ -7,12 +8,12 @@ export function nameFaction(town: string, type: string) {
   const data = factionData.type[type as FactionType]
 
   const name = randomValue([
-    `The ${randomValue(data.group)} of ${randomValue(data.adjective)} ${randomValue(data.main)}`,
-    `The ${randomValue(data.group)} of ${randomValue(data.main)}`,
-    `The ${randomValue(data.adjective)} ${randomValue(data.group)}`,
-    `The ${randomValue(data.main)} of ${town}`,
-    `The ${town} ${randomValue(data.main)}`,
-    randomValue(data.unique),
+    rt`The ${data.group} of ${data.adjective} ${data.main}`,
+    rt`The ${data.group} of ${data.main}`,
+    rt`The ${data.adjective} ${data.group}`,
+    rt`The ${data.main} of ${town}`,
+    rt`The ${town} ${data.main}`,
+    rt`${data.unique}`,
   ])
 
   return name
