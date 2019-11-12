@@ -1,3 +1,6 @@
+/**
+ * TODO: Add documentation & types.
+ */
 export function closestMatch(array, readout, prop1, prop2, val1, val2) {
   // an approximation of two dimensional arrays, that needs a rework.
   let scale1 = 1
