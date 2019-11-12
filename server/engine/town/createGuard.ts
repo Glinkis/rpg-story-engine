@@ -2,6 +2,7 @@ import { rt } from "../tools/randomTemplate"
 import { createNPC } from "../npc-generation/createNPC"
 import { guardData } from "./guardData"
 import { randomRange, randomValue } from "../rolls"
+import { Town } from "./town"
 
 interface Guard {
   name: string
@@ -11,7 +12,7 @@ interface Guard {
   livery: string
 }
 
-export function createGuard(town): Guard {
+export function createGuard(town: Town): Guard {
   return {
     name: createGuardName(town),
     associatedTown: town.name,
@@ -27,7 +28,7 @@ export function createGuard(town): Guard {
   }
 }
 
-function createGuardName(town: any) {
+function createGuardName(town: Town): string {
   const { group, adjective, noun, alternateAdjective } = guardData.name
 
   switch (randomRange(1, 8)) {

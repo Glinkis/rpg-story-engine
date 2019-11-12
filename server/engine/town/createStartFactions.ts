@@ -1,7 +1,8 @@
 import { createFaction } from "../factions/createFaction"
 import { pluck, randomValue } from "../rolls"
+import { Town } from "./town"
 
-export function createStartFactions(town) {
+export function createStartFactions(town: Town) {
   const factions = [`merchants`, `merchants`, `merchants`, `thieves`, `nobles`, `wizards`]
 
   let factionsNumber = getNumberOfStartFactions(town.type)

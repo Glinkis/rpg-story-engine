@@ -1,4 +1,6 @@
-export function townRender(town) {
+import { Town } from "./town"
+
+export function townRender(town: Town) {
   town.roll.guardFunding = 0
 
   if (town.population > 3000) {

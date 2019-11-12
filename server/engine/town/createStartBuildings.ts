@@ -1,7 +1,16 @@
-import { createNewBuilding } from "./createNewBuilding"
+import { createNewBuilding, BuildingType } from "./createNewBuilding"
+import { Town } from "./town"
 
-export function createStartBuildings(town) {
-  const buildingType = [`Town Square`, `Tavern`, `Alchemist`, `General Store`, `Smithy`, `Market`, `Temple`]
+export function createStartBuildings(town: Town) {
+  const buildingType: BuildingType[] = [
+    `Town Square`,
+    `Tavern`,
+    `Alchemist`,
+    `General Store`,
+    `Smithy`,
+    `Market`,
+    `Temple`,
+  ]
 
   if (town.location === `seashore` || town.location === `river coast`) {
     buildingType.push(`Docks`)
