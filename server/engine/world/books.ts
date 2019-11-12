@@ -12,9 +12,9 @@ export const books = {
     }
 
     if (bookType === `detailedTitles`) {
-      book.readout = `'${book.title}'` + ` is ${book.condition} The cover is ${book.cover}${book.contents}`
+      book.readout = `'${book.title}' is ${book.condition} The cover is ${book.cover}${book.contents}`
     } else {
-      book.readout = `'${book.title}'` + ` is ${book.condition} The cover is ${book.cover}`
+      book.readout = `'${book.title}' is ${book.condition} The cover is ${book.cover}`
     }
 
     book.tippy = `<span class=tip title=${JSON.stringify(book.readout)}><<run setup.tippy("span")>>`
