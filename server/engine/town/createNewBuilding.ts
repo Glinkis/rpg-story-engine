@@ -1,10 +1,11 @@
 import { createSmithy } from "../blacksmith/createSmithy"
+import { createAlchemist } from "../alchemist/createAlchemist"
 
 export const buildingTypes = {
   "Tavern": setup.createTavern,
   "Smithy": createSmithy,
   "Docks": setup.createDocks,
-  "Alchemist": setup.createAlchemist,
+  "Alchemist": createAlchemist,
   "General Store": setup.createGeneralStore,
   "Brothel": setup.createBrothel,
   "Town Square": setup.createTownSquare,
