@@ -8,24 +8,31 @@ import { townRender } from "./townRender"
 import { createGuard } from "./createGuard"
 import { createStartFactions } from "./createStartFactions"
 
-interface Town {
+interface Taxes {
+  base: number
+  welfare: number
+  military: number
+  tithe: number
+}
+
+// TODO: Fill out.
+export interface Town {
+  name: string
+  taxes: Taxes
+  terrain: string
+  location: string
+  population: number
+  roads: Record<string, any>
+  families: Record<string, any>
+  factions: Record<string, any>
+  buildings: Record<string, any>
+  taxRate(town: Town): number
   [key: string]: any
 }
 
 export function createTown(base: any = {}) {
-  const type = randomValue([
-    `hamlet`,
-    `hamlet`,
-    `village`,
-    `village`,
-    `village`,
-    `town`,
-    `town`,
-    `town`,
-    `city`,
-    `city`,
-  ])
-  const terrain = randomValue([`temperate`, `temperate`, `temperate`, `tropical`, `polar`, `arid`])
+  const type = randomValue(TYPES)
+  const terrain = randomValue(TERRAINS)
   const season = [`summer`, `autumn`, `winter`, `spring`]
   const townName = createTownName()
   console.groupCollapsed(`${townName} is loading...`)
@@ -33,7 +40,7 @@ export function createTown(base: any = {}) {
   const politicalSource = randomValue(townData.type[type].politicalSource)
   const politicalIdeology = randomValue(townData.politicalSource[politicalSource].politicalIdeology)
 
-  const town = {
+  const town: Town = {
     passageName: `TownOutput`,
     name: townName,
     taxes: {
@@ -76,9 +83,9 @@ export function createTown(base: any = {}) {
     terrain,
     currentSeason: randomValue(season),
     season,
+    families: {},
     factions: {},
     buildings: {},
-    families: {},
     population: townData.type[type].population(),
     _demographic: {},
     get baseDemographics() {
@@ -222,3 +229,7 @@ export function createTown(base: any = {}) {
 
   return town
 }
+
+const TYPES = [`hamlet`, `hamlet`, `village`, `village`, `village`, `town`, `town`, `town`, `city`, `city`]
+
+const TERRAINS = [`temperate`, `temperate`, `temperate`, `tropical`, `polar`, `arid`]
