@@ -4,11 +4,9 @@ import { profile } from "../npc-generation/profile"
 import { createNPC } from "../npc-generation/createNPC"
 import { createMercenaries } from "../misc/createMercenaries"
 
-interface Encounters {
-  [encounter: string]: (town: any) => string
-}
+type Encounter = (town: any) => string
 
-export const encounters: Encounters = {
+export const encounters: Record<string, Encounter> = {
   "a group of bandits operating a toll road"(town) {
     const bandits = misc.bandits.create(town, {
       business: `scamming people into paying a toll to use the trail (despite it clearly not being crown-maintained)`,
