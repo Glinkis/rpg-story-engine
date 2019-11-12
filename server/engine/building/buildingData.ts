@@ -17,7 +17,6 @@ export const structure = {
         },
         set descriptorsAdd(description) {
           if (typeof description === `string`) {
-            console.log(this.descriptors)
             if (this.descriptors.includes(description)) {
               console.log(`Throwing out duplicate description...`)
             } else {
