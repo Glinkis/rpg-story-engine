@@ -1,6 +1,4 @@
 export function townRender(town) {
-  console.log(`Rendering ${town.name}...`)
-
   town.roll.guardFunding = 0
 
   if (town.population > 3000) {
@@ -237,9 +235,7 @@ export function townRender(town) {
     }
   }
 
-  if (town.roll.sin > 75 && town.population > 300) {
-    town.hasBrothel = true
-  } else if (town.roll.sin > 20 && town.population > 1250) {
+  if ((town.roll.sin > 75 && town.population > 300) || (town.roll.sin > 20 && town.population > 1250)) {
     town.hasBrothel = true
   }
 
