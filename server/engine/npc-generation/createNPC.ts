@@ -43,7 +43,6 @@ export function createNPC(town: Town, base?: any) {
 
   const gender = base.gender || randomValue([`man`, `woman`])
   const race = base.race || fetchRace(town, base)
-  console.log(`Loading profession:`)
   const profession = base.profession || fetchProfessionChance(town, base)
 
   const firstName = base.firstName || toUpperFirst(randomValue(npcData.raceTraits[race].genderTraits[gender].firstName))
@@ -103,18 +102,15 @@ export function createNPC(town: Town, base?: any) {
     finances: {
       grossIncome(town: any, npc: any) {
         // TODO add hobbies
-        console.log(`Returning ${npc.name}'s gross income...`)
         const profession = findProfession(town, npc)
         return Math.round(
           calcPercentage(profession.dailyWage, [npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3])
         )
       },
       netIncome(town: any, npc: any) {
-        console.log(`Returning ${npc.name}'s net income...`)
         return Math.round(calcPercentage(npc.finances.grossIncome(town, npc), -town.taxRate(town)))
       },
       lifestyleStandard(town: any, npc: any) {
-        console.log(`Returning ${npc.name}'s lifestyle standard...`)
         const income = npc.finances.netIncome(town, npc)
         for (const lifestyleStandard of lifestyleStandards) {
           if (income >= lifestyleStandard[0]) {
@@ -126,14 +122,12 @@ export function createNPC(town: Town, base?: any) {
         return
       },
       lifestyleExpenses(town: any, npc: any) {
-        console.log(`Returning ${npc.name}'s lifestyle expenses...`)
         const income = npc.finances.grossIncome(town, npc)
         const living = npc.finances.lifestyleStandard(town, npc)
         const ratio = lifestyleStandards.find(desc => desc[1] === living[1])
         return ratio && Math.round(income * (ratio[2] / 100))
       },
       profit(town: any, npc: any) {
-        console.log(`Returning ${npc.name}'s profit...`)
         return Math.round(
           npc.finances.netIncome(town, npc) -
             npc.finances.lifestyleStandard(town, npc)[0] -
@@ -295,7 +289,6 @@ export function createNPC(town: Town, base?: any) {
     npc.callbackFunction(town, npc, base)
   }
 
-  console.log(npc)
   console.groupEnd()
   return npc
 }
