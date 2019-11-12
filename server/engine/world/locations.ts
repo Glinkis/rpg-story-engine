@@ -4,11 +4,9 @@ import { randomValue } from "../rolls"
 import { contentsFetcher } from "../tools/contentsFetcher"
 import { Biome } from "../../../shared/types"
 
-interface Locations {
-  [location: string]: (town: any, biome: Biome) => string
-}
+type Location = (town: any, biome: Biome) => string
 
-export const locations: Locations = {
+export const locations: Record<string, Location> = {
   "a cavern behind a waterfall"(town, biome) {
     const cavern = misc.cavern.create({ entrance: `somewhat hidden behind a roaring waterfall` })
     const contents = contentsFetcher(town, biome, misc[biome].cave, encounters)
