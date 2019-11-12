@@ -116,14 +116,14 @@ export function findChildRace(town: Town, motherRace: string, fatherRace: string
 
     if (races.find(race => halfbreeds.includes(race))) {
       if (random(100) > 70) {
-        return races.find(race => race !== `human`)
+        return races.find(race => race !== `human`) || `human`
       } else {
         return `human`
       }
     }
-  } else {
-    return motherRace
   }
+
+  return motherRace
 }
 
 export function findPartnerRace(town: Town, npc: NPC) {
