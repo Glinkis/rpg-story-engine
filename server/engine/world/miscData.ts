@@ -2369,14 +2369,14 @@ export const misc: Misc = {
       )}> <b>cat</b></span><<run setup.tippy("span")>>`
       return cat
     },
-    size: randomValue([
+    size: [
       `all skin and bones`,
       `a little scrawny`,
       `pretty average in size`,
       `a little long and lanky`,
       `fat`,
       `extremely fat`,
-    ]),
+    ],
     coat: [
       `solid white`,
       `solid black`,
@@ -2470,7 +2470,6 @@ export const misc: Misc = {
     create() {
       const horse: any = {
         gender: randomValue(misc.horse.gender),
-        coat: randomValue(misc.horse.coat),
         eyes: randomValue(misc.horse.eyes),
         type: randomValue(misc.horse.type),
         quality: randomValue(misc.horse.quality),
