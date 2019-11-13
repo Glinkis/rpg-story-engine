@@ -1,6 +1,7 @@
 import { clone } from "../utils"
 import { randomValue } from "../rolls"
-import { createFaction } from "../factions/createFaction"
+import { createFaction, Faction } from "../factions/createFaction"
+import { Town } from "../town/town"
 
 /**
  * Returns a random of factions for a leadership type.
@@ -14,24 +15,23 @@ import { createFaction } from "../factions/createFaction"
  * if it doesn't find any, it creates a matching faction.
  * This is for plot hooks that require a wizard's college, etc.
  */
-export function factionsForType(town, key: string, value: any) {
-  const found: any[] = []
+export function factionsForType<K extends keyof Faction>(town: Town, key: K, value: Faction[K]) {
+  const found: Faction[] = []
 
-  for (const faction of Object.values<any>(town.factions)) {
+  for (const faction of Object.values(town.factions)) {
     if (faction[key] === value) {
       found.push(clone(faction))
     }
   }
 
-  if (found.length === 0) {
-    const tempFaction = createFaction(town, {
-      [key]: value,
-      isThrowaway: true,
-    })
-
-    town.factions[tempFaction.key] = tempFaction
-    found.push(tempFaction)
+  if (found.length) {
+    return randomValue(found)
   }
 
-  return randomValue(found)
+  const tempFaction = createFaction(town, {
+    [key]: value,
+    isThrowaway: true,
+  })
+
+  town.factions[tempFaction.key] = tempFaction
 }
