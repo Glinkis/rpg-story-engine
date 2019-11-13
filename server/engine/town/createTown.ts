@@ -64,6 +64,7 @@ export function createTown(base: Partial<Town> = {}) {
     families: {},
     factions: {},
     buildings: {},
+    professions: {},
     population: townData.type[type].population(),
     _demographic: {},
     get baseDemographics() {
