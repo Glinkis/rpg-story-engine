@@ -1,21 +1,19 @@
 import { randomFloat } from "../rolls"
 import { Town } from "../town/town"
+import { NPC } from "./npc"
+import { professions } from "./professions"
 
-// This gets the starting profession.
-export function fetchProfessionChance(town: Town, npc: any) {
-  // TODO: town = town || State.variables.town
-  let professions = Object.keys(town.professions)
+/**
+ * This gets the starting profession.
+ */
+export function fetchProfessionChance(town: Town, npc: NPC) {
+  const populations = Object.values(town.professions)
 
-  if (npc.socialClass) {
-    professions = professions.filter(profession => town.professions[profession].socialClass === npc.socialClass)
-  }
+  const sum = npc.socialClass
+    ? populations.filter(profession => professions[profession].socialClass === npc.socialClass)
+    : populations
 
-  const sum = professions.map(profession => town.professions[profession].population)
-
-  let totalWeight = 0
-  for (const single of sum) {
-    totalWeight += single
-  }
+  const totalWeight = sum.reduce((total, value) => total + value)
 
   let random = Math.floor(randomFloat(1) * totalWeight)
   let index = 0
@@ -28,5 +26,5 @@ export function fetchProfessionChance(town: Town, npc: any) {
     }
   }
 
-  return professions[index]
+  return populations[index]
 }
