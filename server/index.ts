@@ -24,7 +24,22 @@ function sendJson(res: Response, object: any) {
   }
 }
 
+function createRouteListItem(html: string, route: any) {
+  if (route.route) {
+    return `${html}\n<li><a href="${route.route.path}">${route.route.path}</a></li>`
+  }
+  return html
+}
+
 app.get(`/`, (req, res) => {
+  res.header(`Content-Type`, `text/html`)
+  res.send(`
+    <h1>Available Endpoints:</h1>
+    <ul>${app._router.stack.reduce(createRouteListItem, ``)}</ul>
+  `)
+})
+
+app.get(`/town`, (req, res) => {
   sendJson(res, createTown())
 })
 
