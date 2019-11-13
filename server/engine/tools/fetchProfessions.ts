@@ -10,7 +10,7 @@ import { Town } from "../town/town"
  * function located in `NPCGeneration/fetchProfessionChance.js`
  */
 export function fetchProfessions(town: Town) {
-  const result: Record<string, any> = {}
+  const result: Record<string, number> = {}
 
   for (const [name, profession] of Object.entries(professions)) {
     const newSv = profession.sv + (dice(4, 4) - 10) * 10
