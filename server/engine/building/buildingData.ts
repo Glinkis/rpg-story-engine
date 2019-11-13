@@ -4,7 +4,7 @@ import { randomValue } from "../rolls"
 import { Town } from "../town/town"
 
 export const structure = {
-  create(town: Town, building = {}, opts = {}) {
+  create(town: Town, building: any = {}, opts: any = {}) {
     building.wordNoun = building.wordNoun || opts.wordNoun || `building`
 
     if (!building.structure) {

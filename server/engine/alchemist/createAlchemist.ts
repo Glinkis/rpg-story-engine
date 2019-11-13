@@ -7,16 +7,15 @@ import { createAlchemistName } from "./createAlchemistName"
 import { createChemist } from "./createChemist"
 import { rollData } from "./alchemistData"
 import { Town } from "../town/town"
+import { Alchemist } from "./alchemist"
 
 export function createAlchemist(town: Town, opts = {}) {
   const chemist = createChemist(town)
 
-  const alchemist = {
+  const alchemist: Alchemist = {
     ...createBuilding(town, `alchemist`),
     chemist,
     wordNoun: randomValue(WORD_NOUNS),
-    passageName: `AlchemistOutput`,
-    initPassage: `InitAlchemist`,
     buildingType: `alchemist`,
     notableFeature: randomValue(NOTABLE_FEATURES),
     name: createAlchemistName(chemist.firstName),
@@ -25,6 +24,7 @@ export function createAlchemist(town: Town, opts = {}) {
     activity: ``,
     expertise: ``,
     cleanliness: ``,
+    structure: {},
   }
 
   structure.create(town, alchemist)

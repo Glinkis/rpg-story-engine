@@ -6,6 +6,9 @@ import { randomValue } from "./engine/rolls"
 import { inventory } from "./engine/world/inventory"
 import { createColour } from "./engine/misc/colours"
 import { createNPC } from "./engine/npc-generation/createNPC"
+import { createFaction } from "./engine/factions/createFaction"
+import { createAlchemist } from "./engine/alchemist/createAlchemist"
+import { createGuard } from "./engine/town/createGuard"
 
 const app = express()
 
@@ -31,6 +34,14 @@ app.get(`/inventory`, (req, res) => {
 
 app.get(`/colour`, (req, res) => {
   sendJson(res, createColour())
+})
+
+app.get(`/guard`, (req, res) => {
+  sendJson(res, createGuard(createTown()))
+})
+
+app.get(`/faction`, (req, res) => {
+  sendJson(res, createFaction(createTown()))
 })
 
 app.get(`/npc`, (req, res) => {
