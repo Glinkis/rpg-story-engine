@@ -3,8 +3,8 @@ export type Roll = [number, ...(string | number)[]]
 export type RollData = Record<string, Roll[]>
 
 export interface Seed<T = never> {
-  value: string
-  modifiers?: Partial<T>
+  readonly value: string
+  readonly modifiers?: Partial<T>
 }
 
 export interface LookAround {
