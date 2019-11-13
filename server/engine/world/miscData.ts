@@ -8,6 +8,7 @@ import { defineRollDataGetter } from "../tools/defineRollDataGetter"
 import { plothooks } from "../plothook/plothooks"
 import { Town } from "../town/town"
 import { rt } from "../tools/randomTemplate"
+import { toUpperFirst } from "../tools/toUpperFirst"
 
 interface Misc {
   [key: string]: any
@@ -347,9 +348,9 @@ export const misc: Misc = {
         caravan.mood
       } The master is ${profile(caravan.master, JSON.stringify(caravan.masterType))}, who is looking for ${
         caravan.masterLooking
-      }. ${caravan.master.heshe.toUpperFirst()} is taking special care to avoid ${
-        caravan.masterAvoid
-      } and is carrying ${caravan.masterCarry} with ${caravan.master.himher}.`
+      }. ${toUpperFirst(caravan.master.heshe)} is taking special care to avoid ${caravan.masterAvoid} and is carrying ${
+        caravan.masterCarry
+      } with ${caravan.master.himher}.`
       caravan.tippy = `<span class=tip title=${JSON.stringify(caravan.readout)}><<run setup.tippy("span")>>`
       caravan.tippyWord = `${caravan.tippy}<b>caravan</b></span>`
       return caravan
