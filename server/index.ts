@@ -9,6 +9,9 @@ import { createNPC } from "./engine/npc-generation/createNPC"
 import { createFaction } from "./engine/factions/createFaction"
 import { createAlchemist } from "./engine/alchemist/createAlchemist"
 import { createGuard } from "./engine/town/createGuard"
+import { createMagicTrinket } from "./engine/misc/createMagicTrinket"
+import { createMagicWeapon } from "./engine/misc/createMagicWeapon"
+import { createMercenaries } from "./engine/misc/createMercenaries"
 
 const app = express()
 
@@ -51,8 +54,20 @@ app.get(`/colour`, (req, res) => {
   sendJson(res, createColour())
 })
 
+app.get(`/magic-weapon`, (req, res) => {
+  sendJson(res, createMagicWeapon())
+})
+
+app.get(`/magic-trinket`, (req, res) => {
+  sendJson(res, createMagicTrinket())
+})
+
 app.get(`/guard`, (req, res) => {
   sendJson(res, createGuard(createTown()))
+})
+
+app.get(`/mercenaries`, (req, res) => {
+  sendJson(res, createMercenaries(createTown()))
 })
 
 app.get(`/faction`, (req, res) => {

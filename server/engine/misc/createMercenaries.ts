@@ -1,11 +1,10 @@
 import { randomValue } from "../rolls"
-import { variables } from "../global"
 import { createNPC } from "../npc-generation/createNPC"
 import { factionData } from "../factions/factionData"
 import { allColours } from "./colours"
 import { Town } from "../town/town"
 
-export function createMercenaries(town) {
+export function createMercenaries(town: Town) {
   const mercenaries = {
     colours: randomValue(allColours()),
     insignia: randomValue(INSIGNIAS),
@@ -27,8 +26,8 @@ export function createMercenaries(town) {
     `The ${randomValue(data.group)} of ${randomValue(data.adjective)} ${randomValue(data.main)}`,
     `The ${randomValue(data.group)} of ${randomValue(data.main)}`,
     `The ${randomValue(data.adjective)} ${randomValue(data.group)}`,
-    `The ${randomValue(data.main)} of ${variables.town.name}`,
-    `The ${variables.town.name} ${randomValue(data.main)}`,
+    `The ${randomValue(data.main)} of ${town.name}`,
+    `The ${town.name} ${randomValue(data.main)}`,
     randomValue(data.unique),
   ])
 
