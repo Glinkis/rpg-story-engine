@@ -26,5 +26,5 @@ export function fetchProfessionChance(town: Town, npc: NPC) {
     }
   }
 
-  return professions[populations[index][0]]
+  return populations[index][0]
 }
