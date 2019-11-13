@@ -1,3 +1,6 @@
+import { Faction } from "../factions/createFaction"
+import { Building } from "../building/createBuilding"
+
 interface Taxes {
   base: number
   welfare: number
@@ -14,8 +17,8 @@ export interface Town {
   population: number
   roads: Record<string, any>
   families: Record<string, any>
-  factions: Record<string, any>
-  buildings: Record<string, any>
+  factions: Record<string, Faction>
+  buildings: Record<string, Building>
   roll: Record<string, number>
   taxRate(town: Town): number
   [key: string]: any
