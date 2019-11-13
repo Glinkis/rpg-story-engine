@@ -5,6 +5,7 @@ import { createTown } from "./engine/town/createTown"
 import { randomValue } from "./engine/rolls"
 import { inventory } from "./engine/world/inventory"
 import { createColour } from "./engine/misc/colours"
+import { createNPC } from "./engine/npc-generation/createNPC"
 
 const app = express()
 
@@ -30,6 +31,10 @@ app.get(`/inventory`, (req, res) => {
 
 app.get(`/colour`, (req, res) => {
   sendJson(res, createColour())
+})
+
+app.get(`/npc`, (req, res) => {
+  sendJson(res, createNPC(createTown()))
 })
 
 app.listen(process.env.PORT || 5000, () => {

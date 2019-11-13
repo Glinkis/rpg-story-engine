@@ -2,6 +2,7 @@ import { npcData } from "./npcData"
 import { objectArrayFetcher } from "../tools/objectArrayFetcher"
 import { randomRange, randomValue, dice, random } from "../rolls"
 import { misc } from "../world/miscData"
+import { createUniqueKey } from "../tools/createUniqueKey"
 import { calcPercentage } from "../tools/calcPercentage"
 import { toUpperFirst } from "../tools/toUpperFirst"
 import { createSexuality } from "./createSexuality"
@@ -47,7 +48,6 @@ export function createNPC(town: Town, base?: any) {
 
   const firstName = base.firstName || toUpperFirst(randomValue(npcData.raceTraits[race].genderTraits[gender].firstName))
   const lastName = base.lastName || toUpperFirst(randomValue(npcData.raceTraits[race].lastName))
-  console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage =
     base.ageStage ||
     randomValue([
@@ -69,7 +69,7 @@ export function createNPC(town: Town, base?: any) {
 
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
   const npc = {
-    key: Math.random(),
+    key: createUniqueKey(),
     passageName: `NPCProfile`,
     _gender: gender,
     _race: race,
