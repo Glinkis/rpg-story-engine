@@ -1,7 +1,8 @@
-export interface Alchemist {
+import { Building } from "../building/createBuilding"
+
+export interface Alchemist extends Building {
   name: string
-  roll: Record<string, number>
   material: string
-  priceModifier: number
   activity: string
+  priceModifier: number
 }

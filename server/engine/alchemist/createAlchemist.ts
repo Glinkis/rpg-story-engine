@@ -22,6 +22,7 @@ export function createAlchemist(town: Town, opts = {}) {
     name: createAlchemistName(chemist.firstName),
     size: ``,
     wealth: ``,
+    activity: ``,
     expertise: ``,
     cleanliness: ``,
   }
