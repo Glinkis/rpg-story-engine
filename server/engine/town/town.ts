@@ -19,6 +19,7 @@ export interface Town {
   families: Record<string, any>
   factions: Record<string, Faction>
   buildings: Record<string, Building>
+  professions: Record<string, any>
   roll: Record<string, number>
   taxRate(town: Town): number
   [key: string]: any
