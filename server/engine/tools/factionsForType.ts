@@ -34,4 +34,6 @@ export function factionsForType<K extends keyof Faction>(town: Town, key: K, val
   })
 
   town.factions[tempFaction.key] = tempFaction
+
+  return tempFaction
 }
