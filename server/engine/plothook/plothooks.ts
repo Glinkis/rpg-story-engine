@@ -6,13 +6,15 @@ import { objectArrayFetcher } from "../tools/objectArrayFetcher"
 import { createRelationship } from "../npc-generation/createRelationship"
 import { createTownName } from "../town/createTownName"
 import { factionsForType } from "../tools/factionsForType"
+import { Town } from "../town/town"
+import { NPC } from "../npc-generation/npc"
 
 interface Plothook {
   probability?: number
   questGiver?: object
   type: string[]
-  exclusions?(town: any, npc: any): boolean
-  function(town: any, npc: any): string
+  exclusions?(town: Town, npc: NPC): boolean
+  function(town: Town, npc: NPC): string
 }
 
 export const plothooks: Record<string, Plothook> = {

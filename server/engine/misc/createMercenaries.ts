@@ -3,6 +3,7 @@ import { variables } from "../global"
 import { createNPC } from "../npc-generation/createNPC"
 import { factionData } from "../factions/factionData"
 import { allColours } from "./colours"
+import { Town } from "../town/town"
 
 export function createMercenaries(town) {
   const mercenaries = {
@@ -44,7 +45,7 @@ export function createMercenaries(town) {
   }
 }
 
-function createCommander(town: any, trait: string) {
+function createCommander(town: Town, trait: string) {
   switch (trait) {
     case `a brazen outlaw`:
       return createNPC(town, {

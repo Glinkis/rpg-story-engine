@@ -3,6 +3,8 @@ import { findProfession } from "./findProfession"
 import { Marriage } from "./createFamilyMembers"
 import { rollFromTable } from "../tools/rollFromTable"
 import { toUpperFirst } from "../tools/toUpperFirst"
+import { Town } from "../town/town"
+import { NPC } from "./npc"
 
 const lifestyleTables: Record<string, [number, string][]> = {
   "aristocracy": [
@@ -63,7 +65,7 @@ const homeTable: [number, string][] = [
   [40, `a palace`], // unreachable without biases
 ]
 
-export function createLifestyleStandards(town: any, npc: any) {
+export function createLifestyleStandards(town: Town, npc: any) {
   const isCurrently = randomValue([`has been`, `has recently been`, `is`, `is currently`])
   const isHaving = randomValue([`has been having`, `has recently had`, `is having`, `is currently having`])
   const desc = findProfession(town, npc)
@@ -86,7 +88,7 @@ export function createLifestyleStandards(town: any, npc: any) {
     [25, randomValue([`${isCurrently} extremely successful as a `, `${isHaving} extreme success as a `]) + tippy],
   ]
 
-  const note = wageVarianceNotes.find(function(desc) {
+  const note = wageVarianceNotes.find(desc => {
     return desc[0] >= npc.roll.wageVariation(town)
   })
 

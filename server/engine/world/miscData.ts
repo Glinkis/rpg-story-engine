@@ -6,6 +6,8 @@ import { profile } from "../npc-generation/profile"
 import { createNPC } from "../npc-generation/createNPC"
 import { defineRollDataGetter } from "../tools/defineRollDataGetter"
 import { plothooks } from "../plothook/plothooks"
+import { Town } from "../town/town"
+import { rt } from "../tools/randomTemplate"
 
 interface Misc {
   [key: string]: any
@@ -325,7 +327,7 @@ export const misc: Misc = {
     ],
   },
   caravan: {
-    create(town: any, base = {}) {
+    create(town: Town, base = {}) {
       const masterType = randomValue(Object.keys(misc.caravan.masterType))
       const caravan: any = {
         type: randomValue(misc.caravan.caravanType),
@@ -1303,7 +1305,7 @@ export const misc: Misc = {
       `priests and sages`,
       `women and children`,
     ],
-    create(town: any, base = {}) {
+    create(town: Town, base = {}) {
       const bandits: any = {
         business: randomValue(misc.bandits.business),
         colours: randomValue(misc.bandits.colours),
@@ -1581,7 +1583,7 @@ export const misc: Misc = {
   },
   religion: {
     shrine: {
-      create(town: any, base = {}) {
+      create(town: Town, base = {}) {
         const sensesArray = randomValue(Object.keys(misc.religion.shrine.senses))
         const shrine: any = {
           god: randomValue([
@@ -1651,7 +1653,7 @@ export const misc: Misc = {
         bedding() {
           return `You can see some bedding on the ground near the shrine. It's pretty obvious that the owner left in a hurry.`
         },
-        beddingWithNPC(town: any) {
+        beddingWithNPC(town: Town) {
           const npc = createNPC(town)
           return `You can see some bedding on the ground near the shrine. The ${profile(npc, `owner`)} is out hunting.`
         },
@@ -2967,7 +2969,7 @@ export const misc: Misc = {
     },
   },
   tree: {
-    create(town: any, biome: string, base = {}) {
+    create(town: Town, biome: string, base = {}) {
       biome = biome || randomValue([`forest`, `desert`, `mountain`, `plains`])
       const tree: any = {
         species: randomValue(misc.tree.biome[biome].species),
@@ -3154,7 +3156,7 @@ export const misc: Misc = {
     },
   },
   cabin: {
-    create(town: any, biome: string, base = {}) {
+    create(town: Town, biome: string, base = {}) {
       const cabin: any = {
         material: randomValue([`wooden`, `wooden`, `wooden`, `stone`]),
         wordNoun: `cabin`,
@@ -3244,20 +3246,20 @@ export const misc: Misc = {
     },
   },
   town: {
-    create(town: any) {
+    create(town: Town) {
       return weightedRandomFetcher(town, plothooks, ``, misc.town.type.event)
     },
     type: {
-      event(town: any, arg: any) {
+      event(town: Town, arg: any) {
         return arg.type.includes(`event`)
       },
-      paper(town: any, arg: any) {
+      paper(town: Town, arg: any) {
         return arg.type.includes(`paper`)
       },
     },
   },
   road: {
-    create(town: any, base: any) {
+    create(town: Town, base: any = {}) {
       const type = randomValue([`trail`, `path`, `path`, `road`, `road`, `road`])
       const encounterKey: string = randomValue(misc.road[type].encounters)
       console.log(encounterKey)
@@ -3414,7 +3416,7 @@ export const misc: Misc = {
     },
   },
   desert: {
-    create(town: any) {
+    create(town: Town) {
       const biome = `desert`
       let encounter
       let encounterKey
@@ -3598,7 +3600,7 @@ export const misc: Misc = {
     hole: [`a snake`, `a spider`, `beetles`, `scorpions`, `centipedes`, `a toad`, `a lizard`, `a fox`],
   },
   mountain: {
-    create(town: any) {
+    create(town: Town) {
       const biome = `mountain`
       let encounter
       let encounterKey
@@ -3847,29 +3849,26 @@ export const misc: Misc = {
     ],
   },
   forest: {
-    create(town: any) {
+    create(town: Town) {
       const biome = `forest`
-      let encounter
-      let encounterKey
+
+      let encounter: string
+      let location: string
+
       if (randomRange(1, 100) >= 50) {
-        encounterKey = randomValue(misc.forest.location)
-        console.log(encounterKey)
-        encounter = locations[encounterKey](town, biome)
-        console.log(encounter)
+        location = randomValue(misc.forest.location)
+        encounter = locations[location](town, biome)
       } else {
-        encounterKey = randomValue(misc.forest.encounters)
-        console.log(encounterKey)
-        encounter = encounters[encounterKey](town)
+        location = randomValue(misc.forest.encounters)
+        encounter = encounters[location](town)
       }
-      console.log(encounterKey)
-      return `${randomValue([`While`, `As`, `After a while, as`])} you ${randomValue([
+
+      return rt`${[`While`, `As`, `After a while, as`]} you ${[
         `traverse`,
         `trudge along in`,
         `travel through`,
         `walk through`,
-      ])} the forest, you see ${randomValue(misc.forest.landmark)}. You notice ${randomValue(
-        misc.forest.feature
-      )}. Up ahead, you see ${encounter}`
+      ]} the forest, you see ${misc.forest.landmark}. You notice ${misc.forest.feature}. Up ahead, you see ${encounter}`
     },
     location: [
       `a cavern behind a waterfall`,

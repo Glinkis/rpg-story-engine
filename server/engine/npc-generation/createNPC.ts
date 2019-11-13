@@ -92,7 +92,7 @@ export function createNPC(town: Town, base?: any) {
     relationships: {},
     roll: {
       _wageVariation: dice(5, 10) - 27,
-      wageVariation(town: any) {
+      wageVariation(town: Town) {
         // _wageVariation is static; it's the "luck" that the NPC has in their profession.
         // town.roll.wealth increases or decreases it by 10%, reflecting the strength of the economy.
         // expected range should be between -25 and 25.
@@ -100,17 +100,17 @@ export function createNPC(town: Town, base?: any) {
       },
     },
     finances: {
-      grossIncome(town: any, npc: any) {
+      grossIncome(town: Town, npc: any) {
         // TODO add hobbies
         const profession = findProfession(town, npc)
         return Math.round(
           calcPercentage(profession.dailyWage, [npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3])
         )
       },
-      netIncome(town: any, npc: any) {
+      netIncome(town: Town, npc: any) {
         return Math.round(calcPercentage(npc.finances.grossIncome(town, npc), -town.taxRate(town)))
       },
-      lifestyleStandard(town: any, npc: any) {
+      lifestyleStandard(town: Town, npc: any) {
         const income = npc.finances.netIncome(town, npc)
         for (const lifestyleStandard of lifestyleStandards) {
           if (income >= lifestyleStandard[0]) {
@@ -121,13 +121,13 @@ export function createNPC(town: Town, base?: any) {
         // various bits use all three, so it was easier to specify which than create three virtually identical functions.
         return
       },
-      lifestyleExpenses(town: any, npc: any) {
+      lifestyleExpenses(town: Town, npc: any) {
         const income = npc.finances.grossIncome(town, npc)
         const living = npc.finances.lifestyleStandard(town, npc)
         const ratio = lifestyleStandards.find(desc => desc[1] === living[1])
         return ratio && Math.round(income * (ratio[2] / 100))
       },
-      profit(town: any, npc: any) {
+      profit(town: Town, npc: any) {
         return Math.round(
           npc.finances.netIncome(town, npc) -
             npc.finances.lifestyleStandard(town, npc)[0] -

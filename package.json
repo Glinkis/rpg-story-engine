@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "start": "ts-node server",
-    "start:watch": "nodemon --config 1200ms",
+    "start:watch": "nodemon --config 500ms",
     "lint": "eslint server/**/*.ts --fix"
   },
   "nodemonConfig": {
