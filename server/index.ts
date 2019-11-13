@@ -33,6 +33,9 @@ function createRouteListItem(html: string, route: any) {
   return html
 }
 
+/**
+ * Displays a list of available endpoints.
+ */
 app.get(`/`, (req, res) => {
   res.header(`Content-Type`, `text/html`)
   res.send(`
@@ -41,41 +44,19 @@ app.get(`/`, (req, res) => {
   `)
 })
 
-app.get(`/town`, (req, res) => {
-  sendJson(res, createTown())
-})
-
-app.get(`/inventory`, (req, res) => {
-  sendJson(res, randomValue(inventory))
-})
-
-app.get(`/colour`, (req, res) => {
-  sendJson(res, createColour())
-})
-
-app.get(`/magic-weapon`, (req, res) => {
-  sendJson(res, createMagicWeapon())
-})
-
-app.get(`/magic-trinket`, (req, res) => {
-  sendJson(res, createMagicTrinket())
-})
-
-app.get(`/guard`, (req, res) => {
-  sendJson(res, createGuard(createTown()))
-})
-
-app.get(`/mercenaries`, (req, res) => {
-  sendJson(res, createMercenaries(createTown()))
-})
-
-app.get(`/faction`, (req, res) => {
-  sendJson(res, createFaction(createTown()))
-})
-
-app.get(`/npc`, (req, res) => {
-  sendJson(res, createNPC(createTown()))
-})
+/**
+ * Available endpoints.
+ */
+app
+  .get(`/town`, (req, res) => sendJson(res, createTown()))
+  .get(`/inventory`, (req, res) => sendJson(res, randomValue(inventory)))
+  .get(`/colour`, (req, res) => sendJson(res, createColour()))
+  .get(`/magic-weapon`, (req, res) => sendJson(res, createMagicWeapon()))
+  .get(`/magic-trinket`, (req, res) => sendJson(res, createMagicTrinket()))
+  .get(`/guard`, (req, res) => sendJson(res, createGuard(createTown())))
+  .get(`/mercenaries`, (req, res) => sendJson(res, createMercenaries(createTown())))
+  .get(`/faction`, (req, res) => sendJson(res, createFaction(createTown())))
+  .get(`/npc`, (req, res) => sendJson(res, createNPC(createTown())))
 
 app.listen(process.env.PORT || 5000, () => {
   console.clear()
