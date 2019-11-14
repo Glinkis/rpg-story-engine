@@ -9,7 +9,7 @@ export interface Cheese {
 }
 
 export const cheese = {
-  create(base: Partial<Cheese> = {}): Cheese {
+  create(base?: Partial<Cheese>): Cheese {
     return {
       colour: randomValue(this.colour),
       texture: randomValue(this.texture),

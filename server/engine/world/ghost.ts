@@ -9,7 +9,7 @@ export interface Ghost {
 }
 
 export const ghost = {
-  create(base: Partial<Ghost> = {}): Ghost {
+  create(base?: Partial<Ghost>): Ghost {
     return {
       profession: randomValue(this.profession),
       cause: randomValue(this.cause),

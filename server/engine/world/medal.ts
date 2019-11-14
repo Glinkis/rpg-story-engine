@@ -8,7 +8,7 @@ interface Medal {
 }
 
 export const medal = {
-  create(base: Partial<Medal> = {}) {
+  create(base?: Partial<Medal>) {
     return {
       metal: randomValue(this.metal),
       material: randomValue(this.material),

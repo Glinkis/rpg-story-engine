@@ -12,7 +12,7 @@ export interface Cat {
 }
 
 export const cat = {
-  create(base: Partial<Cat> = {}): Cat {
+  create(base?: Partial<Cat>): Cat {
     return {
       size: randomValue(this.size),
       coat: randomValue(this.coat),

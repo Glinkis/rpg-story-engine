@@ -16,7 +16,7 @@ export interface Goblins {
 }
 
 export const goblins = {
-  create(base: Partial<Goblins> = {}): Goblins {
+  create(base?: Partial<Goblins>): Goblins {
     return {
       business: randomValue(this.business),
       symbol: randomValue(this.symbol),

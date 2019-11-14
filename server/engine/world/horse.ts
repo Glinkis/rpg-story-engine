@@ -13,7 +13,7 @@ export interface Horse {
 }
 
 export const horse = {
-  create(base: Partial<Horse> = {}): Horse {
+  create(base?: Partial<Horse>): Horse {
     return {
       gender: randomValue(this.gender),
       eyes: randomValue(this.eyes),

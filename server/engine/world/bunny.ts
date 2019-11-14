@@ -8,7 +8,7 @@ export interface Bunny {
 }
 
 export const bunny = {
-  create(base: Partial<Bunny> = {}) {
+  create(base?: Partial<Bunny>) {
     return {
       size: randomValue(this.size),
       coat: randomValue(this.coat),
