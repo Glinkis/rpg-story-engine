@@ -16,6 +16,7 @@ import { cheese } from "./engine/world/cheese"
 import { medal } from "./engine/world/medal"
 import { treasureMap } from "./engine/world/trasureMap"
 import { ghost } from "./engine/world/ghost"
+import { orcs } from "./engine/world/orcs"
 
 const app = express()
 
@@ -56,12 +57,12 @@ app
   .get(`/town`, (req, res) => sendJson(res, createTown()))
   .get(`/inventory`, (req, res) => sendJson(res, randomValue(inventory)))
   .get(`/colour`, (req, res) => sendJson(res, createColour()))
-  .get(`/cheese`, (req, res) => sendJson(res, cheese.create()))
-  .get(`/medal`, (req, res) => sendJson(res, medal.create()))
+  .get(`/cheese`, (req, res) => sendJson(res, cheese.readout(cheese.create())))
+  .get(`/medal`, (req, res) => sendJson(res, medal.readout(medal.create())))
   .get(`/treasure-map`, (req, res) => sendJson(res, treasureMap.create()))
   .get(`/caravan`, (req, res) => sendJson(res, misc.caravan.create(createTown())))
-  .get(`/ghost`, (req, res) => sendJson(res, ghost.create()))
-  .get(`/orcs`, (req, res) => sendJson(res, misc.orcs.create()))
+  .get(`/ghost`, (req, res) => sendJson(res, ghost.readout(ghost.create())))
+  .get(`/orcs`, (req, res) => sendJson(res, orcs.readout(orcs.create())))
   .get(`/goblins`, (req, res) => sendJson(res, misc.goblins.create()))
   .get(`/goblin`, (req, res) => sendJson(res, misc.goblin.create()))
   .get(`/bunny`, (req, res) => sendJson(res, misc.bunny.create()))
