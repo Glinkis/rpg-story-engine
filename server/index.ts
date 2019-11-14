@@ -12,6 +12,7 @@ import { createMagicTrinket } from "./engine/misc/createMagicTrinket"
 import { createMagicWeapon } from "./engine/misc/createMagicWeapon"
 import { createMercenaries } from "./engine/misc/createMercenaries"
 import { misc } from "./engine/world/miscData"
+import { cheese } from "./engine/world/cheese"
 
 const app = express()
 
@@ -52,7 +53,7 @@ app
   .get(`/town`, (req, res) => sendJson(res, createTown()))
   .get(`/inventory`, (req, res) => sendJson(res, randomValue(inventory)))
   .get(`/colour`, (req, res) => sendJson(res, createColour()))
-  .get(`/cheese`, (req, res) => sendJson(res, misc.cheese.create()))
+  .get(`/cheese`, (req, res) => sendJson(res, cheese.create()))
   .get(`/medal`, (req, res) => sendJson(res, misc.medal.create()))
   .get(`/treasure-map`, (req, res) => sendJson(res, misc.treasureMap.create()))
   .get(`/caravan`, (req, res) => sendJson(res, misc.caravan.create(createTown())))
