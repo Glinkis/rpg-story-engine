@@ -14,14 +14,14 @@ interface Cat {
 export const cat = {
   create(base: Partial<Cat> = {}): Cat {
     return {
-      size: randomValue(cat.size),
-      coat: randomValue(cat.coat),
-      eyes: randomValue(cat.eyes),
-      breedSkill: randomValue(cat.breedSkill),
-      favouriteFood: randomValue(cat.favouriteFood),
-      markings: randomValue(cat.markings),
-      habit: randomValue(cat.habit),
-      talent: randomValue(cat.talent),
+      size: randomValue(this.size),
+      coat: randomValue(this.coat),
+      eyes: randomValue(this.eyes),
+      breedSkill: randomValue(this.breedSkill),
+      favouriteFood: randomValue(this.favouriteFood),
+      markings: randomValue(this.markings),
+      habit: randomValue(this.habit),
+      talent: randomValue(this.talent),
       ...base,
     }
   },

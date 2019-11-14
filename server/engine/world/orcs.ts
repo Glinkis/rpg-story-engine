@@ -18,22 +18,23 @@ export interface Orcs {
 }
 
 export const orcs = {
-  create() {
+  create(base: Partial<Orcs> = {}) {
     return {
-      type: randomValue(orcs.type),
-      symbol: randomValue(orcs.symbol),
-      value: randomValue(orcs.value),
-      meat: randomValue(orcs.meat),
-      fear: randomValue(orcs.fear),
-      notorious: randomValue(orcs.notorious),
-      knownFor: randomValue(orcs.knownFor),
-      attitude: randomValue(orcs.attitude),
-      leader: randomValue(orcs.leader),
-      goals: randomValue(orcs.goals),
-      tactics: randomValue(orcs.tactics),
-      pets: randomValue(orcs.pets),
-      slaves: randomValue(orcs.slaves),
-      weapons: randomValue(orcs.weapons),
+      type: randomValue(this.type),
+      symbol: randomValue(this.symbol),
+      value: randomValue(this.value),
+      meat: randomValue(this.meat),
+      fear: randomValue(this.fear),
+      notorious: randomValue(this.notorious),
+      knownFor: randomValue(this.knownFor),
+      attitude: randomValue(this.attitude),
+      leader: randomValue(this.leader),
+      goals: randomValue(this.goals),
+      tactics: randomValue(this.tactics),
+      pets: randomValue(this.pets),
+      slaves: randomValue(this.slaves),
+      weapons: randomValue(this.weapons),
+      ...base,
     }
   },
   readout(orcs: Orcs) {

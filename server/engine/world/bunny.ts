@@ -10,10 +10,10 @@ interface Bunny {
 export const bunny = {
   create(base: Partial<Bunny> = {}) {
     return {
-      size: randomValue(bunny.size),
-      coat: randomValue(bunny.coat),
-      favouriteFood: randomValue(bunny.favouriteFood),
-      markings: randomValue(bunny.markings),
+      size: randomValue(this.size),
+      coat: randomValue(this.coat),
+      favouriteFood: randomValue(this.favouriteFood),
+      markings: randomValue(this.markings),
       ...base,
     }
   },

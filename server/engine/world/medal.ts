@@ -10,10 +10,10 @@ interface Medal {
 export const medal = {
   create(base: Partial<Medal> = {}) {
     return {
-      metal: randomValue(medal.metal),
-      material: randomValue(medal.material),
-      emblem: randomValue(medal.emblem),
-      colour: randomValue(medal.colour),
+      metal: randomValue(this.metal),
+      material: randomValue(this.material),
+      emblem: randomValue(this.emblem),
+      colour: randomValue(this.colour),
       ...base,
     }
   },

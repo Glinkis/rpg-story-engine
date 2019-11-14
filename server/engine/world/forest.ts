@@ -12,10 +12,10 @@ export const forest = {
     let location: string
 
     if (randomRange(1, 100) >= 50) {
-      location = randomValue(forest.location)
+      location = randomValue(this.location)
       encounter = locations[location](town, biome)
     } else {
-      location = randomValue(forest.encounters)
+      location = randomValue(this.encounters)
       encounter = encounters[location](town)
     }
 
@@ -24,7 +24,7 @@ export const forest = {
       `trudge along in`,
       `travel through`,
       `walk through`,
-    ]} the forest, you see ${forest.landmark}. You notice ${forest.feature}. Up ahead, you see ${encounter}`
+    ]} the forest, you see ${this.landmark}. You notice ${this.feature}. Up ahead, you see ${encounter}`
   },
   location: [
     `a cavern behind a waterfall`,

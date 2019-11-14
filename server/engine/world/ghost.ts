@@ -11,11 +11,11 @@ export interface Ghost {
 export const ghost = {
   create(base: Partial<Ghost> = {}): Ghost {
     return {
-      profession: randomValue(ghost.profession),
-      cause: randomValue(ghost.cause),
-      reason: randomValue(ghost.reason),
-      release: randomValue(ghost.release),
-      reaction: randomValue(ghost.reaction),
+      profession: randomValue(this.profession),
+      cause: randomValue(this.cause),
+      reason: randomValue(this.reason),
+      release: randomValue(this.release),
+      reaction: randomValue(this.reaction),
       ...base,
     }
   },

@@ -13,13 +13,13 @@ interface TreasureMap {
 export const treasureMap = {
   create(base: Partial<TreasureMap> = {}): TreasureMap {
     return {
-      one: randomValue(treasureMap.one),
-      two: randomValue(treasureMap.two),
-      three: randomValue(treasureMap.three),
-      four: randomValue(treasureMap.four),
-      five: randomValue(treasureMap.five),
-      six: randomValue(treasureMap.six),
-      seven: randomValue(treasureMap.seven),
+      one: randomValue(this.one),
+      two: randomValue(this.two),
+      three: randomValue(this.three),
+      four: randomValue(this.four),
+      five: randomValue(this.five),
+      six: randomValue(this.six),
+      seven: randomValue(this.seven),
       ...base,
     }
   },
