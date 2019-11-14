@@ -60,7 +60,7 @@ app
   .get(`/colour`, (req, res) => sendJson(res, createColour()))
   .get(`/cheese`, (req, res) => sendJson(res, cheese.readout(cheese.create())))
   .get(`/medal`, (req, res) => sendJson(res, medal.readout(medal.create())))
-  .get(`/treasure-map`, (req, res) => sendJson(res, treasureMap.create()))
+  .get(`/treasure-map`, (req, res) => sendJson(res, treasureMap.readout(treasureMap.create())))
   .get(`/caravan`, (req, res) => sendJson(res, misc.caravan.create(createTown())))
   .get(`/ghost`, (req, res) => sendJson(res, ghost.readout(ghost.create())))
   .get(`/orcs`, (req, res) => sendJson(res, orcs.readout(orcs.create())))
