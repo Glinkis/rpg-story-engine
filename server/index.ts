@@ -18,6 +18,7 @@ import { treasureMap } from "./engine/world/trasureMap"
 import { ghost } from "./engine/world/ghost"
 import { orcs } from "./engine/world/orcs"
 import { goblins } from "./engine/world/goblins"
+import { bunny } from "./engine/world/bunny"
 
 const app = express()
 
@@ -66,7 +67,7 @@ app
   .get(`/orcs`, (req, res) => sendJson(res, orcs.readout(orcs.create())))
   .get(`/goblins`, (req, res) => sendJson(res, goblins.readout(goblins.create())))
   .get(`/goblin`, (req, res) => sendJson(res, misc.goblin.create()))
-  .get(`/bunny`, (req, res) => sendJson(res, misc.bunny.create()))
+  .get(`/bunny`, (req, res) => sendJson(res, bunny.readout(bunny.create())))
   .get(`/cat`, (req, res) => sendJson(res, misc.cat.create()))
   .get(`/horse`, (req, res) => sendJson(res, misc.horse.create()))
   .get(`/wolf`, (req, res) => sendJson(res, misc.wolf.create()))
