@@ -9,14 +9,18 @@ export interface Cheese {
 }
 
 export const cheese = {
-  create(): Cheese {
+  create(base: Partial<Cheese> = {}): Cheese {
     return {
       colour: randomValue(cheese.colour),
       texture: randomValue(cheese.texture),
       taste: randomValue(cheese.taste),
       smell: randomValue(cheese.smell),
       cost: randomValue(cheese.cost),
+      ...base,
     }
+  },
+  readout(cheese: Cheese) {
+    return `This is a ${cheese.colour} cheese. It smells ${cheese.smell} The taste is ${cheese.taste}, with a texture that is ${cheese.texture}.`
   },
   colour: [
     `pale grey, with dark flecks`,
