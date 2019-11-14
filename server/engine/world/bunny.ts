@@ -56,6 +56,7 @@ export const bunny = {
     `celery`,
     `broccoli`,
     `lettuce`,
+    `dandellions`,
     `apple slices`,
     `onion leaves`,
     `potato leaves`,
