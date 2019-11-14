@@ -1,11 +1,11 @@
 import { randomValue } from "../rolls"
 
 export interface Ghost {
-  profession: string
-  cause: string
-  reason: string
-  release: string
-  reaction: string
+  readonly profession: string
+  readonly cause: string
+  readonly reason: string
+  readonly release: string
+  readonly reaction: string
 }
 
 export const ghost = {

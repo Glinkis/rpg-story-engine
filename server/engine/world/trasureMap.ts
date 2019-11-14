@@ -1,13 +1,13 @@
 import { randomValue, randomRange } from "../rolls"
 
 interface TreasureMap {
-  one: string
-  two: string
-  three: string
-  four: string
-  five: string
-  six: string
-  seven: string
+  readonly one: string
+  readonly two: string
+  readonly three: string
+  readonly four: string
+  readonly five: string
+  readonly six: string
+  readonly seven: string
 }
 
 export const treasureMap = {

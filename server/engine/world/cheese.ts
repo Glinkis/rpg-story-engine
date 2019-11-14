@@ -1,11 +1,11 @@
 import { randomValue } from "../rolls"
 
 export interface Cheese {
-  colour: string
-  texture: string
-  taste: string
-  smell: string
-  cost: number
+  readonly colour: string
+  readonly texture: string
+  readonly taste: string
+  readonly smell: string
+  readonly cost: number
 }
 
 export const cheese = {

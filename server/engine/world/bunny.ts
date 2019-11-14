@@ -1,10 +1,10 @@
 import { randomValue } from "../rolls"
 
 interface Bunny {
-  size: string
-  coat: string
-  favouriteFood: string
-  markings: string
+  readonly size: string
+  readonly coat: string
+  readonly favouriteFood: string
+  readonly markings: string
 }
 
 export const bunny = {

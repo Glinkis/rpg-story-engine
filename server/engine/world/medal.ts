@@ -1,10 +1,10 @@
 import { randomValue } from "../rolls"
 
 interface Medal {
-  metal: string
-  material: string
-  emblem: string
-  colour: string
+  readonly metal: string
+  readonly material: string
+  readonly emblem: string
+  readonly colour: string
 }
 
 export const medal = {
