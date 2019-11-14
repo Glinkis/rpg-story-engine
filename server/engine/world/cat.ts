@@ -1,6 +1,6 @@
 import { randomValue } from "../rolls"
 
-interface Cat {
+export interface Cat {
   readonly size: string
   readonly coat: string
   readonly eyes: string

@@ -1,6 +1,6 @@
 import { randomValue } from "../rolls"
 
-interface Bunny {
+export interface Bunny {
   readonly size: string
   readonly coat: string
   readonly favouriteFood: string
