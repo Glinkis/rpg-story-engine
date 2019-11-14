@@ -14,6 +14,7 @@ import { createMercenaries } from "./engine/misc/createMercenaries"
 import { misc } from "./engine/world/miscData"
 import { cheese } from "./engine/world/cheese"
 import { medal } from "./engine/world/medal"
+import { treasureMap } from "./engine/world/trasureMap"
 
 const app = express()
 
@@ -56,7 +57,7 @@ app
   .get(`/colour`, (req, res) => sendJson(res, createColour()))
   .get(`/cheese`, (req, res) => sendJson(res, cheese.create()))
   .get(`/medal`, (req, res) => sendJson(res, medal.create()))
-  .get(`/treasure-map`, (req, res) => sendJson(res, misc.treasureMap.create()))
+  .get(`/treasure-map`, (req, res) => sendJson(res, treasureMap.create()))
   .get(`/caravan`, (req, res) => sendJson(res, misc.caravan.create(createTown())))
   .get(`/ghost`, (req, res) => sendJson(res, misc.ghost.create()))
   .get(`/orcs`, (req, res) => sendJson(res, misc.orcs.create()))
