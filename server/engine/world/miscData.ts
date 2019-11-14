@@ -3269,29 +3269,25 @@ export const misc: Misc = {
         encounter: encounters[encounterKey](town),
         ...base,
       }
-      return `${randomValue([
-        `You walk along the `,
-        `You trudge along the `,
-        `Making your way across the countryside on the `,
-        `You make your way along the `,
-        `You walk along the `,
-      ]) + road.type}, ${road.traffic}${randomValue([
-        randomValue([
-          ` until you come across `,
-          ` and encounter `,
-          ` and cross paths with `,
-          ` and come across `,
-          ` and see in the distance `,
-          ` and spy in the distance `,
-        ]),
-        `. ${randomValue([
-          `Turning the corner, you come across `,
-          `Then, in the distance, you see `,
-          `You walk for a while, and then come across `,
-          `You walk for a few more minutes, until you come across `,
-          `You walk along for a while, and then encounter `,
-        ])}`,
-      ])}${road.encounter}`
+      return rt`${[
+        `You walk along the`,
+        `You trudge along the`,
+        `Making your way across the countryside on the`,
+        `You make your way along the`,
+        `You walk along the`,
+      ]} ${road.type}, ${road.traffic} ${[
+        `until you come across`,
+        `and encounter`,
+        `and cross paths with`,
+        `and come across`,
+        `and see in the distance`,
+        `and spy in the distance`,
+        `. Turning the corner, you come across`,
+        `. Then, in the distance, you see`,
+        `. You walk for a while, and then come across`,
+        `. You walk for a few more minutes, until you come across`,
+        `. You walk along for a while, and then encounter`,
+      ]} ${road.encounter}`
     },
     trail: {
       type: [`hunter's trail`, `animal trail`, `dirt trail`],
