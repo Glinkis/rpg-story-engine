@@ -14,7 +14,7 @@ interface Wolf {
 }
 
 export const wolf = {
-  create(base?: Wolf) {
+  create(base?: Partial<Wolf>): Wolf {
     return {
       colour: randomValue(this.colour),
       markings: randomValue(this.markings),
