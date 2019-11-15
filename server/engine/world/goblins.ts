@@ -1,18 +1,18 @@
 import { randomValue } from "../rolls"
 
 export interface Goblins {
-  business: string
-  symbol: string
-  colour: string
-  lairLocation: string
-  lairType: string
-  target: string
-  currentTarget: string
-  leaderType: string
-  goals: string
-  tactics: string
-  accompaniedBy: string
-  pets: string
+  readonly business: string
+  readonly symbol: string
+  readonly colour: string
+  readonly lairLocation: string
+  readonly lairType: string
+  readonly target: string
+  readonly currentTarget: string
+  readonly leaderType: string
+  readonly goals: string
+  readonly tactics: string
+  readonly accompaniedBy: string
+  readonly pets: string
 }
 
 export const goblins = {
