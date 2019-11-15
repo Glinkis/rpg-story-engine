@@ -9,7 +9,7 @@ export interface Tree {
 }
 
 export const tree = {
-  create(town?: Town, biome?: Biome, base?: Partial<Tree>) {
+  create(town?: Town, biome?: Biome, base?: Partial<Tree>): Tree {
     biome = biome || randomValue(Biome)
 
     return {

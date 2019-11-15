@@ -18,7 +18,7 @@ export interface Orcs {
 }
 
 export const orcs = {
-  create(base?: Partial<Orcs>) {
+  create(base?: Partial<Orcs>): Orcs {
     return {
       type: randomValue(this.type),
       symbol: randomValue(this.symbol),

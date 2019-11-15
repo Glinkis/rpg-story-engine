@@ -28,6 +28,7 @@ import { tree } from "./engine/world/tree"
 import { cabin } from "./engine/world/cabin"
 import { caravan } from "./engine/world/caravan"
 import { road } from "./engine/world/road"
+import { goblin } from "./engine/world/goblin"
 
 const app = express()
 
@@ -77,7 +78,7 @@ app
   .get(`/ogre`, (req, res) => sendJson(res, ogre.readout(ogre.create())))
   .get(`/spider`, (req, res) => sendJson(res, spider.readout(spider.create())))
   .get(`/goblins`, (req, res) => sendJson(res, goblins.readout(goblins.create())))
-  .get(`/goblin`, (req, res) => sendJson(res, misc.goblin.create()))
+  .get(`/goblin`, (req, res) => sendJson(res, goblin.readout(goblin.create())))
   .get(`/bunny`, (req, res) => sendJson(res, bunny.readout(bunny.create())))
   .get(`/cat`, (req, res) => sendJson(res, cat.readout(cat.create())))
   .get(`/horse`, (req, res) => sendJson(res, horse.readout(horse.create())))

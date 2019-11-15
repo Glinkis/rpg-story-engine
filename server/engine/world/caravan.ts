@@ -18,7 +18,7 @@ interface Caravan {
 }
 
 export const caravan = {
-  create(town = createTown(), base?: Partial<Caravan>) {
+  create(town = createTown(), base?: Partial<Caravan>): Caravan {
     const masterType = randomValue(Object.keys(this.masterType))
 
     return {
