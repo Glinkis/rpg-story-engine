@@ -11,7 +11,8 @@ import { randomValue } from "../rolls"
  */
 export function rt(strings: TemplateStringsArray, ...values: (string | string[])[]) {
   return strings.reduce((result, string, index) => {
-    const value = values[index]
-    return result + string + (Array.isArray(value) ? randomValue(value) : value)
-  })
+    const value = values[index] || ``
+    const pick = Array.isArray(value) ? randomValue(value) : value
+    return result + string + pick
+  }, ``)
 }
