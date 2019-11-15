@@ -23,4 +23,6 @@ export interface NPC {
   heightRoll: any
   weightRoll: any
   socialClass: string
+  heshe: string
+  himher: string
 }

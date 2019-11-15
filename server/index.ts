@@ -26,6 +26,7 @@ import { ogre } from "./engine/world/ogre"
 import { spider } from "./engine/world/spider"
 import { tree } from "./engine/world/tree"
 import { cabin } from "./engine/world/cabin"
+import { caravan } from "./engine/world/caravan"
 
 const app = express()
 
@@ -69,7 +70,7 @@ app
   .get(`/cheese`, (req, res) => sendJson(res, cheese.readout(cheese.create())))
   .get(`/medal`, (req, res) => sendJson(res, medal.readout(medal.create())))
   .get(`/treasure-map`, (req, res) => sendJson(res, treasureMap.readout(treasureMap.create())))
-  .get(`/caravan`, (req, res) => sendJson(res, misc.caravan.create(createTown())))
+  .get(`/caravan`, (req, res) => sendJson(res, caravan.readout(caravan.create())))
   .get(`/ghost`, (req, res) => sendJson(res, ghost.readout(ghost.create())))
   .get(`/orcs`, (req, res) => sendJson(res, orcs.readout(orcs.create())))
   .get(`/ogre`, (req, res) => sendJson(res, ogre.readout(ogre.create())))

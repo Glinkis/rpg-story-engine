@@ -3,17 +3,16 @@ import { randomRange, randomValue } from "../rolls"
 import { locations } from "./locations"
 import { encounters } from "./encounters"
 import { rt } from "../tools/randomTemplate"
+import { Biome } from "../../../shared/types"
 
 export const forest = {
   create(town: Town) {
-    const biome = `forest`
-
     let encounter: string
     let location: string
 
     if (randomRange(1, 100) >= 50) {
       location = randomValue(this.location)
-      encounter = locations[location](town, biome)
+      encounter = locations[location](town, Biome.Forest)
     } else {
       location = randomValue(this.encounters)
       encounter = encounters[location](town)
