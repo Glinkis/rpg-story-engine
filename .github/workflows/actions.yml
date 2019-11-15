@@ -19,4 +19,4 @@ jobs:
         run: yarn install
 
       - name: Lint
-      - run: yarn lint
+        run: yarn lint
