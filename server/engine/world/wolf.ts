@@ -1,8 +1,6 @@
 import { randomValue } from "../rolls"
 
-import { misc } from "./miscData"
-
-interface Wolf {
+export interface Wolf {
   readonly colour: string
   readonly markings: string
   readonly eyes: string

@@ -1,6 +1,6 @@
 import { randomValue } from "../rolls"
 
-interface Spider {
+export interface Spider {
   readonly colour: string
   readonly markings: string
   readonly eyes: string

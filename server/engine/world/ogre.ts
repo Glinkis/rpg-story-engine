@@ -1,6 +1,6 @@
 import { randomValue } from "../rolls"
 
-interface Ogre {
+export interface Ogre {
   readonly hair: string
   readonly type: string
   readonly eyes: string

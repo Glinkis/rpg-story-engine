@@ -1,6 +1,6 @@
 import { randomValue } from "../rolls"
 
-interface Medal {
+export interface Medal {
   readonly metal: string
   readonly material: string
   readonly emblem: string

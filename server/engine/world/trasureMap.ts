@@ -1,6 +1,6 @@
 import { randomValue, randomRange } from "../rolls"
 
-interface TreasureMap {
+export interface TreasureMap {
   readonly one: string
   readonly two: string
   readonly three: string
