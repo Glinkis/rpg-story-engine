@@ -9,5 +9,14 @@ jobs:
         with:
           node-version: 12.x
 
-      - run: yarn install
+      - name: Cache Dependencies
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Lint
       - run: yarn lint
