@@ -37,8 +37,8 @@ export function randomFloatRange(min: number, max: number) {
 /**
  * Returns a random value from an array.
  */
-export function randomValue<T>(array: T[]) {
-  return seeded.arrayItem(array)
+export function randomValue<T>(values: T[] | Record<any, T>) {
+  return seeded.arrayItem(Array.isArray(values) ? values : Object.values(values))
 }
 
 /**
