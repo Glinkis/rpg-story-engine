@@ -1,0 +1,11 @@
+on: push
+
+jobs:
+  verify:
+    runs-on: node-13.x
+    steps:
+      - uses: actions/checkout@v1
+
+      - run: yarn install
+      - run: yarn lint
+      - run: tsc
