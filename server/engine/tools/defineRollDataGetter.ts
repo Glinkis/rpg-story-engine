@@ -1,9 +1,22 @@
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
 import { randomValue } from "../rolls"
-import { RollData } from "../../../shared/types"
+import { RollData, Roll } from "../../../shared/types"
 
 interface Rollable {
   roll: Record<string, any>
+}
+
+/**
+ * Returns the result of a roll from a roll list.
+ * Returns the last itemis none other matches.
+ */
+export function rollDataGetter(rolls: Roll[], roll: number) {
+  for (const [number, value] of rolls) {
+    if (roll > number) {
+      return value
+    }
+  }
+  return rolls[rolls.length - 1][1]
 }
 
 /**

@@ -9,6 +9,7 @@ import { plothooks } from "../plothook/plothooks"
 import { Town } from "../town/town"
 import { rt } from "../tools/randomTemplate"
 import { toUpperFirst } from "../tools/toUpperFirst"
+import { Biome } from "../../../shared/types"
 
 interface Misc {
   [key: string]: any
@@ -1473,283 +1474,6 @@ export const misc: Misc = {
       `Zefar the Sorcer`,
     ],
   },
-  tree: {
-    create(town: Town, biome: string, base = {}) {
-      biome = biome || randomValue([`forest`, `desert`, `mountain`, `plains`])
-      const tree: any = {
-        species: randomValue(misc.tree.biome[biome].species),
-        size: randomValue(misc.tree.biome[biome].size),
-        feature: randomValue(misc.tree.biome[biome].feature),
-        ...base,
-      }
-      tree.readout = `The ${tree.species} tree is ${tree.size} ${tree.feature}`
-      tree.tippy = `<span class=tip title=${JSON.stringify(tree.readout)}><<run setup.tippy("span")>>`
-      tree.tippyWord = `${tree.tippy}<b>tree</b></span>`
-      return tree
-    },
-    biome: {
-      forest: {
-        species: [
-          `oak`,
-          `oak`,
-          `oak`,
-          `pine`,
-          `maple`,
-          `birch`,
-          `ash`,
-          `elm`,
-          `fir`,
-          `spruce`,
-          `sycamore`,
-          `alder`,
-          `cypress`,
-          `yew`,
-        ],
-        // a tree that is _______
-        size: [
-          `positively huge.`,
-          `as thick as a barrel.`,
-          `so tall that you have to crane your neck back to see the top of it.`,
-          `at least a hundred years old, with an impressive number of branches.`,
-          `huge, even compared to the other trees in the forest.`,
-          `as thick as a man, and twice as tall.`,
-          `half as thick as a man. It looks somewhat weedy.`,
-          `comparatively young; many of the other trees nearby are taller.`,
-          `little more than a stump, save for one limb which keeps its tree status.`,
-          `rather tall, but not very thick; it sways in the wind in such a way that it makes you a little uncomfortable.`,
-          `barely as tall as a man; this was relatively recently planted, and has not had time to grow.`,
-        ],
-        feature: [
-          `Near the base, one can see some initials have been etched into the bark.`,
-          `It is slightly stunted; you can see some burn marks on it.`,
-          `It is slightly mangled, with a couple limbs missing.`,
-          `It has some scratch marks near the base of it.`,
-          `It looks like it has been used as a scratching post for a large creature.`,
-          `There are some feasome looking claw marks halfway up the trunk.`,
-        ],
-      },
-      mountain: {
-        species: [
-          `oak`,
-          `oak`,
-          `oak`,
-          `pine`,
-          `maple`,
-          `birch`,
-          `ash`,
-          `elm`,
-          `fir`,
-          `spruce`,
-          `sycamore`,
-          `alder`,
-          `cypress`,
-          `yew`,
-        ],
-        // a tree that is _______
-        size: [
-          `positively huge`,
-          `as thick as a barrel.`,
-          `so tall that you have to crane your neck back to see the top of it.`,
-          `at least a hundred years old, with an impressive number of branches.`,
-          `huge, even compared to the other trees on this side of the mountain.`,
-          `as thick as a man, and twice as tall.`,
-          `half as thick as a man. It looks somewhat weedy.`,
-          `comparatively young; many of the other trees nearby are taller.`,
-          `slightly stunted; you can see some burn marks on it.`,
-          `slightly mangled, with a couple limbs missing.`,
-          `little more than a stump, save for one limb which keeps its tree status.`,
-          `rather tall, but not very thick; it sways in the wind in such a way that it makes you a little uncomfortable.`,
-          `barely as tall as a man; this was relatively recently planted, and has not had time to grow.`,
-        ],
-        feature: [
-          `Near the base, one can see some initials have been etched into the bark.`,
-          `It is slightly stunted; you can see some burn marks on it.`,
-          `It is slightly mangled, with a couple limbs missing.`,
-          `It has some scratch marks near the base of it.`,
-          `It looks like it has been used as a scratching post for a large creature.`,
-          `There are some feasome looking claw marks halfway up the trunk.`,
-          `You can see some marks where climbing gear had been forced into the tree a long time ago.`,
-          `You can see some bird has made this tree its home.`,
-          `The crunch of egg shells under foot tell you that this was once home to a bird nest.`,
-        ],
-      },
-      desert: {
-        species: [
-          `oak`,
-          `oak`,
-          `oak`,
-          `pine`,
-          `maple`,
-          `birch`,
-          `ash`,
-          `elm`,
-          `fir`,
-          `spruce`,
-          `sycamore`,
-          `alder`,
-          `cypress`,
-          `yew`,
-        ],
-        // a tree that is _______
-        size: [
-          `as thick as a barrel.`,
-          `so tall that you have to crane your neck back to see the top of it.`,
-          `at least a hundred years old, with an impressive number of branches.`,
-          `huge, but even more impressive with no other trees in sight.`,
-          `as thick as a man, and twice as tall.`,
-          `half as thick as a man. It looks somewhat weedy due to the poor conditions that it has been growing in.`,
-          `comparatively young; it looks to have been planted by a traveler.`,
-          `little more than a stump, save for one limb which keeps its tree status.`,
-          `rather tall, but not very thick; it sticks out like a sore thumb against the flat horizon.`,
-          `barely as tall as a man; this was relatively recently planted, and has had neither the time nor water to grow.`,
-        ],
-        feature: [
-          `Near the base, one can see some initials have been etched into the bark.`,
-          `It is slightly stunted; you can see some burn marks on it.`,
-          `There are some nasty scorch marks on the side of it.`,
-          `It is slightly mangled, with a couple limbs missing.`,
-          `It has some scratch marks near the base of it.`,
-          `It looks like it has been used as a scratching post for a large creature.`,
-          `There are some feasome looking claw marks halfway up the trunk.`,
-          `You can see some marks where climbing gear had been forced into the tree a long time ago for a better view of the horizon.`,
-          `You can see some bird has made this tree its home.`,
-          `The crunch of egg shells under foot tell you that this was once home to a bird nest.`,
-        ],
-      },
-      plains: {
-        species: [
-          `oak`,
-          `oak`,
-          `oak`,
-          `pine`,
-          `maple`,
-          `birch`,
-          `ash`,
-          `elm`,
-          `fir`,
-          `spruce`,
-          `sycamore`,
-          `alder`,
-          `cypress`,
-          `yew`,
-        ],
-        // a tree that is _______
-        size: [
-          `as thick as a barrel.`,
-          `so tall that you have to crane your neck back to see the top of it.`,
-          `at least a hundred years old, with an impressive number of branches.`,
-          `huge, even compared to the other trees on the horizon.`,
-          `as thick as a man, and twice as tall.`,
-          `half as thick as a man. It looks somewhat weedy.`,
-          `comparatively young; it looks to have been planted by a traveler.`,
-          `little more than a stump, save for one limb which keeps its tree status.`,
-          `rather tall, but not very thick; it sways in the wind in such a way that it makes you a little uncomfortable.`,
-          `barely as tall as a man; this was relatively recently planted, and has not had time to grow.`,
-        ],
-        feature: [
-          `Near the base, one can see some initials have been etched into the bark.`,
-          `It is slightly stunted; you can see some burn marks on it.`,
-          `It is slightly mangled, with a couple limbs missing.`,
-          `It has some scratch marks near the base of it.`,
-          `It looks like it has been used as a scratching post for a large creature.`,
-          `There are some feasome looking claw marks halfway up the trunk.`,
-          `You can see some marks where climbing gear had been forced into the tree a long time ago.`,
-          `You can see some bird has made this tree its home.`,
-          `The crunch of egg shells under foot tell you that this was once home to a bird nest.`,
-        ],
-      },
-    },
-  },
-  cabin: {
-    create(town: Town, biome: string, base = {}) {
-      const cabin: any = {
-        material: randomValue([`wooden`, `wooden`, `wooden`, `stone`]),
-        wordNoun: `cabin`,
-        feature: randomValue(misc.cabin.feature),
-        insideFeature: randomValue(misc.cabin.insideFeature),
-        size: ``,
-        cleanliness: ``,
-        bedCleanliness: ``,
-        roll: {
-          size: randomRange(1, 100),
-          cleanliness: randomRange(1, 100),
-          bedCleanliness: randomRange(1, 100),
-        },
-        ...base,
-      }
-      cabin.size = ``
-      cabin.cleanliness = ``
-      cabin.bedCleanliness = ``
-
-      const rollDataVariables = [`size`, `cleanliness`, `bedCleanliness`]
-      for (const propName of rollDataVariables) {
-        defineRollDataGetter(cabin, misc.cabin.rollData, propName)
-      }
-
-      cabin.readout = `The ${cabin.material} ${cabin.wordNoun} is ${cabin.size}. ${cabin.feature} Inside, it is ${cabin.cleanliness}. ${cabin.insideFeature} There is a bed, which is ${cabin.bedCleanliness}.`
-      cabin.tippy = `<span class=tip title=${JSON.stringify(cabin.readout)}><<run setup.tippy("span")>>`
-      cabin.tippyWord = `${cabin.tippy}<b>${cabin.wordNoun}</b></span>`
-      return cabin
-    },
-    feature: [
-      `The door has deep scratch marks in it.`,
-      `There is a pair of large boots by the door.`,
-      `The steps leading to the door are rather dirty.`,
-      `The chimney has a bird nesting in it.`,
-      `The windows are rather grotty, with cobwebs all over.`,
-      `There is a rusty shovel leaning against the door.`,
-      `There is an empty water bowl next to the door.`,
-    ],
-    insideFeature: [
-      `There are seemingly hundreds of dishes stacked, in desperate need of a clean.`,
-      `There is a toy pram in the corner of the room.`,
-      `A decorative tapestry is hanging up on one of the walls.`,
-      `There is a rather impressive bookcase in the corner of the room.`,
-      `There is a hunk of bread lying on the table.`,
-      `The room feels cramped, with tables and chairs cluttering everything up.`,
-      `The room feels spacious, with a single table and chair in the corner.`,
-      `There is a huge cast iron pot sitting in the fireplace.`,
-      `Dried herbs sit in bunches on the table.`,
-    ],
-    rollData: {
-      size: [
-        [95, `huge`],
-        [80, `quite large`],
-        [70, `large`],
-        [60, `spacious`],
-        [50, `relatively spacious`],
-        [40, `average sized`],
-        [30, `somewhat cramped`],
-        [20, `small`],
-        [10, `tiny`],
-        [0, `extremely cramped`],
-      ],
-      cleanliness: [
-        [80, `absolutely spotless`],
-        [75, `spotless`],
-        [70, `nice and well cleaned`],
-        [60, `hygienic`],
-        [50, `decently hygienic`],
-        [40, `slightly grubby`],
-        [30, `quite dirty`],
-        [20, `filthy`],
-        [10, `rather filthy`],
-        [0, `absolutely putrid`],
-      ],
-      bedCleanliness: [
-        [90, `perfectly prepared, with fresh sheets and a lemon scent in the air of the room`],
-        [80, `recently prepared and well cleaned`],
-        [70, `freshly cleaned and neat`],
-        [60, `tidy and neat`],
-        [50, `reasonably clean`],
-        [40, `somewhat tidy`],
-        [30, `disgusting`],
-        [20, `teeming with rats`],
-        [10, `rather filthy`],
-        [0, `festering with bugs`],
-      ],
-    },
-  },
   town: {
     create(town: Town) {
       return weightedRandomFetcher(town, plothooks, ``, misc.town.type.event)
@@ -1918,12 +1642,11 @@ export const misc: Misc = {
   },
   desert: {
     create(town: Town) {
-      const biome = `desert`
       let encounter
       let encounterKey
       if (randomRange(1, 100) >= 50) {
         encounterKey = randomValue(misc.desert.location)
-        encounter = locations[encounterKey](town, biome)
+        encounter = locations[encounterKey](town, Biome.Desert)
       } else {
         encounterKey = randomValue(misc.desert.encounters)
         encounter = encounters[encounterKey](town)
@@ -2102,13 +1825,12 @@ export const misc: Misc = {
   },
   mountain: {
     create(town: Town) {
-      const biome = `mountain`
       let encounter
       let encounterKey
       if (randomRange(1, 100) >= 50) {
         encounterKey = randomValue(misc.mountain.location)
         console.log(encounterKey)
-        encounter = locations[encounterKey](town, biome)
+        encounter = locations[encounterKey](town, Biome.Mountain)
         console.log(encounter)
       } else {
         encounterKey = randomValue(misc.mountain.encounters)

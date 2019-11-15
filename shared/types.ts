@@ -1,4 +1,11 @@
-export type Roll = [number, ...(string | number)[]]
+export enum Biome {
+  Forest = `forest`,
+  Desert = `desert`,
+  Mountain = `mountain`,
+  Plains = `plains`,
+}
+
+export type Roll = [number, ...string[]]
 
 export type RollData = Record<string, Roll[]>
 
@@ -24,8 +31,6 @@ export interface Expertise {
   readonly wealth: number
   readonly note: string
 }
-
-export type Biome = `desert` | `mountain` | `forest`
 
 export interface Terrain {
   weather: Weather

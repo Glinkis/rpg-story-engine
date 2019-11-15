@@ -24,6 +24,8 @@ import { horse } from "./engine/world/horse"
 import { wolf } from "./engine/world/wolf"
 import { ogre } from "./engine/world/ogre"
 import { spider } from "./engine/world/spider"
+import { tree } from "./engine/world/tree"
+import { cabin } from "./engine/world/cabin"
 
 const app = express()
 
@@ -85,6 +87,8 @@ app
   .get(`/mercenaries`, (req, res) => sendJson(res, createMercenaries(createTown())))
   .get(`/faction`, (req, res) => sendJson(res, createFaction(createTown())))
   .get(`/npc`, (req, res) => sendJson(res, createNPC(createTown())))
+  .get(`/tree`, (req, res) => sendJson(res, tree.readout(tree.create())))
+  .get(`/cabin`, (req, res) => sendJson(res, cabin.readout(cabin.create())))
 
 app.listen(process.env.PORT || 5000, () => {
   console.clear()
