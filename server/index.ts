@@ -21,6 +21,7 @@ import { goblins } from "./engine/world/goblins"
 import { bunny } from "./engine/world/bunny"
 import { cat } from "./engine/world/cat"
 import { horse } from "./engine/world/horse"
+import { wolf } from "./engine/world/wolf"
 
 const app = express()
 
@@ -72,7 +73,7 @@ app
   .get(`/bunny`, (req, res) => sendJson(res, bunny.readout(bunny.create())))
   .get(`/cat`, (req, res) => sendJson(res, cat.readout(cat.create())))
   .get(`/horse`, (req, res) => sendJson(res, horse.readout(horse.create())))
-  .get(`/wolf`, (req, res) => sendJson(res, misc.wolf.create()))
+  .get(`/wolf`, (req, res) => sendJson(res, wolf.readout(wolf.create())))
   .get(`/magic-weapon`, (req, res) => sendJson(res, createMagicWeapon()))
   .get(`/magic-trinket`, (req, res) => sendJson(res, createMagicTrinket()))
   .get(`/guard`, (req, res) => sendJson(res, createGuard(createTown())))
