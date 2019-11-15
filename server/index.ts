@@ -27,6 +27,7 @@ import { spider } from "./engine/world/spider"
 import { tree } from "./engine/world/tree"
 import { cabin } from "./engine/world/cabin"
 import { caravan } from "./engine/world/caravan"
+import { road } from "./engine/world/road"
 
 const app = express()
 
@@ -90,6 +91,7 @@ app
   .get(`/npc`, (req, res) => sendJson(res, createNPC(createTown())))
   .get(`/tree`, (req, res) => sendJson(res, tree.readout(tree.create())))
   .get(`/cabin`, (req, res) => sendJson(res, cabin.readout(cabin.create())))
+  .get(`/road`, (req, res) => sendJson(res, road.readout(road.create())))
 
 app.listen(process.env.PORT || 5000, () => {
   console.clear()
