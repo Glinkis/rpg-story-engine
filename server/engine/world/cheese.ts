@@ -20,7 +20,7 @@ export const cheese = {
     }
   },
   readout(cheese: Cheese) {
-    return `This cheese is a ${cheese.colour}. It smells ${cheese.smell} The taste is ${cheese.taste}, with a texture that is ${cheese.texture}.`
+    return `This cheese is ${cheese.colour}. It smells ${cheese.smell}. The taste is ${cheese.taste}, with a texture that is ${cheese.texture}.`
   },
   colour: [
     `pale grey, with dark flecks`,
