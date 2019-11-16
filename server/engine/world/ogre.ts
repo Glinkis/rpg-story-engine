@@ -22,6 +22,7 @@ export const ogre = {
       carry: randomValue(this.carry),
       look: randomValue(this.look),
       misfortune: randomValue(this.misfortune),
+      ...base,
     }
   },
   readout(ogre: Ogre) {
