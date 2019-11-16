@@ -35,32 +35,32 @@ export const locations: Record<string, Location> = {
       contents = `a ${spider.tippyWord}.`
     }
     const tree = misc.tree.create(town, biome)
-    return `a hole under a large ${tree.tippyWord}. <blockquote>Inside is ${contents}.</blockquote>`
+    return `a hole under a large ${tree.tippyWord}. Inside is ${contents}.`
   },
   "a hole under a sheer cliff"(town, biome) {
     const contents = randomValue(misc[biome].hole)
-    return `a hole under a sheer cliff. <blockquote> Inside is ${contents}.</blockquote>`
+    return `a hole under a sheer cliff. Inside is ${contents}.`
   },
   "a hole under a sheer cliff face"(town, biome) {
     const contents = randomValue(misc[biome].hole)
-    return `a hole under a sheer cliff face. <blockquote> Inside is ${contents}.</blockquote>`
+    return `a hole under a sheer cliff face. Inside is ${contents}.`
   },
   "a large burrow"(town, biome) {
     const contents = randomValue(misc[biome].hole)
-    return `a large burrow <blockquote>Inside is ${contents}.</blockquote>`
+    return `a large burrow. Inside is ${contents}.`
   },
   "a peculiar cottage"(town, biome) {
     const contents = contentsFetcher(town, biome, misc[biome].cottageLives, encounters)
     const cabin = misc.cabin.create(town, biome, {
       wordNoun: `cottage`,
     })
-    return `a peculiar ${cabin.tippyWord}. <blockquote>${contents} lives here.</blockquote>`
+    return `a peculiar ${cabin.tippyWord}. ${contents} lives here.`
   },
   "a woodsman's cabin"(town, biome) {
     const contents = contentsFetcher(town, biome, misc[biome].cabinLives, encounters)
     const cabin = misc.cabin.create(town, biome)
     const lived = randomValue(misc[biome].cabinLived)
-    return `a woodsman's ${cabin.tippyWord}. <blockquote>${lived} once lived here. Now, ${contents} lives here.</blockquote>`
+    return `a woodsman's ${cabin.tippyWord}. ${lived} once lived here. Now, ${contents} lives here.`
   },
   "a cozy little cabin"(town, biome) {
     const contents = contentsFetcher(town, biome, misc[biome].cabinLives, encounters)
@@ -69,13 +69,13 @@ export const locations: Record<string, Location> = {
       wordNoun: `cabin`,
       size: `little`,
     })
-    return `a cozy little ${cabin.tippyWord}. <blockquote>${lived} once lived here. Now, ${contents} lives here.</blockquote>`
+    return `a cozy little ${cabin.tippyWord}. ${lived} once lived here. Now, ${contents} lives here.`
   },
   "an abandoned cabin"(town, biome) {
     const contents = contentsFetcher(town, biome, misc[biome].cabinLives, encounters)
     const lived = randomValue(misc[biome].cabinLived)
     const cabin = misc.cabin.create(town, biome)
-    return `an abandoned ${cabin.tippyWord}. <blockquote>${lived} once lived here. Now, ${contents} lives here.</blockquote>`
+    return `an abandoned ${cabin.tippyWord}. ${lived} once lived here. Now, ${contents} lives here.`
   },
   "an abandoned campsite"(town, biome) {
     const contents = contentsFetcher(town, biome, misc[biome].camped, encounters)
@@ -120,7 +120,7 @@ export const locations: Record<string, Location> = {
   "an old mine in a canyon"() {
     const miners = randomValue(mountain.miners)
     const goal = randomValue(mountain.minersGoal)
-    return `an old mine in a canyon <blockquote>The mine was built by by ${miners}, looking for ${goal}.</blockquote>`
+    return `an old mine in a canyon. The mine was built by by ${miners}, looking for ${goal}.`
   },
   "an active mining camp"() {
     const miners = randomValue(mountain.miners)
@@ -129,7 +129,7 @@ export const locations: Record<string, Location> = {
   },
   "a hole under a large boulder"() {
     const content = randomValue(desert.hole)
-    return `a hole under a large boulder <blockquote> Inside is ${content}</blockquote>`
+    return `a hole under a large boulder. Inside is ${content}.`
   },
   "an abandoned stone house"(town, biome) {
     const lived = randomValue(misc[biome].houseLived)
