@@ -1,10 +1,10 @@
 import { createNPC } from "../npc-generation/createNPC"
 import { createBuilding } from "../building/createBuilding"
-import { misc } from "../world/miscData"
 import { randomValue } from "../rolls"
 import { structure } from "../building/buildingData"
 import { rt } from "../tools/randomTemplate"
 import { Town } from "../town/town"
+import { religion } from "../world/religion"
 
 export function createTemple(town: Town) {
   const temple = createBuilding(town, `temple`)
@@ -22,9 +22,9 @@ export function createTemple(town: Town) {
     }),
     prayerSubject: data.prayerSubject.seededrandom(),
     dedicated: randomValue([
-      randomValue(misc.religion.namedGod),
-      randomValue(misc.religion.abstractGod),
-      randomValue(misc.religion.saint),
+      randomValue(religion.namedGod),
+      randomValue(religion.abstractGod),
+      randomValue(religion.saint),
       randomValue(data.dedicated),
     ]),
     knownFor: randomValue(data.knownFor),

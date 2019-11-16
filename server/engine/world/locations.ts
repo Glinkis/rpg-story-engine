@@ -3,6 +3,7 @@ import { encounters } from "./encounters"
 import { randomValue } from "../rolls"
 import { contentsFetcher } from "../tools/contentsFetcher"
 import { Biome } from "../../../shared/types"
+import { religion } from "./religion"
 
 type Location = (town: any, biome: Biome) => string
 
@@ -80,7 +81,7 @@ export const locations: Record<string, Location> = {
     return `a sacred grove.`
   },
   "a shrine"(town) {
-    const shrine = misc.religion.shrine.create(town)
+    const shrine = religion.shrine.create(town)
     return `a shrine dedicated to ${shrine.god}. The shrine is ${shrine.material} ${shrine.senses}`
   },
   "a grave with an illegible headstone"() {
