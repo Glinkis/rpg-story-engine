@@ -8,6 +8,7 @@ import { createTownName } from "../town/createTownName"
 import { factionsForType } from "../tools/factionsForType"
 import { Town } from "../town/town"
 import { NPC } from "../npc-generation/npc"
+import { roleplayQuestions } from "../world/roleplayQuestions"
 
 interface Plothook {
   probability?: number
@@ -34,7 +35,7 @@ export const plothooks: Record<string, Plothook> = {
           `Now would be a good time to give a player a chance to roleplay something from their past. Ask a question, such as `,
           `This is a great opportunity to get players to roleplay. Ask them questions like `,
           `This would be a good chance to build on player backstory. Ask them questions such as `,
-        ])}'${misc.roleplayQuestions.create()}'` +
+        ])}'${roleplayQuestions.create()}'` +
         `<<button "Create another question!">><<set _question to misc.roleplayQuestions.create()>><<replace "#question">><<print _question.toUpperFirst()>><</replace>><</button>><div id="question"></div></blockquote>`
       )
     },
