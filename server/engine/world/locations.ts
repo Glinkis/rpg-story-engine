@@ -6,6 +6,8 @@ import { Biome } from "../../../shared/types"
 import { religion } from "./religion"
 import { cavern } from "./cavern"
 import { caravan } from "./caravan"
+import { mountain } from "./mountain"
+import { desert } from "./desert"
 
 type Location = (town: any, biome: Biome) => string
 
@@ -116,17 +118,17 @@ export const locations: Record<string, Location> = {
   },
   // mining is intentionally using the mountain biome
   "an old mine in a canyon"() {
-    const miners = randomValue(misc.mountain.miners)
-    const goal = randomValue(misc.mountain.minersGoal)
+    const miners = randomValue(mountain.miners)
+    const goal = randomValue(mountain.minersGoal)
     return `an old mine in a canyon <blockquote>The mine was built by by ${miners}, looking for ${goal}.</blockquote>`
   },
   "an active mining camp"() {
-    const miners = randomValue(misc.mountain.miners)
-    const goal = randomValue(misc.mountain.minersGoal)
+    const miners = randomValue(mountain.miners)
+    const goal = randomValue(mountain.minersGoal)
     return `an active mining camp, manned by ${miners}, looking for ${goal}`
   },
   "a hole under a large boulder"() {
-    const content = randomValue(misc.desert.hole)
+    const content = randomValue(desert.hole)
     return `a hole under a large boulder <blockquote> Inside is ${content}</blockquote>`
   },
   "an abandoned stone house"(town, biome) {
@@ -157,20 +159,20 @@ export const locations: Record<string, Location> = {
   },
   "an old watchtower"(town, biome) {
     // intentionally uses the mountain biome
-    const encounter = contentsFetcher(town, biome, misc.mountain.watchtowerLives, encounters)
-    const built = randomValue(misc.mountain.watchtowerBuilt)
+    const encounter = contentsFetcher(town, biome, mountain.watchtowerLives, encounters)
+    const built = randomValue(mountain.watchtowerBuilt)
     return `an old, weathered watchtower. The watchtower was built by ${built}. Now, it is controlled by ${encounter}.`
   },
   "an abandoned watchtower"(town, biome) {
     // intentionally uses the mountain biome
-    const encounter = contentsFetcher(town, biome, misc.mountain.watchtowerLives, encounters)
-    const built = randomValue(misc.mountain.watchtowerBuilt)
+    const encounter = contentsFetcher(town, biome, mountain.watchtowerLives, encounters)
+    const built = randomValue(mountain.watchtowerBuilt)
     return `a run down, abandoned watchtower. The watchtower was built by ${built}. Now, it is inhabited by ${encounter}.`
   },
   "a strategically located watchtower"(town, biome) {
     // intentionally uses the mountain biome
-    const encounter = contentsFetcher(town, biome, misc.mountain.watchtowerLives, encounters)
-    const built = randomValue(misc.mountain.watchtowerBuilt)
+    const encounter = contentsFetcher(town, biome, mountain.watchtowerLives, encounters)
+    const built = randomValue(mountain.watchtowerBuilt)
     return `a strategically located watchtower. The watchtower was built by ${built}. Now, it is controlled by ${encounter}.`
   },
   "ruins of an ancient city"(town, biome) {
