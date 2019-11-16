@@ -30,6 +30,7 @@ import { road } from "./engine/world/road"
 import { goblin } from "./engine/world/goblin"
 import { bandits } from "./engine/world/bandits"
 import { desert } from "./engine/world/desert"
+import { newspaper } from "./engine/world/newspaper"
 
 const app = express()
 
@@ -69,6 +70,7 @@ app.get(`/`, (req, res) => {
 app
   .get(`/town`, (req, res) => sendJson(res, createTown()))
   .get(`/inventory`, (req, res) => sendJson(res, randomValue(inventory)))
+  .get(`/newspaper`, (req, res) => sendJson(res, randomValue(newspaper)))
   .get(`/colour`, (req, res) => sendJson(res, createColour()))
   .get(`/cheese`, (req, res) => sendJson(res, cheese.readout(cheese.create())))
   .get(`/medal`, (req, res) => sendJson(res, medal.readout(medal.create())))
