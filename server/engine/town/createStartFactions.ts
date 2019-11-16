@@ -17,7 +17,7 @@ export function createStartFactions(town: Town) {
     const tempFaction = createFaction(town, {
       type: pluck(factions),
     })
-    town.factions[tempFaction.key] = tempFaction
+    town.factions.push(tempFaction)
   }
 
   return town

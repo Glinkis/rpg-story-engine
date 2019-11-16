@@ -33,7 +33,7 @@ export function factionsForType<K extends keyof Faction>(town: Town, key: K, val
     isThrowaway: true,
   })
 
-  town.factions[tempFaction.key] = tempFaction
+  town.factions.push(tempFaction)
 
   return tempFaction
 }

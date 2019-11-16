@@ -62,7 +62,7 @@ export function createTown(base: Partial<Town> = {}) {
     currentSeason: randomValue(season),
     season,
     families: {},
-    factions: {},
+    factions: [],
     buildings: {},
     professions: {},
     population: townData.type[type].population(),
