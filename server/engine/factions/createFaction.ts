@@ -4,10 +4,11 @@ import { factionData } from "./factionData"
 import { ageFaction } from "./ageFaction"
 import { nameFaction } from "./nameFaction"
 import { sizeFaction } from "./sizeFaction"
-import { reputationFaction } from "./repuationFaction"
+import { reputationFaction } from "./reputationFaction"
 import { Town } from "../town/town"
 import { createMisc } from "./createMisc"
 import { influenceFaction } from "./influenceFaction"
+import { resourcesFaction } from "./resourcesFaction"
 
 export interface FactionRoll {
   influence: number
@@ -32,6 +33,8 @@ export interface Faction {
   influence: string
   motivation: string
   reputation: string
+  resources: any
+  resourcesDescription: string
   membersTrait: string
   leadershipType: string
   tippyDescription: string
@@ -55,6 +58,8 @@ export function createFaction(town: Town, opts: Partial<Faction> = {}): Faction 
     wordNoun: factionData.type[type].wordNoun,
     influence: ``,
     reputation: ``,
+    resources: [],
+    resourcesDescription: '',
     motivation: randomValue(factionData.type[type].motivation) as string,
     membersTrait: randomValue(factionData.type[type].membersTrait) as string,
     leadershipType: randomValue([`individual`, `individual`, `individual`, `group`, `group`]),
@@ -77,6 +82,8 @@ export function createFaction(town: Town, opts: Partial<Faction> = {}): Faction 
   sizeFaction(town, faction)
 
   influenceFaction(faction)
+
+  resourcesFaction(faction)
 
   // TODO: setup.resourcesFaction(faction)
 
