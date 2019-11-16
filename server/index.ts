@@ -29,6 +29,7 @@ import { cabin } from "./engine/world/cabin"
 import { caravan } from "./engine/world/caravan"
 import { road } from "./engine/world/road"
 import { goblin } from "./engine/world/goblin"
+import { bandits } from "./engine/world/bandits"
 
 const app = express()
 
@@ -86,7 +87,7 @@ app
   .get(`/magic-weapon`, (req, res) => sendJson(res, createMagicWeapon()))
   .get(`/magic-trinket`, (req, res) => sendJson(res, createMagicTrinket()))
   .get(`/guard`, (req, res) => sendJson(res, createGuard(createTown())))
-  .get(`/bandits`, (req, res) => sendJson(res, misc.bandits.create(createTown())))
+  .get(`/bandits`, (req, res) => sendJson(res, bandits.readout(bandits.create())))
   .get(`/mercenaries`, (req, res) => sendJson(res, createMercenaries(createTown())))
   .get(`/faction`, (req, res) => sendJson(res, createFaction(createTown())))
   .get(`/npc`, (req, res) => sendJson(res, createNPC(createTown())))
