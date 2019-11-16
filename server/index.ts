@@ -29,6 +29,7 @@ import { caravan } from "./engine/world/caravan"
 import { road } from "./engine/world/road"
 import { goblin } from "./engine/world/goblin"
 import { bandits } from "./engine/world/bandits"
+import { desert } from "./engine/world/desert"
 
 const app = express()
 
@@ -93,6 +94,7 @@ app
   .get(`/tree`, (req, res) => sendJson(res, tree.readout(tree.create())))
   .get(`/cabin`, (req, res) => sendJson(res, cabin.readout(cabin.create())))
   .get(`/road`, (req, res) => sendJson(res, road.readout(road.create())))
+  .get(`/desert`, (req, res) => sendJson(res, desert.readout(desert.create())))
 
 app.listen(process.env.PORT || 5000, () => {
   console.clear()

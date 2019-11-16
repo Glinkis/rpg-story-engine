@@ -1,10 +1,10 @@
-import { Town } from "../town/town"
 import { randomRange, randomValue } from "../rolls"
 import { misc } from "./miscData"
 import { locations } from "./locations"
 import { Biome } from "../../../shared/types"
 import { encounters } from "./encounters"
 import { rt } from "../tools/randomTemplate"
+import { createTown } from "../town/createTown"
 
 export interface Desert {
   readonly encounter: string
@@ -13,16 +13,13 @@ export interface Desert {
 }
 
 export const desert = {
-  create(town: Town, base?: Partial<Desert>): Desert {
+  create(town = createTown(), base?: Partial<Desert>): Desert {
     let encounter: string
-    let encounterKey: string
 
     if (randomRange(1, 100) >= 50) {
-      encounterKey = randomValue(misc.desert.location)
-      encounter = locations[encounterKey](town, Biome.Desert)
+      encounter = locations[randomValue(this.location)](town, Biome.Desert)
     } else {
-      encounterKey = randomValue(misc.desert.encounters)
-      encounter = encounters[encounterKey](town)
+      encounter = encounters[randomValue(this.encounters)](town)
     }
 
     return {

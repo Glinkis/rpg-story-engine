@@ -3,6 +3,8 @@ import { randomValue } from "../rolls"
 import { profile } from "../npc-generation/profile"
 import { createNPC } from "../npc-generation/createNPC"
 import { createMercenaries } from "../misc/createMercenaries"
+import { orcs } from "./orcs"
+import { caravan } from "./caravan"
 
 type Encounter = (town: any) => string
 
@@ -100,28 +102,22 @@ export const encounters: Record<string, Encounter> = {
     }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
   "a small merchant caravan": town => {
-    const caravan = misc.caravan.create(town)
-    return `a small merchant caravan. ${caravan.readout}`
+    return `a small merchant caravan. ${caravan.readout(caravan.create(town))}`
   },
   "a merchant caravan": town => {
-    const caravan = misc.caravan.create(town)
-    return `a merchant caravan. ${caravan.readout}`
+    return `a merchant caravan. ${caravan.readout(caravan.create(town))}`
   },
   "a clan of orcs": town => {
-    const orcs = misc.orcs.create()
-    return `a clan of orcs. ${orcs.readout}`
+    return `a clan of orcs. ${orcs.readout(orcs.create())}`
   },
-  "several orc raiders": town => {
-    const orcs = misc.orcs.create()
-    return `several orc raiders. ${orcs.readout}`
+  "several orc raiders"() {
+    return `several orc raiders. ${orcs.readout(orcs.create())}`
   },
   "an orkish war band"() {
-    const orcs = misc.orcs.create()
-    return `an orc war band. ${orcs.readout}`
+    return `an orc war band. ${orcs.readout(orcs.create())}`
   },
   "an orc war band"() {
-    const orcs = misc.orcs.create()
-    return `an orc war band. ${orcs.readout}`
+    return `an orc war band. ${orcs.readout(orcs.create())}`
   },
   "a handful of ogres"() {
     const ogre = misc.ogre.create()

@@ -4,6 +4,8 @@ import { randomValue } from "../rolls"
 import { contentsFetcher } from "../tools/contentsFetcher"
 import { Biome } from "../../../shared/types"
 import { religion } from "./religion"
+import { cavern } from "./cavern"
+import { caravan } from "./caravan"
 
 type Location = (town: any, biome: Biome) => string
 
@@ -11,17 +13,17 @@ export const locations: Record<string, Location> = {
   "a cavern behind a waterfall"(town, biome) {
     const cavern = misc.cavern.create({ entrance: `somewhat hidden behind a roaring waterfall` })
     const contents = contentsFetcher(town, biome, misc[biome].cave, encounters)
-    return `a cavern. ${cavern.readout} <blockquote>The cavern is now home to ${contents}.</blockquote>`
+    return `a cavern. ${cavern.readout} The cavern is now home to ${contents}.`
   },
   "a small cave in the bank of a creek"(town, biome) {
-    const cavern = misc.cavern.create({ entrance: `in the bank of a creek` })
+    const cave = cavern.create({ entrance: `in the bank of a creek` })
     const contents = contentsFetcher(town, biome, misc[biome].cave, encounters)
-    return `a small cave. ${cavern.readout} <blockquote>The cave is home to ${contents}.</blockquote>`
+    return `a small cave. ${cavern.readout(cave)} The cave is home to ${contents}.`
   },
   "an entrance to a rocky cave"(town, biome) {
-    const cavern = misc.cavern.create()
+    const cave = cavern.create()
     const contents = contentsFetcher(town, biome, misc[biome].cave, encounters)
-    return `a rocky cave. ${cavern.readout}<blockquote>The cave is home to ${contents}.</blockquote>`
+    return `a rocky cave. ${cavern.readout(cave)} The cave is home to ${contents}.`
   },
   "a hole under a large tree"(town, biome) {
     let contents = randomValue(misc[biome].hole)
@@ -90,27 +92,27 @@ export const locations: Record<string, Location> = {
   "ancient ruins"(town, biome) {
     const contents = contentsFetcher(town, biome, misc[biome].ruinsLives, encounters)
     const lived = randomValue(misc[biome].ruinsLived)
-    return `ancient ruins. <blockquote>The ruins were built by ${lived}. Now, ${contents} lives here.</blockquote>`
+    return `ancient ruins. The ruins were built by ${lived}. Now, ${contents} lives here.`
   },
   "a cavern in a canyon wall"(town, biome) {
-    const cavern = misc.cavern.create({ entrance: `in a canyon wall` })
-    const encounter = contentsFetcher(town, biome, misc[biome].encounter, encounters)
-    return `a cavern. ${cavern.readout}<blockquote>The cavern is home to ${encounter}.</blockquote>`
+    const cave = cavern.create({ entrance: `in a canyon wall` })
+    const encounter = contentsFetcher(town, biome, misc[biome].encounters, encounters)
+    return `a cavern. ${cavern.readout(cave)} The cavern is home to ${encounter}.`
   },
   "a cave entrance, hidden by a boulder"(town, biome) {
-    const cavern = misc.cavern.create({ entrance: `hidden by a boulder` })
-    const encounter = contentsFetcher(town, biome, misc[biome].encounter, encounters)
-    return `a cavern. ${cavern.readout}<blockquote>The cavern is home to ${encounter}.</blockquote>`
+    const cave = cavern.create({ entrance: `hidden by a boulder` })
+    const encounter = contentsFetcher(town, biome, misc[biome].encounters, encounters)
+    return `a cavern. ${cavern.readout(cave)} The cavern is home to ${encounter}.`
   },
   "a small cave in the crook of a rock wall"(town, biome) {
-    const cavern = misc.cavern.create({ entrance: `in the crook of a rock wall` })
+    const cave = cavern.create({ entrance: `in the crook of a rock wall` })
     const contents = contentsFetcher(town, biome, misc[biome].cave, encounters)
-    return `a small cave. ${cavern.readout}<blockquote>The cave is home to ${contents}.</blockquote>`
+    return `a small cave. ${cavern.readout(cave)} The cave is home to ${contents}.`
   },
   "a small cave next to a dry river bed"(town, biome) {
-    const cavern = misc.cavern.create()
-    const encounter = contentsFetcher(town, biome, misc[biome].encounter, encounters)
-    return `a cavern. ${cavern.readout}<blockquote>The cavern is home to ${encounter}.</blockquote>`
+    const cave = cavern.create()
+    const encounter = contentsFetcher(town, biome, misc[biome].encounters, encounters)
+    return `a cavern. ${cavern.readout(cave)} The cavern is home to ${encounter}.`
   },
   // mining is intentionally using the mountain biome
   "an old mine in a canyon"() {
@@ -134,7 +136,7 @@ export const locations: Record<string, Location> = {
       material: `stone`,
       wordNoun: `house`,
     })
-    return `an abandoned ${cabin.tippy}<b>stone house</b></span>. <blockquote>${lived} once lived here. Now, ${encounter} lives here.</blockquote>`
+    return `an abandoned ${cabin.tippy} stone house. ${lived} once lived here. Now, ${encounter} lives here.`
   },
   "a stone house"(town, biome) {
     const lived = randomValue(misc[biome].houseLived)
@@ -144,11 +146,10 @@ export const locations: Record<string, Location> = {
       material: `stone`,
       wordNoun: `house`,
     })
-    return `a ${cabin.tippy}<b>stone house</b></span> sheltered by a ${shelter}<blockquote>${lived} once lived here. Now, ${encounter} lives here.</blockquote>`
+    return `a ${cabin.tippy} stone house sheltered by a ${shelter}. ${lived} once lived here. Now, ${encounter} lives here.`
   },
   "a merchant caravan's camp"(town) {
-    const caravan = misc.caravan.create(town)
-    return `a merchant caravan's camp. ${caravan.readout}`
+    return `a merchant caravan's camp. ${caravan.readout(caravan.create(town))}`
   },
   "a peculiar tent"(town, biome) {
     const lived = randomValue(misc[biome].camped)
@@ -158,45 +159,45 @@ export const locations: Record<string, Location> = {
     // intentionally uses the mountain biome
     const encounter = contentsFetcher(town, biome, misc.mountain.watchtowerLives, encounters)
     const built = randomValue(misc.mountain.watchtowerBuilt)
-    return `an old, weathered watchtower. <blockquote>The watchtower was built by ${built}. Now, it is controlled by ${encounter}.</blockquote>`
+    return `an old, weathered watchtower. The watchtower was built by ${built}. Now, it is controlled by ${encounter}.`
   },
   "an abandoned watchtower"(town, biome) {
     // intentionally uses the mountain biome
     const encounter = contentsFetcher(town, biome, misc.mountain.watchtowerLives, encounters)
     const built = randomValue(misc.mountain.watchtowerBuilt)
-    return `a run down, abandoned watchtower. <blockquote>The watchtower was built by ${built}. Now, it is inhabited by ${encounter}.</blockquote>`
+    return `a run down, abandoned watchtower. The watchtower was built by ${built}. Now, it is inhabited by ${encounter}.`
   },
   "a strategically located watchtower"(town, biome) {
     // intentionally uses the mountain biome
     const encounter = contentsFetcher(town, biome, misc.mountain.watchtowerLives, encounters)
     const built = randomValue(misc.mountain.watchtowerBuilt)
-    return `a strategically located watchtower. <blockquote>The watchtower was built by ${built}. Now, it is controlled by ${encounter}.</blockquote>`
+    return `a strategically located watchtower. The watchtower was built by ${built}. Now, it is controlled by ${encounter}.`
   },
   "ruins of an ancient city"(town, biome) {
     const encounter = contentsFetcher(town, biome, misc[biome].ruinsLives, encounters)
     const lived = randomValue(misc[biome].ruinsLived)
-    return `ruins of an ancient city. <blockquote>The city was built by ${lived} Now, ${encounter} lives here.</blockquote>`
+    return `ruins of an ancient city. The city was built by ${lived} Now, ${encounter} lives here.`
   },
   "a temple ruin"(town, biome) {
     const encounter = contentsFetcher(town, biome, misc[biome].ruinsLives, encounters)
     const lived = randomValue(misc[biome].ruinsLived)
-    return `a temple ruin. <blockquote>The city was built by ${lived} Now, ${encounter} lives here.</blockquote>`
+    return `a temple ruin. The city was built by ${lived} Now, ${encounter} lives here.`
   },
   "an isolated monastery"(town, biome) {
     const lives = randomValue(misc[biome].religionLives)
-    return `an isolated monastery. <blockquote>Living inside lives ${lives}, hiding from the outside world.</blockquote>`
+    return `an isolated monastery. Living inside lives ${lives}, hiding from the outside world.`
   },
   "a remote temple"(town, biome) {
     const lives = randomValue(misc[biome].religionLives)
-    return `a remote temple. <blockquote>Far from any civilization, this temple is home to ${lives} who have gone to great measures to hide their existence.</blockquote>`
+    return `a remote temple. Far from any civilization, this temple is home to ${lives} who have gone to great measures to hide their existence.`
   },
   "an ancient temple"(town, biome) {
     const lives = randomValue(misc[biome].religionLives)
-    return `an incredibly ancient temple. <blockquote>This ancient place has housed many things, but it is currently home to ${lives}.</blockquote>`
+    return `an incredibly ancient temple. This ancient place has housed many things, but it is currently home to ${lives}.`
   },
   "a ruined monastery"(town, biome) {
     const encounter = contentsFetcher(town, biome, misc[biome].ruinsLives, encounters)
-    return `a ruined monastery. <blockquote>These ruins are currently occupied by ${encounter}.</blockquote>`
+    return `a ruined monastery. These ruins are currently occupied by ${encounter}.`
   },
   "a village of primitive canyon dwellers"() {
     return `a village of primitive canyon dwellers`

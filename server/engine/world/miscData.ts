@@ -5,6 +5,7 @@ import { encounters } from "./encounters"
 import { plothooks } from "../plothook/plothooks"
 import { Town } from "../town/town"
 import { Biome } from "../../../shared/types"
+import { desert } from "./desert"
 
 interface Misc {
   [key: string]: any
@@ -224,6 +225,7 @@ export const misc: Misc = {
       },
     },
   },
+  desert: desert,
   mountain: {
     create(town: Town) {
       let encounter
