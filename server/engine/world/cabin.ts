@@ -15,8 +15,8 @@ export interface Cabin {
 export const cabin = {
   create(town?: Town, biome?: Biome, base?: Partial<Cabin>): Cabin {
     return {
-      feature: randomValue(this.feature),
-      insideFeature: randomValue(this.insideFeature),
+      feature: randomValue(FEATURE),
+      insideFeature: randomValue(INSIDE_FEATURE),
       size: rollDataGetter(ROLL_DATA.size, randomRange(1, 100)),
       material: rollDataGetter(ROLL_DATA.material, randomRange(1, 100)),
       cleanliness: rollDataGetter(ROLL_DATA.cleanliness, randomRange(1, 100)),
@@ -27,27 +27,29 @@ export const cabin = {
   readout(cabin: Cabin) {
     return `The ${cabin.material} cabin is ${cabin.size}. ${cabin.feature} Inside, it is ${cabin.cleanliness}. ${cabin.insideFeature} There is a bed, which is ${cabin.bedCleanliness}.`
   },
-  feature: [
-    `The door has deep scratch marks in it.`,
-    `There is a pair of large boots by the door.`,
-    `The steps leading to the door are rather dirty.`,
-    `The chimney has a bird nesting in it.`,
-    `The windows are rather grotty, with cobwebs all over.`,
-    `There is a rusty shovel leaning against the door.`,
-    `There is an empty water bowl next to the door.`,
-  ],
-  insideFeature: [
-    `There are seemingly hundreds of dishes stacked, in desperate need of a clean.`,
-    `There is a toy pram in the corner of the room.`,
-    `A decorative tapestry is hanging up on one of the walls.`,
-    `There is a rather impressive bookcase in the corner of the room.`,
-    `There is a hunk of bread lying on the table.`,
-    `The room feels cramped, with tables and chairs cluttering everything up.`,
-    `The room feels spacious, with a single table and chair in the corner.`,
-    `There is a huge cast iron pot sitting in the fireplace.`,
-    `Dried herbs sit in bunches on the table.`,
-  ],
 }
+
+const FEATURE = [
+  `The door has deep scratch marks in it.`,
+  `There is a pair of large boots by the door.`,
+  `The steps leading to the door are rather dirty.`,
+  `The chimney has a bird nesting in it.`,
+  `The windows are rather grotty, with cobwebs all over.`,
+  `There is a rusty shovel leaning against the door.`,
+  `There is an empty water bowl next to the door.`,
+]
+
+const INSIDE_FEATURE = [
+  `There are seemingly hundreds of dishes stacked, in desperate need of a clean.`,
+  `There is a toy pram in the corner of the room.`,
+  `A decorative tapestry is hanging up on one of the walls.`,
+  `There is a rather impressive bookcase in the corner of the room.`,
+  `There is a hunk of bread lying on the table.`,
+  `The room feels cramped, with tables and chairs cluttering everything up.`,
+  `The room feels spacious, with a single table and chair in the corner.`,
+  `There is a huge cast iron pot sitting in the fireplace.`,
+  `Dried herbs sit in bunches on the table.`,
+]
 
 const ROLL_DATA = {
   material: [
