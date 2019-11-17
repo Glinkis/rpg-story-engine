@@ -1,6 +1,7 @@
 export interface NPC {
   key: string
   name: string
+  lastName: string
   race: string
   family: any
   gender: string
