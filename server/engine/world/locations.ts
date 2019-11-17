@@ -31,8 +31,7 @@ export const locations: Record<string, Location> = {
     let contents = randomValue(misc[biome].hole)
     // this is lazy. Will change hole from an array to an object once I make more creators.
     if (contents === `a spider`) {
-      const spider = misc.spider.create()
-      contents = `a ${spider.tippyWord}.`
+      contents = `a spider.`
     }
     const tree = misc.tree.create(town, biome)
     return `a hole under a large ${tree.tippyWord}. Inside is ${contents}.`
