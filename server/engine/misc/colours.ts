@@ -326,40 +326,43 @@ export const colours: Record<Colour, ColourData> = {
   },
 }
 
-// FIXME this whole function is not working at the moment.
-export function createColour(filters: any = {}) {
-  const { bannedColours = [] } = filters
+interface Filters {
+  banned?: Colour[]
+}
 
-  const availableColours = Object.keys(colours)
+export function createColour(filters: Filters = {}) {
+  const { banned = [] } = filters
 
-  for (const colour in Object.keys(colours)) {
-    if (bannedColours.includes(colour)) {
+  const available = Object.values(Colour)
+
+  for (const colour of available) {
+    if (banned.includes(colour)) {
       continue
     }
 
-    for (const filter in Object.keys(filters)) {
-      if (filters[filter] === bannedColours) {
+    for (const filter in filters) {
+      if (filters[filter] === banned) {
         continue
       }
 
       if (filters[filter] !== colours[colour].properties[filter]) {
-        bannedColours.push(colour)
+        banned.push(colour)
+        break
       }
     }
   }
 
-  for (const bannedColour in bannedColours) {
-    if (availableColours.includes(bannedColour)) {
-      delete availableColours[bannedColour]
+  for (const colour of banned) {
+    if (available.includes(colour)) {
+      delete available[colour]
     }
   }
 
-  const selectedColour = randomValue(availableColours)
+  const selected = colours[randomValue(available)]
+  const randomColour = randomValue(selected.colour)
+  const randomColoured = randomValue(selected.coloured)
 
-  return randomValue([
-    randomValue(colours[selectedColour].colour),
-    `${randomValue(colours[selectedColour].coloured)} coloured`,
-  ])
+  return randomValue([randomColour, `${randomColoured} coloured`])
 }
 
 export function allColours() {
