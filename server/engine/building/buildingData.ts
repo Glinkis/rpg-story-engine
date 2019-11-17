@@ -10,7 +10,7 @@ export const structure = {
     if (!building.structure) {
       building.structure = {
         get descriptor() {
-          return this.descriptors.seededrandom()
+          return randomValue(this.descriptors)
         },
         set descriptorsAdd(description: string) {
           if (typeof description === `string`) {
