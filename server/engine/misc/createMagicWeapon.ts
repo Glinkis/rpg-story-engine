@@ -11,15 +11,15 @@ interface MagicWeapon {
 }
 
 export function createMagicWeapon(): MagicWeapon {
-  const prefixWeaponRoll = randomRange(0, propertyWeapon.length - 1)
-  const suffixWeaponRoll = randomRange(0, propertyWeapon.length - 1)
+  const prefixRoll = randomRange(0, WEAPON_PROPERTY.length - 1)
+  const suffixRoll = randomRange(0, WEAPON_PROPERTY.length - 1)
 
   const weapon = {
-    type: randomValue(weaponTypes),
-    prefixWeapon: prefixWeapon[prefixWeaponRoll],
-    suffixWeapon: suffixWeapon[suffixWeaponRoll],
-    prefixProperty: propertyWeapon[prefixWeaponRoll],
-    suffixProperty: propertyWeapon[suffixWeaponRoll],
+    type: randomValue(WEAPON_TYPES),
+    prefixWeapon: WEAPON_PREFIX[prefixRoll],
+    suffixWeapon: WEAPON_SUFFIX[suffixRoll],
+    prefixProperty: WEAPON_PROPERTY[prefixRoll],
+    suffixProperty: WEAPON_PROPERTY[suffixRoll],
   }
 
   return {
@@ -29,7 +29,7 @@ export function createMagicWeapon(): MagicWeapon {
   }
 }
 
-const weaponTypes = [
+const WEAPON_TYPES = [
   `Club`,
   `Dagger`,
   `Greatclub`,
@@ -69,7 +69,7 @@ const weaponTypes = [
   `Net`,
 ]
 
-const prefixWeapon = [
+const WEAPON_PREFIX = [
   `Abberant Slayer's`,
   `Adamantine`,
   `Acidic`,
@@ -305,7 +305,7 @@ const prefixWeapon = [
   `Zen`,
 ]
 
-const suffixWeapon = [
+const WEAPON_SUFFIX = [
   `of Aberration Slaying`,
   `of Adamantine`,
   `of Acid`,
@@ -541,7 +541,7 @@ const suffixWeapon = [
   `of Zen`,
 ]
 
-const propertyWeapon = [
+const WEAPON_PROPERTY = [
   `This weapon gains a +1 bonus to damage rolls against aberrations.`,
   `This item is indestructible.`,
   `As an action you can cast acid splash. You gain a +5 bonus to the spell's attack roll. You cannot use this ability again until you complete a short or long rest.`,
