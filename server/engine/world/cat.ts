@@ -72,9 +72,9 @@ export const cat = {
     `to hunt birds on rooftops`,
     `to hunt snakes and lizards`,
     `to sit on laps`,
-    `for no particular reason; it's ancestors were semi-feral village cats.`,
-    `for no particular reason; it's ancestors were semi-feral city cats.`,
-    `for no reason at all; it's ancestors were wild animals.`,
+    `for no particular reason; it's ancestors were semi-feral village cats`,
+    `for no particular reason; it's ancestors were semi-feral city cats`,
+    `for no reason at all; it's ancestors were wild animals`,
   ],
   favouriteFood: [
     `warm milk`,
@@ -87,6 +87,7 @@ export const cat = {
     `tuna`,
     `salmon`,
     `bacon`,
+    `mackerel`,
   ],
   markings: [
     `white or black toes on one foot`,
