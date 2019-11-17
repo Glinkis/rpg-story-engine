@@ -4,6 +4,7 @@ import { factionData } from "../factions/factionData"
 import { allColours } from "./colours"
 import { Town } from "../town/town"
 import { NPC } from "../npc-generation/npc"
+import { rt } from "../tools/randomTemplate"
 
 interface Mercenaries {
   name: string
@@ -26,12 +27,12 @@ export function createMercenaries(town: Town): Mercenaries {
   const data = factionData.type.mercenaries
 
   const name = randomValue([
-    `The ${randomValue(data.group)} of ${randomValue(data.adjective)} ${randomValue(data.main)}`,
-    `The ${randomValue(data.group)} of ${randomValue(data.main)}`,
-    `The ${randomValue(data.adjective)} ${randomValue(data.group)}`,
-    `The ${randomValue(data.main)} of ${town.name}`,
-    `The ${town.name} ${randomValue(data.main)}`,
-    randomValue(data.unique),
+    rt`The ${data.group} of ${data.adjective} ${data.main}`,
+    rt`The ${data.group} of ${data.main}`,
+    rt`The ${data.adjective} ${data.group}`,
+    rt`The ${data.main} of ${town.name}`,
+    rt`The ${town.name} ${data.main}`,
+    rt`${data.unique}`,
   ])
 
   const mercenaries = {
