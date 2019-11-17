@@ -1,7 +1,30 @@
 import { randomValue } from "../rolls"
 
-export const colours = {
-  yellow: {
+export enum Colour {
+  Yellow = `yellow`,
+  Orange = `orange`,
+  Red = `red`,
+  Purple = `purple`,
+  Blue = `blue`,
+  Green = `green`,
+  Brown = `brown`,
+  Black = `black`,
+  White = `white`,
+}
+
+export interface ColourData {
+  colour: string[]
+  coloured: string[]
+  properties: {
+    isNatural: boolean
+    isPlant: boolean
+    isMineral: boolean
+    isPaint: boolean
+  }
+}
+
+export const colours: Record<Colour, ColourData> = {
+  [Colour.Yellow]: {
     properties: {
       isNatural: true,
       isPlant: true,
@@ -37,7 +60,7 @@ export const colours = {
       `amber`,
     ],
   },
-  orange: {
+  [Colour.Orange]: {
     properties: {
       isNatural: true,
       isPlant: false,
@@ -75,7 +98,7 @@ export const colours = {
       `marigold`,
     ],
   },
-  red: {
+  [Colour.Red]: {
     properties: {
       isNatural: true,
       isPlant: false,
@@ -126,7 +149,7 @@ export const colours = {
       `cardinal`,
     ],
   },
-  purple: {
+  [Colour.Purple]: {
     properties: {
       isNatural: false,
       isPlant: false,
@@ -154,7 +177,7 @@ export const colours = {
     ],
     coloured: [`thistle`, `orchid`, `blackberry`, `eggplant`, `lilac`, `plum`, `grape`, `iris`, `lavendar`, `amethyst`],
   },
-  blue: {
+  [Colour.Blue]: {
     properties: {
       isNatural: false,
       isPlant: false,
@@ -180,7 +203,7 @@ export const colours = {
     ],
     coloured: [`denim`, `sapphire`, `sea`, `storm`, `sky`, `peacock`, `topaz`],
   },
-  green: {
+  [Colour.Green]: {
     properties: {
       isNatural: true,
       isPlant: true,
@@ -207,7 +230,7 @@ export const colours = {
     ],
     coloured: [`seafoam`, `shamrock`, `seaweed`, `pear`, `pickle`, `leaf`, `grass`, `frog`, `turtle`, `moss`],
   },
-  brown: {
+  [Colour.Brown]: {
     properties: {
       isNatural: true,
       isPlant: true,
@@ -244,7 +267,7 @@ export const colours = {
       `tea`,
     ],
   },
-  black: {
+  [Colour.Black]: {
     properties: {
       isNatural: false,
       isPlant: false,
@@ -265,7 +288,7 @@ export const colours = {
       `storm cloud`,
     ],
   },
-  white: {
+  [Colour.White]: {
     properties: {
       isNatural: false,
       isPlant: false,
