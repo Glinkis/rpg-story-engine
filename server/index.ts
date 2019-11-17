@@ -32,6 +32,8 @@ import { bandits } from "./engine/world/bandits"
 import { desert } from "./engine/world/desert"
 import { newspaper } from "./engine/world/newspaper"
 import { mountain } from "./engine/world/mountain"
+import { cavern } from "./engine/world/cavern"
+import { forest } from "./engine/world/forest"
 
 const app = express()
 
@@ -73,6 +75,7 @@ app
   .get(`/inventory`, (req, res) => sendJson(res, randomValue(inventory)))
   .get(`/newspaper`, (req, res) => sendJson(res, randomValue(newspaper)))
   .get(`/colour`, (req, res) => sendJson(res, createColour()))
+  .get(`/forest`, (req, res) => sendJson(res, forest.create(createTown())))
   .get(`/cheese`, (req, res) => sendJson(res, cheese.readout(cheese.create())))
   .get(`/medal`, (req, res) => sendJson(res, medal.readout(medal.create())))
   .get(`/treasure-map`, (req, res) => sendJson(res, treasureMap.readout(treasureMap.create())))
@@ -95,6 +98,7 @@ app
   .get(`/faction`, (req, res) => sendJson(res, createFaction(createTown())))
   .get(`/npc`, (req, res) => sendJson(res, createNPC(createTown())))
   .get(`/tree`, (req, res) => sendJson(res, tree.readout(tree.create())))
+  .get(`/cavern`, (req, res) => sendJson(res, cavern.readout(cavern.create())))
   .get(`/cabin`, (req, res) => sendJson(res, cabin.readout(cabin.create())))
   .get(`/road`, (req, res) => sendJson(res, road.readout(road.create())))
   .get(`/desert`, (req, res) => sendJson(res, desert.readout(desert.create())))
