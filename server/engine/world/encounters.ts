@@ -5,6 +5,7 @@ import { createNPC } from "../npc-generation/createNPC"
 import { createMercenaries } from "../misc/createMercenaries"
 import { orcs } from "./orcs"
 import { caravan } from "./caravan"
+import { goblins } from "./goblins"
 
 type Encounter = (town: any) => string
 
@@ -120,25 +121,20 @@ export const encounters: Record<string, Encounter> = {
     return `an orc war band. ${orcs.readout(orcs.create())}`
   },
   "a handful of ogres"() {
-    const ogre = misc.ogre.create()
-    return `a handful of ${ogre.tippyWord}s.`
+    return `a handful of ogres.`
   },
   "an ogre"() {
-    const ogre = misc.ogre.create()
-    return `a lone ${ogre.tippyWord}.`
+    return `a lone ogre.`
   },
   "an ogre's lair"() {
-    const ogre = misc.ogre.create()
-    return `a lair belonging to an ${ogre.tippyWord}`
+    return `a lair belonging to an ogre`
   },
   "some goblins' hideout": town => {
-    const goblins = misc.goblins.create(town)
-    return `a goblin hideout. ${goblins.readout}`
+    return `a goblin hideout. ${goblins.readout(goblins.create())}`
   },
   "a pair of goblin scouts": () => `a pair of goblin scouts`,
   "a lone goblin"() {
-    const goblin = misc.goblin.create()
-    return `a lone ${goblin.tippyWord} ${randomValue([
+    return `a lone goblin ${randomValue([
       `trying to hide from you.`,
       `lying in wait for you.`,
       `lying down, asleep.`,
@@ -146,8 +142,7 @@ export const encounters: Record<string, Encounter> = {
     ])}`
   },
   "a goblin war party"() {
-    const goblins = misc.goblins.create()
-    return `a goblin war party. ${goblins.readout}`
+    return `a goblin war party. ${goblins.readout(goblins.create())}`
   },
   "a goblin patrol": () =>
     `a goblin patrol ${randomValue([
@@ -158,21 +153,16 @@ export const encounters: Record<string, Encounter> = {
       `jumping up and down, for some reason.`,
     ])}`,
   "several giant spiders"() {
-    const spider = misc.spider.create()
-    return `several giant ${spider.tippyWord}<b>s</b>.`
+    return `several giant spiders.`
   },
   "a pack of wolves"() {
-    const wolf = misc.wolf.create()
-    const wolves = `${wolf.tippy}<b>wolves</b></span>.`
-    return `a pack of ${wolves}`
+    return `a pack of wolves`
   },
   "a lone wolf"() {
-    const wolf = misc.wolf.create()
-    return `a lone ${wolf.tippyWord}.`
+    return `a lone wolf.`
   },
   "a hunting cat"() {
-    const cat = misc.cat.create()
-    return `a hunting ${cat.tippyWord}.`
+    return `a hunting cat.`
   },
   "an itinerant priest": town => {
     const npc = createNPC(town, {
