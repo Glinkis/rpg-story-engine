@@ -1,4 +1,5 @@
 export interface NPC {
+  key: string
   name: string
   race: string
   family: any

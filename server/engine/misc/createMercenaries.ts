@@ -3,9 +3,39 @@ import { createNPC } from "../npc-generation/createNPC"
 import { factionData } from "../factions/factionData"
 import { allColours } from "./colours"
 import { Town } from "../town/town"
+import { NPC } from "../npc-generation/npc"
 
-export function createMercenaries(town: Town) {
+interface Mercenaries {
+  name: string
+  colours: string
+  insignia: string
+  commanderTrait: string
+  attitude: string
+  currently: string
+  specializes: string
+  notorious: string
+  tactics: string
+  armour: string
+  weapon: string
+
+  // To be removed.
+  captain: NPC
+}
+
+export function createMercenaries(town: Town): Mercenaries {
+  const data = factionData.type.mercenaries
+
+  const name = randomValue([
+    `The ${randomValue(data.group)} of ${randomValue(data.adjective)} ${randomValue(data.main)}`,
+    `The ${randomValue(data.group)} of ${randomValue(data.main)}`,
+    `The ${randomValue(data.adjective)} ${randomValue(data.group)}`,
+    `The ${randomValue(data.main)} of ${town.name}`,
+    `The ${town.name} ${randomValue(data.main)}`,
+    randomValue(data.unique),
+  ])
+
   const mercenaries = {
+    name,
     colours: randomValue(allColours()),
     insignia: randomValue(INSIGNIAS),
     commanderTrait: randomValue(COMMANDER_TRAITS),
@@ -20,25 +50,16 @@ export function createMercenaries(town: Town) {
 
   const captain = createCommander(town, mercenaries.commanderTrait)
 
-  const data = factionData.type.mercenaries
-
-  const name = randomValue([
-    `The ${randomValue(data.group)} of ${randomValue(data.adjective)} ${randomValue(data.main)}`,
-    `The ${randomValue(data.group)} of ${randomValue(data.main)}`,
-    `The ${randomValue(data.adjective)} ${randomValue(data.group)}`,
-    `The ${randomValue(data.main)} of ${town.name}`,
-    `The ${town.name} ${randomValue(data.main)}`,
-    randomValue(data.unique),
-  ])
-
-  const readout = `A group of mercenaries sit in the corner of the room, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their commander ${captain.name}, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
-
   return {
     ...mercenaries,
     captain,
-    readout,
-    name,
   }
+}
+
+export function readoutMercenaries(mercenaries: Mercenaries) {
+  const { captain } = mercenaries
+
+  return `A group of mercenaries sit in the corner of the room, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their commander ${captain.name}, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
 }
 
 function createCommander(town: Town, trait: string) {

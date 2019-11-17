@@ -10,7 +10,7 @@ import { createFaction } from "./engine/factions/createFaction"
 import { createGuard } from "./engine/town/createGuard"
 import { createMagicTrinket } from "./engine/misc/createMagicTrinket"
 import { createMagicWeapon } from "./engine/misc/createMagicWeapon"
-import { createMercenaries } from "./engine/misc/createMercenaries"
+import { createMercenaries, readoutMercenaries } from "./engine/misc/createMercenaries"
 import { cheese } from "./engine/world/cheese"
 import { medal } from "./engine/world/medal"
 import { treasureMap } from "./engine/world/trasureMap"
@@ -90,7 +90,7 @@ app
   .get(`/magic-trinket`, (req, res) => sendJson(res, createMagicTrinket()))
   .get(`/guard`, (req, res) => sendJson(res, createGuard(createTown())))
   .get(`/bandits`, (req, res) => sendJson(res, bandits.readout(bandits.create())))
-  .get(`/mercenaries`, (req, res) => sendJson(res, createMercenaries(createTown())))
+  .get(`/mercenaries`, (req, res) => sendJson(res, readoutMercenaries(createMercenaries(createTown()))))
   .get(`/faction`, (req, res) => sendJson(res, createFaction(createTown())))
   .get(`/npc`, (req, res) => sendJson(res, createNPC(createTown())))
   .get(`/tree`, (req, res) => sendJson(res, tree.readout(tree.create())))
