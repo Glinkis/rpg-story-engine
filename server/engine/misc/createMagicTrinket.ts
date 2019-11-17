@@ -11,15 +11,15 @@ export interface MagicTrinket {
 }
 
 export function createMagicTrinket(): MagicTrinket {
-  const prefixTrinketRoll = randomRange(0, propertyTrinket.length - 1)
-  const suffixTrinketRoll = randomRange(0, propertyTrinket.length - 1)
+  const prefixRoll = randomRange(0, TRINKET_PROPERTY.length - 1)
+  const suffixRoll = randomRange(0, TRINKET_PROPERTY.length - 1)
 
   const trinket = {
-    type: randomValue(trinketTypes),
-    prefixTrinket: prefixTrinket[prefixTrinketRoll],
-    suffixTrinket: suffixTrinket[suffixTrinketRoll],
-    prefixProperty: propertyTrinket[prefixTrinketRoll],
-    suffixProperty: propertyTrinket[suffixTrinketRoll],
+    type: randomValue(TRINKET_TYPES),
+    prefixTrinket: TRINKET_PREFIX[prefixRoll],
+    suffixTrinket: TRINKET_SUFFIX[suffixRoll],
+    prefixProperty: TRINKET_PROPERTY[prefixRoll],
+    suffixProperty: TRINKET_PROPERTY[suffixRoll],
   }
 
   return {
@@ -29,7 +29,7 @@ export function createMagicTrinket(): MagicTrinket {
   }
 }
 
-const trinketTypes = [
+const TRINKET_TYPES = [
   `Belt`,
   `Bracers`,
   `Circlet`,
@@ -108,7 +108,7 @@ const trinketTypes = [
   `Playing Card Set`,
 ]
 
-const prefixTrinket = [
+const TRINKET_PREFIX = [
   `Abyssal`,
   `Acolyte's`,
   `Adamantine`,
@@ -238,7 +238,7 @@ const prefixTrinket = [
   `Wrathful`,
 ]
 
-const suffixTrinket = [
+const TRINKET_SUFFIX = [
   `of the Abyss`,
   `of the Acolyte`,
   `of Adamantine`,
@@ -367,7 +367,8 @@ const suffixTrinket = [
   `of the Wizard`,
   `of Ysgard`,
 ]
-const propertyTrinket = [
+
+const TRINKET_PROPERTY = [
   `When on the plane of the Abyss, the bearer has advantage on saving throws against Abyssal Corruption. (DMG p. 62)`,
   `The bearer gains a +1 bonus to Wisdom (Religion) checks.`,
   `The item is indestructible.`,
