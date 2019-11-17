@@ -362,8 +362,8 @@ export function createColour(filters: any = {}) {
   ])
 }
 
-export function allColours(): string[] {
-  return Object.values(Colour).flatMap(colour => {
-    return colours[colour].colour
-  })
+export function allColours() {
+  return Object.values(Colour).reduce((all, colour) => {
+    return all.concat(colours[colour].colour)
+  }, [] as string[])
 }
