@@ -31,6 +31,7 @@ import { goblin } from "./engine/world/goblin"
 import { bandits } from "./engine/world/bandits"
 import { desert } from "./engine/world/desert"
 import { newspaper } from "./engine/world/newspaper"
+import { mountain } from "./engine/world/mountain"
 
 const app = express()
 
@@ -97,6 +98,7 @@ app
   .get(`/cabin`, (req, res) => sendJson(res, cabin.readout(cabin.create())))
   .get(`/road`, (req, res) => sendJson(res, road.readout(road.create())))
   .get(`/desert`, (req, res) => sendJson(res, desert.readout(desert.create())))
+  .get(`/mountain`, (req, res) => sendJson(res, mountain.readout(mountain.create())))
 
 app.listen(process.env.PORT || 5000, () => {
   console.clear()
