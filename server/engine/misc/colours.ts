@@ -363,6 +363,7 @@ export function createColour(filters: any = {}) {
 }
 
 export function allColours(): string[] {
-  const keys = Object.keys(colours)
-  return keys.map(key => colours[key].colour)
+  return Object.values(Colour).flatMap(colour => {
+    return colours[colour].colour
+  })
 }
