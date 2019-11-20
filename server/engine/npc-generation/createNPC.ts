@@ -169,7 +169,7 @@ export function createNPC(town: Town, base?: any) {
     currentMood: randomValue(npcData.currentMood),
     hasHistory: base.hasHistory || false,
     // id: Math.floor(randomFloat(1) * 0x10000),
-    idle: npcData.idle,
+    idle: randomValue(npcData.idle),
     get gender() {
       return this._gender
     },
