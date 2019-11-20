@@ -72,7 +72,7 @@ export function createNPC(town: Town, base?: any) {
   const npc = {
     key: createUniqueKey(),
     passageName: `NPCProfile`,
-    _gender: gender,
+    gender,
     _race: race,
     firstName,
     lastName,
@@ -170,13 +170,7 @@ export function createNPC(town: Town, base?: any) {
     hasHistory: base.hasHistory || false,
     // id: Math.floor(randomFloat(1) * 0x10000),
     idle: randomValue(npcData.idle),
-    get gender() {
-      return this._gender
-    },
-    set gender(gender) {
-      this._gender = gender
-      Object.assign(this, npcData.gender[gender])
-    },
+
     get race() {
       return this._race
     },
@@ -198,7 +192,6 @@ export function createNPC(town: Town, base?: any) {
     ...base,
   }
 
-  npc.gender = npc.gender || npc._gender
   npc.race = npc.race || npc._race
 
   Object.assign(npc, npcData.gender[npc.gender])
