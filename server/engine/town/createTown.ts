@@ -9,6 +9,7 @@ import { townRender } from "./townRender"
 import { createGuard } from "./createGuard"
 import { createStartFactions } from "./createStartFactions"
 import { Town } from "./town"
+import { createUniqueKey } from "../tools/createUniqueKey"
 
 export function createTown(base: Partial<Town> = {}) {
   const type = randomValue(TYPES)
@@ -19,27 +20,13 @@ export function createTown(base: Partial<Town> = {}) {
   const politicalIdeology = randomValue(townData.politicalSource[politicalSource].politicalIdeology)
 
   const town: Town = {
-    passageName: `TownOutput`,
+    key: createUniqueKey(),
     name: createTownName(),
     taxes: {
       base: 7,
       welfare: 1,
       military: 1,
       tithe: 1,
-    },
-    taxRate(town: Town) {
-      let totalTax = 0
-      Object.keys(town.taxes).forEach(function(this: any, tax) {
-        if (typeof town.taxes[tax] === `number`) {
-          totalTax += town.taxes[tax]
-        } else if (typeof town.taxes[tax] === `function`) {
-          const temp = town.taxes[tax](this)
-          totalTax += temp
-        } else {
-          console.log(`non-integer tax! ${town.taxes[tax]}`)
-        }
-      })
-      return Math.round(totalTax * 100) / 100
     },
     get type() {
       if (this.population > 3000) {
@@ -200,6 +187,14 @@ export function createTown(base: Partial<Town> = {}) {
   console.log(`${town.name} has loaded.`)
 
   return town
+}
+
+export function taxRate(town: Town) {
+  let totalTax = 0
+  for (const tax in town.taxes) {
+    totalTax += town.taxes[tax]
+  }
+  return Math.round(totalTax * 100) / 100
 }
 
 const TYPES = [`hamlet`, `hamlet`, `village`, `village`, `village`, `town`, `town`, `town`, `city`, `city`]

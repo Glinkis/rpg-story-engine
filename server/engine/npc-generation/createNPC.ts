@@ -19,6 +19,7 @@ import { variables } from "../global"
 import { createDescriptors } from "./createDescriptors"
 import { createBackground } from "./createBackground"
 import { Town } from "../town/town"
+import { taxRate } from "../town/createTown"
 
 export function createNPC(town: Town, base?: any) {
   if (!town) {
@@ -108,7 +109,7 @@ export function createNPC(town: Town, base?: any) {
         )
       },
       netIncome(town: Town, npc: any) {
-        return Math.round(calcPercentage(npc.finances.grossIncome(town, npc), -town.taxRate(town)))
+        return Math.round(calcPercentage(npc.finances.grossIncome(town, npc), -taxRate(town)))
       },
       lifestyleStandard(town: Town, npc: any) {
         const income = npc.finances.netIncome(town, npc)
