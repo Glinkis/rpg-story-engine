@@ -1,3 +1,4 @@
+import { Season } from "../../../shared/types"
 import { fetchProfessions } from "../tools/fetchProfessions"
 import { randomValue, randomRange, dice } from "../rolls"
 import { clamp, fm } from "../math"
@@ -12,7 +13,6 @@ import { Town } from "./town"
 export function createTown(base: Partial<Town> = {}) {
   const type = randomValue(TYPES)
   const terrain = randomValue(TERRAINS)
-  const season = [`summer`, `autumn`, `winter`, `spring`]
 
   const economicIdeology = randomValue(townData.type[type].economicIdeology)
   const politicalSource = randomValue(townData.type[type].politicalSource)
@@ -59,8 +59,7 @@ export function createTown(base: Partial<Town> = {}) {
       this._type = value
     },
     terrain,
-    currentSeason: randomValue(season),
-    season,
+    season: randomValue(Season),
     families: {},
     factions: [],
     buildings: {},

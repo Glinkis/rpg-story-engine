@@ -1,5 +1,5 @@
-import { RollData, Terrain } from "../../../shared/types"
-import { randomFloatRange, randomValue, randomRange, dice } from "../rolls"
+import { RollData, Terrain, Season } from "../../../shared/types"
+import { randomFloatRange, randomRange, dice } from "../rolls"
 
 interface EconomicIdeology {
   modifiers: Record<string, number>
@@ -1495,22 +1495,22 @@ export const townData: TownData = {
           },
         },
         season: {
-          summer: {
+          [Season.Summer]: {
             precipitationLevel: 4,
             precipitationIntensity: 1,
             baseTemp: 80,
           },
-          autumn: {
+          [Season.Autumn]: {
             precipitationLevel: 3,
             precipitationIntensity: 1,
             baseTemp: 60,
           },
-          winter: {
+          [Season.Winter]: {
             precipitationLevel: 2,
             precipitationIntensity: 1,
             baseTemp: 30,
           },
-          spring: {
+          [Season.Spring]: {
             precipitationLevel: 3,
             precipitationIntensity: 1,
             baseTemp: 60,
@@ -1664,22 +1664,22 @@ export const townData: TownData = {
           },
         },
         season: {
-          summer: {
+          [Season.Summer]: {
             precipitationLevel: 3,
             precipitationIntensity: 1,
             baseTemp: 90,
           },
-          autumn: {
+          [Season.Autumn]: {
             precipitationLevel: 3,
             precipitationIntensity: 1,
             baseTemp: 75,
           },
-          winter: {
+          [Season.Winter]: {
             precipitationLevel: 2,
             precipitationIntensity: 1,
             baseTemp: 50,
           },
-          spring: {
+          [Season.Spring]: {
             precipitationLevel: 4,
             precipitationIntensity: 1,
             baseTemp: 75,
@@ -1862,22 +1862,22 @@ export const townData: TownData = {
           },
         },
         season: {
-          summer: {
+          [Season.Summer]: {
             precipitationLevel: 3,
             precipitationIntensity: -1,
             baseTemp: 95,
           },
-          autumn: {
+          [Season.Autumn]: {
             precipitationLevel: 3,
             precipitationIntensity: -1,
             baseTemp: 75,
           },
-          winter: {
+          [Season.Winter]: {
             precipitationLevel: 2,
             precipitationIntensity: -1,
             baseTemp: 50,
           },
-          spring: {
+          [Season.Spring]: {
             precipitationLevel: 2,
             precipitationIntensity: -1,
             baseTemp: 75,
@@ -2122,22 +2122,22 @@ export const townData: TownData = {
           },
         },
         season: {
-          summer: {
+          [Season.Summer]: {
             precipitationLevel: 4,
             precipitationIntensity: 1,
             baseTemp: 40,
           },
-          autumn: {
+          [Season.Autumn]: {
             precipitationLevel: 4,
             precipitationIntensity: 1,
             baseTemp: 30,
           },
-          winter: {
+          [Season.Winter]: {
             precipitationLevel: 2,
             precipitationIntensity: 1,
             baseTemp: 20,
           },
-          spring: {
+          [Season.Spring]: {
             precipitationLevel: 3,
             precipitationIntensity: 1,
             baseTemp: 30,

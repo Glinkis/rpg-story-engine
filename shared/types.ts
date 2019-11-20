@@ -1,3 +1,10 @@
+export enum Season {
+  Summer = `summer`,
+  Autumn = `autumn`,
+  Winter = `winter`,
+  Spring = `spring`,
+}
+
 export enum Biome {
   Forest = `forest`,
   Desert = `desert`,
@@ -40,7 +47,7 @@ export interface Terrain {
 
 interface Weather {
   tempVariation: Record<number, TempVariation>
-  season: Record<string, Season>
+  season: Record<Season, SeasonData>
 }
 
 interface TempVariation {
@@ -48,7 +55,7 @@ interface TempVariation {
   temperatureTimer: number
 }
 
-interface Season {
+interface SeasonData {
   precipitationLevel: number
   precipitationIntensity: number
   baseTemp: number

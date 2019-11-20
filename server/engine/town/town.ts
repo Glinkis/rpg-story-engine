@@ -1,5 +1,6 @@
 import { Faction } from "../factions/createFaction"
 import { Building } from "../building/createBuilding"
+import { Season } from "../../../shared/types"
 
 interface Taxes {
   base: number
@@ -18,6 +19,7 @@ export interface Town {
   roads: Record<string, any>
   families: Record<string, any>
   factions: Faction[]
+  season: Season
   buildings: Record<string, Record<string, Building>>
   professions: Record<string, number>
   roll: Record<string, number>
