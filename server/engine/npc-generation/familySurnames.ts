@@ -12,7 +12,10 @@ export function marriageIsMatrilineal(marriage: Marriage) {
  * determine parent surnames.
  */
 export function getParentSurnames(marriage: Marriage) {
-  let familyName, fatherSurname, motherSurname
+  let familyName: string | undefined
+  let fatherSurname: string | undefined
+  let motherSurname: string | undefined
+
   if (marriage.children.length === 0) {
     familyName = undefined
   } else {
@@ -23,6 +26,7 @@ export function getParentSurnames(marriage: Marriage) {
       ;[fatherSurname, motherSurname] = [motherSurname, fatherSurname]
     }
   }
+
   return { fatherSurname, motherSurname }
 }
 
