@@ -13,7 +13,7 @@ const marriagePools = {
   "tiefling": [`human`, `tiefling`],
 }
 
-export function findParentRaces(npc) {
+export function findParentRaces(npc: NPC) {
   const parentalLineageRoll = randomRange(1, 8)
 
   let lineage: string | undefined
