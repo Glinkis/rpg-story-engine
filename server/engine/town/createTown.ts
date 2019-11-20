@@ -20,6 +20,7 @@ export function createTown(base: Partial<Town> = {}) {
   const politicalIdeology = randomValue(townData.politicalSource[politicalSource].politicalIdeology)
 
   const economicIdeologyDetails = townData.economicIdeology[economicIdeology].descriptors
+  const politicalIdeologyDetails = townData.politicalIdeology[politicalIdeology].data
 
   const town: Town = {
     key: createUniqueKey(),
@@ -77,14 +78,8 @@ export function createTown(base: Partial<Town> = {}) {
     economicIdeology,
     ...economicIdeologyDetails,
     politicalSource,
-    _politicalIdeology: politicalIdeology,
-    get politicalIdeology() {
-      return this._politicalIdeology
-    },
-    set politicalIdeology(value) {
-      this._politicalIdeology = value
-      Object.assign(this, townData.politicalIdeology[this._politicalIdeology].data)
-    },
+    politicalIdeology,
+    ...politicalIdeologyDetails,
     get wealth() {
       let wealth = townData.rollData.wealth.find(descriptor => descriptor[0] <= this.roll.wealth)
       if (wealth === undefined) {
