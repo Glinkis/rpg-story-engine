@@ -9,16 +9,16 @@ export interface NPC {
   gender: string
   raceName: string
   skinColour: string
-  age: any
-  bmi: any
-  muscleMass: any
+  age: string
+  bmi: number
+  muscleMass: number
   ageYears: number
   ageStage: string
   profession: string
   background: string
-  beard: any
-  height: any
-  weight: any
+  beard: string
+  height: string
+  weight: string
   physicalTrait: string
   knownLanguages: string[]
   dndClass: string
