@@ -35,6 +35,7 @@ import { newspaper } from "./engine/world/newspaper"
 import { mountain } from "./engine/world/mountain"
 import { cavern } from "./engine/world/cavern"
 import { forest } from "./engine/world/forest"
+import { handleError } from "./sentry"
 
 const app = express()
 
@@ -46,6 +47,7 @@ function sendJson(res: Response, object: any) {
   try {
     res.send(JSON.stringify(object, null, 2))
   } catch (error) {
+    handleError(error)
     res.send(error.stack)
   }
 }
