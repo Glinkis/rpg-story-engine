@@ -19,6 +19,8 @@ export function createTown(base: Partial<Town> = {}) {
   const politicalSource = randomValue(townData.type[type].politicalSource)
   const politicalIdeology = randomValue(townData.politicalSource[politicalSource].politicalIdeology)
 
+  const economicIdeologyDetails = townData.economicIdeology[economicIdeology].descriptors
+
   const town: Town = {
     key: createUniqueKey(),
     name: createTownName(),
@@ -72,16 +74,10 @@ export function createTown(base: Partial<Town> = {}) {
       })
       return this._demographic
     },
-    _economicIdeology: economicIdeology,
+    economicIdeology,
+    ...economicIdeologyDetails,
     politicalSource,
     _politicalIdeology: politicalIdeology,
-    get economicIdeology() {
-      return this._economicIdeology
-    },
-    set economicIdeology(value) {
-      this._economicIdeology = value
-      Object.assign(this, townData.economicIdeology[this._economicIdeology].descriptors)
-    },
     get politicalIdeology() {
       return this._politicalIdeology
     },
