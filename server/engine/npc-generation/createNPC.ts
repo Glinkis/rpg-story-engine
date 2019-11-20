@@ -166,7 +166,7 @@ export function createNPC(town: Town, base?: any) {
     pockets: randomValue(npcData.pockets),
     wealth: dice(2, 50),
     trait: randomValue(npcData.trait),
-    currentMood: npcData.currentMood,
+    currentMood: randomValue(npcData.currentMood),
     hasHistory: base.hasHistory || false,
     // id: Math.floor(randomFloat(1) * 0x10000),
     idle: npcData.idle,
