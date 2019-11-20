@@ -3,8 +3,10 @@ import { createNPC } from "../npc-generation/createNPC"
 import { guardData } from "./guardData"
 import { randomRange, randomValue } from "../rolls"
 import { Town } from "./town"
+import { createUniqueKey } from "../tools/createUniqueKey"
 
 interface Guard {
+  key: string
   name: string
   associatedTown: string
   captain: any
@@ -14,6 +16,7 @@ interface Guard {
 
 export function createGuard(town: Town): Guard {
   return {
+    key: createUniqueKey(),
     name: createGuardName(town),
     associatedTown: town.name,
     captain: createNPC(town, {
