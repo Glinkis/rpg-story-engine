@@ -6,7 +6,7 @@ export function createAge(npc: NPC) {
 
   if (ageDescriptors) {
     const age = ageDescriptors.find(([years]) => years <= npc.ageYears)
-    npc.age = age && age[1]
+    npc.age = (age && age[1]) || ``
   } else {
     console.log(`Called age descriptor without a valid array.`)
   }

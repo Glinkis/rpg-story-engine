@@ -69,9 +69,7 @@ export function createLifestyleStandards(town: Town, npc: any) {
   const isCurrently = randomValue([`has been`, `has recently been`, `is`, `is currently`])
   const isHaving = randomValue([`has been having`, `has recently had`, `is having`, `is currently having`])
   const desc = findProfession(town, npc)
-  const tippy = `<span id=${JSON.stringify(npc.firstName)} class=tip title=${JSON.stringify(
-    toUpperFirst(desc.description)
-  )}><b>${npc.dndClass}</b></span>`
+  const tippy = npc.dndClass
 
   const wageVarianceNotes: [number, string][] = [
     [-25, `${isCurrently} impossibly unsuccessful as a ${tippy}`],
@@ -80,7 +78,7 @@ export function createLifestyleStandards(town: Town, npc: any) {
     [-8, `${isCurrently} somewhat unsuccessful as a ${tippy}`],
     [-5, `${isCurrently} slightly unsuccessful as a ${tippy}`],
     [0, `is a ${tippy}`],
-    [5, randomValue([`${isCurrently} mildly successful as a `, `${isHaving} mild success as a`]) + tippy],
+    [5, randomValue([`${isCurrently} mildly successful as a `, `${isHaving} mild success as a `]) + tippy],
     [8, randomValue([`${isCurrently} reasonably successful as a `, `${isHaving} reasonable success as a `]) + tippy],
     [8, randomValue([`${isCurrently} modestly successful as a `, `${isHaving} modest success as a `]) + tippy],
     [12, randomValue([`${isCurrently} successful as a `, `${isHaving} success as a `]) + tippy],
