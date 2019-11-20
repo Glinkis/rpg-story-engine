@@ -1,4 +1,4 @@
-import "./sentry"
+import Sentry from "./sentry"
 import compression from "compression"
 import express, { Response } from "express"
 import chalk from "chalk"
@@ -35,21 +35,19 @@ import { newspaper } from "./engine/world/newspaper"
 import { mountain } from "./engine/world/mountain"
 import { cavern } from "./engine/world/cavern"
 import { forest } from "./engine/world/forest"
-import { handleError } from "./sentry"
 
 const app = express()
 
 // Compress responses.
 app.use(compression({ threshold: 8 }))
 
+// Integrate Sentry.
+app.use(Sentry.Handlers.requestHandler())
+app.use(Sentry.Handlers.errorHandler())
+
 function sendJson(res: Response, object: any) {
   res.header(`Content-Type`, `application/json`)
-  try {
-    res.send(JSON.stringify(object, null, 2))
-  } catch (error) {
-    handleError(error)
-    res.send(error.stack)
-  }
+  res.send(JSON.stringify(object, null, 2))
 }
 
 function createRouteListItem(html: string, route: any) {
