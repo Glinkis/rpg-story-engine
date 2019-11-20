@@ -1,5 +1,5 @@
 import { randomRange } from "../rolls"
-import { npcData } from "./npcData"
+import { raceTraitsData } from "./npcData"
 import { variables } from "../global"
 import { Marriage } from "./createFamilyMembers"
 import { rollFromTable } from "../tools/rollFromTable"
@@ -24,13 +24,13 @@ export const familyData = {
   parentAge(npc: NPC) {
     const race = npc.race || `human`
     const parentStage = rollFromTable(familyData.parentStageTable, 100)
-    const { baseAge, ageModifier } = npcData.raceTraits[race].ageTraits[parentStage]
+    const { baseAge, ageModifier } = raceTraitsData[race].ageTraits[parentStage]
     return npc.ageYears + baseAge + ageModifier()
   },
 
   siblingAge(npc: NPC) {
     const race = npc.race || `human`
-    const { baseAge } = npcData.raceTraits[race].ageTraits[`young adult`]
+    const { baseAge } = raceTraitsData[race].ageTraits[`young adult`]
     return npc.ageYears + randomRange(-baseAge, baseAge)
   },
 
@@ -51,7 +51,7 @@ export const familyData = {
 
   partnerAge(npc: NPC) {
     const race = npc.race || `human`
-    const { baseAge } = npcData.raceTraits[race].ageTraits[`young adult`]
+    const { baseAge } = raceTraitsData[race].ageTraits[`young adult`]
     return npc.ageYears + randomRange(-baseAge, baseAge)
   },
 

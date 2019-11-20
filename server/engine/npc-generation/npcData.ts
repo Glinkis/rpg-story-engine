@@ -18,6 +18,7 @@ import { halflingTraits } from "./race-traits/halfling"
 import { halfOrcTraits } from "./race-traits/half-orc"
 import { humanTraits } from "./race-traits/human"
 import { tieflingTraits } from "./race-traits/tiefling"
+import { RaceTrait } from "./race-traits/race-trait"
 import { NPC } from "./npc"
 
 export function pronouns(npc: NPC) {
@@ -2339,17 +2340,6 @@ export const npcData: any = {
     `Sylvan`,
     `Undercommon`,
   ],
-  raceTraits: {
-    "dragonborn": dragonbornTraits,
-    "dwarf": dwarfTraits,
-    "elf": elfTraits,
-    "gnome": gnomeTraits,
-    "half-elf": halfElfTraits,
-    "halfling": halflingTraits,
-    "half-orc": halfOrcTraits,
-    "human": humanTraits,
-    "tiefling": tieflingTraits,
-  },
   classTraits: {
     barbarian: {
       dndClassOrigin: [
@@ -2980,11 +2970,11 @@ export const npcData: any = {
         `I pocket anything I see that might have some value.`,
       ],
       bond: [
-        `I fleeced the wrong person, a lord called <<print setup.npcData.raceTraits["human"].genderTraits["man"].randomValue(firstName)>>, and must work to ensure that he never crosses paths with me or those I care about.`,
-        `I owe everything to my mentor <<print setup.npcData.raceTraits['human'].genderTraits['man'].randomValue(firstName)>>--a horrible person who's probably rotting in jail somewhere.`,
-        `Somewhere out there I have a child, litte <<print setup.npcData.raceTraits['human'].genderTraits['man'].randomValue(firstName)>>, who doesn't know me. I'm going to try and make the world better for him.`,
+        `I fleeced the wrong person, a lord called <<print setup.raceTraitsData["human"].genderTraits["man"].randomValue(firstName)>>, and must work to ensure that he never crosses paths with me or those I care about.`,
+        `I owe everything to my mentor <<print setup.raceTraitsData['human'].genderTraits['man'].randomValue(firstName)>>--a horrible person who's probably rotting in jail somewhere.`,
+        `Somewhere out there I have a child, litte <<print setup.raceTraitsData['human'].genderTraits['man'].randomValue(firstName)>>, who doesn't know me. I'm going to try and make the world better for him.`,
         `I come from a noble family, and one day I'll reclaim my lands and title from those who stole them from me.`,
-        `A powerful person, Lord <<print setup.npcData.raceTraits['human'].genderTraits['man'].randomValue(firstName)>>, killed someone I love. Some day soon, I'll have my revenge.`,
+        `A powerful person, Lord <<print setup.raceTraitsData['human'].genderTraits['man'].randomValue(firstName)>>, killed someone I love. Some day soon, I'll have my revenge.`,
         `I swindled and ruined a person who didn't deserve it, and now I seek to atone for my misdeeds but might never be able to forgive myself.`,
       ],
       wealth: 1500,
@@ -3891,4 +3881,28 @@ export const npcData: any = {
       ],
     },
   },
+}
+
+export enum Race {
+  Dragonborn = `dragonborn`,
+  Dwarf = `dwarf`,
+  Elf = `elf`,
+  Gnome = `gnome`,
+  HalfElf = `half-elf`,
+  Halfling = `halfling`,
+  HalfOrc = `half-orc`,
+  Human = `human`,
+  Tiefling = `tiefling`,
+}
+
+export const raceTraitsData: Record<Race, RaceTrait> = {
+  [Race.Dragonborn]: dragonbornTraits,
+  [Race.Dwarf]: dwarfTraits,
+  [Race.Elf]: elfTraits,
+  [Race.Gnome]: gnomeTraits,
+  [Race.HalfElf]: halfElfTraits,
+  [Race.Halfling]: halflingTraits,
+  [Race.HalfOrc]: halfOrcTraits,
+  [Race.Human]: humanTraits,
+  [Race.Tiefling]: tieflingTraits,
 }

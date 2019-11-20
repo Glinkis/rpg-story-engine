@@ -2,7 +2,7 @@ import { randomRange, randomValue } from "../rolls"
 import { createNPC } from "./createNPC"
 import { relativeSocialClass, familySocialClass } from "./createSocialClass"
 import { isOfAge } from "./createAge"
-import { npcData } from "./npcData"
+import { npcData, raceTraitsData } from "./npcData"
 import { familyData } from "./familyData"
 import { setAsPartners } from "./setAsPartners"
 import { findPartnerRace, findChildRace, findParentRaces } from "./familyRaces"
@@ -30,7 +30,7 @@ export function createRelative(town, family, base, force = false) {
     }
     if (isOfAge(`elderly`, base.race, base.ageYears)) {
       if (randomRange(1, 100) <= familyData.oldAbsencePercent) return
-      if (base.ageYears >= npcData.raceTraits[base.race].ageTraits.ageDescriptors[0]) {
+      if (base.ageYears >= raceTraitsData[base.race].ageTraits.ageDescriptors[0]) {
         if (randomRange(1, 100) <= familyData.veryOldAbsencePercent) return
       }
     }
@@ -154,7 +154,7 @@ export function createChildren(
 }
 
 export function createMarriage(town, family, npc, force = false) {
-  const marriageMin = npcData.raceTraits[npc.race].ageTraits[`young adult`].baseAge
+  const marriageMin = raceTraitsData[npc.race].ageTraits[`young adult`].baseAge
   const newMarriage: Marriage = {
     parents: [npc.key],
     children: [],

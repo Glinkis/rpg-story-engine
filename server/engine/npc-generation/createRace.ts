@@ -1,11 +1,11 @@
 import { randomRange, randomValue } from "../rolls"
-import { npcData } from "./npcData"
+import { npcData, raceTraitsData } from "./npcData"
 import { bmiDescriptions } from "./bmiDescriptions"
 import { closestMatch } from "../tools/closestMatch"
 import { NPC } from "./npc"
 
 export function createRace(npc: NPC) {
-  const raceTraits = npcData.raceTraits[npc.race]
+  const raceTraits = raceTraitsData[npc.race]
   const genderTraits = raceTraits.genderTraits[npc.gender]
 
   if (randomRange(1, 100) >= genderTraits.beardProbability) {

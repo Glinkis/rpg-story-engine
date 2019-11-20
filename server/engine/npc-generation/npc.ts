@@ -1,8 +1,10 @@
+import { Race } from "./npcData"
+
 export interface NPC {
   key: string
   name: string
   lastName: string
-  race: string
+  race: Race
   family: any
   gender: string
   raceName: string

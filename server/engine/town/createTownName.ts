@@ -1,7 +1,7 @@
 import { random, randomValue } from "../rolls"
 import { linguisticDrift } from "./lingusticDrift"
 import { createNPC } from "../npc-generation/createNPC"
-import { npcData } from "../npc-generation/npcData"
+import { raceTraitsData } from "../npc-generation/npcData"
 import { Town } from "./town"
 
 export function createTownName(town?: Town) {
@@ -13,7 +13,7 @@ export function createTownName(town?: Town) {
       town.founder = npc.key
       name = town.founder.lastName + randomValue(suffix)
     } else {
-      name = randomValue(npcData.raceTraits.human.lastName) + randomValue(suffix)
+      name = randomValue(raceTraitsData.human.lastName) + randomValue(suffix)
     }
   } else {
     name = randomValue(prefix) + randomValue(suffix)
