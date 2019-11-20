@@ -20,6 +20,7 @@ import { createDescriptors } from "./createDescriptors"
 import { createBackground } from "./createBackground"
 import { Town } from "../town/town"
 import { taxRate } from "../town/createTown"
+import { NPC } from "./npc"
 
 export function createNPC(town: Town, base?: any) {
   if (!town) {
@@ -188,8 +189,6 @@ export function createNPC(town: Town, base?: any) {
   Object.assign(npc, npcData.gender[npc.gender])
   Object.assign(npc, npcData.raceTraits[npc.race].raceWords)
 
-  npc.availableLanguages = [npcData.standardLanguages.concat(npcData.exoticLanguages) - npc.knownLanguages]
-
   if (npc.hasClass === undefined) {
     if (random(100) > 70) {
       npc.hasClass = false
@@ -274,4 +273,10 @@ export function createNPC(town: Town, base?: any) {
 
   console.groupEnd()
   return npc
+}
+
+export function availableLanguages(npc: NPC) {
+  return npcData.standardLanguages.concat(npcData.exoticLanguages).filter(language => {
+    return !npc.knownLanguages.includes(language)
+  })
 }

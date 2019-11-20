@@ -18,6 +18,7 @@ export interface NPC {
   height: any
   weight: any
   physicalTrait: string
+  knownLanguages: string[]
   dndClass: string
   hasClass: boolean
   descriptors: string[]
