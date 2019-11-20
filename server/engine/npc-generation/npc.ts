@@ -25,8 +25,8 @@ export interface NPC {
   hasClass: boolean
   descriptors: string[]
   descriptorsAdd: any
-  heightRoll: any
-  weightRoll: any
+  heightRoll: number
+  weightRoll: number
   socialClass: string
   heshe: string
   himher: string
