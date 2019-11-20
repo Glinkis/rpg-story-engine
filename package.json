@@ -16,6 +16,7 @@
     "ext": "ts"
   },
   "dependencies": {
+    "@sentry/node": "5.9.0",
     "@types/compression": "1.0.1",
     "@types/express": "4.17.2",
     "@types/node": "12.12.7",

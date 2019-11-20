@@ -1,3 +1,4 @@
+import "./sentry"
 import compression from "compression"
 import express, { Response } from "express"
 import chalk from "chalk"
