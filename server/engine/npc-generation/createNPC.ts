@@ -100,42 +100,6 @@ export function createNPC(town: Town, base?: any) {
         return calcPercentage(npc.roll._wageVariation, (town.roll.wealth - 50) / 5)
       },
     },
-    finances: {
-      grossIncome(town: Town, npc: any) {
-        // TODO add hobbies
-        const profession = findProfession(town, npc)
-        return Math.round(
-          calcPercentage(profession.dailyWage, [npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3])
-        )
-      },
-      netIncome(town: Town, npc: any) {
-        return Math.round(calcPercentage(npc.finances.grossIncome(town, npc), -taxRate(town)))
-      },
-      lifestyleStandard(town: Town, npc: any) {
-        const income = npc.finances.netIncome(town, npc)
-        for (const lifestyleStandard of lifestyleStandards) {
-          if (income >= lifestyleStandard[0]) {
-            return lifestyleStandard
-          }
-        }
-        // lifestyleStandard returns the unmodified array of [100, 'modest', 30]
-        // various bits use all three, so it was easier to specify which than create three virtually identical functions.
-        return
-      },
-      lifestyleExpenses(town: Town, npc: any) {
-        const income = npc.finances.grossIncome(town, npc)
-        const living = npc.finances.lifestyleStandard(town, npc)
-        const ratio = lifestyleStandards.find(desc => desc[1] === living[1])
-        return ratio && Math.round(income * (ratio[2] / 100))
-      },
-      profit(town: Town, npc: any) {
-        return Math.round(
-          npc.finances.netIncome(town, npc) -
-            npc.finances.lifestyleStandard(town, npc)[0] -
-            npc.finances.lifestyleExpenses(town, npc)
-        )
-      },
-    },
     hairColour: randomValue(npcData.hairColour),
     hairType: randomValue(npcData.hairType),
     get hair() {
@@ -279,4 +243,37 @@ export function availableLanguages(npc: NPC) {
   return npcData.standardLanguages.concat(npcData.exoticLanguages).filter(language => {
     return !npc.knownLanguages.includes(language)
   })
+}
+
+export function lifestyleStandard(town: Town, npc: NPC) {
+  const income = netIncome(town, npc)
+  for (const lifestyleStandard of lifestyleStandards) {
+    if (income >= lifestyleStandard[0]) {
+      return lifestyleStandard
+    }
+  }
+  // lifestyleStandard returns the unmodified array of [100, 'modest', 30]
+  // various bits use all three, so it was easier to specify which than create three virtually identical functions.
+  return lifestyleStandard[3]
+}
+
+export function grossIncome(town: Town, npc: NPC) {
+  // TODO add hobbies
+  const profession = findProfession(town, npc)
+  return Math.round(calcPercentage(profession.dailyWage, [npc.roll.wageVariation(town), (town.roll.wealth - 50) / 3]))
+}
+
+export function netIncome(town: Town, npc: NPC) {
+  return Math.round(calcPercentage(grossIncome(town, npc), -taxRate(town)))
+}
+
+export function lifestyleExpenses(town: Town, npc: NPC) {
+  const income = grossIncome(town, npc)
+  const living = lifestyleStandard(town, npc)
+  const ratio = lifestyleStandards.find(desc => desc[1] === living[1])
+  return (ratio && Math.round(income * (ratio?.[2] / 100))) || 0
+}
+
+export function profit(town: Town, npc: NPC) {
+  return Math.round(netIncome(town, npc) - lifestyleStandard(town, npc)[0] - lifestyleExpenses(town, npc))
 }

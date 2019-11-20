@@ -3,7 +3,7 @@ type LifestyleStandard = [number, string, number]
 /**
  * index 0 is the amount of money necessary for the lifestyle
  * index 1 is the description
- * index 2 is the percentage of their money taken up by lifestyle expenses (used by npc.finances.livingExpenses())
+ * index 2 is the percentage of their money taken up by lifestyle expenses (used by livingExpenses())
  */
 export const lifestyleStandards: LifestyleStandard[] = [
   [1000, `aristocratic`, 40],

@@ -28,4 +28,5 @@ export interface NPC {
   socialClass: string
   heshe: string
   himher: string
+  roll: any
 }
