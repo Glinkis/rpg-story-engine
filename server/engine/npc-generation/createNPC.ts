@@ -73,7 +73,7 @@ export function createNPC(town: Town, base?: any) {
     key: createUniqueKey(),
     passageName: `NPCProfile`,
     gender,
-    _race: race,
+    race,
     firstName,
     lastName,
     get name() {
@@ -171,18 +171,11 @@ export function createNPC(town: Town, base?: any) {
     // id: Math.floor(randomFloat(1) * 0x10000),
     idle: randomValue(npcData.idle),
 
-    get race() {
-      return this._race
-    },
-    set race(race) {
-      this._race = race
-      Object.assign(this, npcData.raceTraits[race].raceWords)
-    },
     get raceNote(): any {
-      if (this._race === `human`) {
+      if (this.race === `human`) {
         return `${this.height} ${this.gender}`
       } else {
-        return npcData.raceTraits[this._race].raceWords.raceName
+        return npcData.raceTraits[this.race].raceWords.raceName
       }
     },
     knownLanguages: npcData.raceTraits[race].knownLanguages,
@@ -191,8 +184,6 @@ export function createNPC(town: Town, base?: any) {
     family: undefined,
     ...base,
   }
-
-  npc.race = npc.race || npc._race
 
   Object.assign(npc, npcData.gender[npc.gender])
   Object.assign(npc, npcData.raceTraits[npc.race].raceWords)
