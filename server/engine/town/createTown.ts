@@ -73,7 +73,7 @@ export function createTown(base: Partial<Town> = {}) {
       return this._demographic
     },
     _economicIdeology: economicIdeology,
-    _politicalSource: politicalSource,
+    politicalSource,
     _politicalIdeology: politicalIdeology,
     get economicIdeology() {
       return this._economicIdeology
@@ -82,28 +82,12 @@ export function createTown(base: Partial<Town> = {}) {
       this._economicIdeology = value
       Object.assign(this, townData.economicIdeology[this._economicIdeology].descriptors)
     },
-    get politicalSource() {
-      return this._politicalSource
-    },
-    set politicalSource(value) {
-      this._politicalSource = value
-    },
     get politicalIdeology() {
       return this._politicalIdeology
     },
     set politicalIdeology(value) {
       this._politicalIdeology = value
       Object.assign(this, townData.politicalIdeology[this._politicalIdeology].data)
-    },
-    get politicalSourceDescription(): any {
-      const source = townData.politicalSource[this._politicalSource]
-      if (this._politicalSource === `absolute monarchy` || this._politicalSource === `constitutional monarchy`) {
-        if (this.politicalIdeology === `autocracy`) {
-          return source.autocracy.politicalSourceDescription
-        }
-        return source.default.politicalSourceDescription
-      }
-      return source.politicalSourceDescription
     },
     get wealth() {
       let wealth = townData.rollData.wealth.find(descriptor => descriptor[0] <= this.roll.wealth)
@@ -148,7 +132,6 @@ export function createTown(base: Partial<Town> = {}) {
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
-  town.politicalSource = town.politicalSource || town._politicalSource
   town.origin = randomValue(townData.terrain[town.terrain].location[town.location].origin)
   town.vegetation = randomValue(townData.terrain[town.terrain].location[town.location].vegetation)
 
@@ -195,6 +178,17 @@ export function taxRate(town: Town) {
     totalTax += town.taxes[tax]
   }
   return Math.round(totalTax * 100) / 100
+}
+
+export function politicalSourceDescription(town: Town) {
+  const source = townData.politicalSource[town.politicalSource]
+  if (town.politicalSource === `absolute monarchy` || town.politicalSource === `constitutional monarchy`) {
+    if (town.politicalIdeology === `autocracy`) {
+      return source.autocracy.politicalSourceDescription
+    }
+    return source.default.politicalSourceDescription
+  }
+  return source.politicalSourceDescription
 }
 
 const TYPES = [`hamlet`, `hamlet`, `village`, `village`, `village`, `town`, `town`, `town`, `city`, `city`]

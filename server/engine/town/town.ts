@@ -22,7 +22,7 @@ export interface Town {
   season: Season
   buildings: Record<string, Record<string, Building>>
   professions: Record<string, number>
+  politicalSource: string
   roll: Record<string, number>
-  taxRate(town: Town): number
   [key: string]: any
 }
