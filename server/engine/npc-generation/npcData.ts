@@ -18,6 +18,11 @@ import { halflingTraits } from "./race-traits/halfling"
 import { halfOrcTraits } from "./race-traits/half-orc"
 import { humanTraits } from "./race-traits/human"
 import { tieflingTraits } from "./race-traits/tiefling"
+import { NPC } from "./npc"
+
+export function pronouns(npc: NPC) {
+  return npcData.gender[npc.gender]
+}
 
 export const npcData: any = {
   gender: {

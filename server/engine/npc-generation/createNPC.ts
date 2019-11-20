@@ -89,7 +89,6 @@ export function createNPC(town: Town, base?: any) {
     muscleMass: raceTraits.muscleMass + dice(5, 4) - 12,
     calmTrait: randomValue(npcData.calmTrait),
     stressTrait: randomValue(npcData.stressTrait),
-    pronouns: {},
     relationships: {},
     roll: {
       _wageVariation: dice(5, 10) - 27,
@@ -203,7 +202,6 @@ export function createNPC(town: Town, base?: any) {
   npc.race = npc.race || npc._race
 
   Object.assign(npc, npcData.gender[npc.gender])
-  Object.assign(npc.pronouns, npcData.gender[npc.gender])
   Object.assign(npc, npcData.raceTraits[npc.race].raceWords)
 
   npc.availableLanguages = [npcData.standardLanguages.concat(npcData.exoticLanguages) - npc.knownLanguages]
