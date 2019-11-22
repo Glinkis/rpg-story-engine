@@ -1,5 +1,6 @@
 import { randomRange, randomValue } from "../rolls"
-import { npcData, raceTraitsData } from "./npcData"
+import { raceTraitsData } from "./npcData"
+import { HEIGHT_CHART } from "./heightChart"
 import { bmiDescriptions } from "./bmiDescriptions"
 import { closestMatch } from "../tools/closestMatch"
 import { NPC } from "./npc"
@@ -18,11 +19,11 @@ export function createRace(npc: NPC) {
   npc.bmi = Math.trunc((npc.weightRoll / (npc.heightRoll * npc.heightRoll)) * raceTraits.bmiModifier)
   npc.weight = npc.weight || closestMatch(bmiDescriptions, `weight`, `bmi`, `muscleMass`, npc.bmi, npc.muscleMass)
 
-  const height = npcData.heightChart.find(descriptor => {
-    return descriptor[0] <= npc.heightRoll
-  })
-
-  npc.height = height && height[1]
+  for (const [value, description] of HEIGHT_CHART) {
+    if (value <= npc.heightRoll) {
+      npc.height = description
+    }
+  }
 
   return npc
 }
