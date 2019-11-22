@@ -10,7 +10,7 @@ import { humanTraits } from "./race-traits/human"
 import { tieflingTraits } from "./race-traits/tiefling"
 import { RaceTrait } from "./race-traits/race-trait"
 import { NPC } from "./npc"
-import { Race } from "../../../shared/Race"
+import { MajorRace } from "../../../shared/Race"
 import { genderData } from "./genderData"
 
 export function pronouns(npc: NPC) {
@@ -2216,14 +2216,14 @@ export const npcData: any = {
   },
 }
 
-export const raceTraitsData: Record<Race, RaceTrait> = {
-  [Race.Dragonborn]: dragonbornTraits,
-  [Race.Dwarf]: dwarfTraits,
-  [Race.Elf]: elfTraits,
-  [Race.Gnome]: gnomeTraits,
-  [Race.HalfElf]: halfElfTraits,
-  [Race.Halfling]: halflingTraits,
-  [Race.HalfOrc]: halfOrcTraits,
-  [Race.Human]: humanTraits,
-  [Race.Tiefling]: tieflingTraits,
+export const raceTraitsData: Record<MajorRace, RaceTrait> = {
+  [MajorRace.Dragonborn]: dragonbornTraits,
+  [MajorRace.Dwarf]: dwarfTraits,
+  [MajorRace.Elf]: elfTraits,
+  [MajorRace.Gnome]: gnomeTraits,
+  [MajorRace.HalfElf]: halfElfTraits,
+  [MajorRace.Halfling]: halflingTraits,
+  [MajorRace.HalfOrc]: halfOrcTraits,
+  [MajorRace.Human]: humanTraits,
+  [MajorRace.Tiefling]: tieflingTraits,
 }

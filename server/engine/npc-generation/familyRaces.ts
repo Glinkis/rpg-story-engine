@@ -1,81 +1,85 @@
+import { MajorRace, MinorRace, Race } from "../../../shared/Race"
+import { Town } from "../town/town"
 import { randomRange, random } from "../rolls"
 import { fetchRace } from "./fetchRace"
-import { Town } from "../town/town"
 import { NPC } from "./npc"
 
+const { Human, Elf, HalfElf, HalfOrc, Tiefling, Dragonborn } = MajorRace
+const { Orc, Devil } = MinorRace
+
 // Given a NPC to be married, determine the partner race
-const marriagePools = {
-  "human": [`human`, `elf`, `orc`, `half-elf`, `half-orc`, `tiefling`],
-  "elf": [`human`, `elf`, `half-elf`],
-  "orc": [`human`, `orc`, `half-orc`],
-  "half-elf": [`human`, `elf`, `half-elf`, `half-orc`],
-  "half-orc": [`human`, `orc`, `half-elf`, `half-orc`],
-  "tiefling": [`human`, `tiefling`],
+const marriagePools: Partial<Record<Race, Race[]>> = {
+  [Human]: [Human, Elf, Orc, HalfElf, HalfOrc, Tiefling],
+  [Elf]: [Human, Elf, HalfElf],
+  [Orc]: [Human, Orc, HalfOrc],
+  [HalfElf]: [Human, Elf, HalfElf, HalfOrc],
+  [HalfOrc]: [Human, Orc, HalfElf, HalfOrc],
+  [Tiefling]: [Human, Tiefling],
 }
 
 export function findParentRaces(npc: NPC) {
   const parentalLineageRoll = randomRange(1, 8)
 
   let lineage: string | undefined
-  let fatherRace = ``
-  let motherRace = ``
+  let fatherRace: MajorRace | string
+  let motherRace: MajorRace | string
 
   switch (npc.race) {
-    case `half-orc`:
+    case HalfOrc:
       if (parentalLineageRoll === 8) {
         lineage = `Both parents were half-orcs`
-        fatherRace = `half-orc`
-        motherRace = `half-orc`
+        fatherRace = HalfOrc
+        motherRace = HalfOrc
       } else if (parentalLineageRoll >= 6) {
         lineage = `One parent was a human, the other was a half orc`
-        motherRace = `human`
-        fatherRace = `half-orc`
+        motherRace = Human
+        fatherRace = HalfOrc
       } else if (parentalLineageRoll >= 4) {
         lineage = `One parent was a half-orc, the other was an orc`
-        motherRace = `half-orc`
-        fatherRace = `orc`
-      } else if (parentalLineageRoll < 4) {
+        motherRace = HalfOrc
+        fatherRace = Orc
+      } else {
         lineage = `One parent was a human, the other was an orc`
-        motherRace = `human`
-        fatherRace = `orc`
+        motherRace = Human
+        fatherRace = Orc
       }
       break
     case `half-elf`:
       if (parentalLineageRoll === 8) {
         lineage = `Both parents were half-elves`
-        motherRace = `half-elf`
-        fatherRace = `half-elf`
+        motherRace = HalfElf
+        fatherRace = HalfElf
       } else if (parentalLineageRoll === 7) {
         lineage = `One parent was a human, the other was a half elf`
-        fatherRace = `half-elf`
-        motherRace = `human`
+        fatherRace = HalfElf
+        motherRace = Human
       } else if (parentalLineageRoll === 6) {
         lineage = `One parent was a half-elf, the other was an elf`
-        fatherRace = `half-elf`
-        motherRace = `elf`
-      } else if (parentalLineageRoll < 6) {
+        fatherRace = HalfElf
+        motherRace = Elf
+      } else {
         lineage = `One parent was a human, the other was an elf`
-        fatherRace = `elf`
-        motherRace = `human`
+        fatherRace = Elf
+        motherRace = Human
       }
       break
-    case `tiefling`:
+    case Tiefling:
       if (parentalLineageRoll === 8) {
         lineage = `One parent was a human, the other was a devil`
-        motherRace = `human`
-        fatherRace = `devil`
+        motherRace = Human
+        fatherRace = Devil
       } else if (parentalLineageRoll === 7) {
         lineage = `One parent was a tiefling, the other was a devil`
-        motherRace = `tiefling`
-        fatherRace = `devil`
+        motherRace = Tiefling
+        fatherRace = Devil
       } else if (parentalLineageRoll >= 4) {
         lineage = `One parent was a human, the other was a tiefling`
-        motherRace = `human`
-        fatherRace = `tiefling`
-      } else if (parentalLineageRoll < 4) {
+        motherRace = Human
+        fatherRace = Tiefling
+      } else {
         lineage = `Both parents were human, with their infernal ancestry manifesting in me later in life`
-        motherRace = `human`
-        fatherRace = `human`
+        motherRace = Human
+        fatherRace = Human
       }
       break
     default:
@@ -92,11 +96,11 @@ export function findParentRaces(npc: NPC) {
   return { motherRace, fatherRace, lineage }
 }
 
-export function findChildRace(town: Town, motherRace: string, fatherRace: string) {
+export function findChildRace(town: Town, motherRace: Race, fatherRace: Race) {
   motherRace = motherRace || fatherRace || fetchRace(town)
   fatherRace = fatherRace || motherRace || fetchRace(town)
 
-  const races: string[] = []
+  const races: Race[] = []
 
   races.push(motherRace, fatherRace)
 
@@ -104,21 +108,21 @@ export function findChildRace(town: Town, motherRace: string, fatherRace: string
     return motherRace
   }
 
-  if (races.includes(`human`)) {
-    if (races.includes(`elf`)) {
-      return `half-elf`
+  if (races.includes(Human)) {
+    if (races.includes(Elf)) {
+      return HalfElf
     }
-    if (races.includes(`orc`)) {
-      return `half-orc`
+    if (races.includes(Orc)) {
+      return HalfOrc
     }
 
-    const halfbreeds = [`half-orc`, `half-elf`, `tiefling`, `dragonborn`]
+    const halfbreeds: Race[] = [HalfOrc, HalfElf, Tiefling, Dragonborn]
 
     if (races.find(race => halfbreeds.includes(race))) {
       if (random(100) > 70) {
-        return races.find(race => race !== `human`) || `human`
+        return races.find(race => race !== Human) || Human
       } else {
-        return `human`
+        return Human
       }
     }
   }
@@ -131,13 +135,17 @@ export function findPartnerRace(town: Town, npc: NPC) {
     return npc.race
   }
 
-  const pool = marriagePools[npc.race].filter(race => typeof town.baseDemographics[race] === `number`)
-  const poolSum = pool.map(race => town.baseDemographics[race]).reduce((a, b) => a + b, 0)
+  const marriagePool = marriagePools[npc.race]
 
-  let roll = Math.random() * poolSum
-  for (let i = 0; i < pool.length; i++) {
-    roll -= town.baseDemographics[pool[i]]
-    if (roll <= 0) return pool[i]
+  if (marriagePool) {
+    const pool = marriagePool.filter(race => town.baseDemographics[race])
+    const poolSum = pool.map(race => town.baseDemographics[race]).reduce((a, b) => a + b, 0)
+
+    let roll = Math.random() * poolSum
+    for (let i = 0; i < pool.length; i++) {
+      roll -= town.baseDemographics[pool[i]]
+      if (roll <= 0) return pool[i]
+    }
   }
 
   return npc.race

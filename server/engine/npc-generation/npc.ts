@@ -1,10 +1,10 @@
-import { Race } from "../../../shared/Race"
+import { MajorRace } from "../../../shared/Race"
 
 export interface NPC {
   key: string
   name: string
   lastName: string
-  race: Race
+  race: MajorRace
   family: any
   gender: string
   raceName: string

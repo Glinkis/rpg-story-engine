@@ -4,7 +4,7 @@
  * When referring to a race, it's preferred
  * to use one of these values directly.
  */
-export enum Race {
+export enum MajorRace {
   Dragonborn = `dragonborn`,
   Dwarf = `dwarf`,
   Elf = `elf`,
@@ -15,3 +15,10 @@ export enum Race {
   Human = `human`,
   Tiefling = `tiefling`,
 }
+
+export enum MinorRace {
+  Orc = `orc`,
+  Devil = `devil`,
+}
+
+export type Race = MajorRace | MinorRace
