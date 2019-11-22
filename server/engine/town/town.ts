@@ -17,7 +17,7 @@ export interface Town {
   location: string
   population: number
   roads: Record<string, any>
-  families: Record<string, any>
+  families: any[]
   factions: Faction[]
   season: Season
   buildings: Record<string, Record<string, Building>>

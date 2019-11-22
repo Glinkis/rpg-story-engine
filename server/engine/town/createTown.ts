@@ -50,7 +50,7 @@ export function createTown(base: Partial<Town> = {}) {
     },
     terrain,
     season: randomValue(Season),
-    families: {},
+    families: [],
     factions: [],
     buildings: {},
     professions: {},
@@ -156,9 +156,6 @@ export function createTown(base: Partial<Town> = {}) {
   townRender(town)
   // createStartBuildings(town)
   createStartFactions(town)
-
-  console.groupEnd()
-  console.log(`${town.name} has loaded.`)
 
   return town
 }

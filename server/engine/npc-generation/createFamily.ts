@@ -1,12 +1,15 @@
 import { Town } from "../town/town"
 import { NPC } from "./npc"
+import { createUniqueKey } from "../tools/createUniqueKey"
 
 export function createFamily(town: Town, npc: NPC) {
-  const key = `${npc.lastName} family`
+  const name = `${npc.lastName} family`
 
-  npc.family = key
-  town.families[key] = {
-    key,
+  npc.family = name
+
+  town.families.push({
+    key: createUniqueKey(),
+    name: name,
     members: {
       [npc.key]: {
         key: npc.key,
@@ -15,5 +18,5 @@ export function createFamily(town: Town, npc: NPC) {
         canRemarry: true,
       },
     },
-  }
+  })
 }
