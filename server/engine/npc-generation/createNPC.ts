@@ -115,14 +115,14 @@ export function createNPC(town: Town, base?: any) {
       return randomValue(this.descriptors)
     },
     set descriptorsAdd(description: string) {
-      if (typeof description === `string`) {
-        if (this.descriptors.includes(description)) {
-          console.log(`Throwing out duplicate description...`)
-        } else {
-          this.descriptors.push(description)
-        }
+      if (typeof description !== `string`) {
+        throw new TypeError(`Expected a string operand and received ${description}`)
+      }
+
+      if (this.descriptors.includes(description)) {
+        console.log(`Throwing out duplicate description...`)
       } else {
-        console.log(`Expected a string operand and received ${description}`)
+        this.descriptors.push(description)
       }
     },
     eyes: randomValue(raceTraitsData[race].eyes),
