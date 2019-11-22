@@ -225,12 +225,6 @@ export function createNPC(town: Town, base?: any) {
   createSocialClass(town, npc)
   createLifestyleStandards(town, npc)
 
-  if (npc.hasHistory !== false) {
-    // TODO: setup.ExpandNPC(town, npc)
-  }
-
-  // TODO: State.temporary.newNPC = npc
-
   if (npc.callbackFunction) {
     npc.callbackFunction(town, npc, base)
   }
