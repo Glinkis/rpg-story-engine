@@ -14,7 +14,8 @@ export interface ProfessionData {
   socialClassRoll(): number
 }
 
-// TODO: Fill this out with every single profession.
+// TODO: Fill this out with every single profession,
+// and replace the string names with the enum properties.
 export enum Profession {
   Child = `child`,
   DomesticPartner = `domestic partner`,
