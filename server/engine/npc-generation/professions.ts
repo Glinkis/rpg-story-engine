@@ -1,5 +1,12 @@
 import { dice } from "../rolls"
 
+export enum SocialClass {
+  Commoner = `commoner`,
+  Nobility = `nobility`,
+  Peasantry = `peasantry`,
+  Paupery = `paupery`,
+}
+
 export interface ProfessionData {
   sv: number
   name?: string
@@ -31,7 +38,7 @@ export const professions: Record<string, ProfessionData> = {
     synonyms: [`prepubescent`, `kid`],
     description: `a child, specifically one that is not working.`,
     dailyWage: 4,
-    socialClass: `commoner`,
+    socialClass: SocialClass.Commoner,
     socialClassRoll() {
       return 50 + dice(8, 6)
     },
@@ -42,7 +49,7 @@ export const professions: Record<string, ProfessionData> = {
     sector: `family`,
     description: `a spouse that stays at home, cooking, cleaning, and caring for the family.`,
     dailyWage: 4,
-    socialClass: `commoner`,
+    socialClass: SocialClass.Commoner,
     socialClassRoll() {
       return 50 + dice(8, 6)
     },
@@ -53,7 +60,7 @@ export const professions: Record<string, ProfessionData> = {
     sector: `agriculture`,
     description: `a peasant.`,
     dailyWage: 14,
-    socialClass: `peasantry`,
+    socialClass: SocialClass.Peasantry,
     socialClassRoll() {
       return 30 + dice(8, 6)
     },
@@ -65,7 +72,7 @@ export const professions: Record<string, ProfessionData> = {
     sector: `adventuring`,
     description: `a person living in a mountainous area.`,
     dailyWage: 50,
-    socialClass: `commoner`,
+    socialClass: SocialClass.Commoner,
     socialClassRoll() {
       return 50 + dice(8, 6)
     },
