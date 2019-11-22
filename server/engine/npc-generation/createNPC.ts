@@ -217,11 +217,6 @@ export function createNPC(town: Town, base?: any) {
     variables.npcs[npc.key] = npc
   }
 
-  npc.profile = (npc: any, base: any) => {
-    base = npc.name || base
-    return `<<profile \`$npcs[${JSON.stringify(npc.key)}] \`${JSON.stringify(base)}>>`
-  }
-
   createSexuality(npc)
   createSocialClass(town, npc)
   createLifestyleStandards(town, npc)
