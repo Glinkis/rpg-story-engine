@@ -131,10 +131,6 @@ export function findChildRace(town: Town, motherRace: Race, fatherRace: Race) {
 }
 
 export function findPartnerRace(town: Town, npc: NPC) {
-  if (!(npc.race in marriagePools)) {
-    return npc.race
-  }
-
   const marriagePool = marriagePools[npc.race]
 
   if (marriagePool) {
