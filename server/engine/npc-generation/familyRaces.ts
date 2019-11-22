@@ -21,8 +21,8 @@ export function findParentRaces(npc: NPC) {
   const parentalLineageRoll = randomRange(1, 8)
 
   let lineage: string | undefined
-  let fatherRace: MajorRace | string
-  let motherRace: MajorRace | string
+  let fatherRace: Race
+  let motherRace: Race
 
   switch (npc.race) {
     case HalfOrc:

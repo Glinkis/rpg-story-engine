@@ -1,3 +1,4 @@
+import { MajorRace, Race } from "../../../shared/Race"
 import { randomRange, randomValue } from "../rolls"
 import { createNPC } from "./createNPC"
 import { relativeSocialClass, familySocialClass } from "./createSocialClass"
@@ -111,8 +112,8 @@ export function createChildren(
   family,
   marriage,
   amount,
-  motherRace = `human`,
-  fatherRace = `human`,
+  motherRace: Race = MajorRace.Human,
+  fatherRace: Race = MajorRace.Human,
   force = false
 ) {
   if (!force) {
