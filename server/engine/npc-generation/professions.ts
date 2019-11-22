@@ -1,6 +1,6 @@
 import { dice } from "../rolls"
 
-export interface Profession {
+export interface ProfessionData {
   sv: number
   name?: string
   type: string
@@ -14,8 +14,16 @@ export interface Profession {
   socialClassRoll(): number
 }
 
-export const professions: Record<string, Profession> = {
-  "child": {
+// TODO: Fill this out with every single profession.
+export enum Profession {
+  Child = `child`,
+  DomesticPartner = `domestic partner`,
+  Peasant = `peasant`,
+  Mountaineer = `mountaineer`,
+}
+
+export const professions: Record<string, ProfessionData> = {
+  [Profession.Child]: {
     sv: 10000,
     type: `family`,
     sector: `family`,
@@ -27,7 +35,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  "domestic partner": {
+  [Profession.DomesticPartner]: {
     sv: 10000,
     type: `family`,
     sector: `family`,
@@ -38,7 +46,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  "peasant": {
+  [Profession.Peasant]: {
     sv: 10000,
     type: `labourer`,
     sector: `agriculture`,
@@ -49,7 +57,7 @@ export const professions: Record<string, Profession> = {
       return 30 + dice(8, 6)
     },
   },
-  "mountaineer": {
+  [Profession.Mountaineer]: {
     sv: 1500,
     isHobby: true,
     type: `recreation`,
