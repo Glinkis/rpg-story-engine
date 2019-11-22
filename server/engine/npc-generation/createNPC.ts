@@ -1,4 +1,5 @@
 import { npcData, raceTraitsData } from "./npcData"
+import { bodyParts } from "./bodyParts"
 import { genderData } from "./genderData"
 import { objectArrayFetcher } from "../tools/objectArrayFetcher"
 import { randomRange, randomValue, dice, random } from "../rolls"
@@ -177,16 +178,16 @@ export function createNPC(town: Town, base?: any) {
   createRace(npc)
 
   // This sets up the physical traits of NPCs
-  const hair = randomValue(npcData.bodyParts.head.hair)
-  const eyes = randomValue(npcData.bodyParts.head.eyes)
-  const nose = randomValue(npcData.bodyParts.head.nose)
-  const mouth = randomValue(npcData.bodyParts.head.mouth)
-  const chin = randomValue(npcData.bodyParts.head.chin)
-  const ears = randomValue(npcData.bodyParts.head.ears)
-  const headMisc = randomValue(npcData.bodyParts.head.misc)
-  const torso = randomValue(npcData.bodyParts.torso.descriptions)
-  const arms = randomValue(npcData.bodyParts.arms.descriptions)
-  const legs = randomValue(npcData.bodyParts.legs.descriptions)
+  const hair = randomValue(bodyParts.head.hair)
+  const eyes = randomValue(bodyParts.head.eyes)
+  const nose = randomValue(bodyParts.head.nose)
+  const mouth = randomValue(bodyParts.head.mouth)
+  const chin = randomValue(bodyParts.head.chin)
+  const ears = randomValue(bodyParts.head.ears)
+  const headMisc = randomValue(bodyParts.head.misc)
+  const torso = randomValue(bodyParts.torso.descriptions)
+  const arms = randomValue(bodyParts.arms.descriptions)
+  const legs = randomValue(bodyParts.legs.descriptions)
 
   const physicalTraitRoll = randomRange(1, 100)
 
