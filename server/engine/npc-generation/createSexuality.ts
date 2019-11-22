@@ -1,12 +1,13 @@
 import { clamp } from "../math"
 import { dice, random, randomRange } from "../rolls"
-import { npcData } from "./npcData"
+import { genderData } from "./genderData"
 import { variables } from "../global"
+import { NPC } from "./npc"
 
 interface Kinsey {
   [key: number]: {
     sexuality: string
-    partnerGenderProbability(npc: any): string
+    partnerGenderProbability(npc: NPC): string
   }
 }
 
@@ -52,14 +53,14 @@ export function createSexuality(npc: any) {
     0: {
       sexuality: `heterosexual`,
       partnerGenderProbability(npc) {
-        return npcData.gender[npc.gender].oppositeGender
+        return genderData[npc.gender].oppositeGender
       },
     },
     1: {
       sexuality: `heterosexual with passing interest in other $currentNPC.menwomen`,
       partnerGenderProbability(npc) {
         if (random(100) < 90) {
-          return npcData.gender[npc.gender].oppositeGender
+          return genderData[npc.gender].oppositeGender
         } else {
           return npc.gender
         }
@@ -69,7 +70,7 @@ export function createSexuality(npc: any) {
       sexuality: `predominantly heterosexual, but with more than a passing interest in $currentNPC.menwomen`,
       partnerGenderProbability(npc) {
         if (random(100) < 70) {
-          return npcData.gender[npc.gender].oppositeGender
+          return genderData[npc.gender].oppositeGender
         } else {
           return npc.gender
         }
@@ -79,7 +80,7 @@ export function createSexuality(npc: any) {
       sexuality: `bisexual`,
       partnerGenderProbability(npc) {
         if (random(100) < 50) {
-          return npcData.gender[npc.gender].oppositeGender
+          return genderData[npc.gender].oppositeGender
         } else {
           return npc.gender
         }
@@ -91,7 +92,7 @@ export function createSexuality(npc: any) {
         if (random(100) < 70) {
           return npc.gender
         } else {
-          return npcData.gender[npc.gender].oppositeGender
+          return genderData[npc.gender].oppositeGender
         }
       },
     },
@@ -101,7 +102,7 @@ export function createSexuality(npc: any) {
         if (random(100) < 90) {
           return npc.gender
         } else {
-          return npcData.gender[npc.gender].oppositeGender
+          return genderData[npc.gender].oppositeGender
         }
       },
     },

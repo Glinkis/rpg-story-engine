@@ -2,7 +2,8 @@ import { randomRange, randomValue } from "../rolls"
 import { createNPC } from "./createNPC"
 import { relativeSocialClass, familySocialClass } from "./createSocialClass"
 import { isOfAge } from "./createAge"
-import { npcData, raceTraitsData } from "./npcData"
+import { raceTraitsData } from "./npcData"
+import { genderData } from "./genderData"
 import { familyData } from "./familyData"
 import { setAsPartners } from "./setAsPartners"
 import { findPartnerRace, findChildRace, findParentRaces } from "./familyRaces"
@@ -163,7 +164,7 @@ export function createMarriage(town, family, npc, force = false) {
   // TODO finish support for non-heterosexual marriages
   const partnerBase = {
     ...familyData.relativeBase(npc),
-    gender: npcData.gender[npc.gender].oppositeGender,
+    gender: genderData[npc.gender].oppositeGender,
     ageYears: Math.max(familyData.partnerAge(npc), marriageMin),
     race: findPartnerRace(town, npc),
     socialClass: relativeSocialClass(relativeSocialClass(npc.socialClass)),

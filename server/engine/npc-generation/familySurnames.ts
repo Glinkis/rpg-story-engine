@@ -1,6 +1,6 @@
 import { Marriage } from "./createFamilyMembers"
 import { variables } from "../global"
-import { npcData } from "./npcData"
+import { genderData } from "./genderData"
 
 // TODO test matrilineal marriages
 export function marriageIsMatrilineal(marriage: Marriage) {
@@ -41,7 +41,7 @@ export function getChildSurname(marriage: Marriage) {
 
   if (marriage.parents.length) {
     const familyGender = marriageIsMatrilineal(marriage) ? `woman` : `man`
-    const maidenGender = npcData.gender[familyGender].oppositeGender
+    const maidenGender = genderData[familyGender].oppositeGender
 
     let head = marriage.parents.find(key => variables.npcs[key].gender === familyGender)
     if (head) return variables.npcs[head].lastName

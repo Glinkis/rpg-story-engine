@@ -1,4 +1,5 @@
 import { npcData, raceTraitsData } from "./npcData"
+import { genderData } from "./genderData"
 import { objectArrayFetcher } from "../tools/objectArrayFetcher"
 import { randomRange, randomValue, dice, random } from "../rolls"
 import { misc } from "../world/miscData"
@@ -24,7 +25,7 @@ import { NPC } from "./npc"
 
 export function createNPC(town: Town, base?: any) {
   if (!town) {
-    console.error(`Town is not defined! NPC cannot be created. Please report this bug.`)
+    throw new Error(`Town is not defined! NPC cannot be created. Please report this bug.`)
   }
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
 
@@ -35,7 +36,6 @@ export function createNPC(town: Town, base?: any) {
   }
 
   if (base.isShallow === true) {
-    console.log(`NPC flagged as shallow.`)
     base.isThrowaway = base.isThrowaway || true
     base.hasHistory = base.hasHistory || false
   }
@@ -150,7 +150,7 @@ export function createNPC(town: Town, base?: any) {
     ...base,
   }
 
-  Object.assign(npc, npcData.gender[npc.gender])
+  Object.assign(npc, genderData[npc.gender])
   Object.assign(npc, raceTraitsData[npc.race].raceWords)
 
   if (npc.hasClass === undefined) {
