@@ -111,10 +111,10 @@ export function createNPC(town: Town, base?: any) {
       this.hairType = hairs[0] || ``
       this.hairColour = hairs[1] || ``
     },
-    get descriptor(): any {
+    get descriptor() {
       return randomValue(this.descriptors)
     },
-    set descriptorsAdd(description: any) {
+    set descriptorsAdd(description: string) {
       if (typeof description === `string`) {
         if (this.descriptors.includes(description)) {
           console.log(`Throwing out duplicate description...`)
