@@ -2,6 +2,7 @@ import { defineRollDataGetter } from "../tools/defineRollDataGetter"
 import { weightedRandomFetcher } from "../tools/weightedRandomFetcher"
 import { randomValue } from "../rolls"
 import { Town } from "../town/town"
+import { Material } from "../../../shared/Material"
 
 export const structure = {
   create(town: Town, building: any = {}, opts: any = {}) {
@@ -103,7 +104,7 @@ export const structure = {
       ] as [number, string][],
     },
     types: {
-      "wood": {
+      [Material.Wood]: {
         probability: 40,
         tier: [`low`, `mid`],
         variations: {
@@ -145,7 +146,7 @@ export const structure = {
           },
         },
       },
-      "terra cotta": {
+      [Material.TerraCotta]: {
         probability: 30,
         tier: [`low`],
         words: {
@@ -153,7 +154,7 @@ export const structure = {
           noun: `terra cotta`,
         },
       },
-      "adobe": {
+      [Material.Adobe]: {
         probability: 30,
         tier: [`low`],
         words: {
@@ -161,7 +162,7 @@ export const structure = {
           noun: `adobe`,
         },
       },
-      "daub": {
+      [Material.Daub]: {
         probability: 30,
         tier: [`low`],
         words: {
@@ -169,7 +170,7 @@ export const structure = {
           noun: `daub`,
         },
       },
-      "cob": {
+      [Material.Cob]: {
         probability: 5,
         tier: [`low`],
         words: {
@@ -177,7 +178,7 @@ export const structure = {
           noun: `cob`,
         },
       },
-      "plaster": {
+      [Material.Plaster]: {
         probability: 30,
         tier: [`high`],
         words: {
@@ -185,7 +186,7 @@ export const structure = {
           noun: `plaster`,
         },
       },
-      "rock": {
+      [Material.Rock]: {
         probability: 10,
         tier: [`low`],
         words: {
@@ -193,7 +194,7 @@ export const structure = {
           noun: `rock`,
         },
       },
-      "straw": {
+      [Material.Straw]: {
         probability: 15,
         tier: [`low`],
         words: {
@@ -201,7 +202,7 @@ export const structure = {
           noun: `straw`,
         },
       },
-      "hewn rock": {
+      [Material.HewnRock]: {
         probability: 5,
         tier: [`mid`],
         words: {
@@ -209,7 +210,7 @@ export const structure = {
           noun: `hewn rock`,
         },
       },
-      "stone": {
+      [Material.Stone]: {
         probability: 5,
         tier: [`mid`],
         words: {
@@ -217,7 +218,7 @@ export const structure = {
           noun: `stone`,
         },
       },
-      "brick": {
+      [Material.Brick]: {
         probability: 1,
         tier: [`high`],
         words: {
@@ -225,7 +226,7 @@ export const structure = {
           noun: `brick`,
         },
       },
-      "clay": {
+      [Material.Clay]: {
         probability: 5,
         tier: [`low`],
         words: {
@@ -233,7 +234,7 @@ export const structure = {
           noun: `clay`,
         },
       },
-      "cobblestone": {
+      [Material.Cobblestone]: {
         probability: 5,
         tier: [`low`],
         words: {
@@ -241,7 +242,7 @@ export const structure = {
           noun: `cobblestone`,
         },
       },
-      "limestone": {
+      [Material.Limestone]: {
         probability: 5,
         tier: [`high`],
         words: {
@@ -249,7 +250,7 @@ export const structure = {
           noun: `limestone`,
         },
       },
-      "gypsum": {
+      [Material.Gypsum]: {
         probability: 5,
         tier: [`high`],
         words: {
