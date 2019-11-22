@@ -185,9 +185,9 @@ export function createNPC(town: Town, base?: any) {
   const chin = randomValue(bodyParts.head.chin)
   const ears = randomValue(bodyParts.head.ears)
   const headMisc = randomValue(bodyParts.head.misc)
-  const torso = randomValue(bodyParts.torso.descriptions)
-  const arms = randomValue(bodyParts.arms.descriptions)
-  const legs = randomValue(bodyParts.legs.descriptions)
+  const torso = randomValue(bodyParts.torso)
+  const arms = randomValue(bodyParts.arms)
+  const legs = randomValue(bodyParts.legs)
 
   const physicalTraitRoll = randomRange(1, 100)
 
