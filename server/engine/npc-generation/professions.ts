@@ -98,8 +98,7 @@ export const professions: Record<string, Profession> = {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
-    description:
-      `a mage attuned to the magical forces of nature, able to shapeshift, call on the elements, communicate with flora and fauna, etc.`,
+    description: `a mage attuned to the magical forces of nature, able to shapeshift, call on the elements, communicate with flora and fauna, etc.`,
     dailyWage: 140,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -403,8 +402,7 @@ export const professions: Record<string, Profession> = {
     sv: 650,
     type: `labourer`,
     sector: `construction`,
-    description:
-      `builds with mineral products such as stones, bricks, cinder blocks, or tiles, usually with the use of mortar as a bonding agent.`,
+    description: `builds with mineral products such as stones, bricks, cinder blocks, or tiles, usually with the use of mortar as a bonding agent.`,
     dailyWage: 70,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -515,8 +513,7 @@ export const professions: Record<string, Profession> = {
     sv: 40,
     type: `profession`,
     sector: `religion`,
-    description:
-      `a member of the clergy attached to a private chapel, institution, ship, branch of the armed forces, etc.`,
+    description: `a member of the clergy attached to a private chapel, institution, ship, branch of the armed forces, etc.`,
     dailyWage: 190,
     socialClass: `nobility`,
     socialClassRoll() {
@@ -760,8 +757,7 @@ export const professions: Record<string, Profession> = {
     synonyms: [`guardsman`, `guard`, `watchman`, `town guard`],
     type: `profession`,
     sector: `military`,
-    description:
-      `a person who keeps watch, especially a soldier or other person formally assigned to protect a person or to control access to a place.`,
+    description: `a person who keeps watch, especially a soldier or other person formally assigned to protect a person or to control access to a place.`,
     dailyWage: 200,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -772,8 +768,7 @@ export const professions: Record<string, Profession> = {
     sv: 4150,
     type: `profession`,
     sector: `business`,
-    description:
-      `leads an economically independent producer (a “guild,” an association of craftsmen or merchants that often holds considerable bureaucratic power).`,
+    description: `leads an economically independent producer (a “guild,” an association of craftsmen or merchants that often holds considerable bureaucratic power).`,
     dailyWage: 900,
     socialClass: `nobility`,
     socialClassRoll() {
@@ -839,8 +834,7 @@ export const professions: Record<string, Profession> = {
     sv: 4150,
     type: `profession`,
     sector: `science`,
-    description:
-      `an expert in or student of history, especially that of a particular period, geographical region, or social phenomenon.`,
+    description: `an expert in or student of history, especially that of a particular period, geographical region, or social phenomenon.`,
     dailyWage: 230,
     socialClass: `nobility`,
     socialClassRoll() {
@@ -985,8 +979,7 @@ export const professions: Record<string, Profession> = {
     sv: 5150,
     type: `profession`,
     sector: `science`,
-    description:
-      `studies the essence of communication, including the units, nature, structure, and modification of language.`,
+    description: `studies the essence of communication, including the units, nature, structure, and modification of language.`,
     dailyWage: 260,
     socialClass: `nobility`,
     socialClassRoll() {
@@ -1129,8 +1122,7 @@ export const professions: Record<string, Profession> = {
     sv: 1450,
     type: `profession`,
     sector: `religion`,
-    description:
-      `a member of a religious community of men, usually a cloistered one, potentially living under vows of poverty, chastity, and obedience.`,
+    description: `a member of a religious community of men, usually a cloistered one, potentially living under vows of poverty, chastity, and obedience.`,
     dailyWage: 30,
     socialClass: `paupery`,
     socialClassRoll() {
@@ -1187,8 +1179,7 @@ export const professions: Record<string, Profession> = {
     sv: 2150,
     type: `profession`,
     sector: `religion`,
-    description:
-      `a member of a religious community of women, usually a cloistered one, potentially living under vows of poverty, chastity, and obedience.`,
+    description: `a member of a religious community of women, usually a cloistered one, potentially living under vows of poverty, chastity, and obedience.`,
     dailyWage: 50,
     socialClass: `paupery`,
     socialClassRoll() {
@@ -2183,8 +2174,7 @@ export const professions: Record<string, Profession> = {
     sv: 5000,
     type: `profession`,
     sector: `construction`,
-    description:
-      `supervises a construction site, manages its vendors and trades, and communicates information to all involved parties.`,
+    description: `supervises a construction site, manages its vendors and trades, and communicates information to all involved parties.`,
     dailyWage: 300,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -2411,8 +2401,7 @@ export const professions: Record<string, Profession> = {
     isHobby: true,
     type: `profession`,
     sector: `arts`,
-    description:
-      `keeps several objects in motion in the air at the same time by alternately tossing and catching them.`,
+    description: `keeps several objects in motion in the air at the same time by alternately tossing and catching them.`,
     dailyWage: 100,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -2583,8 +2572,7 @@ export const professions: Record<string, Profession> = {
     sv: 5000,
     type: `business`,
     sector: `arts`,
-    description:
-      `supervises and orchestrates the mounting of a theatre production by unifying various endeavors and aspects of production.`,
+    description: `supervises and orchestrates the mounting of a theatre production by unifying various endeavors and aspects of production.`,
     dailyWage: 200,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -2719,8 +2707,7 @@ export const professions: Record<string, Profession> = {
     isHobby: true,
     type: `business`,
     sector: `business`,
-    description:
-      `organizes and operates a business or businesses, taking on greater than normal financial risks in order to do so.`,
+    description: `organizes and operates a business or businesses, taking on greater than normal financial risks in order to do so.`,
     dailyWage: 300,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -3032,8 +3019,7 @@ export const professions: Record<string, Profession> = {
     isHobby: true,
     type: `profession`,
     sector: `craftsmanship`,
-    description:
-      `turns stone, minerals, or gemstones into decorative items such as cabochons, engraved gems, and faceted designs.`,
+    description: `turns stone, minerals, or gemstones into decorative items such as cabochons, engraved gems, and faceted designs.`,
     dailyWage: 200,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -3078,8 +3064,7 @@ export const professions: Record<string, Profession> = {
     sv: 2000,
     type: `labourer`,
     sector: `craftsmanship`,
-    description:
-      `a person who applies pressure to an inked surface resting upon a print medium (such as paper or cloth), thereby transferring the ink to manufacture a text.`,
+    description: `a person who applies pressure to an inked surface resting upon a print medium (such as paper or cloth), thereby transferring the ink to manufacture a text.`,
     dailyWage: 140,
     socialClass: `peasantry`,
     socialClassRoll() {
@@ -3190,8 +3175,7 @@ export const professions: Record<string, Profession> = {
     sv: 750,
     type: `profession`,
     sector: `crime`,
-    description:
-      `tricks people by gaining their trust and persuading them to believe something that is not true in order to benefit from the encounter.`,
+    description: `tricks people by gaining their trust and persuading them to believe something that is not true in order to benefit from the encounter.`,
     dailyWage: 150,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -3202,8 +3186,7 @@ export const professions: Record<string, Profession> = {
     sv: 2000,
     type: `profession`,
     sector: `crime`,
-    description:
-      `engages in arena matches in which animals or monsters are pitted against one another, typically to the death.`,
+    description: `engages in arena matches in which animals or monsters are pitted against one another, typically to the death.`,
     dailyWage: 190,
     socialClass: `peasantry`,
     socialClassRoll() {
@@ -3390,8 +3373,7 @@ export const professions: Record<string, Profession> = {
     sv: 2500,
     type: `profession`,
     sector: `crime`,
-    description:
-      `manages the import or export of goods secretly, in violation of the law, especially without payment of legal duty.`,
+    description: `manages the import or export of goods secretly, in violation of the law, especially without payment of legal duty.`,
     dailyWage: 200,
     socialClass: `peasantry`,
     socialClassRoll() {
@@ -3568,8 +3550,7 @@ export const professions: Record<string, Profession> = {
     sv: 7500,
     type: `profession`,
     sector: `government and law`,
-    description:
-      `supervises the royal treasury, advises the monarch on financial matters, and is responsible for raising money through taxation.`,
+    description: `supervises the royal treasury, advises the monarch on financial matters, and is responsible for raising money through taxation.`,
     dailyWage: 700,
     socialClass: `nobility`,
     socialClassRoll() {
@@ -3592,8 +3573,7 @@ export const professions: Record<string, Profession> = {
     isHobby: true,
     type: `profession`,
     sector: `government and law`,
-    description:
-      `performs certain legal formalities, especially to draw up or certify contracts, deeds, and other documents for use in other jurisdictions.`,
+    description: `performs certain legal formalities, especially to draw up or certify contracts, deeds, and other documents for use in other jurisdictions.`,
     dailyWage: 300,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -4080,8 +4060,7 @@ export const professions: Record<string, Profession> = {
     sv: 2000,
     type: `profession`,
     sector: `science`,
-    description:
-      `transforms or creates something within nature through the magical and scientific manipulation of chemicals.`,
+    description: `transforms or creates something within nature through the magical and scientific manipulation of chemicals.`,
     dailyWage: 1500,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -4192,8 +4171,7 @@ export const professions: Record<string, Profession> = {
     sv: 8000,
     type: `profession`,
     sector: `magic`,
-    description:
-      `uses extrasensory perception, magic, or divine powers to identify information hidden from the normal senses.`,
+    description: `uses extrasensory perception, magic, or divine powers to identify information hidden from the normal senses.`,
     dailyWage: 400,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -4215,8 +4193,7 @@ export const professions: Record<string, Profession> = {
     sv: 4000,
     type: `profession`,
     sector: `magic`,
-    description:
-      `practices or advocates the observance of ritual (formula intended to trigger a magical effect on a person or objects).`,
+    description: `practices or advocates the observance of ritual (formula intended to trigger a magical effect on a person or objects).`,
     dailyWage: 500,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -4227,8 +4204,7 @@ export const professions: Record<string, Profession> = {
     sv: 10000,
     type: `profession`,
     sector: `magic`,
-    description:
-      `uses special alphabets to create runes (symbols possessing magical effects capable of being used multiple times).`,
+    description: `uses special alphabets to create runes (symbols possessing magical effects capable of being used multiple times).`,
     dailyWage: 600,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -4471,8 +4447,7 @@ export const professions: Record<string, Profession> = {
     sv: 4000,
     type: `profession`,
     sector: `military`,
-    description:
-      `responsible for the inspection of military units to ensure they meet appropriate standards of training and efficiency.`,
+    description: `responsible for the inspection of military units to ensure they meet appropriate standards of training and efficiency.`,
     dailyWage: 200,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -4582,8 +4557,7 @@ export const professions: Record<string, Profession> = {
     sv: 5000,
     type: `labourer`,
     sector: `military`,
-    description:
-      `a soldier responsible for tasks such as building and repairing roads and bridges, laying and clearing mines, etc.`,
+    description: `a soldier responsible for tasks such as building and repairing roads and bridges, laying and clearing mines, etc.`,
     dailyWage: 150,
     socialClass: `peasantry`,
     socialClassRoll() {
@@ -4616,8 +4590,7 @@ export const professions: Record<string, Profession> = {
     sv: 5000,
     type: `profession`,
     sector: `military`,
-    description:
-      `sent ahead of a main force so as to gather information about the enemy's position, strength, or movements.`,
+    description: `sent ahead of a main force so as to gather information about the enemy's position, strength, or movements.`,
     dailyWage: 100,
     socialClass: `peasantry`,
     socialClassRoll() {
@@ -4661,8 +4634,7 @@ export const professions: Record<string, Profession> = {
     sv: 4500,
     type: `profession`,
     sector: `military`,
-    description:
-      `secretly collects and reports information on the activities, movements, and plans of an enemy or competitor.`,
+    description: `secretly collects and reports information on the activities, movements, and plans of an enemy or competitor.`,
     dailyWage: 200,
     socialClass: `peasantry`,
     socialClassRoll() {
@@ -4695,8 +4667,7 @@ export const professions: Record<string, Profession> = {
     sv: 5000,
     type: `profession`,
     sector: `government and law`,
-    description:
-      `responsible for the supervision of a particular place or thing or for ensuring that regulations associated with it are obeyed.`,
+    description: `responsible for the supervision of a particular place or thing or for ensuring that regulations associated with it are obeyed.`,
     dailyWage: 150,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -4809,8 +4780,7 @@ export const professions: Record<string, Profession> = {
     sv: 2000,
     type: `profession`,
     sector: `religion`,
-    description:
-      `a member of a cult who generally lives outside of conventional society and worships an unorthodox patron.`,
+    description: `a member of a cult who generally lives outside of conventional society and worships an unorthodox patron.`,
     dailyWage: 100,
     socialClass: `peasantry`,
     socialClassRoll() {
@@ -4954,8 +4924,7 @@ export const professions: Record<string, Profession> = {
     sv: 5000,
     type: `profession`,
     sector: `science`,
-    description:
-      `studies the customs, beliefs, and relationships of humanoids and intellectually and culturally advanced creatures.`,
+    description: `studies the customs, beliefs, and relationships of humanoids and intellectually and culturally advanced creatures.`,
     dailyWage: 120,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -4977,8 +4946,7 @@ export const professions: Record<string, Profession> = {
     sv: 2000,
     type: `profession`,
     sector: `science`,
-    description:
-      `studies humanoid history and prehistory through the excavation of sites and the analysis of artifacts and other physical remains.`,
+    description: `studies humanoid history and prehistory through the excavation of sites and the analysis of artifacts and other physical remains.`,
     dailyWage: 120,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -4989,8 +4957,7 @@ export const professions: Record<string, Profession> = {
     sv: 2000,
     type: `profession`,
     sector: `science`,
-    description:
-      `determiner of the proportions of metal in ore and the amount of copper, silver, gold, or platinum in coins.`,
+    description: `determiner of the proportions of metal in ore and the amount of copper, silver, gold, or platinum in coins.`,
     dailyWage: 230,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -5269,8 +5236,7 @@ export const professions: Record<string, Profession> = {
     sv: 1500,
     type: `profession`,
     sector: `naval`,
-    description:
-      `directs the route or course of a ship or other form of transportation, especially by using instruments and maps.`,
+    description: `directs the route or course of a ship or other form of transportation, especially by using instruments and maps.`,
     dailyWage: 180,
     socialClass: `peasantry`,
     socialClassRoll() {
@@ -5303,8 +5269,7 @@ export const professions: Record<string, Profession> = {
     sv: 2000,
     type: `profession`,
     sector: `adventuring`,
-    description:
-      `wanders the world in search of knowledge, treasure, fame, glory or a multitude of additional wants and desires.`,
+    description: `wanders the world in search of knowledge, treasure, fame, glory or a multitude of additional wants and desires.`,
     dailyWage: 200,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -5372,8 +5337,7 @@ export const professions: Record<string, Profession> = {
     sv: 5000,
     type: `profession`,
     sector: `outcast`,
-    description:
-      `a person of high birth who has since loss their respect, honor, or esteem in some or all noble circles.`,
+    description: `a person of high birth who has since loss their respect, honor, or esteem in some or all noble circles.`,
     dailyWage: 100,
     socialClass: `commoner`,
     socialClassRoll() {
@@ -5439,8 +5403,7 @@ export const professions: Record<string, Profession> = {
     sv: 1200,
     type: `profession`,
     sector: `outcast`,
-    description:
-      `a person who has been convicted of a crime and has since served their sentence, or who has preemptively given up their life of crime.`,
+    description: `a person who has been convicted of a crime and has since served their sentence, or who has preemptively given up their life of crime.`,
     dailyWage: 60,
     socialClass: `peasantry`,
     socialClassRoll() {
@@ -5584,8 +5547,7 @@ export const professions: Record<string, Profession> = {
     sv: 500,
     type: `profession`,
     sector: `outcast`,
-    description:
-      `a child who lives or spends most of their time in the streets, occasionally working as a thief or pickpocket.`,
+    description: `a child who lives or spends most of their time in the streets, occasionally working as a thief or pickpocket.`,
     dailyWage: 5,
     socialClass: `paupery`,
     socialClassRoll() {
