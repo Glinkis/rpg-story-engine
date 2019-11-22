@@ -20,6 +20,7 @@ import { humanTraits } from "./race-traits/human"
 import { tieflingTraits } from "./race-traits/tiefling"
 import { RaceTrait } from "./race-traits/race-trait"
 import { NPC } from "./npc"
+import { Race } from "../../../shared/Race"
 
 export function pronouns(npc: NPC) {
   return npcData.gender[npc.gender]
@@ -3881,18 +3882,6 @@ export const npcData: any = {
       ],
     },
   },
-}
-
-export enum Race {
-  Dragonborn = `dragonborn`,
-  Dwarf = `dwarf`,
-  Elf = `elf`,
-  Gnome = `gnome`,
-  HalfElf = `half-elf`,
-  Halfling = `halfling`,
-  HalfOrc = `half-orc`,
-  Human = `human`,
-  Tiefling = `tiefling`,
 }
 
 export const raceTraitsData: Record<Race, RaceTrait> = {

@@ -1,4 +1,4 @@
-import { Race } from "./npcData"
+import { Race } from "../../../shared/Race"
 
 export interface NPC {
   key: string
