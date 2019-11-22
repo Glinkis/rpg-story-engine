@@ -40,30 +40,30 @@ export interface Expertise {
 }
 
 export interface Terrain {
-  weather: Weather
-  start: string[]
-  location: Record<string, Location>
+  readonly weather: Weather
+  readonly start: string[]
+  readonly location: Record<string, Location>
 }
 
 interface Weather {
-  tempVariation: Record<number, TempVariation>
-  season: Record<Season, SeasonData>
+  readonly tempVariation: Record<number, TempVariation>
+  readonly season: Record<Season, SeasonData>
 }
 
 interface TempVariation {
-  temperature: number
-  temperatureTimer: number
+  readonly temperature: number
+  readonly temperatureTimer: number
 }
 
 interface SeasonData {
-  precipitationLevel: number
-  precipitationIntensity: number
-  baseTemp: number
+  readonly precipitationLevel: number
+  readonly precipitationIntensity: number
+  readonly baseTemp: number
 }
 
 interface Location {
-  precipitationIntensity?: number
-  origin: string[]
-  vegetation: string[]
-  plants: string[]
+  readonly precipitationIntensity?: number
+  readonly origin: string[]
+  readonly vegetation: string[]
+  readonly plants: string[]
 }
