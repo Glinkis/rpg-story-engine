@@ -37,8 +37,8 @@ export function randomFloatRange(min: number, max: number) {
 /**
  * Returns a random value from an array.
  */
-export function randomValue<T>(array: T[]) {
-  return seeded.arrayItem(array)
+export function randomValue<T>(values: T[] | Record<any, T>) {
+  return seeded.arrayItem(Array.isArray(values) ? values : Object.values(values))
 }
 
 /**
@@ -49,10 +49,20 @@ export function either<T>(...values: T[]) {
 }
 
 /**
+ * Randomly removes an element from the base array and returns it.
+ */
+export function pluck<T>(array: T[]) {
+  if (array.length) {
+    const index = randomRange(0, array.length - 1)
+    return array.splice(index, 1)[0]
+  }
+}
+
+/**
  * Rolls a number of dices with n-number of sides.
  */
 export function dice(amount: number, sides: number) {
-  const rolls = []
+  const rolls: number[] = []
   while (amount > rolls.length) {
     rolls.push(seeded.integerInRange(0, sides))
   }

@@ -1,5 +1,3 @@
-import { Roll } from "../../shared/types"
-
 /**
  * Returns a number whose value is limited to the given range.
  */
@@ -10,6 +8,6 @@ export function clamp(value: number, min: number, max: number) {
 /**
  * Fairmath placeholder.
  */
-export function fm(roll: Roll, weight: number) {
-  return 0
+export function fm(roll: number, weight: number) {
+  return Math.round(roll + (100 - roll) * (weight / 100))
 }
