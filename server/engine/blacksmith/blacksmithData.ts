@@ -1,76 +1,65 @@
-import { RollData } from "../../../shared/types"
+import { RollData, LookAround, Expertise } from "../../../shared/types"
+import { Smithy } from "./smithy"
 
 export const rollData: RollData = {
   wealth: [
-    [95, "kingly"],
-    [80, "aristocratic"],
-    [70, "wealthy"],
-    [60, "comfortable"],
-    [50, "modest"],
-    [25, "poor"],
-    [15, "squalid"],
-    [0, "destitute"],
+    [95, `kingly`],
+    [80, `aristocratic`],
+    [70, `wealthy`],
+    [60, `comfortable`],
+    [50, `modest`],
+    [25, `poor`],
+    [15, `squalid`],
+    [0, `destitute`],
   ],
   size: [
-    [95, "cavernous"],
-    [80, "huge"],
-    [70, "quite large"],
-    [60, "large"],
-    [50, "spacious"],
-    [40, "average sized"],
-    [30, "somewhat cramped"],
-    [20, "small"],
-    [10, "tiny"],
-    [0, "extremely cramped"],
+    [95, `cavernous`],
+    [80, `huge`],
+    [70, `quite large`],
+    [60, `large`],
+    [50, `spacious`],
+    [40, `average sized`],
+    [30, `somewhat cramped`],
+    [20, `small`],
+    [10, `tiny`],
+    [0, `extremely cramped`],
   ],
   cleanliness: [
-    [80, "fastidious"],
-    [70, "very tidy"],
-    [60, "tidy"],
-    [50, "reasonably tidy"],
-    [40, "somewhat messy"],
-    [30, "rather messy"],
-    [20, "very messy"],
-    [10, "extremely messy"],
-    [0, "dangerously messy"],
+    [80, `fastidious`],
+    [70, `very tidy`],
+    [60, `tidy`],
+    [50, `reasonably tidy`],
+    [40, `somewhat messy`],
+    [30, `rather messy`],
+    [20, `very messy`],
+    [10, `extremely messy`],
+    [0, `dangerously messy`],
   ],
   expertise: [
-    [80, "masterful"],
-    [70, "exceptional"],
-    [60, "superior quality"],
-    [50, "finely crafted"],
-    [40, "well crafted"],
-    [30, "sloppily made"],
-    [20, "somewhat amateur"],
-    [10, "amateur"],
-    [0, "blatantly amateur"],
+    [80, `masterful`],
+    [70, `exceptional`],
+    [60, `superior quality`],
+    [50, `finely crafted`],
+    [40, `well crafted`],
+    [30, `sloppily made`],
+    [20, `somewhat amateur`],
+    [10, `amateur`],
+    [0, `blatantly amateur`],
   ],
   activity: [
-    [80, "extremely busy"],
-    [70, "very busy"],
-    [60, "rather busy"],
-    [50, "reasonably busy"],
-    [40, "not terribly busy"],
-    [30, "reasonably quiet"],
-    [20, "rather quiet"],
-    [10, "totally empty"],
-    [0, "totally empty"],
+    [80, `extremely busy`],
+    [70, `very busy`],
+    [60, `rather busy`],
+    [50, `reasonably busy`],
+    [40, `not terribly busy`],
+    [30, `reasonably quiet`],
+    [20, `rather quiet`],
+    [10, `totally empty`],
+    [0, `totally empty`],
   ],
 }
 
-interface Smithy {
-  name: string
-  activity: string
-  weapons: string[]
-  blacksmith: Blacksmith
-}
-
-interface Blacksmith {
-  firstName: string
-  lastName: string
-}
-
-export function lookAround(smithy: Smithy) {
+export function lookAround(smithy: Smithy): LookAround[] {
   const { blacksmith } = smithy
 
   return [
@@ -117,7 +106,7 @@ export function lookAround(smithy: Smithy) {
   ]
 }
 
-export function expertise(smithy: Smithy) {
+export function expertise(smithy: Smithy): Expertise[] {
   return [
     {
       expertise: 80,

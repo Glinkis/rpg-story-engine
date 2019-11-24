@@ -1,32 +1,69 @@
-export type Roll = [number, ...(string | number)[]]
+export enum Season {
+  Summer = `summer`,
+  Autumn = `autumn`,
+  Winter = `winter`,
+  Spring = `spring`,
+}
+
+export enum Biome {
+  Forest = `forest`,
+  Desert = `desert`,
+  Mountain = `mountain`,
+  Plains = `plains`,
+}
+
+export type Roll = [number, ...string[]]
 
 export type RollData = Record<string, Roll[]>
 
+export interface Seed<T = never> {
+  readonly value: string
+  readonly modifiers?: Partial<T>
+}
+
+export interface LookAround {
+  readonly cleanliness: number
+  readonly wealth: number
+  readonly note: string
+}
+
+export interface PriceTalk {
+  readonly priceModifier: number
+  readonly wealth: number
+  readonly priceTalk: string
+}
+
+export interface Expertise {
+  readonly expertise: number
+  readonly wealth: number
+  readonly note: string
+}
+
 export interface Terrain {
-  weather: Weather
-  start: string[]
-  location: Record<string, Location>
+  readonly weather: Weather
+  readonly start: string[]
+  readonly location: Record<string, Location>
 }
 
 interface Weather {
-  tempVariation: Record<number, TempVariation>
-  season: Record<string, Season>
+  readonly tempVariation: Record<number, TempVariation>
+  readonly season: Record<Season, SeasonData>
 }
 
 interface TempVariation {
-  temperature: number
-  temperatureTimer: number
+  readonly temperature: number
+  readonly temperatureTimer: number
 }
 
-interface Season {
-  precipitationLevel: number
-  precipitationIntensity: number
-  baseTemp: number
+interface SeasonData {
+  readonly precipitationLevel: number
+  readonly precipitationIntensity: number
+  readonly baseTemp: number
 }
 
 interface Location {
-  precipitationIntensity?: number
-  origin: string[]
-  vegetation: string[]
-  plants: string[]
+  readonly precipitationIntensity?: number
+  readonly origin: string[]
+  readonly vegetation: string[]
+  readonly plants: string[]
 }
