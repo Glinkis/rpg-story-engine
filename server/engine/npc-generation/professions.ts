@@ -14,8 +14,506 @@ export interface Profession {
   socialClassRoll(): number
 }
 
-export const professions: Record<string, Profession> = {
-  child: {
+// TODO: Fill this out with every single profession,
+// and replace the string names with the enum properties.
+export enum Profession {
+  Child = `child`,
+  DomesticPartner = `domestic partner`,
+  Peasant = `peasant`,
+  Mountaineer = `mountaineer`,
+  Barbarian = `barbarian`,
+  Bard = `bard`,
+  Cleric = `cleric`,
+  Druid = `druid`,
+  Fighter = `fighter`,
+  Monk = `monk`,
+  Rogue = `rogue`,
+  Ranger = `ranger`,
+  Paladin = `paladin`,
+  Sorcerer = `sorcerer`,
+  Warlock = `warlock`,
+  Wizard = `wizard`,
+  Actor = `actor`,
+  Advocate = `advocate`
+  AnimalHandler = `animal handler`,
+  Apothecarist = `apothecarist`,
+  Architect = `architect`,
+  Archivist = `archivist`,
+  Armorer =  `armorer`,
+  Astrologer = `astrologer`,
+  Baker = `baker`, 
+  Banker = `banker`,
+  Barber = `barber`,
+  Bartender = `bartender`,
+  Barmaid = `barmaid`,
+  Blacksmith = `blacksmith`,
+  BlacksmithsAssistant = `blacksmith's assistant`,
+  Bookseller = `bookseller`,
+  Brewer = `brewer`,
+  Brickmason = `brickmason`,
+  Pimp = `pimp`,
+  Buccaneer = `buccaneer`,
+  Butcher = `butcher`,
+  Captain = `captain`,
+  Caravanner = `caravanner`,
+  Carpeneter = `carpenter`,
+  Cartographer = `cartographer`,
+  Chandler = `chandler`,
+  Chef = `chef`,
+  Clergyman = `clergyman`,
+  ClockMaker = `clock maker`,
+  Craftsman = `craftsman`,
+  Cobbler = `cobbler`,
+  Cook = `cook`,
+  Cooper = `cooper`,
+  Courtesan = `courtesan`,
+  Courtier = `courtier`,
+  Cowherder = `cowherder`,
+  Dancer = `dancer`,
+  Diplomat = `diplomat`,
+  Diver = `diver`,
+  Farmer = `farmer`,
+  Fisherman = `fisherman`,
+  Fishmonger = `fishmonger`,
+  Furrier = `furrier`,
+  Gardener = `gardener`,
+  General = `general`,
+  Gladiator = `gladiator`,
+  Glovemaker = `glovemaker`,
+  Goldsmith = `goldsmith`,
+  Grocer = `grocer`,
+  Guard = `guard`,
+  Guildmaster = `guildmaster`,
+  Hatter = `hatter`,
+  Healer = `healer`,
+  Herald = `herald`,
+  Herbalist = `herbalist`,
+  Hermit = `hermit`,
+  Historian = `historian`,
+  Hunter = `hunter`,
+  IceSeller = `ice seller`,
+  Innkeeper = `innkeeper`,
+  Inventor = `inventor`,
+  Jailer = `jailer`,
+  Jester = `jester`,
+  Jeweler = `jeweler`,
+  Judge = `judge`,
+  Knight = `knight`,
+  Lady = `lady`,
+  Leatherworker = `leatherworker`,
+  Librarian = `librarian`,
+  Linguist = `linguist`,
+  Locksmith = `locksmith`,
+  Lord = `lord`,
+  Lumberjack = `lumberjack`,
+  MaidServant = `maid-servant`,
+  Masseur = `masseur`,
+  Merchant = `merchant`,
+  Messenger = `messenger`,
+  Midwife = `midwife`,
+  Miller = `miller`,
+  Miner = `miner`,
+  Minister = `minister`,
+  Minstrel = `minstrel`,
+  Friar = `friar`,
+  Mortician = `mortician`,
+  Necromancer = `necromancer`,
+  Noble = `noble`,
+  Nobleman = `nobleman`,
+  Nun = `nun`,
+  Nurse = `nurse`,
+  Painter = `painter`,
+  Patissier = `patissier`,
+  Perfumer = `perfumer`,
+  Philosopher = `philosopher`,
+  Physician = `physician`,
+  Pilgrim = `pilgrim`,
+  Politician = `politician`,
+  PrimeMinister = `prime minister`,
+  Potter = `potter`,
+  Priest = `priest`,
+  Privateer = `privateer`,
+  Professor = `professor`,
+  Roofer = `roofer`,
+  Ropemaker = `ropemaker`,
+  Rugmaker = `rugmaker`,
+  Saddler = `saddler`,
+  Sailor = `sailor`,
+  Sculptor = `sculptor`,
+  Scavenger = `scavenger`,
+  Scholar = `scholar`,
+  Seamstress = `seamstress`,
+  Seer = `seer`,
+  Servant = `servant`,
+  Shaman = `shaman`,
+  Shepherd = `shepherd`,
+  ShipsCaptain = `ship's captain`,
+  Shoemaker = `shoemaker`,
+  Silversmith = `silversmith`,
+  Slave = `slave`,
+  Slaver = `slaver`,
+  Soldier = `soldier`,
+  SpiceMerchant = `spice merchant`,
+  Squire = `squire`,
+  Stablehand = `stablehand`,
+  Stevedore = `stevedore`,
+  Stonemason = `stonemason`,
+  Steward = `steward`,
+  StreetSeller = `street seller`,
+  StreetSweeper = `street sweeper`,
+  Student = `student`,
+  Surgeon = `surgeon`,
+  Surveyor = `surveyor`,
+  Tailor = `tailor`,
+  Tanner = `tanner`,
+  Tavernkeeper = `tavernkeeper`,
+  Shopkeep = `shopkeep`,
+  ShopkeepsAssistant = `shopkeep's assistant`,
+  TaxCollector = `tax collector`,
+  Teacher = `teacher`,
+  Thatcher = `thatcher`,
+  Thief = `thief`,
+  Torturer = `torturer`,
+  TownCrier = `town crier`,
+  Toymaker = `toymaker`,
+  Vendor = `vendor`,
+  Veterinarian = `veterinarian`,
+  Vinter = `vinter`,
+  Weaver = `weaver`,
+  Wetnurse = `wetnurse`,
+  Woodcarver = `woodcarver`,
+  WoodSeller = `wood seller`,
+  Wrestler = `wrestler`,
+  Writer = `writer`,
+  MonsterHandler = `MonsterHandler`,
+  Arborist = `arborist`,
+  Baler = `baler`,
+  Beekeeper = `beekeeper`,
+  Breeder = `breeder`,
+  Dairymaid = `dairymaid`,
+  Falconer = `falconer`,
+  Florist = `florist`,
+  Forager = `forager`,
+  Forester = `forester`,
+  Fowler = `fowler`,
+  Gamekeeper = `gamekeeper`,
+  Groom = `groom`,
+  Herder = `herder`,
+  HorseTrainer = `horse trainer`,
+  MasterOfHorses = `master-of-horses`,
+  MasterOfHounds = `master-of-hounds`,
+  Pathfinder = `pathfinder`,
+  Plumer = `plumer`,
+  Prospector = `prospector`,
+  Renderer = `renderer`,
+  Thresher = `thresher`,
+  Trapper = `trapper`,
+  Zookeeper = `zookeeper`,
+  ConstructionWorker = `construction worker`,
+  GeneralContractor =   `general contractor`,
+  Glazier = `glazier`,
+  Plasterer = `plasterer`,
+  Roadlayer = `roadlayer`,
+  Acrobat = `acrobat`,
+  Trapezist = `trapezist`,
+  Arranger = `arranger`,
+  Athlete = `athlete`,
+  Busker = `busker`,
+  Celebrity = `celebrity`,
+  Choirmaster = `choirmaster`,
+  Clown = `clown`,
+  Comedian = `comedian`,
+  Conductor = `conductor`,
+  Contortionist = `contortionist`,
+  Curator = `curator`,
+  Costumer = `costumer`,
+  Equilibrist = `equilibrist`,
+  FashionDesigner = `fashion designer`,
+  Glasspainter = `glasspainter`,
+  Juggler = `juggler`,
+  Limner = `limner`,
+  MakeupArtist = `makeup artist`,
+  Artisan = `artisan`,
+  Model = `model`,
+  Musician = `musician`,
+  Playwright = `playwright`,
+  Poet = `poet`,
+  Ringmaster = `ringmaster`,
+  Ropewalker = `ropewalker`,
+  Singer = `singer`,
+  Skald = `skald`,
+  StageMagician = `stage magician`,
+  Stuntman = `stuntman`,
+  Tattooist = `tattooist`,
+  TheaterDirector = `theater director`,
+  Accountant = `accountant`,
+  Actuary = `actuary`,
+  AnimalCollector = `animal collector`,
+  BusinessOwner = `business owner`,
+  DebtCollector = `debt collector`,
+  Draper = `draper`,
+  Appraiser = `appraiser`,
+  Auctioneer = `auctioneer`,
+  Bagniokeeper = `bagniokeeper`,
+  Bookkeeper = `bookkeeper`,
+  Collector = `collector`,
+  Entrepeneur = `entrepeneur`,
+  Moneychanger = `moneychanger`,
+  Moneylender = `moneylender`,
+  Peddler = `peddler`,
+  PlantationOwner = `plantation owner`,
+  Speculator = `speculator`,
+  ThriftDealer = `thrift dealer`,
+  Tradesman = `tradesman`,
+  BillboardPoster = `billboard poster`,
+  Courier = `courier`,
+  Interpreter = `interpreter`,
+  Coinsmith = `coinsmith`,
+  Bladesmith = `bladesmith`,
+  Bookbinder = `bookbinder`,
+  Bottler = `bottler`,
+  Bowyer = `bowyer`,
+  BroomMaker = `broom maker`,
+  Candlemaker = `candlemaker`,
+  Cartwright = `cartwright`,
+  Cutler = `cutler`,
+  Dyer = `dyer`,
+  Embroiderer = `embroiderer`,
+  Engraver = `engraver`,
+  Farrier = `farrier`,
+  Fletcher = `fletcher`,
+  FurnitureArtisan = `furniture artisan`,
+  Glassworker = `glassworker`,
+  InstrumentMaker = `instrument maker`,
+  Lapidary = `lapidary`,
+  Luthier = `luthier`,
+  Mercer = `mercer`,
+  Optician = `optician`,
+  Printer = `printer`,
+  Restorer = `restorer`,
+  Soaper = `soaper`,
+  Taxidermist = `taxidermist`,
+  Tinker = `tinker`,
+  Weaponsmith = `weaponsmith`,
+  Wheelwright = `wheelwright`,
+  Assassin = `assassin`,
+  Bandit = `bandit`,
+  Burglar = `burglar`,
+  Conman = `conman`,
+  Gamefighter = `gamefighter`,
+  Cutpurse = `cutpurse`,
+  DrugDealer = `drug dealer`,
+  DrugLord = `drug lord`,
+  Extortioner = `extortioner`,
+  Fence = `fence`,
+  Forger = `forger`,
+  Fugitive = `fugitive`,
+  Highwayman = `highwayman`,
+  Kidnapper = `kidnapper`,
+  LoanShark = `loan shark`,
+  Pirate = `pirate`,
+  WannabePirate = `wannabe pirate`,
+  Poacher = `poacher`,
+  Poisoner = `poisoner`,
+  Marauder = `marauder`,
+  Smuggler = `smuggler`,
+  Affeeror = `affeeror`,
+  Agister = `agister`,
+  Alderman = `alderman`,
+  Alienist = `alienist`,
+  AssayMaster = `assay master`,
+  Baron = `baron`,
+  Chancellor = `chancellor`,
+  Chief = `chief`,
+  Conservationist = `conservationist`,
+  Count = `count`,
+  Duke = `duke`,
+  Emperor = `emperor`,
+  King = `king`,
+  LadyInWaiting = `lady-in-waiting`,
+  Marquess = `marquess`,
+  MasterOfCoin = `master-of-coin`,
+  Notary = `notary`,
+  Orator = `orator`,
+  Page = `page`,
+  Prince = `prince`,
+  Senator = `senator`,
+  Sheriff = `sheriff`,
+  Spymaster = `spymaster`,
+  Viscount = `viscount`,
+  Ward = `ward`,
+  Acater = `acater`,
+  Tunner = `tunner`,
+  Barkeep = `barkeep`,
+  Butler = `butler`,
+  Caregiver = `caregiver`,
+  CharcoalMaker = `charcoal maker`,
+  Chatelaine = `chatelaine`,
+  ChimneySweeper = `chimney sweeper`,
+  Clerk = `clerk`,
+  Copyist = `copyist`,
+  Croupier = `croupier`,
+  Exterminator = `exterminator`,
+  FoodAndDrinkTester = `food and drink tester`,
+  Gongfarmer = `gongfarmer`,
+  Gravedigger = `gravedigger`,
+  Groundskeeper = `groundskeeper`,
+  KitchenDrudge = `kitchen drudge`,
+  Knacker = `knacker`,
+  Lamplighter = `lamplighter`,
+  LaundryWorker = `laundry worker`,
+  Lector = `lector`,
+  Longshoreman = `longeshoreman`,
+  Nanny = `nanny`,
+  Operator = `operator`,
+  PastryChef = `pastry chef`,
+  Plumber = `plumber`,
+  Porter = `porter`,
+  Harlot = `harlot`,
+  Quarryman = `quarryman`,
+  Stagehand = `stagehand`,
+  StreetCleaner = `street cleaner`,
+  TalentScout = `talent scout`,
+  Trainer = `trainer`,
+  WaterBearer = `water bearer`,
+  Abjurer = `abjurer`,
+  Alchemist = `alchemist`,
+  Archmage = `archmage`,
+  Artificer = `artificer`,
+  Conjurer = `conjurer`,
+  Elementalist = `elementalist`,
+  Enchanter = `enchanter`,
+  Evoker = `evoker`,
+  HearthWitch = `hearth witch`,
+  Illusionist = `illusionist`,
+  Mage = `mage`,
+  Medium = `medium`,
+  Meteorologist = `meteorologist`,
+  Ritualist = `ritualist`,
+  Runecaster = `runecaster`,
+  Sage = `sage`,
+  Shapeshifter = `shapeshifter`,
+  Summoner = `summoner`,
+  Transmuter = `transmuter`,
+  Witchdoctor = `witchdoctor`,
+  Witch = `witch`,
+  Wordsmith = `wordsmith`,
+  Admiral = `admiral`,
+  Bailiff = `bailiff`,
+  Bodyguard = `bodyguard`,
+  Bouncer = `bouncer`,
+  Castellan = `castellan`,
+  Cavalier = `cavalier`,
+  CityWatch = `city watch`,
+  Commissar = `comissar`,
+  Constable = `constable`,
+  Investigator = `investigator`,
+  Fifer = `fifer`,
+  Duelist = `duelist`,
+  Executioner = `executioner`,
+  Firefighter = `firefighter`,
+  InspectionOfficer = `inspection officer`,
+  IntelligenceOfficer = `intelligence officer`,
+  Lieutenant = `lieutenant`,
+  Marksman = `marksman`,
+  Marshall = `marshall`,
+  Medic = `medic`,
+  Mercenary = `mercenary`,
+  Quartermaster = `quartermaster`,
+  RoyalGuard = `royal guard`,
+  Runner = `runner`,
+  Sapper = `sapper`,
+  Sergeant = `sergeant`,
+  SergeantAtArms = `sergeant-at-arms`,
+  Scout = `scout`,
+  SlaveDriver = `slave driver`,
+  SpecialForceSoldier = `special force soldier`,
+  Spy = `spy`,
+  Tactician = `tactician`,
+  Tollkeeper = `tollkeeper`,
+  Warden = `warden`,
+  Warmage = `warmage`,
+  Abbot = `abbot`,
+  Acolyte = `acolyte`,
+  Almoner = `almoner`,
+  Archbishop = `archbishop`,
+  Bishop = `bishop`,
+  Cantor = `cantor`,
+  Cardinal = `cardinal`,
+  Confessor = `confessor`,
+  Cultist = `cultist`,
+  CultLeader= `cult leader`,
+  Deacon = `deacon`,
+  Exorcist = `exorcist`,
+  HighPriest = `high priest`,
+  Inquisitor = `inquisitor`,
+  Missionary = `missionary`,
+  Pardoner = `pardoner`,
+  Prophet = `prophet`,
+  Sexton = `sexton`,
+  Templar = `templar`,
+  Abecedarian = `abecedarian`,
+  Anthropologist = `anthropologist`,
+  Apprentice = `apprentice`,
+  Archeologist = `archeologist`,
+  Assayer = `assayer`,
+  Astronomer = `astronomer`,
+  Bloodletter = `bloodletter`,
+  Botanist = `botanist`,
+  Chemist = `chemist`,
+  Dean = `dean`,
+  Drakologist = `drakologist`,
+  Engineer = `engineer`,
+  Entomologist = `entomologist`,
+  Horologist = `horologist`,
+  Mathematician = `mathematician`,
+  Optometrist = `optometrist`,
+  Scribe = `scribe`,
+  Theologian = `theologian`,
+  Tutor = `tutor`,
+  Zoologist = `zoologist`,
+  Boatman = `boatman`,
+  Bosun = `bosun`,
+  Wagoner = `wagoner`,
+  CabinBoy = `cabin boy`,
+  Charioteer = `charioteer`,
+  Carter = `carter`,
+  Ferryman = `ferryman`,
+  FirstMate = `first mate`,
+  Helmsman = `helmsman`,
+  Navigator = `navigator`,
+  Purser = `purser`,
+  Shipwright = `shipwright`,
+  Adventurer = `adventurer`,
+  Beggar = `beggar`,
+  MonsterHunter = `monster hunter`,
+  CrossingSweeper = `crossing sweeper`,
+  Deserter = `deserter`,
+  DisgracedNoble = `disgraced noble`,
+  Drunkard = `drunkard`,
+  DungeonDelver = `dungeon delver`,
+  Elder = `elder`,
+  Exile = `exile`,
+  Explorer = `explorer`,
+  ExCriminal = `ex-criminal`,
+  FolkHero = `folk hero`,
+  Gambler = `gambler`,
+  GraveRobber = `grave robber`,
+  Heretic = `heretic`,
+  Housewife = `housewife`,
+  Prisoner = `prisoner`,
+  RagAndBoneMan = `rag-and-bone man`,
+  PoliticalDissident = `political dissident`,
+  Refugee = `refugee`,
+  RunawaySlave = `runaway slave`,
+  Squatter = `squatter`,
+  Vagabond = `vagabond`,
+  Urchin = `urchin`
+
+}
+
+export const professions: Record<string, ProfessionData> = {
+  [Profession.Child]: {
     sv: 10000,
     type: "family",
     sector: "family",
@@ -61,7 +559,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  barbarian: {
+  [Profession.Barbarian]: {
     sv: 6500,
     type: "dndClass",
     sector: "adventuring",
@@ -72,7 +570,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  bard: {
+  [Profession.Bard]: {
     sv: 6500,
     type: "dndClass",
     sector: "adventuring",
@@ -83,7 +581,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  cleric: {
+  [Profession.Cleric]: {
     sv: 6500,
     type: "dndClass",
     sector: "adventuring",
@@ -94,7 +592,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  druid: {
+  [Profession.Druid]: {
     sv: 6500,
     type: "dndClass",
     sector: "adventuring",
@@ -106,7 +604,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  fighter: {
+  [Profession.Fighter]: {
     sv: 6500,
     type: "dndClass",
     sector: "adventuring",
@@ -117,7 +615,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  monk: {
+  [Profession.Monk]: {
     sv: 6500,
     type: "dndClass",
     sector: "adventuring",
@@ -128,7 +626,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  rogue: {
+  [Profession.Rogue]: {
     sv: 6500,
     type: "dndClass",
     sector: "adventuring",
@@ -139,7 +637,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  ranger: {
+  [Profession.Ranger]: {
     sv: 6500,
     type: "dndClass",
     sector: "adventuring",
@@ -150,7 +648,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  paladin: {
+  [Profession.Paladin]: {
     sv: 6500,
     type: "dndClass",
     sector: "adventuring",
@@ -161,7 +659,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  sorcerer: {
+  [Profession.Sorcerer]: {
     sv: 6500,
     type: "dndClass",
     sector: "adventuring",
@@ -172,7 +670,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  warlock: {
+  [Profession.Warlock]: {
     sv: 6500,
     type: "dndClass",
     sector: "adventuring",
@@ -183,7 +681,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  wizard: {
+  [Profession.Wizard]: {
     sv: 6500,
     type: "dndClass",
     sector: "adventuring",
@@ -194,7 +692,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  actor: {
+  [Profession.Actor]: {
     sv: 2500,
     isHobby: true,
     type: "profession",
@@ -206,7 +704,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  advocate: {
+  [Profession.Advocate]: {
     sv: 3250,
     synonyms: ["lawyer"],
     type: "profession",
@@ -218,7 +716,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  advisor: {
+  [Profession.Advisor]: {
     sv: 780,
     type: "profession",
     sector: "government and law",
@@ -229,7 +727,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  "animal handler": {
+  [Profession.AnimalHandler]: {
     sv: 250,
     type: "labourer",
     sector: "agriculture",
@@ -240,7 +738,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  apothecarist: {
+  [Profession.Apothecarist]: {
     sv: 450,
     type: "business",
     sector: "science",
@@ -251,7 +749,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  architect: {
+  [Profession.Architect]: {
     sv: 550,
     type: "profession",
     sector: "construction",
@@ -262,7 +760,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  archivist: {
+  [Profession.Archivist]: {
     sv: 2450,
     type: "profession",
     sector: "science",
@@ -273,7 +771,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  armorer: {
+  [Profession.Armorer]: {
     sv: 750,
     type: "business",
     sector: "craftsmanship",
@@ -284,7 +782,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  astrologer: {
+  [Profession.Astrologer]: {
     sv: 950,
     isHobby: true,
     type: "profession",
@@ -296,7 +794,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  baker: {
+  [Profession.Baker]: {
     sv: 800,
     type: "business",
     sector: "hospitality",
@@ -307,7 +805,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  banker: {
+  [Profession.Banker]: {
     sv: 2250,
     type: "business",
     sector: "business",
@@ -318,7 +816,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  barber: {
+  [Profession.Barber]: {
     sv: 350,
     type: "business",
     sector: "hospitality",
@@ -329,7 +827,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  bartender: {
+  [Profession.Bartender]: {
     sv: 450,
     synonyms: ["barkeep", "tavern owner", "innkeep"],
     type: "business",
@@ -341,7 +839,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  barmaid: {
+  [Profession.Barmaid]: {
     sv: 450,
     synonyms: ["waiter", "waitress"],
     type: "business",
@@ -353,7 +851,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  blacksmith: {
+  [Profession.Blacksmith]: {
     sv: 750,
     type: "business",
     sector: "craftsmanship",
@@ -364,7 +862,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  "blacksmith's assistant": {
+  [Profession.BlacksmithsAssistant]: {
     sv: 800,
     synonyms: ["smith apprentice", "smithy apprentice"],
     type: "labourer",
@@ -376,7 +874,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  bookseller: {
+  [Profession.Bookseller]: {
     sv: 6300,
     type: "business",
     sector: "business",
@@ -387,7 +885,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  brewer: {
+  [Profession.Brewer]: {
     sv: 550,
     isHobby: true,
     type: "business",
@@ -399,7 +897,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  brickmason: {
+  [Profession.Brickmason]: {
     sv: 650,
     type: "labourer",
     sector: "construction",
@@ -411,7 +909,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  pimp: {
+  [Profession.Pimp]: {
     sv: 850,
     synonyms: ["whoremonger"],
     type: "business",
@@ -423,7 +921,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  buccaneer: {
+  [Profession.Buccaneer]: {
     sv: 1350,
     type: "profession",
     sector: "adventuring",
@@ -434,7 +932,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  butcher: {
+  [Profession.Butcher]: {
     sv: 1150,
     type: "business",
     sector: "hospitality",
@@ -445,7 +943,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  captain: {
+  [Profession.Captain]: {
     sv: 550,
     type: "profession",
     sector: "military",
@@ -456,7 +954,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  caravanner: {
+  [Profession.Caravanner]: {
     sv: 1450,
     type: "labourer",
     sector: "transportation",
@@ -467,7 +965,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  carpenter: {
+  [Profession.Carpenter]: {
     sv: 550,
     type: "business",
     sector: "craftsmanship",
@@ -478,7 +976,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  cartographer: {
+  [Profession.Cartographer]: {
     sv: 1950,
     type: "profession",
     sector: "science",
@@ -489,7 +987,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  chandler: {
+  [Profession.Chandler]: {
     sv: 700,
     type: "business",
     sector: "business",
@@ -500,7 +998,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  chef: {
+  [Profession.Chef]: {
     sv: 1850,
     type: "labourer",
     sector: "hospitality",
@@ -511,7 +1009,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  clergyman: {
+  [Profession.Clergyman]: {
     sv: 40,
     type: "profession",
     sector: "religion",
@@ -523,7 +1021,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  "clock maker": {
+  [Profession.ClockMaker]: {
     sv: 4550,
     isHobby: true,
     type: "profession",
@@ -535,7 +1033,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  craftsman: {
+  [Profession.Craftsman]: {
     sv: 4550,
     type: "profession",
     sector: "craftsmanship",
@@ -546,7 +1044,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  cobbler: {
+  [Profession.Cobbler]: {
     sv: 1550,
     type: "profession",
     sector: "craftsmanship",
@@ -557,7 +1055,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  cook: {
+  [Profession.Cook]: {
     sv: 450,
     type: "labourer",
     sector: "hospitality",
@@ -568,7 +1066,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  cooper: {
+  [Profession.Cooper]: {
     sv: 700,
     type: "labourer",
     sector: "craftsmanship",
@@ -579,7 +1077,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  courtesan: {
+  [Profession.Courtesan]: {
     sv: 1950,
     type: "",
     sector: "hospitality",
@@ -590,7 +1088,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  courtier: {
+  [Profession.Courtier]: {
     sv: 1950,
     type: "profession",
     sector: "government and law",
@@ -601,7 +1099,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  cowherd: {
+  [Profession.Cowherd]: {
     sv: 250,
     type: "labourer",
     sector: "craftsmanship",
@@ -612,7 +1110,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  dancer: {
+  [Profession.Dancer]: {
     sv: 2250,
     type: "profession",
     sector: "arts",
@@ -623,7 +1121,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  diplomat: {
+  [Profession.Diplomat]: {
     sv: 3450,
     type: "profession",
     sector: "government and law",
@@ -634,7 +1132,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  diver: {
+  [Profession.Diver]: {
     sv: 3250,
     type: "labourer",
     sector: "agriculture",
@@ -645,7 +1143,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  farmer: {
+  [Profession.Farmer]: {
     sv: 150,
     type: "labourer",
     sector: "agriculture",
@@ -656,7 +1154,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  fisherman: {
+  [Profession.Fisherman]: {
     sv: 170,
     type: "labourer",
     sector: "agriculture",
@@ -667,7 +1165,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  fishmonger: {
+  [Profession.Fishmonger]: {
     sv: 250,
     type: "business",
     sector: "business",
@@ -678,7 +1176,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  furrier: {
+  [Profession.Furrier]: {
     sv: 250,
     type: "business",
     sector: "craftsmanship",
@@ -689,7 +1187,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  gardener: {
+  [Profession.Gardener]: {
     sv: 550,
     type: "labourer",
     sector: "agriculture",
@@ -700,7 +1198,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  general: {
+  [Profession.General]: {
     sv: 2250,
     type: "profession",
     sector: "military",
@@ -711,7 +1209,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  gladiator: {
+  [Profession.Gladiator]: {
     sv: 3250,
     type: "profession",
     sector: "arts",
@@ -722,7 +1220,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  glovemaker: {
+  [Profession.Glovemaker]: {
     sv: 2400,
     type: "business",
     sector: "craftsmanship",
@@ -733,7 +1231,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  goldsmith: {
+  [Profession.Goldsmith]: {
     sv: 6550,
     type: "business",
     sector: "craftsmanship",
@@ -744,7 +1242,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  grocer: {
+  [Profession.Grocer]: {
     sv: 450,
     type: "business",
     sector: "business",
@@ -755,7 +1253,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  guard: {
+  [Profession.Guard]: {
     sv: 150,
     synonyms: ["guardsman", "guard", "watchman", "town guard"],
     type: "profession",
@@ -768,7 +1266,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  guildmaster: {
+  [Profession.Guildmaster]: {
     sv: 4150,
     type: "profession",
     sector: "business",
@@ -780,7 +1278,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  hatter: {
+  [Profession.Hatter]: {
     sv: 950,
     type: "business",
     sector: "craftsmanship",
@@ -791,7 +1289,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  healer: {
+  [Profession.Healer]: {
     sv: 950,
     type: "profession",
     sector: "magic",
@@ -802,18 +1300,14 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  herald: {
-    sv: 550,
-    type: "labourer",
     sector: "communications",
-    description: "a messenger who carries important news..",
     dailyWage: 80,
     socialClass: "peasantry",
     socialClassRoll() {
       return 20 + dice(8, 6)
     },
   },
-  herbalist: {
+  [Profession.Herbalist]: {
     sv: 850,
     type: "business",
     sector: "science",
@@ -824,7 +1318,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  hermit: {
+  [Profession.Hermit]: {
     sv: 950,
     type: "profession",
     sector: "outcast",
@@ -835,7 +1329,7 @@ export const professions: Record<string, Profession> = {
       return 5 + dice(8, 6)
     },
   },
-  historian: {
+  [Profession.Historian]: {
     sv: 4150,
     type: "profession",
     sector: "science",
@@ -847,7 +1341,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  hunter: {
+  [Profession.Hunter]: {
     sv: 250,
     isHobby: true,
     type: "labourer",
@@ -859,7 +1353,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  "ice seller": {
+  [Profession.IceSeller]: {
     sv: 1950,
     type: "labourer",
     sector: "agriculture",
@@ -870,7 +1364,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  innkeeper: {
+  [Profession.Innkeeper]: {
     sv: 750,
     synonyms: ["tavern keeper", "tavernkeep", "barkeep", "innkeep"],
     type: "business",
@@ -882,7 +1376,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  inventor: {
+  [Profession.Inventor]: {
     sv: 2250,
     type: "profession",
     sector: "business",
@@ -893,7 +1387,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  jailer: {
+  [Profession.Jailer]: {
     sv: 1250,
     type: "labourer",
     sector: "military",
@@ -904,7 +1398,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  jester: {
+  [Profession.jester]: {
     sv: 2250,
     type: "profession",
     sector: "arts",
@@ -915,7 +1409,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  jeweler: {
+  [Profession.Jeweler]: {
     sv: 400,
     type: "business",
     sector: "craftsmanship",
@@ -926,7 +1420,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  judge: {
+  [Profession.Judge]: {
     sv: 850,
     type: "profession",
     sector: "government and law",
@@ -937,7 +1431,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  knight: {
+  [Profession.Knight]: {
     sv: 1150,
     type: "profession",
     sector: "government and law",
@@ -948,7 +1442,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  lady: {
+  [Profession.Lady]: {
     sv: 1550,
     type: "profession",
     sector: "government and law",
@@ -959,7 +1453,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  leatherworker: {
+  [Profession.Leatherworker]: {
     sv: 750,
     type: "business",
     sector: "craftsmanship",
@@ -970,7 +1464,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  librarian: {
+  [Profession.Librarian]: {
     sv: 3150,
     type: "profession",
     sector: "science",
@@ -981,7 +1475,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  linguist: {
+  [Profession.Linguist]: {
     sv: 5150,
     type: "profession",
     sector: "science",
@@ -993,7 +1487,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  locksmith: {
+  [Profession.Locksmith]: {
     sv: 1900,
     type: "business",
     sector: "craftsmanship",
@@ -1004,7 +1498,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  lord: {
+  [Profession.Lord]: {
     sv: 1150,
     type: "profession",
     sector: "government and law",
@@ -1015,7 +1509,7 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     },
   },
-  lumberjack: {
+  [Profession.Lumberjack]: {
     sv: 350,
     type: "labourer",
     sector: "agriculture",
@@ -1026,7 +1520,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  "maid-servant": {
+  [Profession.MaidServant]: {
     sv: 250,
     type: "labourer",
     sector: "craftsmanship",
@@ -1037,7 +1531,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  masseur: {
+  [Profession.Masseur]: {
     sv: 1550,
     type: "profession",
     sector: "business",
@@ -1048,7 +1542,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  merchant: {
+  [Profession.Merchant]: {
     sv: 650,
     type: "business",
     sector: "business",
@@ -1059,7 +1553,7 @@ export const professions: Record<string, Profession> = {
       return 50 + dice(8, 6)
     },
   },
-  messenger: {
+  [Profession.Messenger]: {
     sv: 1250,
     type: "labourer",
     sector: "communications",
@@ -1070,7 +1564,7 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
   },
-  midwife: {
+  [Profession.Midwife]: {
     sv: 650,
     type: "labourer",
     sector: "science",
