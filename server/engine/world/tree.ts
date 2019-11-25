@@ -1,4 +1,4 @@
-import { Biome } from "../../../shared/types"
+import { Biome } from "../../../shared/Biome"
 import { Town } from "../town/town"
 import { randomValue } from "../rolls"
 

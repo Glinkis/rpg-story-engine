@@ -5,13 +5,6 @@ export enum Season {
   Spring = `spring`,
 }
 
-export enum Biome {
-  Forest = `forest`,
-  Desert = `desert`,
-  Mountain = `mountain`,
-  Plains = `plains`,
-}
-
 export type Roll = [number, ...string[]]
 
 export type RollData = Record<string, Roll[]>

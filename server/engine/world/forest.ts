@@ -3,7 +3,7 @@ import { randomRange, randomValue } from "../rolls"
 import { locations } from "./locations"
 import { encounters } from "./encounters"
 import { rt } from "../tools/randomTemplate"
-import { Biome } from "../../../shared/types"
+import { Biome } from "../../../shared/Biome"
 
 export const forest = {
   create(town: Town) {
