@@ -34,4 +34,6 @@ export interface NPC {
   partnerID?: string
   relationships: any
   roll: any
+  dndClassOrigin: any
+  weapon: any
 }
