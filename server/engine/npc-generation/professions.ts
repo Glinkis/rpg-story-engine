@@ -515,8 +515,7 @@ export enum Profession {
   RunawaySlave = `runaway slave`,
   Squatter = `squatter`,
   Vagabond = `vagabond`,
-  Urchin = `urchin`
-
+  Urchin = `urchin`,
 }
 
 export const professions: Record<string, ProfessionData> = {
