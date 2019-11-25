@@ -32,5 +32,6 @@ export interface NPC {
   heshe: string
   himher: string
   partnerID?: string
+  relationships: any
   roll: any
 }
