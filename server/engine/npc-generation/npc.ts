@@ -31,5 +31,6 @@ export interface NPC {
   socialClass: string
   heshe: string
   himher: string
+  partnerID?: string
   roll: any
 }
