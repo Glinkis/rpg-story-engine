@@ -17,7 +17,7 @@ export function pronouns(npc: NPC) {
   return genderData[npc.gender].hisher
 }
 
-enum Demeanaour {
+enum Demeanour {
   Calm = `calm`,
   Moody = `moody`,
   Kind = `kind`,
@@ -351,7 +351,7 @@ export const npcData: any = {
     `a mermaid tattoo`,
     `a dragon tattoo`,
   ],
-  demeanour: Object.values(Demeanaour),
+  demeanour: Object.values(Demeanour),
   vocalPattern: [
     `is incoherent except for a few key words`,
     `stutters`,
