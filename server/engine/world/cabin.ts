@@ -1,4 +1,5 @@
-import { Biome, Roll } from "../../../shared/types"
+import { Roll } from "../../../shared/types"
+import { Biome } from "../../../shared/Biome"
 import { Town } from "../town/town"
 import { randomValue, randomRange } from "../rolls"
 import { rollDataGetter } from "../tools/defineRollDataGetter"

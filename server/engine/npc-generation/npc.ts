@@ -1,4 +1,5 @@
 import { MajorRace } from "../../../shared/Race"
+import { genderData } from "./genderData"
 
 export interface NPC {
   key: string
@@ -6,7 +7,7 @@ export interface NPC {
   lastName: string
   race: MajorRace
   family: any
-  gender: string
+  gender: keyof typeof genderData
   raceName: string
   skinColour: string
   age: string
@@ -30,5 +31,9 @@ export interface NPC {
   socialClass: string
   heshe: string
   himher: string
+  partnerID?: string
+  relationships: any
   roll: any
+  dndClassOrigin: any
+  weapon: any
 }

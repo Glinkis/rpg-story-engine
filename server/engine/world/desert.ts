@@ -1,7 +1,6 @@
 import { randomRange, randomValue } from "../rolls"
-import { misc } from "./miscData"
 import { locations } from "./locations"
-import { Biome } from "../../../shared/types"
+import { Biome } from "../../../shared/Biome"
 import { encounters } from "./encounters"
 import { rt } from "../tools/randomTemplate"
 import { createTown } from "../town/createTown"

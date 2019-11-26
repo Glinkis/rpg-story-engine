@@ -1,5 +1,5 @@
 import { randomValue } from "../rolls"
-import { Biome } from "../../../shared/types"
+import { Biome } from "../../../shared/Biome"
 
 interface Contents {
   [key: string]: (town?: any, biome?: Biome, base?: any) => string

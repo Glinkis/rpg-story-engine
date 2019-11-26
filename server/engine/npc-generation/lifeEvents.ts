@@ -1,6 +1,5 @@
 import { professions } from "./professions"
 import { random, randomValue, dice, randomRange } from "../rolls"
-import { npcData } from "./npcData"
 import { misc } from "../world/miscData"
 import { flora } from "../dictionary/flora"
 import { createNPC } from "./createNPC"
@@ -19,12 +18,11 @@ export const lifeEvents = {
       return socialClass === `commoner` || socialClass === `nobility` || random(100) > 90
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.performed function`)
-      const character = randomValue(npcData.lifeEvents.performed.character)
-      const theatrePerformance = randomValue(npcData.lifeEvents.performed.theatrePerformance)
-      const bandInfo = randomValue(npcData.lifeEvents.performed.bandInfo)
-      const talent = randomValue(npcData.lifeEvents.performed.talent)
-      const talentShowInfo = randomValue(npcData.lifeEvents.performed.talentShowInfo)
+      const character = randomValue(lifeEvents.performed.character)
+      const theatrePerformance = randomValue(lifeEvents.performed.theatrePerformance)
+      const bandInfo = randomValue(lifeEvents.performed.bandInfo)
+      const talent = randomValue(lifeEvents.performed.talent)
+      const talentShowInfo = randomValue(lifeEvents.performed.talentShowInfo)
       return randomValue([
         `${randomValue([`I played`, `I was`])} ${character} in a ${randomValue([
           `local`,
@@ -137,8 +135,8 @@ export const lifeEvents = {
     },
     function(town: any, npc: any) {
       const medal = misc.medal.create()
-      const medalType = randomValue(npcData.lifeEvents.warMedal.medalType)
-      const medalStatus = randomValue(npcData.lifeEvents.warMedal.medalStatus)
+      const medalType = randomValue(lifeEvents.warMedal.medalType)
+      const medalStatus = randomValue(lifeEvents.warMedal.medalStatus)
       if (professions[npc.profession].sector === `military`) {
         return `${randomValue([
           `after a recent war`,
@@ -201,16 +199,15 @@ export const lifeEvents = {
       return professions[npc.profession].sector === `adventuring` || random(100) > 90
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.magicalCreature function`)
       const flower = randomValue(flora.flower.stemP)
       const tree = randomValue(flora.tree.typeArticle)
       const fruitTree = randomValue(flora.fruit.tree)
-      const goodPlace = randomValue(npcData.lifeEvents.magicalCreatue.goodPlaces)
-      const goodCreature = randomValue(npcData.lifeEvents.magicalCreatue.goodCreatures)
-      const goodAnimal = randomValue(npcData.lifeEvents.magicalCreatue.goodAnimals)
-      const badPlace = randomValue(npcData.lifeEvents.magicalCreatue.badPlaces)
-      const badCreature = randomValue(npcData.lifeEvents.magicalCreatue.badCreatures)
-      const badAnimal = randomValue(npcData.lifeEvents.magicalCreatue.badAnimals)
+      const goodPlace = randomValue(lifeEvents.magicalCreatue.goodPlaces)
+      const goodCreature = randomValue(lifeEvents.magicalCreatue.goodCreatures)
+      const goodAnimal = randomValue(lifeEvents.magicalCreatue.goodAnimals)
+      const badPlace = randomValue(lifeEvents.magicalCreatue.badPlaces)
+      const badCreature = randomValue(lifeEvents.magicalCreatue.badCreatures)
+      const badAnimal = randomValue(lifeEvents.magicalCreatue.badAnimals)
 
       // good/non-hostile creatures
       return randomValue([
@@ -354,14 +351,13 @@ export const lifeEvents = {
       return true
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.festival function`)
-      const placement = randomValue(npcData.lifeEvents.festival.placement)
-      const foodTrait = randomValue(npcData.lifeEvents.festival.foodTrait)
-      const flowerTrait = randomValue(npcData.lifeEvents.festival.flowerTrait)
+      const placement = randomValue(lifeEvents.festival.placement)
+      const foodTrait = randomValue(lifeEvents.festival.foodTrait)
+      const flowerTrait = randomValue(lifeEvents.festival.flowerTrait)
       const fruit = randomValue(flora.fruit.fruitP)
       const vegetable = randomValue(flora.vegetable.vegetableP)
       const flower = randomValue(flora.flower.stemP)
-      const festivalDid = randomValue(npcData.lifeEvents.festival.festivalDid)
+      const festivalDid = randomValue(lifeEvents.festival.festivalDid)
       if (random(100) > 70) {
         return randomValue([
           `${randomValue([`I won`, `I got`])} ${placement} at ${randomValue([
@@ -465,9 +461,9 @@ export const lifeEvents = {
       return professions[npc.profession].socialClass !== `nobility`
     },
     function(town: any, npc: any) {
-      const apprenticeProfession = randomValue(npcData.lifeEvents.apprentice.profession)
-      const reputation = randomValue(npcData.lifeEvents.apprentice.reputation)
-      const learned = randomValue(npcData.lifeEvents.apprentice.learned)
+      const apprenticeProfession = randomValue(lifeEvents.apprentice.profession)
+      const reputation = randomValue(lifeEvents.apprentice.reputation)
+      const learned = randomValue(lifeEvents.apprentice.learned)
       const teacher = createNPC(town, {
         profession: apprenticeProfession,
         isShallow: true,
@@ -545,7 +541,6 @@ export const lifeEvents = {
     },
     function() {
       const trinket = createMagicTrinket()
-      console.log(`called lifeEvents.trinket function`)
       return (
         `${randomValue([
           `I was given a magical trinket- it's a `,
@@ -574,11 +569,11 @@ export const lifeEvents = {
         background: `noble`,
         isShallow: true,
       })
-      const prefix = randomValue(npcData.lifeEvents.nobleEvent.prefix)
-      const banquetCelebrate = randomValue(npcData.lifeEvents.nobleEvent.banquetCelebrate)
-      const ballCelebrate = randomValue(npcData.lifeEvents.nobleEvent.ballCelebrate)
-      const carriage = randomValue(npcData.lifeEvents.nobleEvent.carriage)
-      const handshake = randomValue(npcData.lifeEvents.nobleEvent.handshake)
+      const prefix = randomValue(lifeEvents.nobleEvent.prefix)
+      const banquetCelebrate = randomValue(lifeEvents.nobleEvent.banquetCelebrate)
+      const ballCelebrate = randomValue(lifeEvents.nobleEvent.ballCelebrate)
+      const carriage = randomValue(lifeEvents.nobleEvent.carriage)
+      const handshake = randomValue(lifeEvents.nobleEvent.handshake)
       return randomValue([
         `${prefix} the royal wedding of a local ${profile(noble, `noble`)}.`,
         `${prefix} the royal ${randomValue([`banquet`, `feast`, `gathering`])} of a local ${profile(
@@ -663,12 +658,11 @@ export const lifeEvents = {
       return true
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.journey function`)
-      const prefix = randomValue(npcData.lifeEvents.journey.prefix)
-      const location = randomValue(npcData.lifeEvents.journey.location)
-      const locationLocation = randomValue(npcData.lifeEvents.journey.locationLocation)
-      const found = randomValue(npcData.lifeEvents.journey.found)
-      const notFound = randomValue(npcData.lifeEvents.journey.notFound)
+      const prefix = randomValue(lifeEvents.journey.prefix)
+      const location = randomValue(lifeEvents.journey.location)
+      const locationLocation = randomValue(lifeEvents.journey.locationLocation)
+      const found = randomValue(lifeEvents.journey.found)
+      const notFound = randomValue(lifeEvents.journey.notFound)
       return `${randomValue([
         `${prefix} ${location} ${locationLocation}. ${randomValue([
           `I really did make it there, `,
@@ -772,12 +766,11 @@ export const lifeEvents = {
       return true
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.lostChild function`)
       const treeType = randomValue(flora.tree.typeArticle)
-      const location = randomValue(npcData.lifeEvents.lostChild.location)
-      const time = randomValue(npcData.lifeEvents.lostChild.time)
-      const finder = randomValue(npcData.lifeEvents.lostChild.finder)
-      const ending = randomValue(npcData.lifeEvents.lostChild.ending)
+      const location = randomValue(lifeEvents.lostChild.location)
+      const time = randomValue(lifeEvents.lostChild.time)
+      const finder = randomValue(lifeEvents.lostChild.finder)
+      const ending = randomValue(lifeEvents.lostChild.ending)
       return `${randomValue([
         `when I was young`,
         `as a young child`,
@@ -856,11 +849,10 @@ export const lifeEvents = {
       return professions[npc.profession].sector === `religion` || random(100) > 75
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.pilgrimage function`)
-      const prefix = randomValue(npcData.lifeEvents.pilgrimage.prefix)
-      const location = randomValue(npcData.lifeEvents.pilgrimage.location)
-      const journey = randomValue(npcData.lifeEvents.pilgrimage.journey)
-      const result = randomValue(npcData.lifeEvents.pilgrimage.result)
+      const prefix = randomValue(lifeEvents.pilgrimage.prefix)
+      const location = randomValue(lifeEvents.pilgrimage.location)
+      const journey = randomValue(lifeEvents.pilgrimage.journey)
+      const result = randomValue(lifeEvents.pilgrimage.result)
       return `${prefix} ${location}. ${journey}, ${result}.`
     },
     prefix: [
@@ -913,15 +905,12 @@ export const lifeEvents = {
       return true
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.meetFriendNPC function`)
       let friend: any
       if (random(100) > 50) {
-        console.log(`Finding an already existing friend!`)
         friend = Object.entries(variables.npcs).find(([name, npc]) => {
           return npc.socialClass === npc.socialClass && !npc.relationships[npc.key]
         })
         if (friend === undefined) {
-          console.log(`Nobody was in the same caste as ${npc.name}`)
           friend = createNPC(town, {
             isShallow: true,
             socialClass: npc.socialClass,
@@ -971,7 +960,6 @@ export const lifeEvents = {
       }
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.meetEnemyNPC function`)
       const enemy = createNPC(town, {
         gender: `man`,
         background: `noble`,
@@ -1020,8 +1008,6 @@ export const lifeEvents = {
       return npc.ageYears >= 18 && npc.ageStage !== `child`
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.meetPartnerNPC function`)
-
       const family = town.families[npc.family]
       const node = family.members[npc.key]
 
@@ -1030,8 +1016,6 @@ export const lifeEvents = {
 
       // force creation of family members when applicable
       if (node.marriages === undefined || node.marriages.length === 0) {
-        console.log(`${npc.name} met somebody!`)
-
         const newMarriage = createMarriage(town, family, npc, true)
         node.marriages = [newMarriage]
         partnerKey = newMarriage.parents.find(key => key !== npc.key)
@@ -1041,8 +1025,6 @@ export const lifeEvents = {
         }
         return `I met the love of my life, ${profile(partnerKey)}.`
       } else {
-        console.log(`${npc.name} already met somebody!`)
-        console.log(node.marriages)
         const marriage = node.marriages[0]
         partnerKey = marriage.parents.find(key => key !== npc.key)
 
@@ -1074,7 +1056,6 @@ export const lifeEvents = {
       return npc.ageYears >= 18 && npc.ageStage !== `child`
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.backgroundWork function`)
       npc.wealth += dice(2, 6) * 1000
       return `${randomValue([
         `I spent some time working as a `,
@@ -1102,7 +1083,6 @@ export const lifeEvents = {
       return true
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.meetImportantNPC function`)
       return randomValue([
         `${randomValue([
           `I met a famous `,
@@ -1163,7 +1143,6 @@ export const lifeEvents = {
       return npc.ageYears >= 18 && npc.ageStage !== `child`
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.adventure function`)
       const adventureRoll = randomRange(1, 100)
 
       let adventurePrefix: string
@@ -1171,7 +1150,7 @@ export const lifeEvents = {
 
       if (npc.hasClass === false) {
         // Descriptions and stuff goes here
-        return npcData.lifeEvents.backgroundWork.function(town, npc)
+        return lifeEvents.backgroundWork.function(town, npc)
       } else {
         adventurePrefix = randomValue([
           `I went on an adventure, and `,
@@ -1183,7 +1162,6 @@ export const lifeEvents = {
 
         if (adventureRoll === 100) {
           const weapon = createMagicWeapon()
-          console.log(`Called weapon function.`)
           adventureResults = `came across a magical weapon- this is my trusty ${weapon.name}<blockquote><h4>${weapon.name}</h4>${weapon.description}</blockquote>`
         } else if (adventureRoll >= 91) {
           adventureResults = `found a considerable amount of treasure.`
@@ -1221,7 +1199,6 @@ export const lifeEvents = {
       return true
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.supernatural function`)
       return randomValue([
         `I came across a horde of ghouls feasting on a dead body in my youth.`,
         `I was ensorcelled by a fey for a year. It played tricks on my mind, making me see things which were not there, and not see things which were there.`,
@@ -1238,12 +1215,11 @@ export const lifeEvents = {
       return true
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.miracle function`)
-      const miracleGiver = randomValue(npcData.lifeEvents.miracle.miracleGiver)
-      const trueBelief = randomValue(npcData.lifeEvents.miracle.trueBelief)
-      const falseBelief = randomValue(npcData.lifeEvents.miracle.falseBelief)
-      const miracle = randomValue(npcData.lifeEvents.miracle.miracle)
-      const curse = randomValue(npcData.lifeEvents.miracle.curse)
+      const miracleGiver = randomValue(lifeEvents.miracle.miracleGiver)
+      const trueBelief = randomValue(lifeEvents.miracle.trueBelief)
+      const falseBelief = randomValue(lifeEvents.miracle.falseBelief)
+      const miracle = randomValue(lifeEvents.miracle.miracle)
+      const curse = randomValue(lifeEvents.miracle.curse)
       return randomValue([
         `${randomValue([
           `I witnessed a miracle once- Honest to god. `,
@@ -1312,7 +1288,6 @@ export const lifeEvents = {
       return npc.ageYears >= 18 && npc.ageStage !== `child`
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.war function`)
       const warRoll = randomRange(1, 12)
       const warStart = randomValue([
         `there was a minor skirmish with some orcs that I was involved with.`,
@@ -1365,7 +1340,6 @@ export const lifeEvents = {
       return professions[npc.profession].sector === `crime` || random(100) > 60
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.crime function`)
       const crime = randomValue([
         `murder`,
         `theft`,
@@ -1412,7 +1386,6 @@ export const lifeEvents = {
       return true
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.arcaneMatters function`)
       return randomValue([
         `I saw a demon I swear on my life! ${randomValue([
           ``,
@@ -1563,7 +1536,6 @@ export const lifeEvents = {
       return true
     },
     function(town: any, npc: any) {
-      console.log(`called lifeEvents.weirdStuff function`)
       return randomValue([
         `I came across a genie, ${randomValue([
           `but squandered the wish on an ex lover`,

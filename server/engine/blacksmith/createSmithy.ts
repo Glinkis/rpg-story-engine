@@ -6,6 +6,7 @@ import { createBlacksmith } from "./createBlacksmith"
 import { createSmithyName } from "./createSmithyName"
 import { Smithy } from "./smithy"
 import { Town } from "../town/town"
+import { Weapon } from "../../../shared/Weapon"
 
 export function createSmithy(town: Town, opts = {}): Smithy {
   const smithy = (opts[`newBuilding`] || createBuilding)(town, `smithy`)
@@ -17,32 +18,7 @@ export function createSmithy(town: Town, opts = {}): Smithy {
     initPassage: `InitSmithy`,
     buildingType: `smithy`,
     associatedTown: town.name,
-    weapons: [
-      `dagger`,
-      `long sword`,
-      `short sword`,
-      `morning star`,
-      `mace`,
-      `axe`,
-      `greataxe`,
-      `spear`,
-      `falcheon`,
-      `bastard sword`,
-      `warhammer`,
-      `iron crossbow`,
-      `claymore`,
-      `flail`,
-      `broad sword`,
-      `pike`,
-      `scimitar`,
-      `dart`,
-      `rapier`,
-      `trident`,
-      `halberd`,
-      `glaive`,
-      `lance`,
-      `war pick`,
-    ],
+    weapons: Object.values(Weapon),
     mundane: [
       `plows`,
       `rabbit traps`,

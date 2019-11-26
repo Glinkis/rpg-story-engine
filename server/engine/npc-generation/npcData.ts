@@ -14,7 +14,19 @@ import { MajorRace } from "../../../shared/Race"
 import { genderData } from "./genderData"
 
 export function pronouns(npc: NPC) {
-  return genderData[npc.gender]
+  return genderData[npc.gender].hisher
+}
+
+enum Demeanour {
+  Calm = `calm`,
+  Moody = `moody`,
+  Kind = `kind`,
+  Concieted = `conceited`,
+  Cruel = `cruel`,
+  Mean = `mean`,
+  Careful = `careful`,
+  Polite = `polite`,
+  Happy = `happy`,
 }
 
 export const npcData: any = {
@@ -339,7 +351,7 @@ export const npcData: any = {
     `a mermaid tattoo`,
     `a dragon tattoo`,
   ],
-  demeanour: [`calm`, `moody`, `kind`, `conceited`, `cruel`, `mean`, `careful`, `polite`, `happy`],
+  demeanour: Object.values(Demeanour),
   vocalPattern: [
     `is incoherent except for a few key words`,
     `stutters`,

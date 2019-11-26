@@ -1,3 +1,4 @@
+import { Weapon } from "../../../shared/Weapon"
 import { Building } from "../building/createBuilding"
 import { Blacksmith } from "./blacksmith"
 
@@ -6,6 +7,6 @@ export interface Smithy extends Building {
   activity: string
   blacksmith: Blacksmith
   assistant: any
-  weapons: string[]
+  weapons: Weapon[]
   mundane: string[]
 }

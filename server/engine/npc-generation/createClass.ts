@@ -1,7 +1,8 @@
 import { npcData } from "./npcData"
 import { randomValue } from "../rolls"
+import { NPC } from "./npc"
 
-export function createClass(npc: any) {
+export function createClass(npc: NPC) {
   let dndClassOrigin: string
   let background: string
   let classWeapon: string
