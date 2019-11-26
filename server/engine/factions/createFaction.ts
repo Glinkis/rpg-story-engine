@@ -21,7 +21,6 @@ export interface FactionRoll {
 
 export interface Faction {
   key: string
-  passageName: string
   associatedTown: string
   type: string
   name: string
@@ -47,7 +46,6 @@ export function createFaction(town: Town, opts: Partial<Faction> = {}): Faction 
 
   const faction = {
     key: createUniqueKey(),
-    passageName: `FactionProfile`,
     associatedTown: town.name,
     type,
     name: ``,

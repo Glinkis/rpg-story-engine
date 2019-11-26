@@ -14,8 +14,6 @@ export function createSmithy(town: Town, opts = {}): Smithy {
   createSmithyName(town, smithy)
   Object.assign(smithy, {
     wordNoun: randomValue([`smithy`, `blacksmith`, `smithery`, `farrier shop`]),
-    passageName: `SmithyOutput`,
-    initPassage: `InitSmithy`,
     buildingType: `smithy`,
     associatedTown: town.name,
     weapons: Object.values(Weapon),

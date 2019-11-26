@@ -20,8 +20,6 @@ export function createMarket(town: Town, opts = {}) {
     name,
     draw,
     associatedTown: town.name,
-    initPassage: `MarketOutput`,
-    passageName: `MarketOutput`,
     buildingType: `market`,
     needsWordNoun: false,
     wordNoun,
