@@ -9,7 +9,7 @@
   "scripts": {
     "start": "ts-node server",
     "start:watch": "nodemon",
-    "lint": "eslint server/**/*.ts --fix"
+    "lint": "eslint **/*.ts --fix && prettier **/*.ts --write"
   },
   "nodemonConfig": {
     "watch": "server",

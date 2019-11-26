@@ -59,7 +59,7 @@ export function createFaction(town: Town, opts: Partial<Faction> = {}): Faction 
     influence: ``,
     reputation: ``,
     resources: [],
-    resourcesDescription: '',
+    resourcesDescription: ``,
     motivation: randomValue(factionData.type[type].motivation) as string,
     membersTrait: randomValue(factionData.type[type].membersTrait) as string,
     leadershipType: randomValue([`individual`, `individual`, `individual`, `group`, `group`]),
