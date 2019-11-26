@@ -9,7 +9,8 @@
   "scripts": {
     "start": "ts-node server",
     "start:watch": "nodemon",
-    "lint": "eslint **/*.ts --fix && prettier **/*.ts --write"
+    "lint": "eslint **/*.ts && prettier **/*.ts --check",
+    "lint:fix": "eslint **/*.ts --fix && prettier **/*.ts --write"
   },
   "nodemonConfig": {
     "watch": "server",
