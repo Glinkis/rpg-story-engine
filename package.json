@@ -12,7 +12,8 @@
     "build": "webpack --mode production",
     "build:watch": "webpack --mode development --watch",
     "lint": "eslint **/*.ts && prettier **/*.ts --check",
-    "lint:fix": "eslint **/*.ts --fix && prettier **/*.ts --write"
+    "lint:fix": "eslint **/*.ts --fix && prettier **/*.ts --write",
+    "heroku-postbuild": "yarn build"
   },
   "nodemonConfig": {
     "watch": "server",
