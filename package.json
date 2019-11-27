@@ -16,10 +16,15 @@
     "heroku-postbuild": "yarn build"
   },
   "nodemonConfig": {
-    "watch": "server",
-    "ext": "ts"
+    "watch": [
+      "server",
+      "client"
+    ],
+    "ext": "ts,tsx"
   },
   "dependencies": {
+    "@emotion/core": "10.0.22",
+    "@emotion/styled": "10.0.23",
     "@sentry/node": "5.9.0",
     "@types/compression": "1.0.1",
     "@types/express": "4.17.2",
