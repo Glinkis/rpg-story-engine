@@ -35,8 +35,9 @@ import { newspaper } from "./engine/world/newspaper"
 import { mountain } from "./engine/world/mountain"
 import { cavern } from "./engine/world/cavern"
 import { forest } from "./engine/world/forest"
+import { initReactSSR } from "./react"
 
-const app = express()
+export const app = express()
 
 // Compress responses.
 app.use(compression({ threshold: 8 }))
@@ -45,6 +46,8 @@ app.use(compression({ threshold: 8 }))
 app.use(Sentry.Handlers.requestHandler())
 app.use(Sentry.Handlers.errorHandler())
 
+initReactSSR(app)
+
 function sendJson(res: Response, object: any) {
   res.header(`Content-Type`, `application/json`)
   res.send(JSON.stringify(object, null, 2))
@@ -52,6 +55,10 @@ function sendJson(res: Response, object: any) {
 
 function createRouteListItem(html: string, route: any) {
   if (route.route) {
+    // Ignore root and client routes.
+    if ([`/`, `/client`].includes(route.route.path)) {
+      return html
+    }
     return `${html}\n<li><a href="${route.route.path}">${route.route.path}</a></li>`
   }
   return html
@@ -63,6 +70,7 @@ function createRouteListItem(html: string, route: any) {
 app.get(`/`, (req, res) => {
   res.header(`Content-Type`, `text/html`)
   res.send(`
+    <a href="/client">Client</a>
     <h1>Available Endpoints:</h1>
     <ul>${app._router.stack.reduce(createRouteListItem, ``)}</ul>
   `)
