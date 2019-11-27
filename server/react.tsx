@@ -5,15 +5,19 @@ import express, { Express } from "express"
 
 import { App } from "../client/App"
 
-function Head() {
-  return (
-    <head>
-      <title>RPG Story Engine</title>
-      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0" />
-      <script defer src="/public/main.js"></script>
-    </head>
-  )
-}
+const Head = () => (
+  <head>
+    <title>RPG Story Engine</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0" />
+    <script defer src="/public/main.js"></script>
+  </head>
+)
+
+const Body = () => (
+  <body>
+    <App />
+  </body>
+)
 
 export function initReactSSR(app: Express) {
   // Serve the webpack build output.
@@ -26,11 +30,7 @@ export function initReactSSR(app: Express) {
       <!DOCTYPE html>
       <html>
       ${ReactDOMServer.renderToStaticMarkup(<Head />)}
-      ${ReactDOMServer.renderToString(
-        <body>
-          <App />
-        </body>
-      )}
+      ${ReactDOMServer.renderToString(<Body />)}
       </html>
     `)
   })
