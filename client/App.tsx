@@ -8,7 +8,8 @@ const FancyButton = styled.button({
   "borderRadius": 32,
   "backgroundColor": `#fefefe`,
   "boxShadow": `2px 2px 24px rgba(3, 16, 48, 0.3)`,
-  "fontSize": 14,
+  "fontSize": 24,
+  "fontWeight": 500,
   "fontFamily": `sans-serif`,
   "&:focus": {
     outline: `none`,
