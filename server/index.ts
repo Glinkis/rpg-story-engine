@@ -15,7 +15,10 @@ app.use(compression({ threshold: 8 }))
 initSentry(app)
 initReactSSR(app)
 initEndpoints(app)
-initWebpackMiddleware(app)
+
+if (process.env.NODE_ENV !== `production`) {
+  initWebpackMiddleware(app)
+}
 
 function createRouteListItem(html: string, route: any) {
   if (route.route) {

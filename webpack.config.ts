@@ -4,6 +4,7 @@ const config: Configuration = {
   entry: {
     main: `./client/`,
   },
+  mode: `development`,
   devtool: `eval`,
   module: {
     rules: [
