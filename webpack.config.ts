@@ -1,7 +1,10 @@
 import { Configuration, HotModuleReplacementPlugin } from "webpack"
 
 const config: Configuration = {
-  entry: `./client/`,
+  entry: {
+    main: `./client/`,
+  },
+  devtool: `eval`,
   module: {
     rules: [
       {
