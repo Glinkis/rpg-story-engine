@@ -1,4 +1,4 @@
-import { Configuration } from "webpack"
+import { Configuration, HotModuleReplacementPlugin } from "webpack"
 
 const config: Configuration = {
   entry: `./client/`,
@@ -14,6 +14,7 @@ const config: Configuration = {
   resolve: {
     extensions: [`.tsx`, `.ts`, `.js`],
   },
+  plugins: [new HotModuleReplacementPlugin()],
 }
 
 export default config
