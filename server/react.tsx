@@ -27,7 +27,7 @@ export function initReactSSR(app: Express) {
   // We hydrate the app after rendering the initial layout.
   app.get(`/client`, (req, res) => {
     res.send(`
-      <!DOCTYPE html>
+      <!doctype html>
       <html>
       ${ReactDOMServer.renderToStaticMarkup(<Head />)}
       ${ReactDOMServer.renderToString(<Body />)}
