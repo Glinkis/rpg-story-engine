@@ -9,7 +9,9 @@ const Head = () => (
   <head>
     <title>RPG Story Engine</title>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0" />
-    <script defer src="/public/main.js"></script>
+    <script defer src="/main.js"></script>
+    <script defer src="/client.js"></script>
+    <script defer src="/server.js"></script>
   </head>
 )
 
@@ -21,7 +23,7 @@ const Body = () => (
 
 export function initReactSSR(app: Express) {
   // Serve the webpack build output.
-  app.use(`/public`, express.static(path.resolve(__dirname, `..`, `dist`)))
+  app.use(express.static(path.resolve(__dirname, `..`, `dist`)))
 
   // Apply server-side renderng for the client.
   // We hydrate the app after rendering the initial layout.

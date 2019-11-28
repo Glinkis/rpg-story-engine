@@ -13,16 +13,7 @@ const compiler = webpack(config)
 
 //enable webpack middleware for hot-reloads in development
 export function initWebpackMiddleware(app: Express) {
-  app.use(
-    webpackDevMiddleware(compiler, {
-      publicPath: `./`,
-      stats: {
-        "colors": true,
-        "chunks": false, // this reduces the amount of stuff I see in my terminal; configure to your needs
-        "errors-only": true,
-      },
-    })
-  )
+  app.use(webpackDevMiddleware(compiler))
 
   app.use(
     webpackHotMiddleware(compiler, {
