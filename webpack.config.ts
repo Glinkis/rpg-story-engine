@@ -6,12 +6,8 @@ const config: Configuration = {
     rules: [
       {
         test: /\.(t|j)sx?$/,
-        loader: `ts-loader`,
+        loader: `babel-loader`,
         exclude: /node_modules/,
-        options: {
-          transpileOnly: true,
-          compilerOptions: { noEmit: false },
-        },
       },
     ],
   },

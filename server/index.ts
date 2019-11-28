@@ -1,9 +1,18 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import webpackDevMiddleware from "webpack-dev-middleware"
+import webpackHotMiddleware from "webpack-hot-middleware"
+import config from "../webpack.config"
+
 import compression from "compression"
 import express from "express"
 import chalk from "chalk"
+
 import { initSentry } from "./sentry"
 import { initReactSSR } from "./react"
 import { initEndpoints } from "./endpoints"
+
+config.entry![`server`] = `webpack/hot/dev-server`
+config.entry![`client`] = `webpack-hot-middleware/client`
 
 export const app = express()
 
