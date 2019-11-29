@@ -23,7 +23,7 @@ const Body = () => (
 
 export function initReactSSR(app: Express) {
   // Serve the webpack build output.
-  app.use(express.static(path.resolve(__dirname, `..`, `dist`)))
+  app.use(express.static(path.resolve(__dirname, `..`, `dist/client`)))
 
   // Apply server-side renderng for the client.
   // We hydrate the app after rendering the initial layout.
