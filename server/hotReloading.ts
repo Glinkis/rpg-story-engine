@@ -6,8 +6,8 @@ import { Express } from "express"
 
 import config from "../webpack.config"
 
-config.entry![`server`] = `webpack/hot/dev-server`
-config.entry![`client`] = `webpack-hot-middleware/client`
+config[0].entry![`client`] = `webpack-hot-middleware/client`
+config[1].entry![`server`] = `webpack/hot/dev-server`
 
 const compiler = webpack(config)
 

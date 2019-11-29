@@ -1,11 +1,11 @@
 import { Configuration, HotModuleReplacementPlugin } from "webpack"
 
-const config: Configuration = {
-  entry: {
-    main: `./client/`,
-  },
-  mode: `development`,
+/**
+ * Config options shared between the client and the server.
+ */
+const shared: Configuration = {
   devtool: `eval`,
+  mode: `development`,
   module: {
     rules: [
       {
@@ -21,4 +21,35 @@ const config: Configuration = {
   plugins: [new HotModuleReplacementPlugin()],
 }
 
-export default config
+/**
+ * Client webpack config.
+ */
+const client: Configuration = {
+  ...shared,
+  name: `client`,
+  entry: {
+    main: `./client`,
+  },
+  output: {
+    path: `${__dirname}dist/client`,
+  },
+  target: `web`,
+}
+
+/**
+ * Server webpack config.
+ */
+const server: Configuration = {
+  ...shared,
+  name: `server`,
+  entry: {
+    main: `./server`,
+  },
+  output: {
+    path: `${__dirname}dist/server`,
+    libraryTarget: `commonjs2`,
+  },
+  target: `node`,
+}
+
+export default [client, server]
