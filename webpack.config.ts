@@ -48,7 +48,6 @@ const server: Configuration = {
   },
   output: {
     path: path.resolve(__dirname, `dist`, `server`),
-    libraryTarget: `commonjs2`,
   },
   target: `node`,
 }

@@ -14,12 +14,6 @@ const compiler = webpack(config)
 //enable webpack middleware for hot-reloads in development
 export function initWebpackMiddleware(app: Express) {
   app.use(webpackDevMiddleware(compiler))
-
-  app.use(
-    webpackHotMiddleware(compiler, {
-      log: console.log,
-    })
-  )
-
+  app.use(webpackHotMiddleware(compiler))
   return app
 }
