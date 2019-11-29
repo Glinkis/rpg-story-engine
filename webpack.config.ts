@@ -1,3 +1,4 @@
+import path from "path"
 import { Configuration, HotModuleReplacementPlugin } from "webpack"
 
 /**
@@ -31,7 +32,7 @@ const client: Configuration = {
     main: `./client`,
   },
   output: {
-    path: `${__dirname}dist/client`,
+    path: path.resolve(__dirname, `dist`, `client`),
   },
   target: `web`,
 }
@@ -46,7 +47,7 @@ const server: Configuration = {
     main: `./server`,
   },
   output: {
-    path: `${__dirname}dist/server`,
+    path: path.resolve(__dirname, `dist`, `server`),
     libraryTarget: `commonjs2`,
   },
   target: `node`,
