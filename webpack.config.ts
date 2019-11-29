@@ -1,5 +1,6 @@
 import path from "path"
 import { Configuration, HotModuleReplacementPlugin } from "webpack"
+import nodeExternals from "webpack-node-externals"
 
 /**
  * Config options shared between the client and the server.
@@ -50,6 +51,7 @@ const server: Configuration = {
     path: path.resolve(__dirname, `dist`, `server`),
   },
   target: `node`,
+  externals: [nodeExternals()],
 }
 
 export default [client, server]
