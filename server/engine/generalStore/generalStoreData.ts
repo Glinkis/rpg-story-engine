@@ -1,5 +1,8 @@
-import { colours } from "../misc/colours"
+import { allColours } from "../misc/colours"
 import { RollData } from "../../../shared/types"
+import { randomValue } from "../rolls"
+import { rt } from "../tools/randomTemplate"
+import { flora } from "../dictionary/flora"
 
 export const generalStore = {
   crud: [
@@ -188,8 +191,8 @@ export const generalStore = {
     ],
   } as RollData,
   get: {
-    say(generalStore) {
-      const goods = [
+    say({ shopkeep }) {
+      const goods = randomValue([
         `crowbar`,
         `grappling hook`,
         `hammer`,
@@ -212,28 +215,28 @@ export const generalStore = {
         `tent`,
         `hatchet`,
         `oil bottle`,
-      ].seededrandom()
+      ])
 
       const shopkeepSays = [
-        `asks what $shopkeep.heshe can do for you`,
+        `asks what ${shopkeep.heshe} can do for you`,
         `tells you everything you see just came in on a fresh shipment`,
         `lets you know that all ${goods}s are 20% off`,
-        `warns you that $shopkeep.heshe is down to $shopkeep.hisher last ${goods}`,
+        `warns you that ${shopkeep.heshe} is down to ${shopkeep.hisher} last ${goods}`,
         `says the whole store is currently 10% off`,
-        `tells you the store is closing soon because $shopkeep.heshe ${[
+        `tells you the store is closing soon because ${shopkeep.heshe} ${randomValue([
           `wants to go home`,
           `has to start on a long journey`,
           `has to meet someone for a new shipment of goods`,
           `has to go to take care of $shopkeep.hisher family`,
           `is tired and bored for the day`,
-        ].seededrandom()}`,
+        ])}`,
         `asks what it is you need today`,
         `apologizes for being totally out of ${goods}s today`,
         `says a fresh shipment of ${goods}s are coming in tomorrow morning`,
-        `warns you that you may want to buy a medical kit as there has been a recent outbreak of flu in town according to $shopkeep.himher`,
+        `warns you that you may want to buy a medical kit as there has been a recent outbreak of flu in town according to ${shopkeep.himher}`,
         `apologizes for currently being low on all of the shop's stock`,
         `says you look like you could really use a nice ${goods}`,
-        `lets you know that the store is currently having a ${[
+        `lets you know that the store is currently having a ${randomValue([
           `buy two get one free`,
           `buy one get one free`,
           `buy one get one 50% off`,
@@ -241,14 +244,12 @@ export const generalStore = {
           `buy two pay for three`,
           `two for one`,
           `three for one`,
-        ].seededrandom()} deal`,
+        ])} deal`,
       ]
 
-      return shopkeepSays.seededrandom()
+      return randomValue(shopkeepSays)
     },
-    shopkeepNote(generalStore) {
-      const { shopkeep } = generalStore
-
+    shopkeepNote({ shopkeep }) {
       const shopkeepNote = [
         `does not seem to belong there, and looks very uncomfortable`,
         `is unusually friendly, and never seems to stop smiling`,
@@ -256,14 +257,14 @@ export const generalStore = {
         `can tell a story behind everything ${shopkeep.heshe} sells`,
         `seems a little bit shady in $shopkeep.hisher dealings`,
         `is a rather forceful salesman`,
-        `has a pungent and offensive smell about $shopkeep.himher`,
+        `has a pungent and offensive smell about ${shopkeep.himher}`,
         `insists ${shopkeep.heshe} is from an ancient line of powerful merchants`,
-        `dresses ${[
+        `dresses ${randomValue([
           `much better than expected`,
           `like a filthy beggar`,
-          `like $shopkeep.heshe is true royalty`,
+          `like ${shopkeep.heshe} is true royalty`,
           `in rather colorfgul garb`,
-        ].seededrandom()}`,
+        ])}`,
         `looks like a beggar, but speaks like a noble`,
         `is a very smooth salesperson and tries to talk you into several items`,
         `is a sly and quite shrewd merchant who seems to know just what you want`,
@@ -283,34 +284,13 @@ export const generalStore = {
         `eyes you warely as you move around the store`,
         `is acting strangely cold, and never seems to blink`,
       ]
-      return `${shopkeep.firstName} ${shopkeepNote.seededrandom()}`
+
+      return rt`${shopkeep.firstName} ${shopkeepNote}`
     },
-    note(generalStore) {
-      const { shopkeep } = generalStore
-
-      const colour1 = [
-        colours.yellow.colour.seededrandom(),
-        colours.orange.colour.seededrandom(),
-        colours.red.colour.seededrandom(),
-        colours.purple.colour.seededrandom(),
-        colours.blue.colour.seededrandom(),
-        colours.green.colour.seededrandom(),
-        colours.brown.colour.seededrandom(),
-        colours.black.colour.seededrandom(),
-        colours.white.colour.seededrandom(),
-      ].seededrandom()
-
-      const colour2 = [
-        colours.yellow.colour.seededrandom(),
-        colours.orange.colour.seededrandom(),
-        colours.red.colour.seededrandom(),
-        colours.purple.colour.seededrandom(),
-        colours.blue.colour.seededrandom(),
-        colours.green.colour.seededrandom(),
-        colours.brown.colour.seededrandom(),
-        colours.black.colour.seededrandom(),
-        colours.white.colour.seededrandom(),
-      ].seededrandom()
+    note({ shopkeep }) {
+      const colours = allColours()
+      const colour1 = randomValue(colours)
+      const colour2 = randomValue(colours)
 
       const note = [
         // You notice __
@@ -344,7 +324,7 @@ export const generalStore = {
         `the shop has a strong odor of mildew`,
         `a ghost is browsing the merchandise on one of the back shelves`,
         `a legendary weapon is on display, but not for sale`,
-        `colorful murals of ${[
+        `colorful murals of ${randomValue([
           `plants`,
           `flowers`,
           `animals`,
@@ -358,14 +338,14 @@ export const generalStore = {
           `deserts`,
           `geometric shapes`,
           `organic shapes`,
-        ].seededrandom()} line the walls`,
+        ])} line the walls`,
         `constables of the local guard, $town.guard.name are interviewing everyone in the shop`,
         `several small cages with pure white rats are sitting on a table near the front door`,
         `a strange green goop is leaking from one wall`,
         `a large collection of cobwebs have formed in every corner of the shop`,
         `a pair of eyes float above the counter, slowly looking from one side of the shop to the other over and over`,
         `a low growl is emitting from beneath a large trapdoor in the floor`,
-        `the front window of the shop has ${[
+        `the front window of the shop has ${randomValue([
           `plants`,
           `flowers`,
           `animals`,
@@ -379,11 +359,11 @@ export const generalStore = {
           `deserts`,
           `geometric shapes`,
           `organic shapes`,
-        ].seededrandom()} painted on it`,
+        ])} painted on it`,
         `the store is lit by jars full of glowing bugs hanging from the ceiling`,
         `there is a small rack on the shop counter that is stocked with a biography of the shop owner`,
         `a small fireplace in the corner of the shop is blazing warmly`,
-        `the head of ${[
+        `the head of ${randomValue([
           `a lion`,
           `a rhino`,
           `an eagle`,
@@ -405,7 +385,7 @@ export const generalStore = {
           `a wolf`,
           `a coyote`,
           `a camel`,
-        ].seededrandom()} is mounted on the wall on a ${[
+        ])} is mounted on the wall on a ${randomValue([
           `crude`,
           `fine`,
           `nice`,
@@ -414,12 +394,12 @@ export const generalStore = {
           `cracked`,
           `dusty`,
           `poor`,
-        ].seededrandom()} looking plaque`,
+        ])} looking plaque`,
         `there is a small shelf filled with different colored lumpy candles labeled "Homemade Candles" `,
         `a large oil painting of the shop owner hangs from the wall`,
         `all of the windows in the shop are covered by thick furs making the room rather dark`,
         `the windows are all blacked out and the room is lit by glowing mushrooms`,
-        `a large group of ${[
+        `a large group of ${randomValue([
           `owls`,
           `hawks`,
           `vultures`,
@@ -436,12 +416,12 @@ export const generalStore = {
           `doves`,
           `swallows`,
           `sparrows`,
-        ].seededrandom()} are roosting in the rafters of the shop`,
-        `several large pots full of ${setup.flora.flower.stemP.seededrandom()} are placed around the shop`,
+        ])} are roosting in the rafters of the shop`,
+        `several large pots full of ${randomValue(flora.flower.stemP)} are placed around the shop`,
         `the shelves of this shop are looking a little bare`,
         `a large glass orb sitting on a plush pillow is on a wide table in the middle of the shop`,
         `the shop counter is embedded with coins from all different regions`,
-        `there's a row of leatherbound books about ${[
+        `there's a row of leatherbound books about ${randomValue([
           `monsters`,
           `beasts`,
           `jewels`,
@@ -467,8 +447,8 @@ export const generalStore = {
           `religions`,
           `regional history`,
           `poetry`,
-        ].seededrandom()}filling a nearby shelf`,
-        `a taxidermied ${[
+        ])}filling a nearby shelf`,
+        `a taxidermied ${randomValue([
           `lion`,
           `rhino`,
           `eagle`,
@@ -494,29 +474,30 @@ export const generalStore = {
           `dog`,
           `duck`,
           `pig`,
-        ].seededrandom()} is standing in one corner of the shop`,
-        `all of the walls are painted a ${colour1} colour${[
+        ])} is standing in one corner of the shop`,
+        `all of the walls are painted a ${colour1} colour${randomValue([
           ``,
           ``,
           ``,
           ` with ${colour2} coloured accents`,
           `, and the ceiling is ${colour2} coloured`,
           `, and the floors have been painted a ${colour2} color`,
-        ].seededrandom()}`,
+        ])}`,
         `the shop counter is painted a nice ${colour1} colour`,
         `a small silver bell sits on the shop counter in case the shop keeper is not around`,
-        `the shop is lit from above by a large glowing orb emitting a ${[
+        `the shop is lit from above by a large glowing orb emitting a ${randomValue([
           `dim`,
           `strong`,
           `low`,
           `pulsing`,
           `flickering`,
-        ].seededrandom()} ${colour1} coloured light`,
+        ])} ${colour1} coloured light`,
       ]
-      return note.seededrandom()
+
+      return randomValue(note)
     },
     priceTalk(generalStore) {
-      const priceTalk = [
+      return [
         {
           priceModifier: 5,
           wealth: 80,
@@ -578,7 +559,6 @@ export const generalStore = {
           priceTalk: `Everything must go- can't afford to keep ${generalStore.name} open much longer, so I'm getting rid of the final stock.`,
         },
       ]
-      return priceTalk
     },
   },
 }

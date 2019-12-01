@@ -10,7 +10,6 @@ interface Guard {
   name: string
   associatedTown: string
   captain: any
-  passageName: string
   livery: string
 }
 
@@ -24,10 +23,7 @@ export function createGuard(town: Town): Guard {
       profession: `guard`,
       background: `soldier`,
     }),
-    passageName: `GuardOutput`,
-    livery: `${randomValue(guardData.primaryColours)} and ${randomValue(
-      guardData.secondaryColours
-    )} livery adorned with an image of ${randomValue(guardData.insignia)}`,
+    livery: rt`${guardData.primaryColours} and ${guardData.secondaryColours} livery adorned with an image of ${guardData.insignia}`,
   }
 }
 

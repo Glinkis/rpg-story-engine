@@ -73,7 +73,6 @@ export function createNPC(town: Town, base?: any) {
   // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
   const npc = {
     key: createUniqueKey(),
-    passageName: `NPCProfile`,
     gender,
     race,
     firstName,
