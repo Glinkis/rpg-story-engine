@@ -17,12 +17,36 @@ enum Source {
   TYP = `TYP`,
   WDH = `WDH`,
   XGE = `XGE`,
-  PA = `PA`,
-  OA = `OA`,
-  TA = `TA`,
   CS = `CS`,
-  RT = `RT`,
   MM = `MM`,
+  OA = `OA`,
+  PA = `PA`,
+  RT = `RT`,
+  TA = `TA`,
+}
+
+enum Type {
+  Ammunition = `Ammunition`,
+  Armor = `Armor`,
+  PotionsAndOils = `Potions & Oils`,
+  Rings = `Rings`,
+  Rods = `Rods`,
+  Shields = `Shields`,
+  SpellGems = `Spell Gems`,
+  SpellScrolls = `Spell Scrolls`,
+  Staffs = `Staffs`,
+  Wands = `Wands`,
+  Weapons = `Weapons`,
+  WondrousItems = `Wondrous Items`,
+  WondrousItemsArmsAndWrists = `Wondrous Items: Arms & Wrists`,
+  WondrousItemsBody = `Wondrous Items: Body`,
+  WondrousItemsEyes = `Wondrous Items: Eyes`,
+  WondrousItemsFeet = `Wondrous Items: Feet`,
+  WondrousItemsHands = `WondrousItems: Hands`,
+  WondrousItemsHead = `WondrousItems: Head`,
+  WondrousItemsNeck = `Wondrous Items: Neck`,
+  WondrousItemsShoulders = `Wondrous Items: Shoulders`,
+  WondrousItemsWaist = `WondrousItems: Waist`,
 }
 
 export const magicItems = {
@@ -35,7 +59,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.DMG,
     page: 200,
-    type: `Spell Scrolls`,
+    type: Type.SpellScrolls,
   },
   "Bead of Nourishment": {
     price: {
@@ -46,7 +70,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 136,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Bead of Refreshment": {
     price: {
@@ -57,7 +81,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 136,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Spell Scroll Level 1": {
     price: {
@@ -68,7 +92,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.DMG,
     page: 200,
-    type: `Spell Scrolls`,
+    type: Type.SpellScrolls,
   },
   "Unbreakable Arrow": {
     price: {
@@ -79,7 +103,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 139,
-    type: `Ammunition`,
+    type: Type.Ammunition,
   },
   "Potion of Climbing": {
     price: {
@@ -90,7 +114,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Walloping Ammunition": {
     price: {
@@ -101,7 +125,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 139,
-    type: `Ammunition`,
+    type: Type.Ammunition,
   },
   "Ammunition +1 (Ea)": {
     price: {
@@ -112,7 +136,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 150,
-    type: `Ammunition`,
+    type: Type.Ammunition,
   },
   "Candle of the Deep": {
     price: {
@@ -123,7 +147,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 136,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Cast-Off Armor": {
     price: {
@@ -134,7 +158,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 136,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Clothes of Mending": {
     price: {
@@ -145,7 +169,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 137,
-    type: `Wondrous Items: Body`,
+    type: Type.WondrousItemsBody,
   },
   "Lock of Trickery": {
     price: {
@@ -156,7 +180,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Moodmark Paint": {
     price: {
@@ -167,7 +191,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.GGR,
     page: 180,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Mystery Key": {
     price: {
@@ -178,7 +202,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Orb of Direction": {
     price: {
@@ -189,7 +213,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Orb of Time": {
     price: {
@@ -200,7 +224,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Pipe of Smoke Monsters": {
     price: {
@@ -211,7 +235,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Pole of Angling": {
     price: {
@@ -222,7 +246,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Potion of Healing": {
     price: {
@@ -233,7 +257,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Rope of Mending": {
     price: {
@@ -244,7 +268,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Shield of Expression": {
     price: {
@@ -255,7 +279,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 139,
-    type: `Shields`,
+    type: Type.Shields,
   },
   "Staff of Adornment": {
     price: {
@@ -266,7 +290,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 139,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Staff of Flowers": {
     price: {
@@ -277,7 +301,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 139,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Veteran’s Cane": {
     price: {
@@ -288,7 +312,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 139,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Dread Helm": {
     price: {
@@ -299,7 +323,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 137,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Pole of Collapsing": {
     price: {
@@ -310,7 +334,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Boots of False Tracks": {
     price: {
@@ -321,7 +345,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 136,
-    type: `Wondrous Items: Feet`,
+    type: Type.WondrousItemsFeet,
   },
   "Wand of Scowls": {
     price: {
@@ -332,7 +356,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 140,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Wand of Smiles": {
     price: {
@@ -343,7 +367,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 140,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Hat of Vermin": {
     price: {
@@ -354,7 +378,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 137,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Wand of Pyrotechnics": {
     price: {
@@ -365,7 +389,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 140,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Staff of Birdcalls": {
     price: {
@@ -376,7 +400,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 139,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Armor of Gleaming (any medium or heavy)": {
     price: {
@@ -387,7 +411,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 136,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Dark Shard Amulet": {
     price: {
@@ -398,7 +422,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 137,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Ear Horn of Hearing": {
     price: {
@@ -409,7 +433,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 137,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ersatz Eye": {
     price: {
@@ -420,7 +444,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 137,
-    type: `Wondrous Items: Eyes`,
+    type: Type.WondrousItemsEyes,
   },
   "Hat of Wizardry": {
     price: {
@@ -431,7 +455,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 137,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Moon-Touched Sword": {
     price: {
@@ -442,7 +466,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Perfume of Bewitching": {
     price: {
@@ -453,7 +477,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Smoldering Armor": {
     price: {
@@ -464,7 +488,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 139,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Talking Doll": {
     price: {
@@ -475,7 +499,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 139,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Charlatan’s Die": {
     price: {
@@ -486,7 +510,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 136,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Instrument of Scribing": {
     price: {
@@ -497,7 +521,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Tankard of Sobriety": {
     price: {
@@ -508,7 +532,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 139,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Horn of Silent Alarm": {
     price: {
@@ -519,7 +543,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 137,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Pot of Awakening": {
     price: {
@@ -530,7 +554,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Cloak of Many Fashions": {
     price: {
@@ -541,7 +565,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 136,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Wand of Conducting": {
     price: {
@@ -552,7 +576,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 140,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Alchemy Jug": {
     price: {
@@ -563,7 +587,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 150,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Cloak of Billowing": {
     price: {
@@ -574,7 +598,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 136,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Clockwork Amulet": {
     price: {
@@ -585,7 +609,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 137,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Driftglobe": {
     price: {
@@ -596,7 +620,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 166,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Enduring Spellbook": {
     price: {
@@ -607,7 +631,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 137,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Heward’s Handy Spice Pouch": {
     price: {
@@ -618,7 +642,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 137,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Instrument of Illusions": {
     price: {
@@ -629,7 +653,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 137,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ruby of the War Mage": {
     price: {
@@ -640,7 +664,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.XGE,
     page: 138,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Seeker Dart": {
     price: {
@@ -651,7 +675,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.PA,
     page: 223,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Potion of Giant Strength (Hill)": {
     price: {
@@ -662,7 +686,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Wand of Secrets": {
     price: {
@@ -673,7 +697,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 211,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Dust of Sneezing and Choking": {
     price: {
@@ -684,7 +708,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 166,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Eyes of Minute Seeing": {
     price: {
@@ -695,7 +719,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 168,
-    type: `Wondrous Items: Eyes`,
+    type: Type.WondrousItemsEyes,
   },
   "Loadstone": {
     price: {
@@ -706,7 +730,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.TYP,
     page: 228,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Philter of Love": {
     price: {
@@ -717,7 +741,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 184,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Pipes of the Sewers": {
     price: {
@@ -728,7 +752,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 185,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ring of Truth Telling": {
     price: {
@@ -739,7 +763,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.WDH,
     page: 192,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Spell Gem (Obsidian, Level 0)": {
     price: {
@@ -750,7 +774,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.OA,
     page: 223,
-    type: `Spell Gems`,
+    type: Type.SpellGems,
   },
   "Spell Scroll Level 2": {
     price: {
@@ -761,7 +785,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 200,
-    type: `Spell Scrolls`,
+    type: Type.SpellScrolls,
   },
   "Storm Boomerang": {
     price: {
@@ -772,7 +796,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.PA,
     page: 223,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Wand of Magic Detection": {
     price: {
@@ -783,7 +807,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 211,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Wind Fan": {
     price: {
@@ -794,7 +818,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 213,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Balance of Harmony": {
     price: {
@@ -805,7 +829,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.TYP,
     page: 228,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Boots of Striding and Springing": {
     price: {
@@ -816,7 +840,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 156,
-    type: `Wondrous Items: Feet`,
+    type: Type.WondrousItemsFeet,
   },
   "Dust of Disappearance": {
     price: {
@@ -827,7 +851,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 166,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Helm of Comprehend Languages": {
     price: {
@@ -838,7 +862,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 173,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Mask of the Beast": {
     price: {
@@ -849,7 +873,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.TA,
     page: 207,
-    type: `Wondrous Items: Eyes`,
+    type: Type.WondrousItemsEyes,
   },
   "Piwafwi (Cloak of Elvenkind)": {
     price: {
@@ -860,7 +884,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.OA,
     page: 222,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Potion of Animal Friendship": {
     price: {
@@ -871,7 +895,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Ammunition +2 (Ea)": {
     price: {
@@ -882,7 +906,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 150,
-    type: `Ammunition`,
+    type: Type.Ammunition,
   },
   "Cloak of Elvenkind": {
     price: {
@@ -893,7 +917,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 158,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Elemental Gem": {
     price: {
@@ -904,7 +928,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 167,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Gem of Brightness": {
     price: {
@@ -915,7 +939,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 171,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Gloves of Swimming and Climbing": {
     price: {
@@ -926,7 +950,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 172,
-    type: `Wondrous Items: Hands`,
+    type: Type.WondrousItemsHands,
   },
   "Instrument of the Bards - Doss Lute": {
     price: {
@@ -937,7 +961,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 176,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Oil of Slipperiness": {
     price: {
@@ -948,7 +972,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 184,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Periapt of Health": {
     price: {
@@ -959,7 +983,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 184,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Pyroconverger": {
     price: {
@@ -970,7 +994,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.GGR,
     page: 180,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Quiver of Ehlonna": {
     price: {
@@ -981,7 +1005,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 189,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ring of Jumping": {
     price: {
@@ -992,7 +1016,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 191,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Ring of Mind Shielding": {
     price: {
@@ -1003,7 +1027,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 191,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Saddle of the Cavalier": {
     price: {
@@ -1014,7 +1038,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 199,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Staff of the Python": {
     price: {
@@ -1025,7 +1049,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 204,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Wand of Web": {
     price: {
@@ -1036,7 +1060,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 212,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Eversmoking Bottle": {
     price: {
@@ -1047,7 +1071,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 168,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Balloon Pack": {
     price: {
@@ -1058,7 +1082,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.PA,
     page: 222,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Boots of the Winterlands": {
     price: {
@@ -1069,7 +1093,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 156,
-    type: `Wondrous Items: Feet`,
+    type: Type.WondrousItemsFeet,
   },
   "Decanter of Endless Water": {
     price: {
@@ -1080,7 +1104,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 160,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Eyes of Charming": {
     price: {
@@ -1091,7 +1115,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 168,
-    type: `Wondrous Items: Eyes`,
+    type: Type.WondrousItemsEyes,
   },
   "Gloves of Thievery": {
     price: {
@@ -1102,7 +1126,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 172,
-    type: `Wondrous Items: Hands`,
+    type: Type.WondrousItemsHands,
   },
   "Goggles of Night": {
     price: {
@@ -1113,7 +1137,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 172,
-    type: `Wondrous Items: Eyes`,
+    type: Type.WondrousItemsEyes,
   },
   "Helm of Telepathy": {
     price: {
@@ -1124,7 +1148,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 174,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Medallion of Thoughts": {
     price: {
@@ -1135,7 +1159,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 181,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Pipes of Haunting": {
     price: {
@@ -1146,7 +1170,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 185,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Potion of Growth": {
     price: {
@@ -1157,7 +1181,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Potion of Healing, Greater": {
     price: {
@@ -1168,7 +1192,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Ring of Swimming": {
     price: {
@@ -1179,7 +1203,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 193,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Sentinel Shield": {
     price: {
@@ -1190,7 +1214,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 199,
-    type: `Shields`,
+    type: Type.Shields,
   },
   "Trident of Fish Command": {
     price: {
@@ -1201,7 +1225,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 209,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Vind Rune Armor (light, medium, or heavy)": {
     price: {
@@ -1212,7 +1236,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.SKT,
     page: 236,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Wand of Entangle": {
     price: {
@@ -1223,7 +1247,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.TYP,
     page: 229,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Wand of Magic Missiles": {
     price: {
@@ -1234,7 +1258,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 211,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Wingwear": {
     price: {
@@ -1245,7 +1269,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.PA,
     page: 223,
-    type: `Wondrous Items: Body`,
+    type: Type.WondrousItemsBody,
   },
   "Gloves of Missile Snaring": {
     price: {
@@ -1256,7 +1280,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 172,
-    type: `Wondrous Items: Hands`,
+    type: Type.WondrousItemsHands,
   },
   "Smokepowder": {
     price: {
@@ -1267,7 +1291,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.WDH,
     page: 192,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Bag of Tricks": {
     price: {
@@ -1278,7 +1302,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 154,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Bottled Breath": {
     price: {
@@ -1289,7 +1313,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.PA,
     page: 222,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Bracers of Archery": {
     price: {
@@ -1300,7 +1324,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 156,
-    type: `Wondrous Items: Arms & Wrists`,
+    type: Type.WondrousItemsArmsAndWrists,
   },
   "Circlet of Blasting": {
     price: {
@@ -1311,7 +1335,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 158,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Cloak of the Manta Ray": {
     price: {
@@ -1322,7 +1346,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 159,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Dust of Dryness (1 Pellet)": {
     price: {
@@ -1333,7 +1357,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 166,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Guild Signet": {
     price: {
@@ -1344,7 +1368,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.GGR,
     page: 178,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Instrument of the Bards - Fochulan Bandlore": {
     price: {
@@ -1355,7 +1379,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 176,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Javelin of Lightning": {
     price: {
@@ -1366,7 +1390,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 178,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Night Caller": {
     price: {
@@ -1377,7 +1401,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.TYP,
     page: 228,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Paper Bird": {
     price: {
@@ -1388,7 +1412,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.WDH,
     page: 191,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Potion of Fire Breath": {
     price: {
@@ -1399,7 +1423,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Rope of Climbing": {
     price: {
@@ -1410,7 +1434,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 197,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Spell Gem (Lapis Lazuli, Level 1)": {
     price: {
@@ -1421,7 +1445,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.OA,
     page: 223,
-    type: `Spell Gems`,
+    type: Type.SpellGems,
   },
   "Staff of the Adder": {
     price: {
@@ -1432,7 +1456,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 203,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Stein Rune Boots": {
     price: {
@@ -1443,7 +1467,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.SKT,
     page: 235,
-    type: `Wondrous Items: Feet`,
+    type: Type.WondrousItemsFeet,
   },
   "Blood Spear": {
     price: {
@@ -1454,7 +1478,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.CS,
     page: 221,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Brooch of Shielding": {
     price: {
@@ -1465,7 +1489,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 156,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Periapt of Wound Closure": {
     price: {
@@ -1476,7 +1500,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 184,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Robe of Serpents": {
     price: {
@@ -1487,7 +1511,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.SKT,
     page: 236,
-    type: `Wondrous Items: Body`,
+    type: Type.WondrousItemsBody,
   },
   "Skyblinder Staff": {
     price: {
@@ -1498,7 +1522,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.GGR,
     page: 181,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Figurine of Wondrous Power (Silver Raven)": {
     price: {
@@ -1509,7 +1533,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 170,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Amulet of Proof Against Detection and Location": {
     price: {
@@ -1520,7 +1544,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 150,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Boots of Elvenkind": {
     price: {
@@ -1531,7 +1555,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 155,
-    type: `Wondrous Items: Feet`,
+    type: Type.WondrousItemsFeet,
   },
   "Cloak of Protection": {
     price: {
@@ -1542,7 +1566,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 159,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Eyes of the Eagle": {
     price: {
@@ -1553,7 +1577,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 168,
-    type: `Wondrous Items: Eyes`,
+    type: Type.WondrousItemsEyes,
   },
   "Ild Rune Weapon": {
     price: {
@@ -1564,7 +1588,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.SKT,
     page: 235,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Keoghtom’s Ointment (Per Dose)": {
     price: {
@@ -1575,7 +1599,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 179,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Mariner’s Armor": {
     price: {
@@ -1586,7 +1610,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 181,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Pearl of Power": {
     price: {
@@ -1597,7 +1621,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 184,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Potion of Water Breathing": {
     price: {
@@ -1608,7 +1632,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 188,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Rakdos Keyrune": {
     price: {
@@ -1619,7 +1643,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.GGR,
     page: 178,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Robe of Useful Items": {
     price: {
@@ -1630,7 +1654,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 195,
-    type: `Wondrous Items: Body`,
+    type: Type.WondrousItemsBody,
   },
   "Rod of the Pact Keeper +1": {
     price: {
@@ -1641,7 +1665,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 197,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Spell Scroll Level 3": {
     price: {
@@ -1652,7 +1676,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 200,
-    type: `Spell Scrolls`,
+    type: Type.SpellScrolls,
   },
   "Stone of Good Luck": {
     price: {
@@ -1663,7 +1687,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 205,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Stone of Ill Luck": {
     price: {
@@ -1674,7 +1698,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.TYP,
     page: 229,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Sword of Vengeance (any sword)": {
     price: {
@@ -1685,7 +1709,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 206,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Wand of the War Mage +1": {
     price: {
@@ -1696,7 +1720,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 212,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Weapon of Warning": {
     price: {
@@ -1707,7 +1731,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 213,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "+1 Shield": {
     price: {
@@ -1718,7 +1742,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 200,
-    type: `Shields`,
+    type: Type.Shields,
   },
   "Broom of Flying": {
     price: {
@@ -1729,7 +1753,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 156,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Cap of Water Breathing": {
     price: {
@@ -1740,7 +1764,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 157,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Deck of Illusions": {
     price: {
@@ -1751,7 +1775,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 161,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Gauntlets of Ogre Power": {
     price: {
@@ -1762,7 +1786,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 171,
-    type: `Wondrous Items: Hands`,
+    type: Type.WondrousItemsHands,
   },
   "Guild Charms": {
     price: {
@@ -1773,7 +1797,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.GGR,
     page: 173,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Headband of Intellect": {
     price: {
@@ -1784,7 +1808,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 173,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Insignia of Claws": {
     price: {
@@ -1795,7 +1819,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.HDQ,
     page: 94,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Instrument of the Bards - MacFuirmidh Cittern": {
     price: {
@@ -1806,7 +1830,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 176,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Mithral Armor (medium or heavy, not hide)": {
     price: {
@@ -1817,7 +1841,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 182,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Necklace of Adaption": {
     price: {
@@ -1828,7 +1852,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Hat of Disguise": {
     price: {
@@ -1839,7 +1863,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 173,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Spies' Murmur": {
     price: {
@@ -1850,7 +1874,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.GGR,
     page: 181,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Ring of Warmth": {
     price: {
@@ -1861,7 +1885,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 193,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "+1 Weapon": {
     price: {
@@ -1872,7 +1896,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 213,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Adamantine Armor": {
     price: {
@@ -1883,7 +1907,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 150,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Bag of Holding": {
     price: {
@@ -1894,7 +1918,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 153,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Immovable Rod": {
     price: {
@@ -1905,7 +1929,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 175,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Lantern of Revealing": {
     price: {
@@ -1916,7 +1940,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 179,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Mizzium Apparatus": {
     price: {
@@ -1927,7 +1951,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.GGR,
     page: 179,
-    type: `Wondrous Items: Body`,
+    type: Type.WondrousItemsBody,
   },
   "Potion of Diminution": {
     price: {
@@ -1938,7 +1962,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Potion of Poison": {
     price: {
@@ -1949,7 +1973,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 188,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Potion of Resistance": {
     price: {
@@ -1960,7 +1984,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 188,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Ring of Water Walking": {
     price: {
@@ -1971,7 +1995,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 193,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Sending Stones": {
     price: {
@@ -1982,7 +2006,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 199,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Simic Keyrune": {
     price: {
@@ -1993,7 +2017,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.GGR,
     page: 178,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Skold Rune Weapon (any two-handed melee weapon)": {
     price: {
@@ -2004,7 +2028,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.SKT,
     page: 234,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Slippers of Spider Climbing": {
     price: {
@@ -2015,7 +2039,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 200,
-    type: `Wondrous Items: Feet`,
+    type: Type.WondrousItemsFeet,
   },
   "Winged Boots": {
     price: {
@@ -2026,7 +2050,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 214,
-    type: `Wondrous Items: Feet`,
+    type: Type.WondrousItemsFeet,
   },
   "Shatterspike (longsword)": {
     price: {
@@ -2037,7 +2061,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.TYP,
     page: 229,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Eagle Whistle": {
     price: {
@@ -2048,7 +2072,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.TYP,
     page: 228,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Feather of Diatryma Summoning": {
     price: {
@@ -2059,7 +2083,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.WDH,
     page: 191,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Potion of Giant Strength (Frost/Stone)": {
     price: {
@@ -2070,7 +2094,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Vind Rune Boots": {
     price: {
@@ -2081,7 +2105,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.SKT,
     page: 236,
-    type: `Wondrous Items: Feet`,
+    type: Type.WondrousItemsFeet,
   },
   "Vind Rune Cloak": {
     price: {
@@ -2092,7 +2116,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.SKT,
     page: 236,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Necklace of Fireballs (1 Bead)": {
     price: {
@@ -2103,7 +2127,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Potion of Healing, Superior": {
     price: {
@@ -2114,7 +2138,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Potion of Heroism": {
     price: {
@@ -2125,7 +2149,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 188,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Spell Scroll Level 4": {
     price: {
@@ -2136,7 +2160,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 200,
-    type: `Spell Scrolls`,
+    type: Type.SpellScrolls,
   },
   "Potion of Clairvoyance": {
     price: {
@@ -2147,7 +2171,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Wand of Viscid Globs": {
     price: {
@@ -2158,7 +2182,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.OA,
     page: 223,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Arrow of Slaying (Ea)": {
     price: {
@@ -2169,7 +2193,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 152,
-    type: `Ammunition`,
+    type: Type.Ammunition,
   },
   "Azorius Keyrune": {
     price: {
@@ -2180,7 +2204,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.GGR,
     page: 177,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Bracer of Flying Daggers": {
     price: {
@@ -2191,7 +2215,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.WDH,
     page: 190,
-    type: `Wondrous Items: Arms & Wrists`,
+    type: Type.WondrousItemsArmsAndWrists,
   },
   "Quaal’s Feather Token Anchor": {
     price: {
@@ -2202,7 +2226,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 188,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Quaal’s Feather Token Bird": {
     price: {
@@ -2213,7 +2237,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 188,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Quaal’s Feather Token Fan": {
     price: {
@@ -2224,7 +2248,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 188,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Quaal’s Feather Token Swan Boat": {
     price: {
@@ -2235,7 +2259,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 188,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Quaal’s Feather Token Whip": {
     price: {
@@ -2246,7 +2270,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 188,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ring of Animal Influence": {
     price: {
@@ -2257,7 +2281,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 189,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Rope of Entanglement": {
     price: {
@@ -2268,7 +2292,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 197,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Shield of Missile Attraction": {
     price: {
@@ -2279,7 +2303,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 200,
-    type: `Shields`,
+    type: Type.Shields,
   },
   "Orzhov Keyrune": {
     price: {
@@ -2290,7 +2314,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.GGR,
     page: 178,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Potion of Mind Reading": {
     price: {
@@ -2301,7 +2325,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 188,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Ise Rune Cloak": {
     price: {
@@ -2312,7 +2336,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.SKT,
     page: 237,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Potion of Giant Strength (Fire)": {
     price: {
@@ -2323,7 +2347,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Sword of Wounding (any sword)": {
     price: {
@@ -2334,7 +2358,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 207,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Piwafwi of Fire Resistance": {
     price: {
@@ -2345,7 +2369,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.OA,
     page: 222,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Necklace of Fireballs (2 Beads)": {
     price: {
@@ -2356,7 +2380,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Dagger of Venom": {
     price: {
@@ -2367,7 +2391,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 160,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Mizzium Armor": {
     price: {
@@ -2378,7 +2402,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.GGR,
     page: 179,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Pariah's Shield": {
     price: {
@@ -2389,7 +2413,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.GGR,
     page: 180,
-    type: `Shields`,
+    type: Type.Shields,
   },
   "Potion of Gaseous Form": {
     price: {
@@ -2400,7 +2424,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Potion of Healing, Supreme": {
     price: {
@@ -2411,7 +2435,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Potion of Invulnerability": {
     price: {
@@ -2422,7 +2446,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 188,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Selesnya Keyrune": {
     price: {
@@ -2433,7 +2457,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.GGR,
     page: 178,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Spell Gem (Quartz, Level 2)": {
     price: {
@@ -2444,7 +2468,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.OA,
     page: 223,
-    type: `Spell Gems`,
+    type: Type.SpellGems,
   },
   "Spell Scroll Level 5": {
     price: {
@@ -2455,7 +2479,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 200,
-    type: `Spell Scrolls`,
+    type: Type.SpellScrolls,
   },
   "Potion of Mind Control (Beast)": {
     price: {
@@ -2466,7 +2490,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.TYP,
     page: 229,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Hell Hound Cloak": {
     price: {
@@ -2477,7 +2501,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.TYP,
     page: 228,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Ghost Latern": {
     price: {
@@ -2488,7 +2512,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.TA,
     page: 206,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Mace of Disruption": {
     price: {
@@ -2499,7 +2523,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 179,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Spider Staff": {
     price: {
@@ -2510,7 +2534,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.LMP,
     page: 53,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Staff of Charming": {
     price: {
@@ -2521,7 +2545,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 201,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Potion of Giant Strength (Cloud)": {
     price: {
@@ -2532,7 +2556,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Potion of Vitality": {
     price: {
@@ -2543,7 +2567,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 188,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Conch of Teleportation": {
     price: {
@@ -2554,7 +2578,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.SKT,
     page: 234,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Izzet Keyrune": {
     price: {
@@ -2565,7 +2589,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.GGR,
     page: 177,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Elixir of Health": {
     price: {
@@ -2576,7 +2600,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 168,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Heward’s Handy Haversack": {
     price: {
@@ -2587,7 +2611,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 174,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Knave's Eye Patch": {
     price: {
@@ -2598,7 +2622,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.WDH,
     page: 191,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Mace of Smiting": {
     price: {
@@ -2609,7 +2633,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 179,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Oil of Etherealness": {
     price: {
@@ -2620,7 +2644,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 183,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Potion of Invisibility": {
     price: {
@@ -2631,7 +2655,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 188,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Potion of Speed": {
     price: {
@@ -2642,7 +2666,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 188,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Spell Scroll Level 6": {
     price: {
@@ -2653,7 +2677,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 200,
-    type: `Spell Scrolls`,
+    type: Type.SpellScrolls,
   },
   "Sun Blade (longsword)": {
     price: {
@@ -2664,7 +2688,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 205,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Tentacle Rod": {
     price: {
@@ -2675,7 +2699,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 208,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Mizzium Mortar": {
     price: {
@@ -2686,7 +2710,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.GGR,
     page: 179,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Scorpion Armor (plate)": {
     price: {
@@ -2697,7 +2721,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.TA,
     page: 208,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Staff of Withering": {
     price: {
@@ -2708,7 +2732,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 205,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Necklace of Fireballs (3 Beads)": {
     price: {
@@ -2719,7 +2743,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Gulthias Staff": {
     price: {
@@ -2730,7 +2754,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.CS,
     page: 221,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Ring of Feather Falling": {
     price: {
@@ -2741,7 +2765,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 192,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Sword of Life-Stealing (any sword)": {
     price: {
@@ -2752,7 +2776,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 206,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Weird Tank": {
     price: {
@@ -2763,7 +2787,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.PA,
     page: 223,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Wand of Wonder": {
     price: {
@@ -2774,7 +2798,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 212,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Oil of Sharpness": {
     price: {
@@ -2785,7 +2809,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 184,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "+2 Weapon": {
     price: {
@@ -2796,7 +2820,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 213,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Ammunition +3 (Ea)": {
     price: {
@@ -2807,7 +2831,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 150,
-    type: `Ammunition`,
+    type: Type.Ammunition,
   },
   "Horn of Blasting": {
     price: {
@@ -2818,7 +2842,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 174,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Potion of Flying": {
     price: {
@@ -2829,7 +2853,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Potion of Mind Control (Humanoid)": {
     price: {
@@ -2840,7 +2864,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.TYP,
     page: 229,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Wand of Binding": {
     price: {
@@ -2851,7 +2875,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 209,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Iron Bands of Bilarro": {
     price: {
@@ -2862,7 +2886,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ise Rune Boots": {
     price: {
@@ -2873,7 +2897,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.SKT,
     page: 237,
-    type: `Wondrous Items: Feet`,
+    type: Type.WondrousItemsFeet,
   },
   "Orb of the Stein Rune": {
     price: {
@@ -2884,7 +2908,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.SKT,
     page: 235,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Dimensional Shackles": {
     price: {
@@ -2895,7 +2919,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 165,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Gavel of the Venn Rune": {
     price: {
@@ -2906,7 +2930,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.SKT,
     page: 234,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Gruul Keyrune": {
     price: {
@@ -2917,7 +2941,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.GGR,
     page: 177,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Necklace of Fireballs (4 Beads)": {
     price: {
@@ -2928,7 +2952,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Robe of Summer": {
     price: {
@@ -2939,7 +2963,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.TYP,
     page: 229,
-    type: `Wondrous Items: Body`,
+    type: Type.WondrousItemsBody,
   },
   "Armor of Resistance": {
     price: {
@@ -2950,7 +2974,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 152,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Bead of Force": {
     price: {
@@ -2961,7 +2985,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 154,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Boots of Speed": {
     price: {
@@ -2972,7 +2996,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 155,
-    type: `Wondrous Items: Feet`,
+    type: Type.WondrousItemsFeet,
   },
   "Chime of Opening": {
     price: {
@@ -2983,7 +3007,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 158,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Figurine of Wondrous Power (Serpentine Owl)": {
     price: {
@@ -2994,7 +3018,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 170,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Horseshoes of Speed": {
     price: {
@@ -3005,7 +3029,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 175,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ild Rune Armor (light, medium, or heavy)": {
     price: {
@@ -3016,7 +3040,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.SKT,
     page: 235,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Ioun Stone - Sustenance": {
     price: {
@@ -3027,7 +3051,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Potion of Longevity": {
     price: {
@@ -3038,7 +3062,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 188,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Ring of Protection": {
     price: {
@@ -3049,7 +3073,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 191,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Figurine of Wondrous Power (Onyx Dog)": {
     price: {
@@ -3060,7 +3084,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 170,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Badge of the Watch": {
     price: {
@@ -3071,7 +3095,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.WDH,
     page: 189,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Wand of Fear": {
     price: {
@@ -3082,7 +3106,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 210,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Rod of the Vonindod": {
     price: {
@@ -3093,7 +3117,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.SKT,
     page: 236,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Staff of Defense": {
     price: {
@@ -3104,7 +3128,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.LMP,
     page: 53,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "+1 Armor": {
     price: {
@@ -3115,7 +3139,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 152,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Boros Keyrune": {
     price: {
@@ -3126,7 +3150,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.GGR,
     page: 177,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Mace of Terror": {
     price: {
@@ -3137,7 +3161,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 180,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Opal of the Ild Rune": {
     price: {
@@ -3148,7 +3172,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.SKT,
     page: 235,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ring of Resistance": {
     price: {
@@ -3159,7 +3183,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 192,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Ring of X-Ray Vision": {
     price: {
@@ -3170,7 +3194,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 193,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Scroll of Protection": {
     price: {
@@ -3181,7 +3205,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 199,
-    type: `Spell Scrolls`,
+    type: Type.SpellScrolls,
   },
   "Spell Scroll Level 7": {
     price: {
@@ -3192,7 +3216,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 200,
-    type: `Spell Scrolls`,
+    type: Type.SpellScrolls,
   },
   "Amulet of Protection from Turning": {
     price: {
@@ -3203,7 +3227,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.TYP,
     page: 228,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Cloak of Displacement": {
     price: {
@@ -3214,7 +3238,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 158,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Figurine of Wondrous Power (Bronze Griffon)": {
     price: {
@@ -3225,7 +3249,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 169,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Figurine of Wondrous Power (Ebony Fly)": {
     price: {
@@ -3236,7 +3260,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 169,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ioun Stone - Protection": {
     price: {
@@ -3247,7 +3271,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Ring of Spell Storing": {
     price: {
@@ -3258,7 +3282,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 192,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Rod of Rulership": {
     price: {
@@ -3269,7 +3293,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 197,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Wings of Flying": {
     price: {
@@ -3280,7 +3304,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 214,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Necklace of Fireballs (5 Beads)": {
     price: {
@@ -3291,7 +3315,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Instrument of the Bards - Canaith Mandolin": {
     price: {
@@ -3302,7 +3326,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 176,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Wand of Enemy Detection": {
     price: {
@@ -3313,7 +3337,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 210,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Mirror of the Past": {
     price: {
@@ -3324,7 +3348,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.TYP,
     page: 228,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Cape of the Mountebank": {
     price: {
@@ -3335,7 +3359,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 157,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "+2 Shield": {
     price: {
@@ -3346,7 +3370,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 200,
-    type: `Shields`,
+    type: Type.Shields,
   },
   "Amulet of Health": {
     price: {
@@ -3357,7 +3381,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 150,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Belt of Giant Strength (Hill)": {
     price: {
@@ -3368,7 +3392,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 155,
-    type: `Wondrous Items: Waist`,
+    type: Type.WondrousItemsWaist,
   },
   "Bracers of Defense": {
     price: {
@@ -3379,7 +3403,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 156,
-    type: `Wondrous Items: Arms & Wrists`,
+    type: Type.WondrousItemsArmsAndWrists,
   },
   "Ioun Stone - Awareness": {
     price: {
@@ -3390,7 +3414,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Ring of the Ram": {
     price: {
@@ -3401,7 +3425,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 193,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Rod of the Pact Keeper +2": {
     price: {
@@ -3412,7 +3436,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 197,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Spell Gem (Bloodstone, Level 3)": {
     price: {
@@ -3423,7 +3447,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.OA,
     page: 223,
-    type: `Spell Gems`,
+    type: Type.SpellGems,
   },
   "Vicious Weapon (any weapon)": {
     price: {
@@ -3434,7 +3458,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 209,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Wand of the War Mage +2": {
     price: {
@@ -3445,7 +3469,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 212,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Wand of Winter": {
     price: {
@@ -3456,7 +3480,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.HDQ,
     page: 94,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Bag of Beans": {
     price: {
@@ -3467,7 +3491,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 152,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Mantle of Spell Resistance": {
     price: {
@@ -3478,7 +3502,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 180,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Helm of Teleportation": {
     price: {
@@ -3489,7 +3513,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 174,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Instrument of the Bards - Cli Lyre": {
     price: {
@@ -3500,7 +3524,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 176,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Wand of Paralysis": {
     price: {
@@ -3511,7 +3535,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 211,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Claws of the Umber Hulk": {
     price: {
@@ -3522,7 +3546,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.PA,
     page: 222,
-    type: `Wondrous Items: Hands`,
+    type: Type.WondrousItemsHands,
   },
   "Necklace of Fireballs (6 Beads)": {
     price: {
@@ -3533,7 +3557,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Banner of the Krig Rune": {
     price: {
@@ -3544,7 +3568,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.SKT,
     page: 233,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Claw of the Wyrm Rune": {
     price: {
@@ -3555,7 +3579,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.SKT,
     page: 233,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Arrow-Catching Shield": {
     price: {
@@ -3566,7 +3590,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 152,
-    type: `Shields`,
+    type: Type.Shields,
   },
   "Boots of Levitation": {
     price: {
@@ -3577,7 +3601,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 155,
-    type: `Wondrous Items: Feet`,
+    type: Type.WondrousItemsFeet,
   },
   "Elven Chain": {
     price: {
@@ -3588,7 +3612,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 168,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Ioun Stone - Reserve": {
     price: {
@@ -3599,7 +3623,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Ring of Free Action": {
     price: {
@@ -3610,7 +3634,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 191,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Staff of Swarming Insects": {
     price: {
@@ -3621,7 +3645,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 203,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Staff of the Woodlands": {
     price: {
@@ -3632,7 +3656,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 204,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Cloak of the Bat": {
     price: {
@@ -3643,7 +3667,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 159,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Giant Slayer (any axe or sword)": {
     price: {
@@ -3654,7 +3678,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 172,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Stonespeaker Crystal": {
     price: {
@@ -3665,7 +3689,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.OA,
     page: 223,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Sungforger (warhammer)": {
     price: {
@@ -3676,7 +3700,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.GGR,
     page: 181,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Bowl of Commanding Water Elementals": {
     price: {
@@ -3687,7 +3711,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 156,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Brazier of Commanding Fire Elementals": {
     price: {
@@ -3698,7 +3722,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 156,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Censer of Controlling Air Elementals": {
     price: {
@@ -3709,7 +3733,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 158,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Periapt of Proof Against Poison": {
     price: {
@@ -3720,7 +3744,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 184,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Stone of Controlling Earth Elementals": {
     price: {
@@ -3731,7 +3755,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 205,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Folding Boat": {
     price: {
@@ -3742,7 +3766,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 170,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Glamoured Studded Leather": {
     price: {
@@ -3753,7 +3777,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 172,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Staff of Healing": {
     price: {
@@ -3764,7 +3788,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 202,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Wand of Fireballs": {
     price: {
@@ -3775,7 +3799,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 210,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Wand of Lightning Bolts": {
     price: {
@@ -3786,7 +3810,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 211,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "Ring of Evasion": {
     price: {
@@ -3797,7 +3821,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 191,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Belt of Dwarvenkind": {
     price: {
@@ -3808,7 +3832,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 155,
-    type: `Wondrous Items: Waist`,
+    type: Type.WondrousItemsWaist,
   },
   "Brass Horn of Valhalla": {
     price: {
@@ -3819,7 +3843,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 175,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Cube of Force": {
     price: {
@@ -3830,7 +3854,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 159,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Daern’s Instant Fortress": {
     price: {
@@ -3841,7 +3865,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 160,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Dragon Slayer (any sword)": {
     price: {
@@ -3852,7 +3876,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 166,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Dragontooth Dagger": {
     price: {
@@ -3863,7 +3887,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.RT,
     page: 93,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Figurine of Wondrous Power (Golden Lions)": {
     price: {
@@ -3874,7 +3898,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 169,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Figurine of Wondrous Power (Ivory Goats - Terror)": {
     price: {
@@ -3885,7 +3909,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 169,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Figurine of Wondrous Power (Ivory Goats - Travail)": {
     price: {
@@ -3896,7 +3920,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 169,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Figurine of Wondrous Power (Ivory Goats - Travelling)": {
     price: {
@@ -3907,7 +3931,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 169,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Figurine of Wondrous Power (Marble Elephant)": {
     price: {
@@ -3918,7 +3942,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 170,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Flame Tongue": {
     price: {
@@ -3929,7 +3953,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 170,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Gem of Seeing": {
     price: {
@@ -3940,7 +3964,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 172,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Lord's Ensemble": {
     price: {
@@ -3951,7 +3975,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.WDH,
     page: 191,
-    type: `Wondrous Items: Body`,
+    type: Type.WondrousItemsBody,
   },
   "Necklace of Prayer Beads - Blessing": {
     price: {
@@ -3962,7 +3986,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Necklace of Prayer Beads - Curing": {
     price: {
@@ -3973,7 +3997,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Necklace of Prayer Beads - Favor": {
     price: {
@@ -3984,7 +4008,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Necklace of Prayer Beads - Smiting": {
     price: {
@@ -3995,7 +4019,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Necklace of Prayer Beads - Summons": {
     price: {
@@ -4006,7 +4030,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Necklace of Prayer Beads - Wind Walking": {
     price: {
@@ -4017,7 +4041,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 182,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Portable Hole": {
     price: {
@@ -4028,7 +4052,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 185,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Robe of Eyes": {
     price: {
@@ -4039,7 +4063,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 193,
-    type: `Wondrous Items: Body`,
+    type: Type.WondrousItemsBody,
   },
   "Silver Horn of Valhalla": {
     price: {
@@ -4050,7 +4074,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMG,
     page: 175,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Sovereign Glue": {
     price: {
@@ -4061,7 +4085,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 200,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Spell Scroll Level 8": {
     price: {
@@ -4072,7 +4096,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 200,
-    type: `Spell Scrolls`,
+    type: Type.SpellScrolls,
   },
   "Universal Solvent": {
     price: {
@@ -4083,7 +4107,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 209,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Animated Shield": {
     price: {
@@ -4094,7 +4118,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 151,
-    type: `Shields`,
+    type: Type.Shields,
   },
   "Horseshoes of the Zephyr": {
     price: {
@@ -4105,7 +4129,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 175,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Peregrine Mask": {
     price: {
@@ -4116,7 +4140,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.GGR,
     page: 180,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Potion of Mind Control (Monster)": {
     price: {
@@ -4127,7 +4151,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.TYP,
     page: 229,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Amulet of the Black Skull": {
     price: {
@@ -4138,7 +4162,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.TA,
     page: 206,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Blod Stone": {
     price: {
@@ -4149,7 +4173,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.SKT,
     page: 233,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Spear of Backbiting (spear or javelin)": {
     price: {
@@ -4160,7 +4184,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.TYP,
     page: 229,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Demon Armor (plate) (cursed)": {
     price: {
@@ -4171,7 +4195,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 165,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Golgari Keyrune": {
     price: {
@@ -4182,7 +4206,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.GGR,
     page: 177,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Scimitar of Speed": {
     price: {
@@ -4193,7 +4217,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 199,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Devestation Orb (Air)": {
     price: {
@@ -4204,7 +4228,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.PA,
     page: 222,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ioun Stone - Agility": {
     price: {
@@ -4215,7 +4239,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Ioun Stone - Fortitude": {
     price: {
@@ -4226,7 +4250,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Ioun Stone - Insight": {
     price: {
@@ -4237,7 +4261,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Ioun Stone - Intellect": {
     price: {
@@ -4248,7 +4272,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Ioun Stone - Leadership": {
     price: {
@@ -4259,7 +4283,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Ioun Stone - Strength": {
     price: {
@@ -4270,7 +4294,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Potion of Giant Strength (Storm)": {
     price: {
@@ -4281,7 +4305,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMG,
     page: 187,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Spell Gem (Amber, Level 4)": {
     price: {
@@ -4292,7 +4316,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.OA,
     page: 223,
-    type: `Spell Gems`,
+    type: Type.SpellGems,
   },
   "Candle of Invocation": {
     price: {
@@ -4303,7 +4327,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 157,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Bracelet of Rock Magic": {
     price: {
@@ -4314,7 +4338,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.TYP,
     page: 228,
-    type: `Wondrous Items: Arms & Wrists`,
+    type: Type.WondrousItemsArmsAndWrists,
   },
   "Shard of the Ise Rune": {
     price: {
@@ -4325,7 +4349,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.SKT,
     page: 236,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Devestation Orb (Fire)": {
     price: {
@@ -4336,7 +4360,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.PA,
     page: 222,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Devestation Orb (Water)": {
     price: {
@@ -4347,7 +4371,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.PA,
     page: 223,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Dancing Sword (any sword)": {
     price: {
@@ -4358,7 +4382,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 160,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Voyager Staff": {
     price: {
@@ -4369,7 +4393,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.GGR,
     page: 181,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Devestation Orb (Earth)": {
     price: {
@@ -4380,7 +4404,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.PA,
     page: 222,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Frost Brand (any sword)": {
     price: {
@@ -4391,7 +4415,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 171,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Potion of Giant Size": {
     price: {
@@ -4402,7 +4426,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.SKT,
     page: 236,
-    type: `Potions & Oils`,
+    type: Type.PotionsAndOils,
   },
   "Rod of Alertness": {
     price: {
@@ -4413,7 +4437,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 195,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Bag of Devouring": {
     price: {
@@ -4424,7 +4448,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 153,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Belt of Giant Strength (Stone/Frost)": {
     price: {
@@ -4435,7 +4459,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 155,
-    type: `Wondrous Items: Waist`,
+    type: Type.WondrousItemsWaist,
   },
   "Oathbow (longbow)": {
     price: {
@@ -4446,7 +4470,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 183,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Pennant of the Vind Rune": {
     price: {
@@ -4457,7 +4481,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.SKT,
     page: 235,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Illusionist's Bracers": {
     price: {
@@ -4468,7 +4492,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.GGR,
     page: 178,
-    type: `Wondrous Items: Arms & Wrists`,
+    type: Type.WondrousItemsArmsAndWrists,
   },
   "Cloak of Arachnida": {
     price: {
@@ -4479,7 +4503,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 158,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Rod of the Pact Keeper +3": {
     price: {
@@ -4490,7 +4514,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 197,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Wand of the War Mage +3": {
     price: {
@@ -4501,7 +4525,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 212,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "+3 Weapon": {
     price: {
@@ -4512,7 +4536,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 213,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Dragon Scale Mail": {
     price: {
@@ -4523,7 +4547,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 165,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Ingot of the Skold Rune": {
     price: {
@@ -4534,7 +4558,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.SKT,
     page: 234,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Spell Gem (Jade, Level 5)": {
     price: {
@@ -4545,7 +4569,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.OA,
     page: 223,
-    type: `Spell Gems`,
+    type: Type.SpellGems,
   },
   "Nolzur’s Marvelous Pigments": {
     price: {
@@ -4556,7 +4580,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 183,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Sword of the Paruns (longsword)": {
     price: {
@@ -4567,7 +4591,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.GGR,
     page: 181,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Instrument of the Bards - Anstruth Harp": {
     price: {
@@ -4578,7 +4602,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 176,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Staff of Fire": {
     price: {
@@ -4589,7 +4613,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 201,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Staff of Frost": {
     price: {
@@ -4600,7 +4624,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 201,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "+2 Armor": {
     price: {
@@ -4611,7 +4635,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 152,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Bronze Horn of Valhalla": {
     price: {
@@ -4622,7 +4646,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 175,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ioun Stone - Absorption": {
     price: {
@@ -4633,7 +4657,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Ring of Shooting Stars": {
     price: {
@@ -4644,7 +4668,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 192,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Spell Gem (Topaz, Level 6)": {
     price: {
@@ -4655,7 +4679,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.OA,
     page: 223,
-    type: `Spell Gems`,
+    type: Type.SpellGems,
   },
   "Spell Scroll Level 9": {
     price: {
@@ -4666,7 +4690,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 200,
-    type: `Spell Scrolls`,
+    type: Type.SpellScrolls,
   },
   "Wand of Polymorph": {
     price: {
@@ -4677,7 +4701,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 211,
-    type: `Wands`,
+    type: Type.Wands,
   },
   "+3 Shield": {
     price: {
@@ -4688,7 +4712,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 200,
-    type: `Shields`,
+    type: Type.Shields,
   },
   "Manual of Golems": {
     price: {
@@ -4699,7 +4723,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 180,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Lost Crown of Besilmer": {
     price: {
@@ -4710,7 +4734,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.PA,
     page: 223,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Dwarven Plate": {
     price: {
@@ -4721,7 +4745,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 167,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Dwarven Thrower (warhammer)": {
     price: {
@@ -4732,7 +4756,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 167,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Ring of Telekinesis": {
     price: {
@@ -4743,7 +4767,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 193,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Dimir Keyrune": {
     price: {
@@ -4754,7 +4778,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.GGR,
     page: 177,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Navigation Orb": {
     price: {
@@ -4765,7 +4789,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.SKT,
     page: 235,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Robe of Scintillating Colors": {
     price: {
@@ -4776,7 +4800,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 194,
-    type: `Wondrous Items: Body`,
+    type: Type.WondrousItemsBody,
   },
   "Figurine of Wondrous Power (Obsidian Steed)": {
     price: {
@@ -4787,7 +4811,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 170,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Bookmark (dagger)": {
     price: {
@@ -4798,7 +4822,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.TA,
     page: 206,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Staff of Thunder and Lightning": {
     price: {
@@ -4809,7 +4833,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 204,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Helm of Brilliance": {
     price: {
@@ -4820,7 +4844,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 173,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Spell Gem (Star ruby, Level 7)": {
     price: {
@@ -4831,7 +4855,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.OA,
     page: 223,
-    type: `Spell Gems`,
+    type: Type.SpellGems,
   },
   "Belt of Giant Strength (Fire)": {
     price: {
@@ -4842,7 +4866,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 155,
-    type: `Wondrous Items: Waist`,
+    type: Type.WondrousItemsWaist,
   },
   "Manual of Bodily Health": {
     price: {
@@ -4853,7 +4877,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 180,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Manual of Gainful Exercise": {
     price: {
@@ -4864,7 +4888,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 180,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Manual of Quickness of Action": {
     price: {
@@ -4875,7 +4899,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 181,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Nine Lives Stealer (Fully Charged) (any sword)": {
     price: {
@@ -4886,7 +4910,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 183,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Spellguard Shield": {
     price: {
@@ -4897,7 +4921,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 201,
-    type: `Shields`,
+    type: Type.Shields,
   },
   "Staff of Striking": {
     price: {
@@ -4908,7 +4932,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 203,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Tome of Clear Thought": {
     price: {
@@ -4919,7 +4943,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 208,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Tome of Leadership and Influence": {
     price: {
@@ -4930,7 +4954,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 208,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Tome of Understanding": {
     price: {
@@ -4941,7 +4965,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 209,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ring of Regeneration": {
     price: {
@@ -4952,7 +4976,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 191,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Crystal Ball": {
     price: {
@@ -4963,7 +4987,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 159,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Sword of Sharpness (slashing swords)": {
     price: {
@@ -4974,7 +4998,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 206,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Amulet of the Planes": {
     price: {
@@ -4985,7 +5009,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 150,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Carpet of Flying": {
     price: {
@@ -4996,7 +5020,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 157,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Efreeti Bottle": {
     price: {
@@ -5007,7 +5031,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 167,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Robe of Stars": {
     price: {
@@ -5018,7 +5042,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 194,
-    type: `Wondrous Items: Body`,
+    type: Type.WondrousItemsBody,
   },
   "Rod of Security": {
     price: {
@@ -5029,7 +5053,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 197,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Staff of Power": {
     price: {
@@ -5040,7 +5064,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 202,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Rod of Absorption": {
     price: {
@@ -5051,7 +5075,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 195,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Iron Horn of Valhalla": {
     price: {
@@ -5062,7 +5086,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 175,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Mirror of Life Trapping": {
     price: {
@@ -5073,7 +5097,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMG,
     page: 181,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Dragonstaff of Anghairon": {
     price: {
@@ -5084,7 +5108,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.WDH,
     page: 191,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Icon of Ravenloft": {
     price: {
@@ -5095,7 +5119,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.CS,
     page: 222,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "+3 Armor": {
     price: {
@@ -5106,7 +5130,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 152,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Crystal Ball of Mind Reading": {
     price: {
@@ -5117,7 +5141,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 159,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Hammer of Thunderbolts (maul)": {
     price: {
@@ -5128,7 +5152,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 173,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Holy Symbol of Ravenkind": {
     price: {
@@ -5139,7 +5163,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.CS,
     page: 222,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Instrument of the Bards - Ollamh Harp": {
     price: {
@@ -5150,7 +5174,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 176,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Spell Gem (Ruby, Level 8)": {
     price: {
@@ -5161,7 +5185,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.OA,
     page: 223,
-    type: `Spell Gems`,
+    type: Type.SpellGems,
   },
   "Sword of Answering": {
     price: {
@@ -5172,7 +5196,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 206,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Azuredge (battleaxe)": {
     price: {
@@ -5183,7 +5207,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.WDH,
     page: 189,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Cloak of Invisibility": {
     price: {
@@ -5194,7 +5218,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 158,
-    type: `Wondrous Items: Shoulders`,
+    type: Type.WondrousItemsShoulders,
   },
   "Defender (any sword)": {
     price: {
@@ -5205,7 +5229,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 164,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Ioun Stone - Regeneration": {
     price: {
@@ -5216,7 +5240,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Sunsword (longsword)": {
     price: {
@@ -5227,7 +5251,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.CS,
     page: 223,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Dawnbringer (longsword)": {
     price: {
@@ -5238,7 +5262,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.OA,
     page: 222,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Scarab of Protection": {
     price: {
@@ -5249,7 +5273,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 199,
-    type: `Wondrous Items: Neck`,
+    type: Type.WondrousItemsNeck,
   },
   "Ioun Stone - Greater Absorption": {
     price: {
@@ -5260,7 +5284,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Ioun Stone - Mastery": {
     price: {
@@ -5271,7 +5295,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 177,
-    type: `Wondrous Items: Head`,
+    type: Type.WondrousItemsHead,
   },
   "Orcsplitter (greataxe)": {
     price: {
@@ -5282,7 +5306,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.PA,
     page: 224,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Plate Armor of Etherealness": {
     price: {
@@ -5293,7 +5317,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 185,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Rakdos Riteknife (dagger)": {
     price: {
@@ -5304,7 +5328,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.GGR,
     page: 180,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Tome of the Stilled Tongue": {
     price: {
@@ -5315,7 +5339,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 208,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Waythe (greatsword)": {
     price: {
@@ -5326,7 +5350,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.TYP,
     page: 229,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Korolnor Scepter": {
     price: {
@@ -5337,7 +5361,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.SKT,
     page: 234,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Holy Avenger (any sword)": {
     price: {
@@ -5348,7 +5372,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 174,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Belt of Giant Strength (Cloud)": {
     price: {
@@ -5359,7 +5383,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 155,
-    type: `Wondrous Items: Waist`,
+    type: Type.WondrousItemsWaist,
   },
   "Drown (trident)": {
     price: {
@@ -5370,7 +5394,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.PA,
     page: 224,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Hazirawn (greatsword)": {
     price: {
@@ -5381,7 +5405,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.HDQ,
     page: 94,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Ring of Spell Turning": {
     price: {
@@ -5392,7 +5416,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 1193,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Gurt's Greataxe": {
     price: {
@@ -5403,7 +5427,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.SKT,
     page: 234,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Windvane (spear)": {
     price: {
@@ -5414,7 +5438,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.PA,
     page: 225,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Armor of Invulnerability (plate)": {
     price: {
@@ -5425,7 +5449,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 152,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Crystal Ball of Telepathy": {
     price: {
@@ -5436,7 +5460,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 159,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Rod of Lordly Might": {
     price: {
@@ -5447,7 +5471,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 195,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Tinderstrike (dagger)": {
     price: {
@@ -5458,7 +5482,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.PA,
     page: 225,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Blackstaff": {
     price: {
@@ -5469,7 +5493,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.WDH,
     page: 190,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Ring of Invisibility": {
     price: {
@@ -5480,7 +5504,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 191,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Robe of the Archmagi": {
     price: {
@@ -5491,7 +5515,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 194,
-    type: `Wondrous Items: Body`,
+    type: Type.WondrousItemsBody,
   },
   "Talisman of the Sphere": {
     price: {
@@ -5502,7 +5526,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 207,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Vorpal Sword": {
     price: {
@@ -5513,7 +5537,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 209,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Ironfang (war pick)": {
     price: {
@@ -5524,7 +5548,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.PA,
     page: 224,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Spell Gem (Diamond, Level 9)": {
     price: {
@@ -5535,7 +5559,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.OA,
     page: 223,
-    type: `Spell Gems`,
+    type: Type.SpellGems,
   },
   "Crystal Ball of True Seeing": {
     price: {
@@ -5546,7 +5570,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 159,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Efreeti Chain (chain mail)": {
     price: {
@@ -5557,7 +5581,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 167,
-    type: `Armor`,
+    type: Type.Armor,
   },
   "Apparatus of Kwalish": {
     price: {
@@ -5568,7 +5592,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 151,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Well of Many Worlds": {
     price: {
@@ -5579,7 +5603,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 213,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Black Dragon Mask": {
     price: {
@@ -5590,7 +5614,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.HDQ,
     page: 94,
-    type: `Wondrous Items: Eyes`,
+    type: Type.WondrousItemsEyes,
   },
   "Ring of Three Wishes": {
     price: {
@@ -5601,7 +5625,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 193,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Staff of the Magi": {
     price: {
@@ -5612,7 +5636,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 203,
-    type: `Staffs`,
+    type: Type.Staffs,
   },
   "Belt of Giant Strength (Storm)": {
     price: {
@@ -5623,7 +5647,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 155,
-    type: `Wondrous Items: Waist`,
+    type: Type.WondrousItemsWaist,
   },
   "Luck Blade": {
     price: {
@@ -5634,7 +5658,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 179,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Ring of Djinni Summoning": {
     price: {
@@ -5645,7 +5669,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 190,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Rod of Resurrection": {
     price: {
@@ -5656,7 +5680,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 197,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Talisman of Pure Good": {
     price: {
@@ -5667,7 +5691,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 207,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Talisman of Ultimate Evil": {
     price: {
@@ -5678,7 +5702,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 207,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Cubic Gate": {
     price: {
@@ -5689,7 +5713,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 160,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Iron Flask": {
     price: {
@@ -5700,7 +5724,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 178,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Deck of Many Things": {
     price: {
@@ -5711,7 +5735,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 162,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Ring of Air Elemental Command": {
     price: {
@@ -5722,7 +5746,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 190,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Ring of Earth Elemental Command": {
     price: {
@@ -5733,7 +5757,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 190,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Ring of Fire Elemental Command": {
     price: {
@@ -5744,7 +5768,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 190,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Ring of Water Elemental Command": {
     price: {
@@ -5755,7 +5779,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 191,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Sphere of Annihilation": {
     price: {
@@ -5766,7 +5790,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMG,
     page: 201,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Black Crystal Tablet": {
     price: {
@@ -5777,7 +5801,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMM,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Shield of the Uven Rune": {
     price: {
@@ -5788,7 +5812,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMM,
     page: ``,
-    type: `Shields`,
+    type: Type.Shields,
   },
   "Blast Scepter": {
     price: {
@@ -5799,7 +5823,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMM,
     page: ``,
-    type: `Rods`,
+    type: Type.Rods,
   },
   "Circlet of Human Perfection": {
     price: {
@@ -5810,7 +5834,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.DMM,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Dagger of Blindsight": {
     price: {
@@ -5821,7 +5845,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMM,
     page: ``,
-    type: `Weapons`,
+    type: Type.Weapons,
   },
   "Dodecahedron of Doom": {
     price: {
@@ -5832,7 +5856,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMM,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Helm of the Scavenger": {
     price: {
@@ -5843,7 +5867,7 @@ export const magicItems = {
     rarity: Rarity.Legendary,
     source: Source.DMM,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Horn of the Endless Maze": {
     price: {
@@ -5854,7 +5878,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMM,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Horned Ring": {
     price: {
@@ -5865,7 +5889,7 @@ export const magicItems = {
     rarity: Rarity.VeryRare,
     source: Source.DMM,
     page: ``,
-    type: `Rings`,
+    type: Type.Rings,
   },
   "Orb of Gonging": {
     price: {
@@ -5876,7 +5900,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.DMM,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Professor Orb": {
     price: {
@@ -5887,7 +5911,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.DMM,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Master Amulet": {
     price: {
@@ -5898,7 +5922,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.MM,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Charm of Plant Command": {
     price: {
@@ -5909,7 +5933,7 @@ export const magicItems = {
     rarity: Rarity.Rare,
     source: Source.GoS,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Cursed Luckstone": {
     price: {
@@ -5920,7 +5944,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.GoS,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Helm of Underwater Action": {
     price: {
@@ -5931,7 +5955,7 @@ export const magicItems = {
     rarity: Rarity.Uncommon,
     source: Source.GoS,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Pipe of Remembrance": {
     price: {
@@ -5942,7 +5966,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.GoS,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Pressure Capsule": {
     price: {
@@ -5953,7 +5977,7 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.GoS,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
   "Sekolahian Worshipping Statue": {
     price: {
@@ -5964,6 +5988,6 @@ export const magicItems = {
     rarity: Rarity.Common,
     source: Source.GoS,
     page: ``,
-    type: `Wondrous Items`,
+    type: Type.WondrousItems,
   },
 }
