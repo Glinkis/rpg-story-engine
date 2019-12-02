@@ -21,8 +21,6 @@ export interface ProfessionData {
   socialClassRoll(): number
 }
 
-// TODO: Fill this out with every single profession,
-// and replace the string names with the enum properties.
 export enum Profession {
   Child = `child`,
   DomesticPartner = `domestic partner`,
@@ -515,8 +513,20 @@ export enum Profession {
   RunawaySlave = `runaway slave`,
   Squatter = `squatter`,
   Vagabond = `vagabond`,
-  Urchin = `urchin`
-
+  Urchin = `urchin`,
+  Advisor = `advisor`,
+  Carpenter = `carpenter`,
+  Cowherd = `cowherd`,
+  Vintner = `Vintner`,
+  Entrepreneur = `Entrepreneur`,
+  CrimeBoss = `CrimeBoss`,
+  FoodAndDrinkTaster = `FoodAndDrinkTaster`,
+  Conjuror = `Conjuror`,
+  SiegeArtillerist = `SiegeArtillerist`,
+  MasterOfTheRevels = `MasterOfTheRevels`,
+  Diviner = `Diviner`,
+  Archaeologist = `Archaeologist`,
+  BountyHunter = `BountyHunter`,
 }
 
 export const professions: Record<string, ProfessionData> = {
@@ -2211,7 +2221,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  [Profession.hopkeepsAssistant]: {
+  [Profession.ShopkeepsAssistant]: {
     sv: 200,
     type: `business`,
     sector: `business`,
@@ -4096,7 +4106,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  [Profession.Page] {
+  [Profession.Page]: {
     sv: 3000,
     type: `profession`,
     sector: `government and law`,
