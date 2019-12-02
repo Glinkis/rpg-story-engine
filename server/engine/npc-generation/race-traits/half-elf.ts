@@ -1,5 +1,6 @@
 import { dice } from "../../rolls"
 import { RaceTrait } from "./race-trait"
+import { StandardLanguage } from "../../../../shared/Language"
 
 export const halfElfTraits: RaceTrait = {
   probability: 2,
@@ -417,7 +418,7 @@ export const halfElfTraits: RaceTrait = {
     raceAdjective: `elfish`,
     raceLanguage: `Elven`,
   },
-  knownLanguages: [`Common`, `Elvish`],
+  knownLanguages: [StandardLanguage.Common, StandardLanguage.Elvish],
   beard: [
     `scraggly beard`,
     `long, flowing beard`,

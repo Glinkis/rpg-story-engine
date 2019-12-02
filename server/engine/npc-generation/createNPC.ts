@@ -23,6 +23,7 @@ import { createBackground } from "./createBackground"
 import { Town } from "../town/town"
 import { taxRate } from "../town/createTown"
 import { NPC } from "./npc"
+import { StandardLanguage, ExoticLanguage } from "../../../shared/Language"
 
 export function createNPC(town: Town, base?: any) {
   if (!town) {
@@ -229,7 +230,10 @@ export function createNPC(town: Town, base?: any) {
 }
 
 export function availableLanguages(npc: NPC) {
-  return npcData.standardLanguages.concat(npcData.exoticLanguages).filter(language => {
+  const standard = Object.values(StandardLanguage)
+  const exotic = Object.values(ExoticLanguage)
+
+  return [...standard, ...exotic].filter(language => {
     return !npc.knownLanguages.includes(language)
   })
 }

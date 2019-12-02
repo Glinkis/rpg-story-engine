@@ -1,5 +1,6 @@
 import { dice } from "../../rolls"
 import { RaceTrait } from "./race-trait"
+import { StandardLanguage } from "../../../../shared/Language"
 
 export const humanTraits: RaceTrait = {
   probability: 6,
@@ -643,7 +644,7 @@ export const humanTraits: RaceTrait = {
     raceAdjective: `human`,
     raceLanguage: `Common`,
   },
-  knownLanguages: [`Common`],
+  knownLanguages: [StandardLanguage.Common],
   beard: [
     `scraggly beard`,
     `long, flowing beard`,

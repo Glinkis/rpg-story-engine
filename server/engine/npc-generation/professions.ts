@@ -5,7 +5,7 @@ export enum SocialClass {
   Nobility = `nobility`,
   Peasantry = `peasantry`,
   Paupery = `paupery`,
-  IndenturedServitude = `indentured servitude`
+  IndenturedServitude = `indentured servitude`,
 }
 
 export enum Type {
@@ -14,30 +14,29 @@ export enum Type {
   Recreation = `recreation`,
   DnDClass = `dndClass`,
   Profession = `profession`,
-  Business = `business`
+  Business = `business`,
 }
 
 export enum Sector {
-  Family = `family`,
-  Agriculture = `agriculture`,
   Adventuring = `adventuring`,
-  Outcast = `outcast`,
-  Science = `science`,
-  Business = `business`,
+  Agriculture = `agriculture`,
   Arts = `arts`,
-  GovernmentAndLaw = `government and law`,
-  Hospitality = `hospitality`,
+  Business = `business`,
   Communications = `communcations`,
   Construction = `construction`,
-  Religion = `religion`,
-  Military = `military`,
-  Crime = `crime`,
-  Naval = `naval`,
-  Magic = `magic`,
-  Transportation = `transportation`,
-  Labour = `labour`,
   Craftsmanship = `craftsmanship`,
-
+  Crime = `crime`,
+  Family = `family`,
+  GovernmentAndLaw = `government and law`,
+  Hospitality = `hospitality`,
+  Labour = `labour`,
+  Magic = `magic`,
+  Military = `military`,
+  Naval = `naval`,
+  Outcast = `outcast`,
+  Religion = `religion`,
+  Science = `science`,
+  Transportation = `transportation`,
 }
 
 export interface ProfessionData {

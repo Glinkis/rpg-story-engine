@@ -1,5 +1,6 @@
 import { dice } from "../../rolls"
 import { RaceTrait } from "./race-trait"
+import { StandardLanguage, ExoticLanguage } from "../../../../shared/Language"
 
 export const dragonbornTraits: RaceTrait = {
   probability: 1,
@@ -267,7 +268,7 @@ export const dragonbornTraits: RaceTrait = {
     raceAdjective: `draconian`,
     raceLanguage: `Draconic`,
   },
-  knownLanguages: [`Common`, `Draconic`],
+  knownLanguages: [StandardLanguage.Common, ExoticLanguage.Draconic],
   beard: [
     `scraggly beard`,
     `long, flowing beard`,
