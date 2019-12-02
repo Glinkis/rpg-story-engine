@@ -7,6 +7,7 @@ enum Rarity {
 }
 
 enum Source {
+  /** Dungeon Masters Guide */
   DMG = `DMG`,
   DMM = `DMM`,
   GGR = `GGR`,
@@ -16,6 +17,7 @@ enum Source {
   SKT = `SKT`,
   TYP = `TYP`,
   WDH = `WDH`,
+  /** Xanathar's Guide to Everything */
   XGE = `XGE`,
   CS = `CS`,
   MM = `MM`,
