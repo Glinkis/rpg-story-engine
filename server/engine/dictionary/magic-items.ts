@@ -42,11 +42,11 @@ enum Type {
   WondrousItemsBody = `Wondrous Items: Body`,
   WondrousItemsEyes = `Wondrous Items: Eyes`,
   WondrousItemsFeet = `Wondrous Items: Feet`,
-  WondrousItemsHands = `WondrousItems: Hands`,
-  WondrousItemsHead = `WondrousItems: Head`,
+  WondrousItemsHands = `Wondrous Items: Hands`,
+  WondrousItemsHead = `Wondrous Items: Head`,
   WondrousItemsNeck = `Wondrous Items: Neck`,
   WondrousItemsShoulders = `Wondrous Items: Shoulders`,
-  WondrousItemsWaist = `WondrousItems: Waist`,
+  WondrousItemsWaist = `Wondrous Items: Waist`,
 }
 
 export const magicItems = {
