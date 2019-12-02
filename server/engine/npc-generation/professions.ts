@@ -515,7 +515,8 @@ export enum Profession {
   RunawaySlave = `runaway slave`,
   Squatter = `squatter`,
   Vagabond = `vagabond`,
-  Urchin = `urchin`,
+  Urchin = `urchin`
+
 }
 
 export const professions: Record<string, ProfessionData> = {
@@ -565,7 +566,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "barbarian": {
+  [Profession.Barbarian]: {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
@@ -576,7 +577,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "bard": {
+  [Profession.Bard]: {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
@@ -587,7 +588,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "cleric": {
+  [Profession.Cleric]: {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
@@ -598,7 +599,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "druid": {
+  [Profession.Druid]: {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
@@ -609,7 +610,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "fighter": {
+  [Profession.Fighter]: {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
@@ -620,7 +621,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "monk": {
+  [Profession.Monk]: {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
@@ -631,7 +632,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "rogue": {
+  [Profession.Rogue]: {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
@@ -642,7 +643,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "ranger": {
+  [Profession.Ranger]: {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
@@ -653,7 +654,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "paladin": {
+  [Profession.Paladin]: {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
@@ -664,7 +665,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "sorcerer": {
+  [Profession.Sorcerer]: {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
@@ -675,7 +676,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "warlock": {
+  [Profession.Warlock]: {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
@@ -686,7 +687,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "wizard": {
+  [Profession.Wizard]: {
     sv: 6500,
     type: `dndClass`,
     sector: `adventuring`,
@@ -697,7 +698,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "actor": {
+  [Profession.Actor]: {
     sv: 2500,
     isHobby: true,
     type: `profession`,
@@ -709,7 +710,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "advocate": {
+  [Profession.Advocate]: {
     sv: 3250,
     synonyms: [`lawyer`],
     type: `profession`,
@@ -721,7 +722,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "advisor": {
+  [Profession.Advisor]: {
     sv: 780,
     type: `profession`,
     sector: `government and law`,
@@ -743,7 +744,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "apothecarist": {
+  [Profession.Apothecarist]: {
     sv: 450,
     type: `business`,
     sector: `science`,
@@ -754,7 +755,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "architect": {
+  [Profession.Architect]: {
     sv: 550,
     type: `profession`,
     sector: `construction`,
@@ -765,7 +766,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "archivist": {
+  [Profession.Archivist]: {
     sv: 2450,
     type: `profession`,
     sector: `science`,
@@ -776,7 +777,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "armorer": {
+  [Profession.Armorer]: {
     sv: 750,
     type: `business`,
     sector: `craftsmanship`,
@@ -787,7 +788,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "astrologer": {
+  [Profession.Astrologer]: {
     sv: 950,
     isHobby: true,
     type: `profession`,
@@ -799,7 +800,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "baker": {
+  [Profession.Baker]: {
     sv: 800,
     type: `business`,
     sector: `hospitality`,
@@ -810,7 +811,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "banker": {
+  [Profession.Banker]: {
     sv: 2250,
     type: `business`,
     sector: `business`,
@@ -821,7 +822,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "barber": {
+  [Profession.Barber]: {
     sv: 350,
     type: `business`,
     sector: `hospitality`,
@@ -832,7 +833,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "bartender": {
+  [Profession.Bartender]: {
     sv: 450,
     synonyms: [`barkeep`, `tavern owner`, `innkeep`],
     type: `business`,
@@ -844,7 +845,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "barmaid": {
+  [Profession.Barmaid]: {
     sv: 450,
     synonyms: [`waiter`, `waitress`],
     type: `business`,
@@ -856,7 +857,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "blacksmith": {
+  [Profession.Blacksmith]: {
     sv: 750,
     type: `business`,
     sector: `craftsmanship`,
@@ -879,7 +880,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "bookseller": {
+  [Profession.Bookseller]: {
     sv: 6300,
     type: `business`,
     sector: `business`,
@@ -890,7 +891,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "brewer": {
+  [Profession.Brewer]: {
     sv: 550,
     isHobby: true,
     type: `business`,
@@ -902,7 +903,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "brickmason": {
+  [Profession.Brickmason]: {
     sv: 650,
     type: `labourer`,
     sector: `construction`,
@@ -913,7 +914,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "pimp": {
+  [Profession.Pimp]: {
     sv: 850,
     synonyms: [`whoremonger`],
     type: `business`,
@@ -925,7 +926,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "buccaneer": {
+  [Profession.Buccaneer]: {
     sv: 1350,
     type: `profession`,
     sector: `adventuring`,
@@ -936,7 +937,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "butcher": {
+  [Profession.Butcher]: {
     sv: 1150,
     type: `business`,
     sector: `hospitality`,
@@ -947,7 +948,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "captain": {
+  [Profession.Captain]: {
     sv: 550,
     type: `profession`,
     sector: `military`,
@@ -958,7 +959,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "caravanner": {
+  [Profession.Caravanner]: {
     sv: 1450,
     type: `labourer`,
     sector: `transportation`,
@@ -969,7 +970,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "carpenter": {
+  [Profession.Carpenter]: {
     sv: 550,
     type: `business`,
     sector: `craftsmanship`,
@@ -980,7 +981,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "cartographer": {
+  [Profession.Cartographer]: {
     sv: 1950,
     type: `profession`,
     sector: `science`,
@@ -991,7 +992,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "chandler": {
+  [Profession.Chandler]: {
     sv: 700,
     type: `business`,
     sector: `business`,
@@ -1002,7 +1003,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "chef": {
+  [Profession.Chef]: {
     sv: 1850,
     type: `labourer`,
     sector: `hospitality`,
@@ -1013,7 +1014,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "clergyman": {
+  [Profession.Clergyman]: {
     sv: 40,
     type: `profession`,
     sector: `religion`,
@@ -1036,7 +1037,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "craftsman": {
+  [Profession.Craftsman]: {
     sv: 4550,
     type: `profession`,
     sector: `craftsmanship`,
@@ -1047,7 +1048,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "cobbler": {
+  [Profession.Cobbler]: {
     sv: 1550,
     type: `profession`,
     sector: `craftsmanship`,
@@ -1058,7 +1059,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "cook": {
+  [Profession.Cook]: {
     sv: 450,
     type: `labourer`,
     sector: `hospitality`,
@@ -1069,7 +1070,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "cooper": {
+  [Profession.Cooper]: {
     sv: 700,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -1080,7 +1081,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "courtesan": {
+  [Profession.Courtesan]: {
     sv: 1950,
     type: ``,
     sector: `hospitality`,
@@ -1091,7 +1092,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "courtier": {
+  [Profession.Courtier]: {
     sv: 1950,
     type: `profession`,
     sector: `government and law`,
@@ -1102,7 +1103,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "cowherd": {
+  [Profession.Cowherd]: {
     sv: 250,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -1113,7 +1114,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "dancer": {
+  [Profession.Dancer]: {
     sv: 2250,
     type: `profession`,
     sector: `arts`,
@@ -1124,7 +1125,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "diplomat": {
+  [Profession.Diplomat]: {
     sv: 3450,
     type: `profession`,
     sector: `government and law`,
@@ -1135,7 +1136,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "diver": {
+  [Profession.Diver]: {
     sv: 3250,
     type: `labourer`,
     sector: `agriculture`,
@@ -1146,7 +1147,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "farmer": {
+  [Profession.Farmer]: {
     sv: 150,
     type: `labourer`,
     sector: `agriculture`,
@@ -1157,7 +1158,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "fisherman": {
+  [Profession.Fisherman]: {
     sv: 170,
     type: `labourer`,
     sector: `agriculture`,
@@ -1168,7 +1169,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "fishmonger": {
+  [Profession.Fishmonger]: {
     sv: 250,
     type: `business`,
     sector: `business`,
@@ -1179,7 +1180,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "furrier": {
+  [Profession.Furrier]: {
     sv: 250,
     type: `business`,
     sector: `craftsmanship`,
@@ -1190,7 +1191,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "gardener": {
+  [Profession.Gardener]: {
     sv: 550,
     type: `labourer`,
     sector: `agriculture`,
@@ -1201,7 +1202,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "general": {
+  [Profession.General]: {
     sv: 2250,
     type: `profession`,
     sector: `military`,
@@ -1212,7 +1213,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "gladiator": {
+  [Profession.Gladiator]: {
     sv: 3250,
     type: `profession`,
     sector: `arts`,
@@ -1223,7 +1224,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "glovemaker": {
+  [Profession.Glovemaker]: {
     sv: 2400,
     type: `business`,
     sector: `craftsmanship`,
@@ -1234,7 +1235,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "goldsmith": {
+  [Profession.Goldsmith]: {
     sv: 6550,
     type: `business`,
     sector: `craftsmanship`,
@@ -1245,7 +1246,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "grocer": {
+  [Profession.Grocer]: {
     sv: 450,
     type: `business`,
     sector: `business`,
@@ -1256,7 +1257,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "guard": {
+  [Profession.Guard]: {
     sv: 150,
     synonyms: [`guardsman`, `guard`, `watchman`, `town guard`],
     type: `profession`,
@@ -1268,7 +1269,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "guildmaster": {
+  [Profession.Guildmaster]: {
     sv: 4150,
     type: `profession`,
     sector: `business`,
@@ -1279,7 +1280,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "hatter": {
+  [Profession.Hatter]: {
     sv: 950,
     type: `business`,
     sector: `craftsmanship`,
@@ -1290,7 +1291,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "healer": {
+  [Profession.Healer]: {
     sv: 950,
     type: `profession`,
     sector: `magic`,
@@ -1301,7 +1302,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "herald": {
+  [Profession.Herald]: {
     sv: 550,
     type: `labourer`,
     sector: `communications`,
@@ -1312,7 +1313,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "herbalist": {
+  [Profession.Herbalist]: {
     sv: 850,
     type: `business`,
     sector: `science`,
@@ -1323,7 +1324,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "hermit": {
+  [Profession.Hermit]: {
     sv: 950,
     type: `profession`,
     sector: `outcast`,
@@ -1334,7 +1335,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "historian": {
+  [Profession.Historian]: {
     sv: 4150,
     type: `profession`,
     sector: `science`,
@@ -1345,7 +1346,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "hunter": {
+  [Profession.Hunter]: {
     sv: 250,
     isHobby: true,
     type: `labourer`,
@@ -1368,7 +1369,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "innkeeper": {
+  [Profession.Innkeeper]: {
     sv: 750,
     synonyms: [`tavern keeper`, `tavernkeep`, `barkeep`, `innkeep`],
     type: `business`,
@@ -1380,7 +1381,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "inventor": {
+  [Profession.Inventor]: {
     sv: 2250,
     type: `profession`,
     sector: `business`,
@@ -1391,7 +1392,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "jailer": {
+  [Profession.Jailer]: {
     sv: 1250,
     type: `labourer`,
     sector: `military`,
@@ -1402,7 +1403,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "jester": {
+  [Profession.Jester]: {
     sv: 2250,
     type: `profession`,
     sector: `arts`,
@@ -1413,7 +1414,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "jeweler": {
+  [Profession.Jeweler]: {
     sv: 400,
     type: `business`,
     sector: `craftsmanship`,
@@ -1424,7 +1425,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "judge": {
+  [Profession.Judge]: {
     sv: 850,
     type: `profession`,
     sector: `government and law`,
@@ -1435,7 +1436,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "knight": {
+  [Profession.Knight]: {
     sv: 1150,
     type: `profession`,
     sector: `government and law`,
@@ -1446,7 +1447,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "lady": {
+  [Profession.Lady]: {
     sv: 1550,
     type: `profession`,
     sector: `government and law`,
@@ -1457,7 +1458,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "leatherworker": {
+  [Profession.Leatherworker]: {
     sv: 750,
     type: `business`,
     sector: `craftsmanship`,
@@ -1468,7 +1469,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "librarian": {
+  [Profession.Librarian]: {
     sv: 3150,
     type: `profession`,
     sector: `science`,
@@ -1479,7 +1480,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "linguist": {
+  [Profession.Linguist]: {
     sv: 5150,
     type: `profession`,
     sector: `science`,
@@ -1490,7 +1491,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "locksmith": {
+  [Profession.Locksmith]: {
     sv: 1900,
     type: `business`,
     sector: `craftsmanship`,
@@ -1501,7 +1502,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "lord": {
+  [Profession.Lord]: {
     sv: 1150,
     type: `profession`,
     sector: `government and law`,
@@ -1512,7 +1513,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "lumberjack": {
+  [Profession.Lumberjack]: {
     sv: 350,
     type: `labourer`,
     sector: `agriculture`,
@@ -1534,7 +1535,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "masseur": {
+  [Profession.Masseur]: {
     sv: 1550,
     type: `profession`,
     sector: `business`,
@@ -1545,7 +1546,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "merchant": {
+  [Profession.Merchant]: {
     sv: 650,
     type: `business`,
     sector: `business`,
@@ -1556,7 +1557,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "messenger": {
+  [Profession.Messenger]: {
     sv: 1250,
     type: `labourer`,
     sector: `communications`,
@@ -1567,7 +1568,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "midwife": {
+  [Profession.Midwife]: {
     sv: 650,
     type: `labourer`,
     sector: `science`,
@@ -1578,7 +1579,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "miller": {
+  [Profession.Miller]: {
     sv: 650,
     type: `business`,
     sector: `agriculture`,
@@ -1589,7 +1590,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "miner": {
+  [Profession.Miner]: {
     sv: 550,
     type: `labourer`,
     sector: `agriculture`,
@@ -1600,7 +1601,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "minister": {
+  [Profession.Minister]: {
     sv: 950,
     type: `profession`,
     sector: `government and law`,
@@ -1611,7 +1612,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "minstrel": {
+  [Profession.Minstrel]: {
     sv: 1450,
     type: `profession`,
     sector: `arts`,
@@ -1622,7 +1623,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "friar": {
+  [Profession.Friar]: {
     sv: 1450,
     type: `profession`,
     sector: `religion`,
@@ -1633,7 +1634,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "mortician": {
+  [Profession.Mortician]: {
     sv: 650,
     type: `profession`,
     sector: `science`,
@@ -1644,7 +1645,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "necromancer": {
+  [Profession.Necromancer]: {
     sv: 6150,
     type: `profession`,
     sector: `magic`,
@@ -1655,7 +1656,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "noble": {
+  [Profession.Noble]: {
     sv: 3150,
     synonyms: [`nobleman`, `noblewoman`],
     type: `profession`,
@@ -1667,7 +1668,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "nobleman": {
+  [Profession.Nobleman]: {
     sv: 3150,
     synonyms: [`nobleman`, `noblewoman`],
     type: `profession`,
@@ -1679,7 +1680,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "nun": {
+  [Profession.Nun]: {
     sv: 2150,
     type: `profession`,
     sector: `religion`,
@@ -1690,7 +1691,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "nurse": {
+  [Profession.Nurse]: {
     sv: 1150,
     type: `profession`,
     sector: `science`,
@@ -1701,7 +1702,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "painter": {
+  [Profession.Painter]: {
     sv: 1500,
     isHobby: true,
     type: `business`,
@@ -1713,7 +1714,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "patissier": {
+  [Profession.Patissier]: {
     sv: 1500,
     type: `business`,
     sector: `hospitality`,
@@ -1724,7 +1725,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "perfumer": {
+  [Profession.Perfumer]: {
     sv: 3150,
     type: `business`,
     sector: `craftsmanship`,
@@ -1735,7 +1736,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "philosopher": {
+  [Profession.Philosopher]: {
     sv: 7150,
     type: `profession`,
     sector: `science`,
@@ -1746,7 +1747,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "physician": {
+  [Profession.Physician]: {
     sv: 4150,
     type: `profession`,
     sector: `science`,
@@ -1757,7 +1758,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "pilgrim": {
+  [Profession.Pilgrim]: {
     sv: 5150,
     type: `labourer`,
     sector: `outcast`,
@@ -1768,7 +1769,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "politician": {
+  [Profession.Politician]: {
     sv: 4000,
     type: `profession`,
     sector: `government and law`,
@@ -1779,7 +1780,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "prime minister": {
+  [Profession.PrimeMinister]: {
     sv: 4000,
     synonyms: [`governor`],
     type: `profession`,
@@ -1791,7 +1792,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "potter": {
+  [Profession.Potter]: {
     sv: 1150,
     type: `business`,
     sector: `craftsmanship`,
@@ -1802,7 +1803,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "priest": {
+  [Profession.Priest]: {
     sv: 750,
     type: `profession`,
     sector: `religion`,
@@ -1813,7 +1814,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "privateer": {
+  [Profession.Privateer]: {
     sv: 1150,
     type: `labourer`,
     sector: `military`,
@@ -1824,7 +1825,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "professor": {
+  [Profession.Professor]: {
     sv: 3150,
     type: `profession`,
     sector: `science`,
@@ -1835,7 +1836,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "roofer": {
+  [Profession.Roofer]: {
     sv: 1800,
     type: `labourer`,
     sector: `construction`,
@@ -1846,7 +1847,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "ropemaker": {
+  [Profession.Ropemaker]: {
     sv: 1850,
     type: `business`,
     sector: `craftsmanship`,
@@ -1857,7 +1858,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "rugmaker": {
+  [Profession.Rugmaker]: {
     sv: 1850,
     type: `business`,
     sector: `craftsmanship`,
@@ -1868,7 +1869,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "saddler": {
+  [Profession.Saddler]: {
     sv: 1000,
     type: `business`,
     sector: `craftsmanship`,
@@ -1879,7 +1880,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "sailor": {
+  [Profession.Sailor]: {
     sv: 150,
     type: `labourer`,
     sector: `transportation`,
@@ -1890,7 +1891,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "sculptor": {
+  [Profession.Sculptor]: {
     sv: 250,
     type: `business`,
     sector: `arts`,
@@ -1901,7 +1902,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "scavenger": {
+  [Profession.Scavenger]: {
     sv: 350,
     type: `labourer`,
     sector: `unemployed`,
@@ -1912,7 +1913,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "scholar": {
+  [Profession.Scholar]: {
     sv: 2250,
     type: `profession`,
     sector: `science`,
@@ -1923,7 +1924,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "seamstress": {
+  [Profession.Seamstress]: {
     sv: 450,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -1934,7 +1935,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "seer": {
+  [Profession.Seer]: {
     sv: 350,
     type: `profession`,
     sector: `magic`,
@@ -1945,7 +1946,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "servant": {
+  [Profession.Servant]: {
     sv: 350,
     type: `labourer`,
     sector: `hospitality`,
@@ -1956,7 +1957,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "shaman": {
+  [Profession.Shaman]: {
     sv: 750,
     type: `profession`,
     sector: `magic`,
@@ -1967,7 +1968,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "shepherd": {
+  [Profession.Shepherd]: {
     sv: 150,
     type: `labourer`,
     sector: `agriculture`,
@@ -1978,7 +1979,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "ship's captain": {
+  [Profession.ShipsCaptain]: {
     sv: 950,
     type: `profession`,
     sector: `military`,
@@ -1989,7 +1990,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "shoemaker": {
+  [Profession.Shoemaker]: {
     sv: 150,
     type: `business`,
     sector: `craftsmanship`,
@@ -2000,7 +2001,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "silversmith": {
+  [Profession.Silversmith]: {
     sv: 1250,
     type: `business`,
     sector: `craftsmanship`,
@@ -2011,7 +2012,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "slave": {
+  [Profession.Slave]: {
     sv: 150,
     type: `labourer`,
     sector: `outcast`,
@@ -2022,7 +2023,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5
     },
   },
-  "slaver": {
+  [Profession.Slaver]: {
     sv: 650,
     type: `business`,
     sector: `business`,
@@ -2033,7 +2034,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "soldier": {
+  [Profession.Soldier]: {
     sv: 1000,
     type: `profession`,
     sector: `military`,
@@ -2044,7 +2045,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "spice merchant": {
+  [Profession.SpiceMerchant]: {
     sv: 1500,
     type: `business`,
     sector: `business`,
@@ -2055,7 +2056,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "squire": {
+  [Profession.Squire]: {
     sv: 950,
     type: `profession`,
     sector: `military`,
@@ -2066,7 +2067,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "stablehand": {
+  [Profession.Stablehand]: {
     sv: 550,
     type: `labourer`,
     sector: `agriculture`,
@@ -2077,7 +2078,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "stevedore": {
+  [Profession.Stevedore]: {
     sv: 550,
     synonyms: [`ship worker`, `dock worker`],
     type: `labourer`,
@@ -2089,7 +2090,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "stonemason": {
+  [Profession.Stonemason]: {
     sv: 750,
     type: `business`,
     sector: `construction`,
@@ -2100,7 +2101,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "steward": {
+  [Profession.Steward]: {
     sv: 950,
     type: `profession`,
     sector: `government and law`,
@@ -2111,7 +2112,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "street seller": {
+  [Profession.StreetSeller]: {
     sv: 550,
     type: `business`,
     sector: `business`,
@@ -2122,7 +2123,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "street sweeper": {
+  [Profession.StreetSweeper]: {
     sv: 450,
     type: `labourer`,
     sector: `labour`,
@@ -2133,7 +2134,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "student": {
+  [Profession.Student]: {
     sv: 3150,
     type: `profession`,
     sector: `science`,
@@ -2144,7 +2145,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "surgeon": {
+  [Profession.Surgeon]: {
     sv: 4150,
     type: `profession`,
     sector: `science`,
@@ -2155,7 +2156,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "surveyor": {
+  [Profession.Surveyor]: {
     sv: 1150,
     type: `profession`,
     sector: `business`,
@@ -2166,7 +2167,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "tailor": {
+  [Profession.Tailor]: {
     sv: 250,
     type: `business`,
     sector: `craftsmanship`,
@@ -2177,7 +2178,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "tanner": {
+  [Profession.Tanner]: {
     sv: 200,
     type: `business`,
     sector: `craftsmanship`,
@@ -2188,7 +2189,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "tavernkeeper": {
+  [Profession.Tavernkeeper]: {
     sv: 450,
     type: `business`,
     sector: `business`,
@@ -2199,7 +2200,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "shopkeep": {
+  [Profession.Shopkeep]: {
     sv: 450,
     type: `business`,
     sector: `business`,
@@ -2210,7 +2211,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "shopkeep's assistant": {
+  [Profession.hopkeepsAssistant]: {
     sv: 200,
     type: `business`,
     sector: `business`,
@@ -2221,7 +2222,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "tax collector": {
+  [Profession.TaxCollector]: {
     sv: 1850,
     type: `profession`,
     sector: `government and law`,
@@ -2232,7 +2233,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "teacher": {
+  [Profession.Teacher]: {
     sv: 1450,
     type: `profession`,
     sector: `science`,
@@ -2243,7 +2244,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "thatcher": {
+  [Profession.Thatcher]: {
     sv: 350,
     type: `labourer`,
     sector: `construction`,
@@ -2254,7 +2255,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "thief": {
+  [Profession.Thief]: {
     sv: 850,
     type: `profession`,
     sector: `crime`,
@@ -2265,7 +2266,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "torturer": {
+  [Profession.Torturer]: {
     sv: 1850,
     type: `profession`,
     sector: `military`,
@@ -2276,7 +2277,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "town crier": {
+  [Profession.TownCrier]: {
     sv: 750,
     type: `labourer`,
     sector: `communications`,
@@ -2287,7 +2288,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "toymaker": {
+  [Profession.Toymaker]: {
     sv: 2500,
     type: `profession`,
     sector: `craftsmanship`,
@@ -2298,7 +2299,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "vendor": {
+  [Profession.Vendor]: {
     sv: 1150,
     type: `business`,
     sector: `business`,
@@ -2309,7 +2310,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "veterinarian": {
+  [Profession.Veterinarian]: {
     sv: 1250,
     type: `profession`,
     sector: `agriculture`,
@@ -2320,7 +2321,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "vintner": {
+  [Profession.Vintner]: {
     sv: 850,
     type: `profession`,
     sector: `agriculture`,
@@ -2331,7 +2332,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "weaver": {
+  [Profession.Weaver]: {
     sv: 600,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -2342,7 +2343,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "wetnurse": {
+  [Profession.Wetnurse]: {
     sv: 350,
     type: `labourer`,
     sector: `labour`,
@@ -2353,7 +2354,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "woodcarver": {
+  [Profession.Woodcarver]: {
     sv: 2450,
     type: `business`,
     sector: `craftsmanship`,
@@ -2364,7 +2365,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "wood seller": {
+  [Profession.WoodSeller]: {
     sv: 2150,
     type: `business`,
     sector: `business`,
@@ -2375,7 +2376,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "wrestler": {
+  [Profession.Wrestler]: {
     sv: 6150,
     isHobby: true,
     type: `labourer`,
@@ -2387,7 +2388,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "writer": {
+  [Profession.Writer]: {
     sv: 7150,
     type: `profession`,
     sector: `arts`,
@@ -2398,18 +2399,18 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "animal/Monster Handler": {
+  [Profession.MonsterHandler]: {
     sv: 5000,
     type: `profession`,
     sector: `agriculture`,
-    description: `responsible for the safe keeping, dietary care, and exercise of animals or monsters.`,
+    description: `responsible for the safe keeping, dietary care, and exercise of monsters.`,
     dailyWage: 90,
     socialClass: `commoner`,
     socialClassRoll() {
       return 50 + dice(8, 6)
     },
   },
-  "arborist": {
+  [Profession.Arborist]: {
     sv: 1000,
     type: `profession`,
     sector: `agriculture`,
@@ -2420,7 +2421,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "baler": {
+  [Profession.Baler]: {
     sv: 800,
     type: `profession`,
     sector: `agriculture`,
@@ -2431,7 +2432,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "beekeeper": {
+  [Profession.Beekeeper]: {
     sv: 2000,
     type: `profession`,
     sector: `agriculture`,
@@ -2442,7 +2443,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "breeder": {
+  [Profession.Breeder]: {
     sv: 1000,
     type: `profession`,
     sector: `agriculture`,
@@ -2453,7 +2454,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "dairymaid": {
+  [Profession.Dairymaid]: {
     sv: 500,
     type: `profession`,
     sector: `agriculture`,
@@ -2464,7 +2465,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "falconer": {
+  [Profession.Falconer]: {
     sv: 4000,
     type: `profession`,
     sector: `agriculture`,
@@ -2475,7 +2476,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "florist": {
+  [Profession.Florist]: {
     sv: 3500,
     isHobby: true,
     type: `business`,
@@ -2487,7 +2488,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "forager": {
+  [Profession.Forager]: {
     sv: 500,
     type: `profession`,
     sector: `agriculture`,
@@ -2498,7 +2499,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "forester": {
+  [Profession.Forester]: {
     sv: 1000,
     type: `labourer`,
     sector: `agriculture`,
@@ -2509,7 +2510,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "fowler": {
+  [Profession.Fowler]: {
     sv: 750,
     type: `profession`,
     sector: `agriculture`,
@@ -2520,7 +2521,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "gamekeeper": {
+  [Profession.Gamekeeper]: {
     sv: 4500,
     type: `profession`,
     sector: `agriculture`,
@@ -2531,7 +2532,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "groom": {
+  [Profession.Groom]: {
     sv: 2500,
     type: `profession`,
     sector: `agriculture`,
@@ -2542,7 +2543,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "herder": {
+  [Profession.Herder]: {
     sv: 100,
     type: `profession`,
     sector: `agriculture`,
@@ -2553,7 +2554,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "horse trainer": {
+  [Profession.HorseTrainer]: {
     sv: 1000,
     type: `profession`,
     sector: `agriculture`,
@@ -2564,7 +2565,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "master-of-Horses": {
+  [Profession.MasterOfHorses]: {
     sv: 5000,
     type: `profession`,
     sector: `agriculture`,
@@ -2575,7 +2576,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "master-of-Hounds": {
+  [Profession.MasterOfHounds]: {
     sv: 7500,
     type: `profession`,
     sector: `agriculture`,
@@ -2586,7 +2587,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "pathfinder": {
+  [Profession.Pathfinder]: {
     sv: 1000,
     type: `profession`,
     sector: `agriculture`,
@@ -2597,7 +2598,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "plumer": {
+  [Profession.Plumer]: {
     sv: 2000,
     type: `profession`,
     sector: `agriculture`,
@@ -2608,7 +2609,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "prospector": {
+  [Profession.Prospector]: {
     sv: 500,
     type: `labourer`,
     sector: `mining`,
@@ -2619,7 +2620,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "renderer": {
+  [Profession.Renderer]: {
     sv: 3500,
     type: `profession`,
     sector: `agriculture`,
@@ -2630,7 +2631,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "thresher": {
+  [Profession.Thresher]: {
     sv: 300,
     type: `labourer`,
     sector: `agriculture`,
@@ -2641,7 +2642,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "trapper": {
+  [Profession.Trapper]: {
     sv: 800,
     type: `profession`,
     sector: `agriculture`,
@@ -2652,7 +2653,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "zookeeper": {
+  [Profession.Zookeeper]: {
     sv: 10000,
     type: `profession`,
     sector: `agriculture`,
@@ -2663,7 +2664,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "construction Worker": {
+  [Profession.ConstructionWorker]: {
     sv: 300,
     type: `labourer`,
     sector: `construction`,
@@ -2674,7 +2675,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "general contractor": {
+  [Profession.GeneralContractor]: {
     sv: 5000,
     type: `profession`,
     sector: `construction`,
@@ -2685,7 +2686,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "glazier": {
+  [Profession.Glazier]: {
     sv: 500,
     type: `labourer`,
     sector: `construction`,
@@ -2696,7 +2697,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "plasterer": {
+  [Profession.Plasterer]: {
     sv: 750,
     type: `labourer`,
     sector: `construction`,
@@ -2707,7 +2708,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "roadlayer": {
+  [Profession.Roadlayer]: {
     sv: 3000,
     synonyms: [`streetlayer`, `street layer`],
     type: `labourer`,
@@ -2719,7 +2720,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "acrobat": {
+  [Profession.Acrobat]: {
     sv: 2500,
     type: `profession`,
     sector: `arts`,
@@ -2730,7 +2731,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "trapezist": {
+  [Profession.Trapezist]: {
     sv: 3500,
     type: `profession`,
     sector: `arts`,
@@ -2741,7 +2742,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "arranger": {
+  [Profession.Arranger]: {
     sv: 2000,
     type: `profession`,
     sector: `arts`,
@@ -2752,7 +2753,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "athlete": {
+  [Profession.Athlete]: {
     sv: 500,
     type: `profession`,
     sector: `labourer`,
@@ -2763,7 +2764,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "busker": {
+  [Profession.Busker]: {
     sv: 2000,
     type: `profession`,
     sector: `outcast`,
@@ -2774,7 +2775,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "celebrity": {
+  [Profession.Celebrity]: {
     sv: 10000,
     type: `profession`,
     sector: `arts`,
@@ -2785,7 +2786,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "choirmaster": {
+  [Profession.Choirmaster]: {
     sv: 1000,
     isHobby: true,
     type: `profession`,
@@ -2797,7 +2798,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "clown": {
+  [Profession.Clown]: {
     sv: 3000,
     type: `profession`,
     sector: `arts`,
@@ -2808,7 +2809,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "comedian": {
+  [Profession.Comedian]: {
     sv: 5000,
     isHobby: true,
     type: `profession`,
@@ -2820,7 +2821,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "conductor": {
+  [Profession.Conductor]: {
     sv: 8000,
     isHobby: true,
     type: `profession`,
@@ -2832,7 +2833,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "contortionist": {
+  [Profession.Contortionist]: {
     sv: 5000,
     type: `profession`,
     sector: `arts`,
@@ -2843,7 +2844,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "curator": {
+  [Profession.Curator]: {
     sv: 2500,
     isHobby: true,
     type: `business`,
@@ -2855,7 +2856,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "costumer": {
+  [Profession.Costumer]: {
     sv: 3500,
     type: `profession`,
     sector: `arts`,
@@ -2866,7 +2867,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "equilibrist": {
+  [Profession.Equilibrist]: {
     sv: 3000,
     type: `profession`,
     sector: `arts`,
@@ -2877,7 +2878,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "fashion designer": {
+  [Profession.FashionDesigner]: {
     sv: 5000,
     isHobby: true,
     type: `business`,
@@ -2889,7 +2890,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "glasspainter": {
+  [Profession.Glasspainter]: {
     sv: 5000,
     type: `profession`,
     sector: `arts`,
@@ -2900,7 +2901,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "juggler": {
+  [Profession.Juggler]: {
     sv: 3000,
     isHobby: true,
     type: `profession`,
@@ -2912,7 +2913,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "limner": {
+  [Profession.Limner]: {
     sv: 7000,
     type: `profession`,
     sector: `arts`,
@@ -2923,7 +2924,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "makeup artist": {
+  [Profession.MakeupArtist]: {
     sv: 4500,
     type: `profession`,
     sector: `arts`,
@@ -2934,7 +2935,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "artisan": {
+  [Profession.Artisan]: {
     sv: 4500,
     isHobby: true,
     synonyms: [`artist`, `art maker`],
@@ -2947,7 +2948,7 @@ export const professions: Record<string, ProfessionData> = {
       return 40 + dice(8, 6)
     },
   },
-  "model": {
+  [Profession.Model]: {
     sv: 3500,
     type: `profession`,
     sector: `arts`,
@@ -2958,7 +2959,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "musician": {
+  [Profession.Musician]: {
     sv: 800,
     isHobby: true,
     type: `profession`,
@@ -2970,7 +2971,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "playwright": {
+  [Profession.Playwright]: {
     sv: 2500,
     isHobby: true,
     type: `profession`,
@@ -2982,7 +2983,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "poet": {
+  [Profession.Poet]: {
     sv: 3500,
     isHobby: true,
     type: `profession`,
@@ -2994,7 +2995,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "ringmaster": {
+  [Profession.Ringmaster]: {
     sv: 3500,
     type: `business`,
     sector: `arts`,
@@ -3005,7 +3006,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "ropewalker": {
+  [Profession.Ropewalker]: {
     sv: 4000,
     synonyms: [`trapeze artist`],
     type: `profession`,
@@ -3017,7 +3018,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "singer": {
+  [Profession.Singer]: {
     sv: 2000,
     type: `profession`,
     sector: `arts`,
@@ -3028,7 +3029,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "skald": {
+  [Profession.Skald]: {
     sv: 5000,
     type: `profession`,
     sector: `arts`,
@@ -3039,7 +3040,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "stage magician": {
+  [Profession.StageMagician]: {
     sv: 3500,
     type: `profession`,
     sector: `arts`,
@@ -3050,7 +3051,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "stuntman": {
+  [Profession.Stuntman]: {
     sv: 5000,
     type: `profession`,
     sector: `arts`,
@@ -3061,7 +3062,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "tattooist": {
+  [Profession.Tattooist]: {
     sv: 3000,
     type: `business`,
     sector: `arts`,
@@ -3072,7 +3073,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "theater director": {
+  [Profession.TheaterDirector]: {
     sv: 5000,
     type: `business`,
     sector: `arts`,
@@ -3083,7 +3084,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "accountant": {
+  [Profession.Accountant]: {
     sv: 3000,
     type: `business`,
     sector: `business`,
@@ -3094,7 +3095,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "actuary": {
+  [Profession.Actuary]: {
     sv: 6000,
     type: `business`,
     sector: `government and law`,
@@ -3105,7 +3106,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "animal collector": {
+  [Profession.AnimalCollector]: {
     sv: 10000,
     isHobby: true,
     type: `business`,
@@ -3117,7 +3118,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "business owner": {
+  [Profession.BusinessOwner]: {
     sv: 500,
     type: `business`,
     sector: `business`,
@@ -3128,7 +3129,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "debt collector": {
+  [Profession.DebtCollector]: {
     sv: 3500,
     type: `business`,
     sector: `business`,
@@ -3139,7 +3140,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "draper": {
+  [Profession.Draper]: {
     sv: 2500,
     type: `business`,
     sector: `business`,
@@ -3150,7 +3151,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "appraiser": {
+  [Profession.Appraiser]: {
     sv: 5000,
     type: `profession`,
     sector: `business`,
@@ -3161,7 +3162,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "auctioneer": {
+  [Profession.Auctioneer]: {
     sv: 4500,
     type: `profession`,
     sector: `business`,
@@ -3172,7 +3173,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "bagniokeeper": {
+  [Profession.Bagniokeeper]: {
     sv: 1500,
     type: `business`,
     sector: `business`,
@@ -3183,7 +3184,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "bookkeeper": {
+  [Profession.Bookkeeper]: {
     sv: 2500,
     type: `business`,
     sector: `business`,
@@ -3194,7 +3195,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "collector": {
+  [Profession.Collector]: {
     sv: 3000,
     isHobby: true,
     type: `business`,
@@ -3206,7 +3207,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "entrepreneur": {
+  [Profession.Entrepreneur]: {
     sv: 500,
     isHobby: true,
     type: `business`,
@@ -3218,7 +3219,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "moneychanger": {
+  [Profession.Moneychanger]: {
     sv: 2500,
     type: `business`,
     sector: `government and law`,
@@ -3229,7 +3230,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "moneylender": {
+  [Profession.Moneylender]: {
     sv: 1500,
     type: `business`,
     sector: `business`,
@@ -3240,7 +3241,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "peddler": {
+  [Profession.Peddler]: {
     sv: 350,
     type: `business`,
     sector: `business`,
@@ -3251,7 +3252,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "plantation owner": {
+  [Profession.PlantationOwner]: {
     sv: 1500,
     type: `business`,
     sector: `business`,
@@ -3262,7 +3263,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "speculator": {
+  [Profession.Speculator]: {
     sv: 9000,
     isHobby: true,
     type: `profession`,
@@ -3274,7 +3275,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "thrift dealer": {
+  [Profession.ThriftDealer]: {
     sv: 800,
     type: `business`,
     sector: `business`,
@@ -3285,7 +3286,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "tradesman": {
+  [Profession.Tradesman]: {
     sv: 500,
     type: `business`,
     sector: `business`,
@@ -3296,7 +3297,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "billboard poster": {
+  [Profession.BillboardPoster]: {
     sv: 1000,
     type: `labourer`,
     sector: `business`,
@@ -3307,7 +3308,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "courier": {
+  [Profession.Courier]: {
     sv: 300,
     type: `labourer`,
     sector: `business`,
@@ -3318,7 +3319,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "interpreter": {
+  [Profession.Interpreter]: {
     sv: 5000,
     synonyms: [`translator`],
     type: `profession`,
@@ -3330,7 +3331,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "coinsmith": {
+  [Profession.Coinsmith]: {
     sv: 10000,
     type: `business`,
     sector: `craftsmanship`,
@@ -3341,7 +3342,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "bladesmith": {
+  [Profession.Bladesmith]: {
     sv: 3000,
     type: `business`,
     sector: `craftsmanship`,
@@ -3352,7 +3353,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "bookbinder": {
+  [Profession.Bookbinder]: {
     sv: 5000,
     type: `business`,
     sector: `craftsmanship`,
@@ -3363,7 +3364,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "bottler": {
+  [Profession.Bottler]: {
     sv: 3000,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -3374,7 +3375,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "bowyer": {
+  [Profession.Bowyer]: {
     sv: 500,
     type: `business`,
     sector: `craftsmanship`,
@@ -3385,7 +3386,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "broom Maker": {
+  [Profession.BroomMaker]: {
     sv: 4500,
     type: `business`,
     sector: `craftsmanship`,
@@ -3396,7 +3397,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "candlemaker": {
+  [Profession.Candlemaker]: {
     sv: 2000,
     type: `business`,
     sector: `craftsmanship`,
@@ -3407,7 +3408,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "cartwright": {
+  [Profession.Cartwright]: {
     sv: 500,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -3418,7 +3419,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "cutler": {
+  [Profession.Cutler]: {
     sv: 7500,
     type: `profession`,
     sector: `craftsmanship`,
@@ -3429,7 +3430,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "dyer": {
+  [Profession.Dyer]: {
     sv: 5000,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -3440,7 +3441,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "embroiderer": {
+  [Profession.Embroiderer]: {
     sv: 2500,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -3451,7 +3452,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "engraver": {
+  [Profession.Engraver]: {
     sv: 1000,
     type: `profession`,
     sector: `craftsmanship`,
@@ -3462,7 +3463,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "farrier": {
+  [Profession.Farrier]: {
     sv: 2000,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -3473,7 +3474,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "fletcher": {
+  [Profession.Fletcher]: {
     sv: 1500,
     type: `profession`,
     sector: `craftsmanship`,
@@ -3484,7 +3485,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "furniture artisan": {
+  [Profession.FurnitureArtisan]: {
     sv: 2500,
     type: `profession`,
     sector: `craftsmanship`,
@@ -3495,7 +3496,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "glassworker": {
+  [Profession.Glassworker]: {
     sv: 5000,
     type: `profession`,
     sector: `craftsmanship`,
@@ -3506,7 +3507,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "instrument Maker": {
+  [Profession.InstrumentMaker]: {
     sv: 7500,
     isHobby: true,
     type: `profession`,
@@ -3518,7 +3519,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "lapidary": {
+  [Profession.Lapidary]: {
     sv: 5000,
     isHobby: true,
     type: `profession`,
@@ -3530,7 +3531,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "luthier": {
+  [Profession.Luthier]: {
     sv: 8500,
     isHobby: true,
     type: `profession`,
@@ -3542,7 +3543,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "mercer": {
+  [Profession.Mercer]: {
     sv: 2500,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -3553,7 +3554,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "optician": {
+  [Profession.Optician]: {
     sv: 6500,
     type: `profession`,
     sector: `craftsmanship`,
@@ -3564,7 +3565,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "printer": {
+  [Profession.Printer]: {
     sv: 2000,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -3575,7 +3576,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "restorer": {
+  [Profession.Restorer]: {
     sv: 10000,
     isHobby: true,
     type: `profession`,
@@ -3587,7 +3588,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "soaper": {
+  [Profession.Soaper]: {
     sv: 3000,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -3598,7 +3599,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "taxidermist": {
+  [Profession.Taxidermist]: {
     sv: 4000,
     type: `profession`,
     sector: `craftsmanship`,
@@ -3609,7 +3610,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "tinker": {
+  [Profession.Tinker]: {
     sv: 3000,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -3620,7 +3621,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "weaponsmith": {
+  [Profession.Weaponsmith]: {
     sv: 2500,
     type: `business`,
     sector: `craftsmanship`,
@@ -3631,7 +3632,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "wheelwright": {
+  [Profession.Wheelwright]: {
     sv: 1500,
     type: `labourer`,
     sector: `craftsmanship`,
@@ -3642,7 +3643,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "assassin": {
+  [Profession.Assassin]: {
     sv: 5000,
     type: `profession`,
     sector: `crime`,
@@ -3653,7 +3654,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "bandit": {
+  [Profession.Bandit]: {
     sv: 8000,
     type: `profession`,
     sector: `crime`,
@@ -3664,7 +3665,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "burglar": {
+  [Profession.Burglar]: {
     sv: 500,
     type: `profession`,
     sector: `crime`,
@@ -3675,7 +3676,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "conman": {
+  [Profession.Conman]: {
     sv: 750,
     type: `profession`,
     sector: `crime`,
@@ -3686,7 +3687,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "gamefighter": {
+  [Profession.Gamefighter]: {
     sv: 2000,
     type: `profession`,
     sector: `crime`,
@@ -3697,7 +3698,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "crime boss": {
+  [Profession.CrimeBoss]: {
     sv: 6000,
     type: `profession`,
     sector: `crime`,
@@ -3708,7 +3709,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "cutpurse": {
+  [Profession.Cutpurse]: {
     sv: 500,
     type: `profession`,
     sector: `crime`,
@@ -3719,7 +3720,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "drug dealer": {
+  [Profession.DrugDealer]: {
     sv: 1500,
     type: `profession`,
     sector: `crime`,
@@ -3730,7 +3731,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "drug lord": {
+  [Profession.DrugLord]: {
     sv: 6000,
     type: `profession`,
     sector: `crime`,
@@ -3741,7 +3742,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "extortioner": {
+  [Profession.Extortioner]: {
     sv: 2000,
     type: `profession`,
     sector: `crime`,
@@ -3752,7 +3753,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "fence": {
+  [Profession.Fence]: {
     sv: 10000,
     type: `profession`,
     sector: `crime`,
@@ -3763,7 +3764,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "forger": {
+  [Profession.Forger]: {
     sv: 10000,
     type: `profession`,
     sector: `crime`,
@@ -3774,7 +3775,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "fugitive": {
+  [Profession.Fugitive]: {
     sv: 2500,
     type: `labourer`,
     sector: `crime`,
@@ -3785,7 +3786,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "highwayman": {
+  [Profession.Highwayman]: {
     sv: 500,
     type: `profession`,
     sector: `crime`,
@@ -3796,7 +3797,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "kidnapper": {
+  [Profession.Kidnapper]: {
     sv: 1500,
     type: `profession`,
     sector: `crime`,
@@ -3807,7 +3808,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "loan shark": {
+  [Profession.LoanShark]: {
     sv: 4500,
     type: `profession`,
     sector: `crime`,
@@ -3818,7 +3819,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "pirate": {
+  [Profession.Pirate]: {
     sv: 1500,
     type: `profession`,
     sector: `crime`,
@@ -3829,7 +3830,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "wannabe pirate": {
+  [Profession.WannabePirate]: {
     sv: 1500,
     type: `profession`,
     sector: `crime`,
@@ -3840,7 +3841,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "poacher": {
+  [Profession.Poacher]: {
     sv: 5000,
     type: `labourer`,
     sector: `crime`,
@@ -3851,7 +3852,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "poisoner": {
+  [Profession.Poisoner]: {
     sv: 7000,
     type: `business`,
     sector: `crime`,
@@ -3862,7 +3863,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "marauder": {
+  [Profession.Marauder]: {
     sv: 3000,
     type: `profession`,
     sector: `crime`,
@@ -3873,7 +3874,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "smuggler": {
+  [Profession.Smuggler]: {
     sv: 2500,
     type: `profession`,
     sector: `crime`,
@@ -3884,7 +3885,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "affeeror": {
+  [Profession.Affeeror]: {
     sv: 10000,
     type: `profession`,
     sector: `government and law`,
@@ -3895,7 +3896,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "agister": {
+  [Profession.Agister]: {
     sv: 1500,
     type: `business`,
     sector: `business`,
@@ -3906,7 +3907,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "alderman": {
+  [Profession.Alderman]: {
     sv: 1000,
     type: `profession`,
     sector: `government and law`,
@@ -3917,7 +3918,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "alienist": {
+  [Profession.Alienist]: {
     sv: 3000,
     type: `profession`,
     sector: `government and law`,
@@ -3928,7 +3929,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "assay master": {
+  [Profession.AssayMaster]: {
     sv: 10000,
     type: `profession`,
     sector: `government and law`,
@@ -3939,7 +3940,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "baron": {
+  [Profession.Baron]: {
     sv: 2500,
     type: `profession`,
     sector: `government and law`,
@@ -3950,7 +3951,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "chancellor": {
+  [Profession.Chancellor]: {
     sv: 5000,
     type: `profession`,
     sector: `government and law`,
@@ -3961,7 +3962,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "chief": {
+  [Profession.Chief]: {
     sv: 9000,
     type: `profession`,
     sector: `government and law`,
@@ -3972,7 +3973,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "conservationist": {
+  [Profession.Conservationist]: {
     sv: 3000,
     isHobby: true,
     type: `profession`,
@@ -3984,7 +3985,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "count": {
+  [Profession.Count]: {
     sv: 7000,
     type: `profession`,
     sector: `government and law`,
@@ -3995,7 +3996,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "duke": {
+  [Profession.Duke]: {
     sv: 15000,
     type: `profession`,
     sector: `government and law`,
@@ -4006,7 +4007,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "emperor": {
+  [Profession.Emperor]: {
     sv: 25000,
     type: `profession`,
     sector: `government and law`,
@@ -4017,7 +4018,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "king": {
+  [Profession.King]: {
     sv: 20000,
     type: `profession`,
     sector: `government and law`,
@@ -4028,7 +4029,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "lady-in-Waiting": {
+  [Profession.LadyInWaiting]: {
     sv: 3000,
     type: `labourer`,
     sector: `government and law`,
@@ -4039,7 +4040,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "marquess": {
+  [Profession.Marquess]: {
     sv: 5000,
     type: `profession`,
     sector: `government and law`,
@@ -4050,7 +4051,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "master-of-Coin": {
+  [Profession.MasterOfCoin]: {
     sv: 7500,
     type: `profession`,
     sector: `government and law`,
@@ -4061,7 +4062,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "master-of-the-Revels": {
+  [Profession.MasterOfTheRevels]: {
     sv: 1000,
     type: `profession`,
     sector: `government and law`,
@@ -4072,7 +4073,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "notary": {
+  [Profession.Notary]: {
     sv: 3000,
     isHobby: true,
     type: `profession`,
@@ -4084,7 +4085,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "orator": {
+  [Profession.Orator]: {
     sv: 3000,
     type: `profession`,
     sector: `government and law`,
@@ -4095,7 +4096,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "page": {
+  [Profession.Page] {
     sv: 3000,
     type: `profession`,
     sector: `government and law`,
@@ -4106,7 +4107,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "prince": {
+  [Profession.Prince]: {
     sv: 6000,
     type: `profession`,
     sector: `government and law`,
@@ -4117,7 +4118,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "senator": {
+  [Profession.Senator]: {
     sv: 5000,
     type: `profession`,
     sector: `government and law`,
@@ -4128,7 +4129,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "sheriff": {
+  [Profession.Sheriff]: {
     sv: 4500,
     type: `profession`,
     sector: `government and law`,
@@ -4139,7 +4140,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "spymaster": {
+  [Profession.Spymaster]: {
     sv: 1000,
     type: `profession`,
     sector: `government and law`,
@@ -4150,7 +4151,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "viscount": {
+  [Profession.Viscount]: {
     sv: 7000,
     type: `profession`,
     sector: `government and law`,
@@ -4161,7 +4162,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "ward": {
+  [Profession.Ward]: {
     sv: 3000,
     type: `profession`,
     sector: `government and law`,
@@ -4172,7 +4173,7 @@ export const professions: Record<string, ProfessionData> = {
       return 75 + dice(8, 6)
     },
   },
-  "acater": {
+  [Profession.Acater]: {
     sv: 3000,
     type: `profession`,
     sector: `agriculture`,
@@ -4183,7 +4184,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "tunner": {
+  [Profession.Tunner]: {
     sv: 5000,
     type: `labourer`,
     sector: `agriculture`,
@@ -4194,7 +4195,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "barkeep": {
+  [Profession.Barkeep]: {
     sv: 500,
     type: `profession`,
     sector: `hospitality`,
@@ -4206,7 +4207,7 @@ export const professions: Record<string, ProfessionData> = {
     },
   },
 
-  "butler": {
+  [Profession.Butler]: {
     sv: 2000,
     type: `profession`,
     sector: `hospitality`,
@@ -4217,7 +4218,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "caregiver": {
+  [Profession.Caregiver]: {
     sv: 1000,
     type: `profession`,
     sector: `hospitality`,
@@ -4228,7 +4229,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "charcoal Maker": {
+  [Profession.CharcoalMaker]: {
     sv: 2500,
     type: `labourer`,
     sector: `business`,
@@ -4239,7 +4240,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "chatelaine": {
+  [Profession.Chatelaine]: {
     sv: 3000,
     type: `profession`,
     sector: `hospitality`,
@@ -4250,7 +4251,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "chimney sweeper": {
+  [Profession.ChimneySweeper]: {
     sv: 2500,
     type: `labourer`,
     sector: `business`,
@@ -4261,7 +4262,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "clerk": {
+  [Profession.Clerk]: {
     sv: 5000,
     type: `profession`,
     sector: `business`,
@@ -4272,7 +4273,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "copyist": {
+  [Profession.Copyist]: {
     sv: 3000,
     type: `profession`,
     sector: `communication`,
@@ -4283,7 +4284,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "croupier": {
+  [Profession.Croupier]: {
     sv: 1500,
     type: `profession`,
     sector: `hospitality`,
@@ -4294,7 +4295,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "exterminator": {
+  [Profession.Exterminator]: {
     sv: 2000,
     type: `labourer`,
     sector: `agriculture`,
@@ -4305,7 +4306,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "food and drink taster": {
+  [Profession.FoodAndDrinkTaster]: {
     sv: 3500,
     type: `profession`,
     sector: `hospitality`,
@@ -4316,7 +4317,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "gongfarmer": {
+  [Profession.Gongfarmer]: {
     sv: 800,
     type: `labourer`,
     sector: `agriculture`,
@@ -4327,7 +4328,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "gravedigger": {
+  [Profession.Gravedigger]: {
     sv: 500,
     type: `labourer`,
     sector: `religion`,
@@ -4338,7 +4339,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "groundskeeper": {
+  [Profession.Groundskeeper]: {
     sv: 1000,
     type: `labourer`,
     sector: `agriculture`,
@@ -4349,7 +4350,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "kitchen drudge": {
+  [Profession.KitchenDrudge]: {
     sv: 500,
     type: `labourer`,
     sector: `business`,
@@ -4360,7 +4361,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "knacker": {
+  [Profession.Knacker]: {
     sv: 2000,
     type: `labourer`,
     sector: `agriculture`,
@@ -4371,7 +4372,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "lamplighter": {
+  [Profession.Lamplighter]: {
     sv: 5000,
     type: `labourer`,
     sector: `business`,
@@ -4382,7 +4383,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "laundry worker": {
+  [Profession.LaundryWorker]: {
     sv: 2500,
     type: `labourer`,
     sector: `business`,
@@ -4393,7 +4394,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "lector": {
+  [Profession.Lector]: {
     sv: 4000,
     type: `profession`,
     sector: `communications`,
@@ -4404,7 +4405,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "longshoreman": {
+  [Profession.Longshoreman]: {
     sv: 1000,
     type: `labourer`,
     sector: `business`,
@@ -4415,7 +4416,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "nanny": {
+  [Profession.Nanny]: {
     sv: 800,
     type: `labourer`,
     sector: `caregiver`,
@@ -4426,7 +4427,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "operator": {
+  [Profession.Operator]: {
     sv: 2500,
     type: `labourer`,
     sector: `construction`,
@@ -4437,7 +4438,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "pastry chef": {
+  [Profession.PastryChef]: {
     sv: 1500,
     type: `profession`,
     sector: `food`,
@@ -4448,7 +4449,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "plumber": {
+  [Profession.Plumber]: {
     sv: 3000,
     type: `profession`,
     sector: `construction`,
@@ -4459,7 +4460,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "porter": {
+  [Profession.Porter]: {
     sv: 3000,
     type: `profession`,
     sector: `labourer`,
@@ -4470,7 +4471,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "harlot": {
+  [Profession.Harlot]: {
     sv: 400,
     synonyms: [`prostitute`, `lady of the night`, `call girl`, `sex worker`],
     type: `profession`,
@@ -4482,7 +4483,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "quarryman": {
+  [Profession.Quarryman]: {
     sv: 1200,
     type: `labourer`,
     sector: `construction`,
@@ -4493,7 +4494,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "stagehand": {
+  [Profession.Stagehand]: {
     sv: 2500,
     type: `labourer`,
     sector: `arts`,
@@ -4504,7 +4505,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "street cleaner": {
+  [Profession.StreetCleaner]: {
     sv: 4000,
     type: `labourer`,
     sector: `construction`,
@@ -4515,7 +4516,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "talent scout": {
+  [Profession.TalentScout]: {
     sv: 7000,
     type: `profession`,
     sector: `arts`,
@@ -4526,7 +4527,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "trainer": {
+  [Profession.Trainer]: {
     sv: 5000,
     isHobby: true,
     type: `profession`,
@@ -4538,7 +4539,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "water bearer": {
+  [Profession.WaterBearer]: {
     sv: 200,
     type: `labourer`,
     sector: `agriculture`,
@@ -4549,7 +4550,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "abjurer": {
+  [Profession.Abjurer]: {
     sv: 5000,
     type: `profession`,
     sector: `magic`,
@@ -4560,7 +4561,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "alchemist": {
+  [Profession.Alchemist]: {
     sv: 2000,
     type: `profession`,
     sector: `science`,
@@ -4571,7 +4572,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "archmage": {
+  [Profession.Archmage]: {
     sv: 15000,
     type: `profession`,
     sector: `magic`,
@@ -4582,7 +4583,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "artificer": {
+  [Profession.Artificer]: {
     sv: 7500,
     type: `profession`,
     sector: `magic`,
@@ -4594,7 +4595,7 @@ export const professions: Record<string, ProfessionData> = {
     },
   },
 
-  "conjuror": {
+  [Profession.Conjuror]: {
     sv: 7000,
     type: `profession`,
     sector: `magic`,
@@ -4605,7 +4606,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "elementalist": {
+  [Profession.Elementalist]: {
     sv: 8000,
     type: `profession`,
     sector: `magic`,
@@ -4616,7 +4617,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "enchanter": {
+  [Profession.Enchanter]: {
     sv: 7500,
     type: `profession`,
     sector: `magic`,
@@ -4627,7 +4628,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "evoker": {
+  [Profession.Evoker]: {
     sv: 8000,
     type: `profession`,
     sector: `magic`,
@@ -4638,7 +4639,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "hearth witch": {
+  [Profession.HearthWitch]: {
     sv: 6000,
     type: `profession`,
     sector: `magic`,
@@ -4649,7 +4650,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "illusionist": {
+  [Profession.Illusionist]: {
     sv: 7500,
     type: `profession`,
     sector: `magic`,
@@ -4660,7 +4661,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "mage": {
+  [Profession.Mage]: {
     sv: 5000,
     type: `profession`,
     sector: `magic`,
@@ -4671,7 +4672,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "medium": {
+  [Profession.Medium]: {
     sv: 8000,
     type: `profession`,
     sector: `magic`,
@@ -4682,7 +4683,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "meteorologist": {
+  [Profession.Meteorologist]: {
     sv: 1000,
     type: `profession`,
     sector: `magic`,
@@ -4693,7 +4694,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "ritualist": {
+  [Profession.Ritualist]: {
     sv: 4000,
     type: `profession`,
     sector: `magic`,
@@ -4704,7 +4705,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "runecaster": {
+  [Profession.Runecaster]: {
     sv: 10000,
     type: `profession`,
     sector: `magic`,
@@ -4715,7 +4716,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "sage": {
+  [Profession.Sage]: {
     sv: 10000,
     type: `profession`,
     sector: `magic`,
@@ -4726,7 +4727,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "shapeshifter": {
+  [Profession.Shapeshifter]: {
     sv: 7000,
     type: `profession`,
     sector: `magic`,
@@ -4737,7 +4738,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "summoner": {
+  [Profession.Summoner]: {
     sv: 8000,
     type: `profession`,
     sector: `magic`,
@@ -4748,7 +4749,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "transmuter": {
+  [Profession.Transmuter]: {
     sv: 8000,
     type: `profession`,
     sector: `magic`,
@@ -4759,7 +4760,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "witchdoctor": {
+  [Profession.Witchdoctor]: {
     sv: 3500,
     type: `profession`,
     sector: `magic`,
@@ -4770,7 +4771,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "witch": {
+  [Profession.Witch]: {
     sv: 4000,
     type: `profession`,
     sector: `magic`,
@@ -4781,7 +4782,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "wordsmith": {
+  [Profession.Wordsmith]: {
     sv: 9000,
     type: `profession`,
     sector: `magic`,
@@ -4792,7 +4793,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "admiral": {
+  [Profession.Admiral]: {
     sv: 1000,
     type: `profession`,
     sector: `military`,
@@ -4803,7 +4804,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "bailiff": {
+  [Profession.Bailiff]: {
     sv: 5000,
     type: `profession`,
     sector: `military`,
@@ -4814,7 +4815,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "bodyguard": {
+  [Profession.Bodyguard]: {
     sv: 3000,
     type: `profession`,
     sector: `adventuring`,
@@ -4825,7 +4826,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "bouncer": {
+  [Profession.Bouncer]: {
     sv: 2500,
     type: `profession`,
     sector: `adventuring`,
@@ -4836,7 +4837,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "castellan": {
+  [Profession.Castellan]: {
     sv: 8000,
     type: `profession`,
     sector: `government and law`,
@@ -4847,7 +4848,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "cavalier": {
+  [Profession.Cavalier]: {
     sv: 2000,
     type: `profession`,
     sector: `military`,
@@ -4858,7 +4859,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "city watch": {
+  [Profession.CityWatch]: {
     sv: 4500,
     type: `profession`,
     sector: `military`,
@@ -4869,7 +4870,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "commissar": {
+  [Profession.Commissar]: {
     sv: 7500,
     type: `profession`,
     sector: `military`,
@@ -4880,7 +4881,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "constable": {
+  [Profession.Constable]: {
     sv: 500,
     type: `profession`,
     sector: `military`,
@@ -4891,7 +4892,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "investigator": {
+  [Profession.Investigator]: {
     sv: 5000,
     type: `profession`,
     sector: `business`,
@@ -4902,7 +4903,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "fifer": {
+  [Profession.Fifer]: {
     sv: 3000,
     type: `profession`,
     sector: `military`,
@@ -4913,7 +4914,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "duelist": {
+  [Profession.Duelist]: {
     sv: 3000,
     isHobby: true,
     type: `profession`,
@@ -4925,7 +4926,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "executioner": {
+  [Profession.Executioner]: {
     sv: 2500,
     type: `profession`,
     sector: `military`,
@@ -4936,7 +4937,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "firefighter": {
+  [Profession.Firefighter]: {
     sv: 500,
     type: `labourer`,
     sector: `government and law`,
@@ -4947,7 +4948,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "inspection officer": {
+  [Profession.InspectionOfficer]: {
     sv: 4000,
     type: `profession`,
     sector: `military`,
@@ -4958,7 +4959,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "intelligence Officer": {
+  [Profession.IntelligenceOfficer]: {
     sv: 10000,
     type: `profession`,
     sector: `military`,
@@ -4969,7 +4970,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "lieutenant": {
+  [Profession.Lieutenant]: {
     sv: 2000,
     type: `profession`,
     sector: `military`,
@@ -4980,7 +4981,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "marksman": {
+  [Profession.Marksman]: {
     sv: 800,
     type: `profession`,
     sector: `military`,
@@ -4991,7 +4992,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "marshall": {
+  [Profession.Marshall]: {
     sv: 5000,
     type: `profession`,
     sector: `military`,
@@ -5002,7 +5003,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "medic": {
+  [Profession.Medic]: {
     sv: 600,
     type: `profession`,
     sector: `military`,
@@ -5013,7 +5014,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "mercenary": {
+  [Profession.Mercenary]: {
     sv: 800,
     type: `profession`,
     sector: `adventuring`,
@@ -5024,7 +5025,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "quartermaster": {
+  [Profession.Quartermaster]: {
     sv: 3500,
     type: `profession`,
     sector: `military`,
@@ -5035,7 +5036,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "royal Guard": {
+  [Profession.RoyalGuard]: {
     sv: 5000,
     type: `profession`,
     sector: `military`,
@@ -5046,7 +5047,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "runner": {
+  [Profession.Runner]: {
     sv: 750,
     type: `labourer`,
     sector: `military`,
@@ -5057,7 +5058,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "sapper": {
+  [Profession.Sapper]: {
     sv: 5000,
     type: `labourer`,
     sector: `military`,
@@ -5068,7 +5069,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "sergeant": {
+  [Profession.Sergeant]: {
     sv: 8000,
     type: `profession`,
     sector: `military`,
@@ -5079,7 +5080,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "sergeant-at-arms": {
+  [Profession.SergeantAtArms]: {
     sv: 5000,
     type: `profession`,
     sector: `military`,
@@ -5090,7 +5091,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "scout": {
+  [Profession.Scout]: {
     sv: 5000,
     type: `profession`,
     sector: `military`,
@@ -5101,7 +5102,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "siege artillerist": {
+  [Profession.SiegeArtillerist]: {
     sv: 10000,
     type: `profession`,
     sector: `military`,
@@ -5112,7 +5113,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "slave driver": {
+  [Profession.SlaveDriver]: {
     sv: 1500,
     type: `profession`,
     sector: `agriculture`,
@@ -5123,7 +5124,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "special force soldier": {
+  [Profession.SpecialForceSoldier]: {
     sv: 6000,
     type: `profession`,
     sector: `military`,
@@ -5134,7 +5135,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "spy": {
+  [Profession.Spy]: {
     sv: 4500,
     type: `profession`,
     sector: `military`,
@@ -5145,7 +5146,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "tactician": {
+  [Profession.Tactician]: {
     sv: 7000,
     type: `profession`,
     sector: `military`,
@@ -5156,7 +5157,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "tollkeeper": {
+  [Profession.Tollkeeper]: {
     sv: 2000,
     type: `profession`,
     sector: `government and law`,
@@ -5167,7 +5168,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "warden": {
+  [Profession.Warden]: {
     sv: 5000,
     type: `profession`,
     sector: `government and law`,
@@ -5178,7 +5179,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "warmage": {
+  [Profession.Warmage]: {
     sv: 10000,
     type: `profession`,
     sector: `military`,
@@ -5189,7 +5190,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "abbot": {
+  [Profession.Abbot]: {
     sv: 6000,
     type: `profession`,
     sector: `religion`,
@@ -5200,7 +5201,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "acolyte": {
+  [Profession.Acolyte]: {
     sv: 3000,
     type: `profession`,
     sector: `religion`,
@@ -5211,7 +5212,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "almoner": {
+  [Profession.Almoner]: {
     sv: 1500,
     type: `profession`,
     sector: `religion`,
@@ -5222,7 +5223,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "archbishop": {
+  [Profession.Archbishop]: {
     sv: 5000,
     type: `profession`,
     sector: `religion`,
@@ -5233,7 +5234,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "bishop": {
+  [Profession.Bishop]: {
     sv: 10000,
     type: `profession`,
     sector: `religion`,
@@ -5244,7 +5245,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "cantor": {
+  [Profession.Cantor]: {
     sv: 2000,
     isHobby: true,
     type: `profession`,
@@ -5256,7 +5257,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "cardinal": {
+  [Profession.Cardinal]: {
     sv: 6500,
     type: `profession`,
     sector: `religion`,
@@ -5268,7 +5269,7 @@ export const professions: Record<string, ProfessionData> = {
     },
   },
 
-  "confessor": {
+  [Profession.Confessor]: {
     sv: 4000,
     isHobby: true,
     type: `profession`,
@@ -5280,7 +5281,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "cultist": {
+  [Profession.Cultist]: {
     sv: 2000,
     type: `profession`,
     sector: `religion`,
@@ -5291,7 +5292,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "cult leader": {
+  [Profession.CultLeader]: {
     sv: 6000,
     type: `profession`,
     sector: `religion`,
@@ -5302,7 +5303,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "deacon": {
+  [Profession.Deacon]: {
     sv: 800,
     type: `profession`,
     sector: `religion`,
@@ -5313,7 +5314,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "diviner": {
+  [Profession.Diviner]: {
     sv: 9000,
     type: `profession`,
     sector: `religion`,
@@ -5324,7 +5325,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "exorcist": {
+  [Profession.Exorcist]: {
     sv: 6000,
     type: `profession`,
     sector: `religion`,
@@ -5335,7 +5336,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "high priest": {
+  [Profession.HighPriest]: {
     sv: 15000,
     type: `profession`,
     sector: `religion`,
@@ -5346,7 +5347,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "inquisitor": {
+  [Profession.Inquisitor]: {
     sv: 3000,
     type: `profession`,
     sector: `religion`,
@@ -5357,7 +5358,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "missionary": {
+  [Profession.Missionary]: {
     sv: 2000,
     isHobby: true,
     type: `profession`,
@@ -5369,7 +5370,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "pardoner": {
+  [Profession.Pardoner]: {
     sv: 700,
     type: `profession`,
     sector: `religion`,
@@ -5380,7 +5381,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "prophet": {
+  [Profession.Prophet]: {
     sv: 8000,
     type: `profession`,
     sector: `religion`,
@@ -5391,7 +5392,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "sexton": {
+  [Profession.Sexton]: {
     sv: 800,
     type: `labourer`,
     sector: `religion`,
@@ -5402,7 +5403,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "templar": {
+  [Profession.Templar]: {
     sv: 500,
     type: `profession`,
     sector: `military`,
@@ -5413,7 +5414,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "abecedarian": {
+  [Profession.Abecedarian]: {
     sv: 1500,
     type: `profession`,
     sector: `science`,
@@ -5424,7 +5425,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "anthropologist": {
+  [Profession.Anthropologist]: {
     sv: 5000,
     type: `profession`,
     sector: `science`,
@@ -5435,7 +5436,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "apprentice": {
+  [Profession.Apprentice]: {
     sv: 200,
     type: `profession`,
     sector: `craftsmanship`,
@@ -5446,7 +5447,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "archaeologist": {
+  [Profession.Archaeologist]: {
     sv: 2000,
     type: `profession`,
     sector: `science`,
@@ -5457,7 +5458,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "assayer": {
+  [Profession.Assayer]: {
     sv: 2000,
     type: `profession`,
     sector: `science`,
@@ -5469,7 +5470,7 @@ export const professions: Record<string, ProfessionData> = {
     },
   },
 
-  "astronomer": {
+  [Profession.Astronomer]: {
     sv: 5000,
     type: `profession`,
     sector: `science`,
@@ -5480,7 +5481,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "bloodletter": {
+  [Profession.Bloodletter]: {
     sv: 3000,
     type: `profession`,
     sector: `science`,
@@ -5491,7 +5492,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "botanist": {
+  [Profession.Botanist]: {
     sv: 2000,
     isHobby: true,
     type: `profession`,
@@ -5503,7 +5504,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "chemist": {
+  [Profession.Chemist]: {
     sv: 3500,
     isHobby: true,
     type: `profession`,
@@ -5515,7 +5516,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "dean": {
+  [Profession.Dean]: {
     sv: 8000,
     type: `profession`,
     sector: `science`,
@@ -5526,7 +5527,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "drakologist": {
+  [Profession.Drakologist]: {
     sv: 10000,
     type: `profession`,
     sector: `science`,
@@ -5537,7 +5538,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "engineer": {
+  [Profession.Engineer]: {
     sv: 5000,
     type: `profession`,
     sector: `science`,
@@ -5548,7 +5549,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "entomologist": {
+  [Profession.Entomologist]: {
     sv: 6000,
     type: `profession`,
     sector: `science`,
@@ -5559,7 +5560,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "horologist": {
+  [Profession.Horologist]: {
     sv: 8000,
     type: `profession`,
     sector: `science`,
@@ -5570,7 +5571,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "mathematician": {
+  [Profession.Mathematician]: {
     sv: 5000,
     isHobby: true,
     type: `profession`,
@@ -5582,7 +5583,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "optometrist": {
+  [Profession.Optometrist]: {
     sv: 3000,
     type: `profession`,
     sector: `science`,
@@ -5593,7 +5594,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "scribe": {
+  [Profession.Scribe]: {
     sv: 2000,
     type: `profession`,
     sector: `business`,
@@ -5604,7 +5605,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "theologian": {
+  [Profession.Theologian]: {
     sv: 6000,
     type: `profession`,
     sector: `science`,
@@ -5615,7 +5616,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "tutor": {
+  [Profession.Tutor]: {
     sv: 600,
     type: `profession`,
     sector: `science`,
@@ -5626,7 +5627,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "zoologist": {
+  [Profession.Zoologist]: {
     sv: 3500,
     type: `profession`,
     sector: `science`,
@@ -5637,7 +5638,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "boatman": {
+  [Profession.Boatman]: {
     sv: 500,
     type: `profession`,
     sector: `naval`,
@@ -5648,7 +5649,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "bosun": {
+  [Profession.Bosun]: {
     sv: 1000,
     type: `profession`,
     sector: `transportation`,
@@ -5659,7 +5660,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "wagoner": {
+  [Profession.Wagoner]: {
     sv: 400,
     type: `profession`,
     sector: `transportation`,
@@ -5670,7 +5671,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "cabin boy": {
+  [Profession.CabinBoy]: {
     sv: 9000,
     type: `profession`,
     sector: `naval`,
@@ -5681,7 +5682,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "charioteer": {
+  [Profession.Charioteer]: {
     sv: 300,
     type: `profession`,
     sector: `military`,
@@ -5692,7 +5693,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "carter": {
+  [Profession.Carter]: {
     sv: 500,
     type: `business`,
     sector: `transportation`,
@@ -5703,7 +5704,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "ferryman": {
+  [Profession.Ferryman]: {
     sv: 2500,
     type: `profession`,
     sector: `naval`,
@@ -5714,7 +5715,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "first mate": {
+  [Profession.FirstMate]: {
     sv: 1000,
     type: `profession`,
     sector: `naval`,
@@ -5725,7 +5726,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "helmsman": {
+  [Profession.Helmsman]: {
     sv: 2000,
     type: `profession`,
     sector: `naval`,
@@ -5736,7 +5737,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "navigator": {
+  [Profession.Navigator]: {
     sv: 1500,
     type: `profession`,
     sector: `naval`,
@@ -5747,7 +5748,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "purser": {
+  [Profession.Purser]: {
     sv: 2500,
     type: `profession`,
     sector: `naval`,
@@ -5758,7 +5759,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "shipwright": {
+  [Profession.Shipwright]: {
     sv: 3500,
     type: `profession`,
     sector: `craftsmanship`,
@@ -5769,7 +5770,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "adventurer": {
+  [Profession.Adventurer]: {
     sv: 2000,
     type: `profession`,
     sector: `adventuring`,
@@ -5780,7 +5781,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "beggar": {
+  [Profession.Beggar]: {
     sv: 2500,
     type: `profession`,
     sector: `outcast`,
@@ -5791,7 +5792,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "monster hunter": {
+  [Profession.MonsterHunter]: {
     sv: 4500,
     isHobby: true,
     type: `profession`,
@@ -5803,7 +5804,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "bounty hunter": {
+  [Profession.BountyHunter]: {
     sv: 3500,
     isHobby: true,
     type: `profession`,
@@ -5815,7 +5816,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "crossing sweeper": {
+  [Profession.CrossingSweeper]: {
     sv: 6500,
     type: `profession`,
     sector: `outcast`,
@@ -5826,7 +5827,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "deserter": {
+  [Profession.Deserter]: {
     sv: 3500,
     type: `profession`,
     sector: `outcast`,
@@ -5837,7 +5838,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "disgraced noble": {
+  [Profession.DisgracedNoble]: {
     sv: 5000,
     type: `profession`,
     sector: `outcast`,
@@ -5848,7 +5849,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "drunkard": {
+  [Profession.Drunkard]: {
     sv: 550,
     type: `profession`,
     sector: `outcast`,
@@ -5859,7 +5860,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "dungeon delver": {
+  [Profession.DungeonDelver]: {
     sv: 5500,
     type: `professional`,
     sector: `adventuring`,
@@ -5870,7 +5871,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "elder": {
+  [Profession.Elder]: {
     sv: 600,
     type: `profession`,
     sector: `hospitality`,
@@ -5881,7 +5882,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "exile": {
+  [Profession.Exile]: {
     sv: 750,
     type: `profession`,
     sector: `outcast`,
@@ -5892,7 +5893,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "explorer": {
+  [Profession.Explorer]: {
     sv: 3500,
     type: `profession`,
     sector: `adventuring`,
@@ -5903,7 +5904,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "ex-criminal": {
+  [Profession.ExCriminal]: {
     sv: 1200,
     type: `profession`,
     sector: `outcast`,
@@ -5914,7 +5915,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "folk hero": {
+  [Profession.FolkHero]: {
     sv: 4000,
     type: `profession`,
     sector: `adventuring`,
@@ -5925,7 +5926,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "gambler": {
+  [Profession.Gambler]: {
     sv: 800,
     isHobby: true,
     type: `profession`,
@@ -5937,7 +5938,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "grave robber": {
+  [Profession.GraveRobber]: {
     sv: 100,
     type: `profession`,
     sector: `crime`,
@@ -5948,7 +5949,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "heretic": {
+  [Profession.Heretic]: {
     sv: 2500,
     type: `profession`,
     sector: `outcast`,
@@ -5959,7 +5960,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "housewife": {
+  [Profession.Housewife]: {
     sv: 150,
     type: `profession`,
     sector: `hospitality`,
@@ -5970,7 +5971,7 @@ export const professions: Record<string, ProfessionData> = {
       return 50 + dice(8, 6)
     },
   },
-  "prisoner": {
+  [Profession.Prisoner]: {
     sv: 350,
     type: `profession`,
     sector: `crime`,
@@ -5981,7 +5982,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "rag-and-Bone Man": {
+  [Profession.RagAndBoneMan]: {
     sv: 750,
     type: `labourer`,
     sector: `business`,
@@ -5992,7 +5993,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "political dissident": {
+  [Profession.PoliticalDissident]: {
     sv: 4500,
     type: `labourer`,
     sector: `government and law`,
@@ -6003,7 +6004,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "refugee": {
+  [Profession.Refugee]: {
     sv: 5000,
     type: `profession`,
     sector: `outcast`,
@@ -6014,7 +6015,7 @@ export const professions: Record<string, ProfessionData> = {
       return 20 + dice(8, 6)
     },
   },
-  "runaway Slave": {
+  [Profession.RunawaySlave]: {
     sv: 3000,
     type: `labourer`,
     sector: `outcast`,
@@ -6025,7 +6026,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "squatter": {
+  [Profession.Squatter]: {
     sv: 800,
     type: `profession`,
     sector: `crime`,
@@ -6036,7 +6037,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(4, 6)
     },
   },
-  "vagabond": {
+  [Profession.Vagabond]: {
     sv: 1000,
     type: `profession`,
     sector: `outcast`,
@@ -6047,7 +6048,7 @@ export const professions: Record<string, ProfessionData> = {
       return 5 + dice(8, 6)
     },
   },
-  "urchin": {
+  [Profession.Urchin]: {
     sv: 500,
     type: `profession`,
     sector: `outcast`,
