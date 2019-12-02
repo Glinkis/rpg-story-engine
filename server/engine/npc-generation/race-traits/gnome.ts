@@ -1,5 +1,6 @@
 import { dice } from "../../rolls"
 import { RaceTrait } from "./race-trait"
+import { StandardLanguage } from "../../../../shared/Language"
 
 export const gnomeTraits: RaceTrait = {
   probability: 1,
@@ -264,7 +265,7 @@ export const gnomeTraits: RaceTrait = {
     raceAdjective: `gnomish`,
     raceLanguage: `Gnomish`,
   },
-  knownLanguages: [`Common`, `Gnomish`],
+  knownLanguages: [StandardLanguage.Common, StandardLanguage.Gnomish],
   beard: [
     `scraggly beard`,
     `long, flowing beard`,

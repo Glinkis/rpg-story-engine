@@ -1,3 +1,4 @@
+import { StandardLanguage, ExoticLanguage } from "../../../../shared/Language"
 import { dice } from "../../rolls"
 import { RaceTrait } from "./race-trait"
 
@@ -237,7 +238,7 @@ export const tieflingTraits: RaceTrait = {
     raceAdjective: `devilish`,
     raceLanguage: `Infernal`,
   },
-  knownLanguages: [`Common`, `Infernal`],
+  knownLanguages: [StandardLanguage.Common, ExoticLanguage.Infernal],
   beard: [
     `scraggly beard`,
     `long, flowing beard`,
