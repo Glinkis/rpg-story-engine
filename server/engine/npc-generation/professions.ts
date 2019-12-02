@@ -36,6 +36,7 @@ export enum Sector {
   Magic = `magic`,
   Transportation = `transportation`,
   Labour = `labour`,
+  Craftsmanship = `craftsmanship`,
 
 }
 
