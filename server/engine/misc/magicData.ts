@@ -1,8 +1,8 @@
 export interface MagicData {
-  type: string[]
-  prefix: string[]
-  suffix: string[]
-  property: string[]
+  readonly type: string[]
+  readonly prefix: string[]
+  readonly suffix: string[]
+  readonly property: string[]
 }
 
 export const magicData: Record<string, MagicData> = {
