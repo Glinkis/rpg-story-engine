@@ -1,5 +1,8 @@
 import { Roll } from "./types"
 
+/**
+ * TODO: Add description.
+ */
 export enum Size {
   Cavernous = `cavernous`,
   Huge = `huge`,

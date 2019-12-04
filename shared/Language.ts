@@ -1,3 +1,6 @@
+/**
+ * TODO: Add descirption.
+ */
 export enum StandardLanguage {
   Common = `Common`,
   Dwarvish = `Dwarvish`,
@@ -9,6 +12,9 @@ export enum StandardLanguage {
   Orc = `Orc`,
 }
 
+/**
+ * TODO: Add description.
+ */
 export enum ExoticLanguage {
   Abyssal = `Abbysal`,
   Celestial = `Celestial`,

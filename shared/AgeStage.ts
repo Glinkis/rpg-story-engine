@@ -1,3 +1,6 @@
+/**
+ * TODO: Add description.
+ */
 export enum AgeStage {
   Infant = `infant`,
   Child = `child`,

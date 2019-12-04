@@ -1,3 +1,6 @@
+/**
+ * TODO: Add description.
+ */
 export enum Material {
   Adobe = `adobe`,
   Brick = `brick`,

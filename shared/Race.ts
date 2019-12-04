@@ -1,8 +1,5 @@
 /**
- * Reference list for all races.
- *
- * When referring to a race, it's preferred
- * to use one of these values directly.
+ * TODO: Add description.
  */
 export enum MajorRace {
   Dragonborn = `dragonborn`,
@@ -16,6 +13,9 @@ export enum MajorRace {
   Tiefling = `tiefling`,
 }
 
+/**
+ * TODO: Add desciption.
+ */
 export enum MinorRace {
   Orc = `orc`,
   Devil = `devil`,

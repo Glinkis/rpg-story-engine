@@ -1,3 +1,6 @@
+/**
+ * TODO: Add description.
+ */
 export enum Activity {
   ExtremelyBusy = `extremely busy`,
   VeryBusy = `very busy`,
