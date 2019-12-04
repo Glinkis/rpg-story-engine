@@ -1,3 +1,4 @@
+import { AgeStage } from "../../../shared/AgeStage"
 import { raceTraitsData } from "./npcData"
 import { NPC } from "./npc"
 
@@ -11,7 +12,7 @@ export function createAge(npc: NPC) {
     console.log(`Called age descriptor without a valid array.`)
   }
 
-  if (npc.ageStage === `child`) {
+  if (npc.ageStage === AgeStage.Child) {
     npc.hasClass = false
     npc.profession = npc.age
     npc.dndClass = npc.age

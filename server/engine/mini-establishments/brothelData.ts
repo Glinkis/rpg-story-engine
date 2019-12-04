@@ -1,8 +1,8 @@
+import { AgeStage } from "../../../shared/AgeStage"
 import { randomValue } from "../rolls"
 import { createNPC } from "../npc-generation/createNPC"
 import { createRelationship } from "../npc-generation/createRelationship"
 import { variables } from "../global"
-import { profile } from "../npc-generation/profile"
 import { createParentage } from "../npc-generation/createFamilyMembers"
 import { createFamily } from "../npc-generation/createFamily"
 
@@ -709,12 +709,12 @@ export const brothelData = {
       },
       "a passionate young woman": {
         gender: `woman`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         calmTrait: `passionate`,
       },
       "a homely young lady": {
         gender: `woman`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         calmTrait: `kind`,
       },
       "a friendly and plump woman": {
@@ -734,30 +734,30 @@ export const brothelData = {
       "a young foreigner": {
         background: `outlander`,
         gender: `woman`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         vocalPattern: `has an interesting accent`,
         note: `From a far away land.`,
       },
       "the boss’s favorite": {
         gender: `woman`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         calmTrait: `passionate`,
       },
       "an exotic beauty": {
         background: `noble`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         gender: `woman`,
         vocalPattern: `an interesting accent`,
         note: `From a far away land.`,
       },
       "new to the place and always in trouble": {
         gender: `woman`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         calmTrait: `mischievous`,
       },
       "new to the place and eager to please": {
         gender: `woman`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         calmTrait: `eager to please`,
       },
     },

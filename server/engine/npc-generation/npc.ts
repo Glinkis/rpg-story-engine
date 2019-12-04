@@ -1,4 +1,5 @@
 import { MajorRace } from "../../../shared/Race"
+import { AgeStage } from "../../../shared/AgeStage"
 import { genderData } from "./genderData"
 
 export interface NPC {
@@ -14,7 +15,7 @@ export interface NPC {
   bmi: number
   muscleMass: number
   ageYears: number
-  ageStage: string
+  ageStage: AgeStage
   profession: string
   background: string
   beard: string
