@@ -23,21 +23,24 @@ export const plothooks: Record<string, Plothook> = {
     probability: 50,
     type: [`event`],
     function() {
-      return (
-        `${randomValue([
-          `Nothing much ${randomValue([`happens`, `seems to be going on`, `is happening`])}`,
-          `Nothing of note ${randomValue([`happens`, `seems to be going on`, `is happening`])}`,
-          `No items of interest occurs`,
-          `Nothing happens`,
-          `Nothing really happens`,
-        ])}. <blockquote>${randomValue([
-          `Perhaps now is a good time to ask a player a question, such as `,
-          `Now would be a good time to give a player a chance to roleplay something from their past. Ask a question, such as `,
-          `This is a great opportunity to get players to roleplay. Ask them questions like `,
-          `This would be a good chance to build on player backstory. Ask them questions such as `,
-        ])}'${roleplayQuestions.create()}'` +
-        `<<button "Create another question!">><<set _question to misc.roleplayQuestions.create()>><<replace "#question">><<print _question.toUpperFirst()>><</replace>><</button>><div id="question"></div></blockquote>`
-      )
+      const happens = randomValue([`happens`, `seems to be going on`, `is happening`])
+
+      const result = randomValue([
+        `Nothing much ${happens}`,
+        `Nothing of note ${happens}`,
+        `No items of interest occurs`,
+        `Nothing happens`,
+        `Nothing really happens`,
+      ])
+
+      const cue = randomValue([
+        `Perhaps now is a good time to ask a player a question, such as`,
+        `Now would be a good time to give a player a chance to roleplay something from their past. Ask a question, such as`,
+        `This is a great opportunity to get players to roleplay. Ask them questions like`,
+        `This would be a good chance to build on player backstory. Ask them questions such as`,
+      ])
+
+      return `${result}. (${cue} "${roleplayQuestions.create()}")`
     },
   },
   "The Magic Duel": {
