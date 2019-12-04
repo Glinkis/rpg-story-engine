@@ -1,4 +1,6 @@
+import { Activity } from "../../../shared/Activity"
 import { Alchemist } from "./alchemist"
+import { Material } from "../../../shared/Material"
 
 export function alchemistModifiers(alchemist: Alchemist) {
   if (alchemist.roll.size > 80) {
@@ -16,13 +18,13 @@ export function alchemistModifiers(alchemist: Alchemist) {
   }
 
   switch (alchemist.material) {
-    case `hewn rock`:
+    case Material.HewnRock:
       alchemist.roll.roughness += 3
       break
-    case `chiseled stone`:
+    case Material.ChiseledStone:
       alchemist.roll.roughness -= 1
       break
-    case `marble`:
+    case Material.Marble:
       alchemist.roll.cleanliness += 5
       alchemist.roll.wealth += 6
       break
@@ -84,35 +86,35 @@ export function alchemistModifiers(alchemist: Alchemist) {
   }
 
   if (alchemist.roll.activity > 80) {
-    alchemist.activity = `extremely busy`
+    alchemist.activity = Activity.ExtremelyBusy
     alchemist.roll.reputation += 5
     alchemist.roll.cleanliness -= 5
   } else if (alchemist.roll.activity > 70) {
-    alchemist.activity = `very busy`
+    alchemist.activity = Activity.VeryBusy
     alchemist.roll.reputation += 3
     alchemist.roll.cleanliness -= 3
   } else if (alchemist.roll.activity > 60) {
-    alchemist.activity = `rather busy`
+    alchemist.activity = Activity.RatherBusy
     alchemist.roll.reputation += 2
     alchemist.roll.cleanliness -= 2
   } else if (alchemist.roll.activity > 50) {
-    alchemist.activity = `reasonably busy`
+    alchemist.activity = Activity.ReasonablyBusy
     alchemist.roll.reputation += 1
     alchemist.roll.cleanliness -= 1
   } else if (alchemist.roll.activity > 40) {
-    alchemist.activity = `not terribly busy`
+    alchemist.activity = Activity.NotTerriblyBusy
     alchemist.roll.reputation -= 1
     alchemist.roll.cleanliness += 1
   } else if (alchemist.roll.activity > 30) {
-    alchemist.activity = `not busy`
+    alchemist.activity = Activity.NotBusy
     alchemist.roll.reputation -= 2
     alchemist.roll.cleanliness += 2
   } else if (alchemist.roll.activity > 20) {
-    alchemist.activity = `rather quiet`
+    alchemist.activity = Activity.RatherQuiet
     alchemist.roll.reputation -= 3
     alchemist.roll.cleanliness += 3
   } else {
-    alchemist.activity = `very quiet`
+    alchemist.activity = Activity.VeryQuiet
     alchemist.roll.reputation -= 5
     alchemist.roll.cleanliness += 5
   }

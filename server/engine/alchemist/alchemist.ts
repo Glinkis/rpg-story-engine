@@ -1,4 +1,5 @@
 import { Building } from "../building/createBuilding"
+import { Activity } from "../../../shared/Activity"
 
 export interface Alchemist extends Building {
   name: string
@@ -7,7 +8,7 @@ export interface Alchemist extends Building {
   buildingType: string
   notableFeature: string
   material: string
-  activity: string
+  activity: Activity
   priceModifier: number
   size: string
   wealth: string

@@ -1,3 +1,4 @@
+import { Activity } from "../../../shared/Activity"
 import { defineRollDataGetter } from "../tools/defineRollDataGetter"
 import { createBuilding } from "../building/createBuilding"
 import { structure } from "../building/buildingData"
@@ -21,7 +22,7 @@ export function createAlchemist(town: Town, opts = {}) {
     name: createAlchemistName(chemist.firstName),
     size: ``,
     wealth: ``,
-    activity: ``,
+    activity: Activity.ReasonablyBusy,
     expertise: ``,
     cleanliness: ``,
     structure: {},
