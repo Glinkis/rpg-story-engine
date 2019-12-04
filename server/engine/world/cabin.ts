@@ -1,6 +1,7 @@
 import { defaultSizeRolls } from "../../../shared/Size"
 import { Roll } from "../../../shared/types"
 import { Biome } from "../../../shared/Biome"
+
 import { rollDataGetter } from "../tools/defineRollDataGetter"
 import { Town } from "../town/town"
 import { randomValue, randomRange } from "../rolls"

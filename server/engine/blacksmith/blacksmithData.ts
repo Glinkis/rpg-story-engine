@@ -1,24 +1,16 @@
-import { RollData, LookAround, Expertise } from "../../../shared/types"
-import { defaultWealthRolls } from "../../../shared/Wealth"
 import { defaultSizeRolls } from "../../../shared/Size"
+import { defaultWealthRolls } from "../../../shared/Wealth"
+import { defaultExpertiseRolls } from "../../../shared/Expertise"
 import { defaultCleanlinessRolls } from "../../../shared/Cleanliness"
+import { LookAround, Expertise, Roll } from "../../../shared/types"
+
 import { Smithy } from "./smithy"
 
-export const rollData: RollData = {
+export const rollData = {
   wealth: defaultWealthRolls,
   size: defaultSizeRolls,
   cleanliness: defaultCleanlinessRolls,
-  expertise: [
-    [80, `masterful`],
-    [70, `exceptional`],
-    [60, `superior quality`],
-    [50, `finely crafted`],
-    [40, `well crafted`],
-    [30, `sloppily made`],
-    [20, `somewhat amateur`],
-    [10, `amateur`],
-    [0, `blatantly amateur`],
-  ],
+  expertise: defaultExpertiseRolls,
   activity: [
     [80, `extremely busy`],
     [70, `very busy`],
@@ -29,7 +21,7 @@ export const rollData: RollData = {
     [20, `rather quiet`],
     [10, `totally empty`],
     [0, `totally empty`],
-  ],
+  ] as Roll[],
 }
 
 export function lookAround(smithy: Smithy): LookAround[] {

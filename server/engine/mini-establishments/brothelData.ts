@@ -1,7 +1,9 @@
-import { defaultWealthRolls } from "../../../shared/Wealth"
-import { defaultSizeRolls } from "../../../shared/Size"
-import { defaultCleanlinessRolls } from "../../../shared/Cleanliness"
+import { Roll } from "../../../shared/types"
 import { AgeStage } from "../../../shared/AgeStage"
+import { defaultSizeRolls } from "../../../shared/Size"
+import { defaultWealthRolls } from "../../../shared/Wealth"
+import { defaultCleanlinessRolls } from "../../../shared/Cleanliness"
+
 import { createRelationship } from "../npc-generation/createRelationship"
 import { createParentage } from "../npc-generation/createFamilyMembers"
 import { createFamily } from "../npc-generation/createFamily"
@@ -11,8 +13,8 @@ import { variables } from "../global"
 
 export const brothelData = {
   rollData: {
-    wealth: defaultWealthRolls,
     size: defaultSizeRolls,
+    wealth: defaultWealthRolls,
     cleanliness: defaultCleanlinessRolls,
     bedCleanliness: [
       [80, `perfectly prepared, with fresh sheets and a lemon scent in the air of the room`],
@@ -25,7 +27,7 @@ export const brothelData = {
       [20, `teeming with rats`],
       [10, `rather filthy`],
       [0, `festering with bugs`],
-    ],
+    ] as Roll[],
   },
   // Name of the brothel
   name: [

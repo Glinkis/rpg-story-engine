@@ -1,6 +1,7 @@
 import { defaultSizeRolls } from "../../../shared/Size"
 import { Material } from "../../../shared/Material"
 import { Roll } from "../../../shared/types"
+
 import { defineRollDataGetter } from "../tools/defineRollDataGetter"
 import { weightedRandomFetcher } from "../tools/weightedRandomFetcher"
 import { randomValue } from "../rolls"

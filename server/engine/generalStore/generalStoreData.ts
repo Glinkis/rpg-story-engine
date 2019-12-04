@@ -1,11 +1,12 @@
-import { RollData } from "../../../shared/types"
-import { defaultWealthRolls } from "../../../shared/Wealth"
 import { defaultSizeRolls } from "../../../shared/Size"
+import { defaultWealthRolls } from "../../../shared/Wealth"
+import { defaultExpertiseRolls } from "../../../shared/Expertise"
 import { defaultCleanlinessRolls } from "../../../shared/Cleanliness"
-import { randomValue } from "../rolls"
-import { allColours } from "../misc/colours"
+
 import { rt } from "../tools/randomTemplate"
 import { flora } from "../dictionary/flora"
+import { allColours } from "../misc/colours"
+import { randomValue } from "../rolls"
 
 export const generalStore = {
   crud: [
@@ -148,21 +149,11 @@ export const generalStore = {
     `signing off on a fresh delivery of goods`,
   ],
   rollData: {
-    wealth: defaultWealthRolls,
     size: defaultSizeRolls,
+    wealth: defaultWealthRolls,
+    expertise: defaultExpertiseRolls,
     cleanliness: defaultCleanlinessRolls,
-    expertise: [
-      [80, `masterful`],
-      [70, `exceptional`],
-      [60, `superior quality`],
-      [50, `finely crafted`],
-      [40, `well crafted`],
-      [30, `sloppily made`],
-      [20, `somewhat amateur`],
-      [10, `amateur`],
-      [0, `blatantly amateur`],
-    ],
-  } as RollData,
+  },
   get: {
     say({ shopkeep }) {
       const goods = randomValue([
