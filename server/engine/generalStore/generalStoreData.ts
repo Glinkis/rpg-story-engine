@@ -1,10 +1,11 @@
 import { RollData } from "../../../shared/types"
 import { defaultWealthRolls } from "../../../shared/Wealth"
+import { defaultSizeRolls } from "../../../shared/Size"
+import { defaultCleanlinessRolls } from "../../../shared/Cleanliness"
 import { randomValue } from "../rolls"
 import { allColours } from "../misc/colours"
 import { rt } from "../tools/randomTemplate"
 import { flora } from "../dictionary/flora"
-import { defaultSizeRolls } from "../../../shared/Size"
 
 export const generalStore = {
   crud: [
@@ -149,17 +150,7 @@ export const generalStore = {
   rollData: {
     wealth: defaultWealthRolls,
     size: defaultSizeRolls,
-    cleanliness: [
-      [80, `fastidious`],
-      [70, `very tidy`],
-      [60, `tidy`],
-      [50, `reasonably tidy`],
-      [40, `somewhat messy`],
-      [30, `rather messy`],
-      [20, `very messy`],
-      [10, `extremely messy`],
-      [0, `dangerously messy`],
-    ],
+    cleanliness: defaultCleanlinessRolls,
     expertise: [
       [80, `masterful`],
       [70, `exceptional`],

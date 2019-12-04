@@ -1,5 +1,6 @@
 import { defaultWealthRolls } from "../../../shared/Wealth"
 import { defaultSizeRolls } from "../../../shared/Size"
+import { defaultCleanlinessRolls } from "../../../shared/Cleanliness"
 import { AgeStage } from "../../../shared/AgeStage"
 import { createRelationship } from "../npc-generation/createRelationship"
 import { createParentage } from "../npc-generation/createFamilyMembers"
@@ -12,17 +13,7 @@ export const brothelData = {
   rollData: {
     wealth: defaultWealthRolls,
     size: defaultSizeRolls,
-    cleanliness: [
-      [80, `fastidious`],
-      [70, `very tidy`],
-      [60, `tidy`],
-      [50, `reasonably tidy`],
-      [40, `somewhat messy`],
-      [30, `rather messy`],
-      [20, `very messy`],
-      [10, `extremely messy`],
-      [0, `dangerously messy`],
-    ],
+    cleanliness: defaultCleanlinessRolls,
     bedCleanliness: [
       [80, `perfectly prepared, with fresh sheets and a lemon scent in the air of the room`],
       [75, `recently prepared and well cleaned`],
