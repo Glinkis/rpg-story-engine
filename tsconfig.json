@@ -8,7 +8,8 @@
     "noEmit": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "downlevelIteration": true,
+    "forceConsistentCasingInFileNames": true,
   },
   "exclude": ["node_modules"]
 }
