@@ -5,19 +5,11 @@ import { createRelationship } from "../npc-generation/createRelationship"
 import { variables } from "../global"
 import { createParentage } from "../npc-generation/createFamilyMembers"
 import { createFamily } from "../npc-generation/createFamily"
+import { defaultWealthRolls } from "../../../shared/Wealth"
 
 export const brothelData = {
   rollData: {
-    wealth: [
-      [95, `kingly`],
-      [80, `aristocratic`],
-      [70, `wealthy`],
-      [60, `comfortable`],
-      [50, `modest`],
-      [25, `poor`],
-      [15, `squalid`],
-      [0, `destitute`],
-    ],
+    wealth: defaultWealthRolls,
     size: [
       [95, `cavernous`],
       [80, `huge`],

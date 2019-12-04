@@ -1,5 +1,6 @@
 import { RollData, Terrain, Season } from "../../../shared/types"
 import { randomFloatRange, randomRange, dice } from "../rolls"
+import { defaultWealthRolls } from "../../../shared/Wealth"
 
 interface EconomicIdeology {
   modifiers: Record<string, number>
@@ -286,16 +287,7 @@ export const townData: TownData = {
     [0, `wretched`],
   ],
   rollData: {
-    wealth: [
-      [95, `kingly`],
-      [80, `aristocratic`],
-      [70, `wealthy`],
-      [60, `comfortable`],
-      [50, `modest`],
-      [25, `poor`],
-      [15, `squalid`],
-      [0, `destitute`],
-    ],
+    wealth: defaultWealthRolls,
     equality: [
       [95, `It is overwhelmingly patriarchal.`],
       [80, `It is a patriarchal society.`],

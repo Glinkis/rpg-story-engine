@@ -1,6 +1,7 @@
-import { allColours } from "../misc/colours"
 import { RollData } from "../../../shared/types"
+import { defaultWealthRolls } from "../../../shared/Wealth"
 import { randomValue } from "../rolls"
+import { allColours } from "../misc/colours"
 import { rt } from "../tools/randomTemplate"
 import { flora } from "../dictionary/flora"
 
@@ -145,16 +146,7 @@ export const generalStore = {
     `signing off on a fresh delivery of goods`,
   ],
   rollData: {
-    wealth: [
-      [95, `kingly`],
-      [80, `aristocratic`],
-      [70, `wealthy`],
-      [60, `comfortable`],
-      [50, `modest`],
-      [25, `poor`],
-      [15, `squalid`],
-      [0, `destitute`],
-    ],
+    wealth: defaultWealthRolls,
     size: [
       [95, `cavernous`],
       [80, `huge`],

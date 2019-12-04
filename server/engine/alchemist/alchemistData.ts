@@ -1,17 +1,9 @@
 import { RollData, LookAround, PriceTalk } from "../../../shared/types"
+import { defaultWealthRolls } from "../../../shared/Wealth"
 import { Alchemist } from "./alchemist"
 
 export const rollData: RollData = {
-  wealth: [
-    [95, `kingly`],
-    [80, `aristocratic`],
-    [70, `wealthy`],
-    [60, `comfortable`],
-    [50, `modest`],
-    [25, `poor`],
-    [15, `squalid`],
-    [0, `destitute`],
-  ],
+  wealth: defaultWealthRolls,
   size: [
     [95, `cavernous`],
     [80, `huge`],
