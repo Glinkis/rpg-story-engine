@@ -1,4 +1,5 @@
 import { Activity } from "../../../shared/Activity"
+import { Wealth } from "../../../shared/Wealth"
 import { defineRollDataGetter } from "../tools/defineRollDataGetter"
 import { createBuilding } from "../building/createBuilding"
 import { structure } from "../building/buildingData"
@@ -21,7 +22,7 @@ export function createAlchemist(town: Town, opts = {}) {
     notableFeature: randomValue(NOTABLE_FEATURES),
     name: createAlchemistName(chemist.firstName),
     size: ``,
-    wealth: ``,
+    wealth: Wealth.Comfortable,
     activity: Activity.ReasonablyBusy,
     expertise: ``,
     cleanliness: ``,
