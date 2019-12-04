@@ -1,5 +1,6 @@
 import { RollData } from "../../../shared/types"
 import { defaultWealthRolls } from "../../../shared/Wealth"
+import { defaultSizeRolls } from "../../../shared/Size"
 
 export const templeData = {
   name: {
@@ -120,18 +121,7 @@ export const templeData = {
   },
   rollData: {
     wealth: defaultWealthRolls,
-    size: [
-      [95, `cavernous`],
-      [80, `huge`],
-      [70, `quite large`],
-      [60, `large`],
-      [50, `spacious`],
-      [40, `modest`],
-      [30, `somewhat cramped`],
-      [20, `small`],
-      [10, `tiny`],
-      [0, `extremely cramped`],
-    ],
+    size: defaultSizeRolls,
     cleanliness: [
       [90, `totally spotless (cleanliness being next to godliness)`],
       [80, `fastidious`],

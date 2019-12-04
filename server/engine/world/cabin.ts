@@ -1,8 +1,9 @@
+import { defaultSizeRolls } from "../../../shared/Size"
 import { Roll } from "../../../shared/types"
 import { Biome } from "../../../shared/Biome"
+import { rollDataGetter } from "../tools/defineRollDataGetter"
 import { Town } from "../town/town"
 import { randomValue, randomRange } from "../rolls"
-import { rollDataGetter } from "../tools/defineRollDataGetter"
 
 export interface Cabin {
   readonly feature: string
@@ -57,18 +58,7 @@ const ROLL_DATA = {
     [25, `wood`],
     [0, `stone`],
   ] as Roll[],
-  size: [
-    [95, `huge`],
-    [80, `quite large`],
-    [70, `large`],
-    [60, `spacious`],
-    [50, `relatively spacious`],
-    [40, `average sized`],
-    [30, `somewhat cramped`],
-    [20, `small`],
-    [10, `tiny`],
-    [0, `extremely cramped`],
-  ] as Roll[],
+  size: defaultSizeRolls,
   cleanliness: [
     [80, `absolutely spotless`],
     [75, `spotless`],

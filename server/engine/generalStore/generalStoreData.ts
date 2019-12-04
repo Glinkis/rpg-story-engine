@@ -4,6 +4,7 @@ import { randomValue } from "../rolls"
 import { allColours } from "../misc/colours"
 import { rt } from "../tools/randomTemplate"
 import { flora } from "../dictionary/flora"
+import { defaultSizeRolls } from "../../../shared/Size"
 
 export const generalStore = {
   crud: [
@@ -147,18 +148,7 @@ export const generalStore = {
   ],
   rollData: {
     wealth: defaultWealthRolls,
-    size: [
-      [95, `cavernous`],
-      [80, `huge`],
-      [70, `quite large`],
-      [60, `large`],
-      [50, `spacious`],
-      [40, `average sized`],
-      [30, `somewhat cramped`],
-      [20, `small`],
-      [10, `tiny`],
-      [0, `extremely cramped`],
-    ],
+    size: defaultSizeRolls,
     cleanliness: [
       [80, `fastidious`],
       [70, `very tidy`],
