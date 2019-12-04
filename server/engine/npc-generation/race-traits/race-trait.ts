@@ -1,3 +1,5 @@
+import { AgeStage } from "../../../../shared/AgeStage"
+
 interface AgeTrait {
   baseAge: number
   ageModifier(): number
@@ -5,10 +7,10 @@ interface AgeTrait {
 
 interface AgeTraits {
   ageDescriptors: [number, string][]
-  [`elderly`]: AgeTrait
-  [`settled adult`]: AgeTrait
-  [`young adult`]: AgeTrait
-  [`child`]: AgeTrait
+  [AgeStage.Elderly]: AgeTrait
+  [AgeStage.SettledAdult]: AgeTrait
+  [AgeStage.YoungAdult]: AgeTrait
+  [AgeStage.Child]: AgeTrait
 }
 
 interface GenderTrait {

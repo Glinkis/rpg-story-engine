@@ -1,13 +1,14 @@
 import { dice } from "../../rolls"
 import { RaceTrait } from "./race-trait"
 import { StandardLanguage } from "../../../../shared/Language"
+import { AgeStage } from "../../../../shared/AgeStage"
 
 export const dwarfTraits: RaceTrait = {
   probability: 2,
   muscleMass: 11,
   bmiModifier: 500,
   ageTraits: {
-    "ageDescriptors": [
+    ageDescriptors: [
       [200, `vulnerably elderly`],
       [190, `withered`],
       [180, `elderly`],
@@ -37,25 +38,25 @@ export const dwarfTraits: RaceTrait = {
       [6, `toddler`],
       [0, `newborn`],
     ],
-    "elderly": {
+    [AgeStage.Elderly]: {
       baseAge: 197,
       ageModifier() {
         return dice(3, 50)
       },
     },
-    "settled adult": {
+    [AgeStage.SettledAdult]: {
       baseAge: 50,
       ageModifier() {
         return dice(3, 50)
       },
     },
-    "young adult": {
+    [AgeStage.YoungAdult]: {
       baseAge: 15,
       ageModifier() {
         return dice(4, 8)
       },
     },
-    "child": {
+    [AgeStage.Child]: {
       baseAge: 4,
       ageModifier() {
         return dice(3, 6)

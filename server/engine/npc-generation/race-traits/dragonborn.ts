@@ -1,13 +1,14 @@
 import { dice } from "../../rolls"
 import { RaceTrait } from "./race-trait"
 import { StandardLanguage, ExoticLanguage } from "../../../../shared/Language"
+import { AgeStage } from "../../../../shared/AgeStage"
 
 export const dragonbornTraits: RaceTrait = {
   probability: 1,
   muscleMass: 11,
   bmiModifier: 650,
   ageTraits: {
-    "ageDescriptors": [
+    ageDescriptors: [
       [80, `vulnerably elderly`],
       [75, `withered`],
       [70, `elderly`],
@@ -37,25 +38,25 @@ export const dragonbornTraits: RaceTrait = {
       [6, `toddler`],
       [0, `newborn`],
     ],
-    "elderly": {
+    [AgeStage.Elderly]: {
       baseAge: 50,
       ageModifier() {
         return dice(3, 10)
       },
     },
-    "settled adult": {
+    [AgeStage.SettledAdult]: {
       baseAge: 20,
       ageModifier() {
         return dice(3, 10)
       },
     },
-    "young adult": {
+    [AgeStage.YoungAdult]: {
       baseAge: 13,
       ageModifier() {
         return dice(2, 4)
       },
     },
-    "child": {
+    [AgeStage.Child]: {
       baseAge: 4,
       ageModifier() {
         return dice(3, 4)
