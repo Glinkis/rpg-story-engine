@@ -1,6 +1,6 @@
 import { Activity } from "../../../shared/Activity"
-import { Alchemist } from "./alchemist"
 import { Material } from "../../../shared/Material"
+import { Alchemist } from "./alchemist"
 
 export function alchemistModifiers(alchemist: Alchemist) {
   if (alchemist.roll.size > 80) {
