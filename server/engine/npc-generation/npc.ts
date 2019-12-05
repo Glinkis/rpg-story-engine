@@ -1,5 +1,7 @@
 import { MajorRace } from "../../../shared/Race"
 import { AgeStage } from "../../../shared/AgeStage"
+import { SocialClass } from "../../../shared/SocialClass"
+
 import { genderData } from "./genderData"
 
 export interface NPC {
@@ -29,7 +31,7 @@ export interface NPC {
   descriptorsAdd: any
   heightRoll: number
   weightRoll: number
-  socialClass: string
+  socialClass: SocialClass
   heshe: string
   himher: string
   partnerID?: string
