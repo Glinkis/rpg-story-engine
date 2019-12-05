@@ -14,13 +14,12 @@ export function createRelationship(town: Town, source: NPC | string, target: NPC
   const npcsToClean: NPC[] = []
 
   const sourceRelationship = source.relationships[target.key]
+  const targetRelationship = target.relationships[source.key]
 
   if (sourceRelationship && variables.npcs[sourceRelationship]) {
     /* source already had a valid partner; mark it for removal */
     npcsToClean.push(variables.npcs[target.key])
   }
-
-  const targetRelationship = target.relationships[source.key]
 
   if (targetRelationship && variables.npcs[targetRelationship]) {
     /* target already had a valid partner; mark it for removal */
