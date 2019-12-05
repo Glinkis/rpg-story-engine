@@ -1,40 +1,39 @@
 import { variables } from "../global"
 import { Town } from "../town/town"
+import { NPC } from "./npc"
 
-export function createRelationship(town: Town, npc, targetNPC, type, targetType) {
-  console.log(`Forming a relationship.`)
-
-  if (typeof npc === `string`) {
-    console.error(`First argument was passed a string!`)
-    npc = variables.npcs[npc]
-  }
-  if (typeof targetNPC === `string`) {
-    console.error(`Second argument was passed a string!`)
-    targetNPC = variables.npcs[targetNPC]
+export function createRelationship(town: Town, source: NPC | string, target: NPC | string, sourceType, targetType) {
+  if (typeof source === `string`) {
+    source = variables.npcs[source]
   }
 
-  const npcsToClean: any[] = []
-
-  if (npc.relationships[targetNPC.key] && variables.npcs[npc.relationships[targetNPC.key]]) {
-    /* npc already had a valid partner; mark it for removal */
-    npcsToClean.push(variables.npcs[targetNPC.key])
+  if (typeof target === `string`) {
+    target = variables.npcs[target]
   }
 
-  if (targetNPC.relationships[npc.key] && variables.npcs[targetNPC.relationships[npc.key]]) {
-    /* targetNPC already had a valid partner; mark it for removal */
-    npcsToClean.push(variables.npcs[targetNPC.relationships[npc.key]])
+  const npcsToClean: NPC[] = []
+
+  const sourceRelationship = source.relationships[target.key]
+
+  if (sourceRelationship && variables.npcs[sourceRelationship]) {
+    /* source already had a valid partner; mark it for removal */
+    npcsToClean.push(variables.npcs[target.key])
+  }
+
+  const targetRelationship = target.relationships[source.key]
+
+  if (targetRelationship && variables.npcs[targetRelationship]) {
+    /* target already had a valid partner; mark it for removal */
+    npcsToClean.push(variables.npcs[targetRelationship])
   }
 
   /* Remove "old" partners first */
-  for (const n of npcsToClean) {
-    n.relationships[npc.key] = ``
-    n.relationships[targetNPC.key] = ``
+  for (const npc of npcsToClean) {
+    delete npc.relationships[source.key]
+    delete npc.relationships[target.key]
   }
 
   /* Link the two */
-  npc.relationships[targetNPC.key] = type
-  console.log(`${npc.name} is a ${type} to ${targetNPC.name}`)
-
-  targetNPC.relationships[npc.key] = targetType
-  console.log(`${targetNPC.name} is a ${targetType} to ${npc.name}`)
+  source.relationships[target.key] = sourceType
+  target.relationships[source.key] = targetType
 }
