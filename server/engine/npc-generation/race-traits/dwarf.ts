@@ -1,7 +1,8 @@
-import { dice } from "../../rolls"
-import { RaceTrait } from "./race-trait"
 import { StandardLanguage } from "../../../../shared/Language"
 import { AgeStage } from "../../../../shared/AgeStage"
+
+import { dice } from "../../rolls"
+import { RaceTrait } from "./race-trait"
 
 export const dwarfTraits: RaceTrait = {
   probability: 2,

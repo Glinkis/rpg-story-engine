@@ -1,13 +1,14 @@
 import { StandardLanguage, ExoticLanguage } from "../../../../shared/Language"
 import { dice } from "../../rolls"
 import { RaceTrait } from "./race-trait"
+import { AgeStage } from "../../../../shared/AgeStage"
 
 export const tieflingTraits: RaceTrait = {
   probability: 1,
   muscleMass: 10,
   bmiModifier: 703,
   ageTraits: {
-    "ageDescriptors": [
+    ageDescriptors: [
       [80, `vulnerably elderly`],
       [75, `withered`],
       [70, `elderly`],
@@ -37,25 +38,25 @@ export const tieflingTraits: RaceTrait = {
       [6, `toddler`],
       [0, `newborn`],
     ],
-    "elderly": {
+    [AgeStage.Elderly]: {
       baseAge: 70,
       ageModifier() {
         return dice(3, 10)
       },
     },
-    "settled adult": {
+    [AgeStage.SettledAdult]: {
       baseAge: 40,
       ageModifier() {
         return dice(3, 10)
       },
     },
-    "young adult": {
+    [AgeStage.YoungAdult]: {
       baseAge: 18,
       ageModifier() {
         return dice(3, 12)
       },
     },
-    "child": {
+    [AgeStage.Child]: {
       baseAge: 4,
       ageModifier() {
         return dice(3, 4)
