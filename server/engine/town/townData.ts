@@ -2,6 +2,7 @@ import { RollData, Terrain, Season } from "../../../shared/types"
 import { defaultWealthRolls, Wealth } from "../../../shared/Wealth"
 
 import { randomFloatRange, randomRange, dice } from "../rolls"
+import { MajorRace } from "../../../shared/Race"
 
 interface EconomicIdeology {
   modifiers: Record<string, number>
@@ -15,7 +16,7 @@ interface PoliticalSource {
 
 interface Demographic {
   probability: number
-  popPercentages: Record<string, number>
+  popPercentages: Record<MajorRace, number>
 }
 
 interface TownType {
