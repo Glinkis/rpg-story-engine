@@ -6,6 +6,7 @@ import { createMercenaries } from "../misc/createMercenaries"
 import { orcs } from "./orcs"
 import { caravan } from "./caravan"
 import { goblins } from "./goblins"
+import { AgeStage } from "../../../shared/AgeStage"
 
 type Encounter = (town: any) => string
 
@@ -737,7 +738,7 @@ export const encounters: Record<string, Encounter> = {
       dndClass: `sorcerer`,
       gender: `woman`,
       background: `acolyte`,
-      ageStage: `elderly`,
+      ageStage: AgeStage.Elderly,
       isThrowaway: true,
     })
     return `an old ${profile(npc, `witch`)}`
@@ -753,7 +754,7 @@ export const encounters: Record<string, Encounter> = {
   },
   "a lost child": town => {
     const npc = createNPC(town, {
-      ageStage: `child`,
+      ageStage: AgeStage.Child,
       isThrowaway: true,
     })
     return `a lost ${profile(npc, `child`)}`
@@ -799,7 +800,7 @@ export const encounters: Record<string, Encounter> = {
     const npc = createNPC(town, {
       gender: `woman`,
       background: `hermit`,
-      ageStage: `elderly`,
+      ageStage: AgeStage.Elderly,
       calmTrait: `quiet`,
       isThrowaway: true,
     })

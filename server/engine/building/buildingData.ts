@@ -1,8 +1,11 @@
+import { defaultSizeRolls } from "../../../shared/Size"
+import { Material } from "../../../shared/Material"
+import { Roll } from "../../../shared/types"
+
 import { defineRollDataGetter } from "../tools/defineRollDataGetter"
 import { weightedRandomFetcher } from "../tools/weightedRandomFetcher"
 import { randomValue } from "../rolls"
 import { Town } from "../town/town"
-import { Material } from "../../../shared/Material"
 
 export const structure = {
   create(town: Town, building: any = {}, opts: any = {}) {
@@ -75,18 +78,7 @@ export const structure = {
   data: {
     colour: [`red`, `blue`, `grey`, `black`, `white`, `yellow`, `orange`],
     rollData: {
-      size: [
-        [95, `cavernous`],
-        [80, `huge`],
-        [70, `quite large`],
-        [60, `large`],
-        [50, `spacious`],
-        [40, `average sized`],
-        [30, `somewhat cramped`],
-        [20, `small`],
-        [10, `tiny`],
-        [0, `extremely cramped`],
-      ],
+      size: defaultSizeRolls,
     },
   },
   material: {
@@ -101,7 +93,7 @@ export const structure = {
         [20, `run down`],
         [10, `crumbling`],
         [0, `structurally unsound`],
-      ] as [number, string][],
+      ] as Roll[],
     },
     types: {
       [Material.Wood]: {

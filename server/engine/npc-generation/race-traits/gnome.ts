@@ -1,13 +1,15 @@
+import { StandardLanguage } from "../../../../shared/Language"
+import { AgeStage } from "../../../../shared/AgeStage"
+
 import { dice } from "../../rolls"
 import { RaceTrait } from "./race-trait"
-import { StandardLanguage } from "../../../../shared/Language"
 
 export const gnomeTraits: RaceTrait = {
   probability: 1,
   muscleMass: 10,
   bmiModifier: 703,
   ageTraits: {
-    "ageDescriptors": [
+    ageDescriptors: [
       [400, `vulnerably elderly`],
       [360, `withered`],
       [320, `elderly`],
@@ -37,25 +39,25 @@ export const gnomeTraits: RaceTrait = {
       [6, `toddler`],
       [0, `newborn`],
     ],
-    "elderly": {
+    [AgeStage.Elderly]: {
       baseAge: 200,
       ageModifier() {
         return dice(3, 100)
       },
     },
-    "settled adult": {
+    [AgeStage.SettledAdult]: {
       baseAge: 40,
       ageModifier() {
         return dice(3, 75)
       },
     },
-    "young adult": {
+    [AgeStage.YoungAdult]: {
       baseAge: 18,
       ageModifier() {
         return dice(2, 10)
       },
     },
-    "child": {
+    [AgeStage.Child]: {
       baseAge: 6,
       ageModifier() {
         return dice(2, 6)

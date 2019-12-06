@@ -1,3 +1,5 @@
+import { Material } from "../../../shared/Material"
+
 import { random, randomValue, randomFloat, randomRange } from "../rolls"
 import { clamp } from "../math"
 import { townData } from "../town/townData"
@@ -74,29 +76,29 @@ export function createBuilding(town: Town, type: string, base: Partial<Building>
   ])
 
   const material = randomValue([
-    `wooden`,
-    `wooden`,
-    `wooden`,
-    `wooden`,
-    `wooden`,
-    `stone`,
-    `stone`,
-    `stone`,
-    `stone`,
-    `hewn rock`,
-    `chiseled stone`,
-    `wooden`,
-    `wooden`,
-    `wooden`,
-    `wooden`,
-    `wooden`,
-    `stone`,
-    `stone`,
-    `stone`,
-    `stone`,
-    `hewn rock`,
-    `chiseled stone`,
-    `marble`,
+    Material.Wood,
+    Material.Wood,
+    Material.Wood,
+    Material.Wood,
+    Material.Wood,
+    Material.Wood,
+    Material.Wood,
+    Material.Wood,
+    Material.Wood,
+    Material.Wood,
+    Material.Stone,
+    Material.Stone,
+    Material.Stone,
+    Material.Stone,
+    Material.Stone,
+    Material.Stone,
+    Material.Stone,
+    Material.Stone,
+    Material.HewnRock,
+    Material.HewnRock,
+    Material.ChiseledStone,
+    Material.ChiseledStone,
+    Material.Marble,
   ])
 
   const building: Building = {

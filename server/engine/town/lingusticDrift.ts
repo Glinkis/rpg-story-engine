@@ -82,17 +82,17 @@ export function linguisticDrift(name: string) {
     [0.5, /ake/, `eak`],
   ]
 
-  for (const value of fix) {
-    if (randomFloat(1) <= value[0]) {
-      name = name.replace(value[1], value[2])
+  name = applyDriftRules(fix, name)
+  name = applyDriftRules(modify, name)
+
+  return name
+}
+
+function applyDriftRules(rules: DriftRule[], name: string) {
+  for (const [chance, regex, replacement] of rules) {
+    if (randomFloat(1) <= chance) {
+      name = name.replace(regex, replacement)
     }
   }
-
-  for (const value of modify) {
-    if (randomFloat(1) <= value[0]) {
-      name = name.replace(value[1], value[2])
-    }
-  }
-
   return name
 }

@@ -1,3 +1,5 @@
+import { SocialClass } from "../../../shared/SocialClass"
+
 import { findProfession } from "./findProfession"
 import { dice, randomRange } from "../rolls"
 import { clamp } from "../math"
@@ -7,16 +9,16 @@ import { rollFromTable } from "../tools/rollFromTable"
 import { Town } from "../town/town"
 
 const socialClasses: [number, string, number][] = [
-  [195, `aristocracy`, 5],
-  [95, `aristocracy`, 5],
-  [80, `nobility`, 4],
-  [60, `commoner`, 3],
-  [20, `peasantry`, 2],
-  [10, `paupery`, 1],
-  [0, `indentured servitude`, 0],
+  [195, SocialClass.Aristocracy, 5],
+  [95, SocialClass.Aristocracy, 5],
+  [80, SocialClass.Nobility, 4],
+  [60, SocialClass.Commoner, 3],
+  [20, SocialClass.Peasantry, 2],
+  [10, SocialClass.Paupery, 1],
+  [0, SocialClass.IndenturedServitude, 0],
 ]
 
-const socialClassArray = [`indentured servitude`, `paupery`, `peasantry`, `commoner`, `nobility`, `aristocracy`]
+const socialClassArray = Object.values(SocialClass)
 
 export function createSocialClass(town: Town, npc: any) {
   if (!npc.roll) {
@@ -59,7 +61,7 @@ const adultSocialMobilityTable: [number, number][] = [
   [2, 2],
 ]
 
-export function relativeSocialClass(npcClass: string) {
+export function relativeSocialClass(npcClass: SocialClass) {
   let classIndex = socialClassArray.indexOf(npcClass)
   if (classIndex < 0) classIndex = 3
 

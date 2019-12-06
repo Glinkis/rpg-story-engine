@@ -1,13 +1,15 @@
+import { StandardLanguage } from "../../../../shared/Language"
+import { AgeStage } from "../../../../shared/AgeStage"
+
 import { dice } from "../../rolls"
 import { RaceTrait } from "./race-trait"
-import { StandardLanguage } from "../../../../shared/Language"
 
 export const elfTraits: RaceTrait = {
   probability: 2,
   muscleMass: 9,
   bmiModifier: 703,
   ageTraits: {
-    "ageDescriptors": [
+    ageDescriptors: [
       [800, `vulnerably elderly`],
       [750, `withered`],
       [700, `elderly`],
@@ -36,25 +38,25 @@ export const elfTraits: RaceTrait = {
       [10, `toddler`],
       [0, `newborn`],
     ],
-    "elderly": {
+    [AgeStage.Elderly]: {
       baseAge: 650,
       ageModifier() {
         return dice(3, 50)
       },
     },
-    "settled adult": {
+    [AgeStage.SettledAdult]: {
       baseAge: 450,
       ageModifier() {
         return dice(3, 75)
       },
     },
-    "young adult": {
+    [AgeStage.YoungAdult]: {
       baseAge: 100,
       ageModifier() {
         return dice(4, 75)
       },
     },
-    "child": {
+    [AgeStage.Child]: {
       baseAge: 10,
       ageModifier() {
         return dice(4, 20)

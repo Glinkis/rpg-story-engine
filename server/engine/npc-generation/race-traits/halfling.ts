@@ -1,13 +1,15 @@
+import { StandardLanguage } from "../../../../shared/Language"
+import { AgeStage } from "../../../../shared/AgeStage"
+
 import { dice } from "../../rolls"
 import { RaceTrait } from "./race-trait"
-import { StandardLanguage } from "../../../../shared/Language"
 
 export const halflingTraits: RaceTrait = {
   probability: 1,
   muscleMass: 9,
   bmiModifier: 703,
   ageTraits: {
-    "ageDescriptors": [
+    ageDescriptors: [
       [180, `vulnerably elderly`],
       [150, `withered`],
       [130, `elderly`],
@@ -37,25 +39,25 @@ export const halflingTraits: RaceTrait = {
       [6, `toddler`],
       [0, `newborn`],
     ],
-    "elderly": {
+    [AgeStage.Elderly]: {
       baseAge: 65,
       ageModifier() {
         return dice(3, 10)
       },
     },
-    "settled adult": {
+    [AgeStage.SettledAdult]: {
       baseAge: 30,
       ageModifier() {
         return dice(3, 10)
       },
     },
-    "young adult": {
+    [AgeStage.YoungAdult]: {
       baseAge: 16,
       ageModifier() {
         return dice(2, 12)
       },
     },
-    "child": {
+    [AgeStage.Child]: {
       baseAge: 4,
       ageModifier() {
         return dice(2, 6)

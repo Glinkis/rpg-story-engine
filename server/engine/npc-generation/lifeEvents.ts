@@ -9,6 +9,7 @@ import { createRelationship } from "./createRelationship"
 import { createMarriage } from "./createFamilyMembers"
 import { createMagicWeapon } from "../misc/createMagicWeapon"
 import { profile } from "./profile"
+import { AgeStage } from "../../../shared/AgeStage"
 
 export const lifeEvents = {
   performed: {
@@ -955,7 +956,7 @@ export const lifeEvents = {
   meetEnemyNPC: {
     probability: 8,
     exclusions(town: any, npc: any) {
-      if (npc.ageYears >= 18 && npc.ageStage !== `child`) {
+      if (npc.ageYears >= 18 && npc.ageStage !== AgeStage.Child) {
         return true
       }
     },
@@ -1005,7 +1006,7 @@ export const lifeEvents = {
   meetPartnerNPC: {
     probability: 10,
     exclusions(town: any, npc: any) {
-      return npc.ageYears >= 18 && npc.ageStage !== `child`
+      return npc.ageYears >= 18 && npc.ageStage !== AgeStage.Child
     },
     function(town: any, npc: any) {
       const family = town.families[npc.family]
@@ -1053,7 +1054,7 @@ export const lifeEvents = {
   backgroundWork: {
     probability: 20,
     exclusions(town: any, npc: any) {
-      return npc.ageYears >= 18 && npc.ageStage !== `child`
+      return npc.ageYears >= 18 && npc.ageStage !== AgeStage.Child
     },
     function(town: any, npc: any) {
       npc.wealth += dice(2, 6) * 1000
@@ -1140,7 +1141,7 @@ export const lifeEvents = {
   adventure: {
     probability: 5,
     exclusions(town: any, npc: any) {
-      return npc.ageYears >= 18 && npc.ageStage !== `child`
+      return npc.ageYears >= 18 && npc.ageStage !== AgeStage.Child
     },
     function(town: any, npc: any) {
       const adventureRoll = randomRange(1, 100)
@@ -1285,7 +1286,7 @@ export const lifeEvents = {
   war: {
     probability: 5,
     exclusions(town: any, npc: any) {
-      return npc.ageYears >= 18 && npc.ageStage !== `child`
+      return npc.ageYears >= 18 && npc.ageStage !== AgeStage.Child
     },
     function(town: any, npc: any) {
       const warRoll = randomRange(1, 12)

@@ -1,12 +1,5 @@
+import { SocialClass } from "../../../shared/SocialClass"
 import { dice } from "../rolls"
-
-export enum SocialClass {
-  Commoner = `commoner`,
-  Nobility = `nobility`,
-  Peasantry = `peasantry`,
-  Paupery = `paupery`,
-  IndenturedServitude = `indentured servitude`,
-}
 
 export enum Type {
   Family = `family`,

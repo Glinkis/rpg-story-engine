@@ -24,6 +24,7 @@ import { Town } from "../town/town"
 import { taxRate } from "../town/createTown"
 import { NPC } from "./npc"
 import { StandardLanguage, ExoticLanguage } from "../../../shared/Language"
+import { AgeStage } from "../../../shared/AgeStage"
 
 export function createNPC(town: Town, base?: any) {
   if (!town) {
@@ -57,14 +58,14 @@ export function createNPC(town: Town, base?: any) {
   const ageStage =
     base.ageStage ||
     randomValue([
-      `young adult`,
-      `young adult`,
-      `young adult`,
-      `young adult`,
-      `settled adult`,
-      `settled adult`,
-      `settled adult`,
-      `elderly`,
+      AgeStage.YoungAdult,
+      AgeStage.YoungAdult,
+      AgeStage.YoungAdult,
+      AgeStage.YoungAdult,
+      AgeStage.SettledAdult,
+      AgeStage.SettledAdult,
+      AgeStage.SettledAdult,
+      AgeStage.Elderly,
     ])
   const dndClass = base.dndClass || randomValue(npcData.dndClass)
   if (base.dndClass) {

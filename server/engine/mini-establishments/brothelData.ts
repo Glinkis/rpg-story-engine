@@ -1,46 +1,21 @@
-import { randomValue } from "../rolls"
-import { createNPC } from "../npc-generation/createNPC"
+import { Roll } from "../../../shared/types"
+import { AgeStage } from "../../../shared/AgeStage"
+import { defaultSizeRolls } from "../../../shared/Size"
+import { defaultWealthRolls } from "../../../shared/Wealth"
+import { defaultCleanlinessRolls } from "../../../shared/Cleanliness"
+
 import { createRelationship } from "../npc-generation/createRelationship"
-import { variables } from "../global"
-import { profile } from "../npc-generation/profile"
 import { createParentage } from "../npc-generation/createFamilyMembers"
 import { createFamily } from "../npc-generation/createFamily"
+import { createNPC } from "../npc-generation/createNPC"
+import { randomValue } from "../rolls"
+import { variables } from "../global"
 
 export const brothelData = {
   rollData: {
-    wealth: [
-      [95, `kingly`],
-      [80, `aristocratic`],
-      [70, `wealthy`],
-      [60, `comfortable`],
-      [50, `modest`],
-      [25, `poor`],
-      [15, `squalid`],
-      [0, `destitute`],
-    ],
-    size: [
-      [95, `cavernous`],
-      [80, `huge`],
-      [70, `quite large`],
-      [60, `large`],
-      [50, `spacious`],
-      [40, `average sized`],
-      [30, `somewhat cramped`],
-      [20, `small`],
-      [10, `tiny`],
-      [0, `extremely cramped`],
-    ],
-    cleanliness: [
-      [80, `fastidious`],
-      [70, `very tidy`],
-      [60, `tidy`],
-      [50, `reasonably tidy`],
-      [40, `somewhat messy`],
-      [30, `rather messy`],
-      [20, `very messy`],
-      [10, `extremely messy`],
-      [0, `dangerously messy`],
-    ],
+    size: defaultSizeRolls,
+    wealth: defaultWealthRolls,
+    cleanliness: defaultCleanlinessRolls,
     bedCleanliness: [
       [80, `perfectly prepared, with fresh sheets and a lemon scent in the air of the room`],
       [75, `recently prepared and well cleaned`],
@@ -52,7 +27,7 @@ export const brothelData = {
       [20, `teeming with rats`],
       [10, `rather filthy`],
       [0, `festering with bugs`],
-    ],
+    ] as Roll[],
   },
   // Name of the brothel
   name: [
@@ -709,12 +684,12 @@ export const brothelData = {
       },
       "a passionate young woman": {
         gender: `woman`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         calmTrait: `passionate`,
       },
       "a homely young lady": {
         gender: `woman`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         calmTrait: `kind`,
       },
       "a friendly and plump woman": {
@@ -734,30 +709,30 @@ export const brothelData = {
       "a young foreigner": {
         background: `outlander`,
         gender: `woman`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         vocalPattern: `has an interesting accent`,
         note: `From a far away land.`,
       },
       "the boss’s favorite": {
         gender: `woman`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         calmTrait: `passionate`,
       },
       "an exotic beauty": {
         background: `noble`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         gender: `woman`,
         vocalPattern: `an interesting accent`,
         note: `From a far away land.`,
       },
       "new to the place and always in trouble": {
         gender: `woman`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         calmTrait: `mischievous`,
       },
       "new to the place and eager to please": {
         gender: `woman`,
-        ageStage: `young adult`,
+        ageStage: AgeStage.YoungAdult,
         calmTrait: `eager to please`,
       },
     },

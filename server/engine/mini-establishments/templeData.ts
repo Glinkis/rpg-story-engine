@@ -1,4 +1,7 @@
 import { RollData } from "../../../shared/types"
+import { defaultSizeRolls } from "../../../shared/Size"
+import { defaultWealthRolls } from "../../../shared/Wealth"
+import { defaultCleanlinessRolls } from "../../../shared/Cleanliness"
 
 export const templeData = {
   name: {
@@ -118,40 +121,9 @@ export const templeData = {
     ],
   },
   rollData: {
-    wealth: [
-      [95, `kingly`],
-      [80, `aristocratic`],
-      [70, `wealthy`],
-      [60, `comfortable`],
-      [50, `modest`],
-      [25, `poor`],
-      [15, `squalid`],
-      [0, `destitute`],
-    ],
-    size: [
-      [95, `cavernous`],
-      [80, `huge`],
-      [70, `quite large`],
-      [60, `large`],
-      [50, `spacious`],
-      [40, `modest`],
-      [30, `somewhat cramped`],
-      [20, `small`],
-      [10, `tiny`],
-      [0, `extremely cramped`],
-    ],
-    cleanliness: [
-      [90, `totally spotless (cleanliness being next to godliness)`],
-      [80, `fastidious`],
-      [70, `very tidy`],
-      [60, `tidy`],
-      [50, `reasonably tidy`],
-      [40, `somewhat messy`],
-      [30, `rather messy`],
-      [20, `very messy`],
-      [10, `extremely messy`],
-      [0, `dangerously messy`],
-    ],
+    size: defaultSizeRolls,
+    wealth: defaultWealthRolls,
+    cleanliness: [[90, `totally spotless (cleanliness being next to godliness)`], ...defaultCleanlinessRolls],
     bedCleanliness: [
       [80, `perfectly prepared, with fresh sheets and a lemon scent in the air of the room`],
       [75, `recently prepared and well cleaned`],

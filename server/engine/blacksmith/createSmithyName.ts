@@ -1,3 +1,4 @@
+import { AgeStage } from "../../../shared/AgeStage"
 import { createRelationship } from "../npc-generation/createRelationship"
 import { createNPC } from "../npc-generation/createNPC"
 import { toUpperFirst } from "../tools/toUpperFirst"
@@ -89,7 +90,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       gender: `man`,
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
-      ageStage: `young adult`,
+      ageStage: AgeStage.YoungAdult,
       profession: randomValue([
         `blacksmith`,
         `blacksmith's assistant`,
@@ -104,7 +105,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       gender: `woman`,
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
-      ageStage: `young adult`,
+      ageStage: AgeStage.YoungAdult,
       profession: randomValue([
         `blacksmith`,
         `blacksmith's assistant`,
@@ -149,7 +150,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       gender: `man`,
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
-      ageStage: `settled adult`,
+      ageStage: AgeStage.SettledAdult,
       profession: randomValue([
         `blacksmith`,
         `blacksmith's assistant`,
@@ -164,7 +165,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       gender: `woman`,
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
-      ageStage: `settled adult`,
+      ageStage: AgeStage.SettledAdult,
       profession: randomValue([
         `blacksmith`,
         `blacksmith's assistant`,
@@ -179,7 +180,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       gender: `man`,
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
-      ageStage: `settled adult`,
+      ageStage: AgeStage.SettledAdult,
       profession: randomValue([
         `blacksmith`,
         `blacksmith's assistant`,
@@ -191,7 +192,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       relationships: {
         [smithy.blacksmith.key]: `friend`,
       },
-      ageStage: `settled adult`,
+      ageStage: AgeStage.SettledAdult,
       profession: randomValue([
         `blacksmith`,
         `blacksmith's assistant`,
@@ -205,7 +206,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       },
       lastName: smithy.blacksmith.lastName,
       race: smithy.blacksmith.race,
-      ageStage: `settled adult`,
+      ageStage: AgeStage.SettledAdult,
       profession: randomValue([
         `blacksmith`,
         `blacksmith's assistant`,

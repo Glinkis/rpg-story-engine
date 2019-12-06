@@ -1,8 +1,12 @@
-import { allColours } from "../misc/colours"
-import { RollData } from "../../../shared/types"
-import { randomValue } from "../rolls"
+import { defaultSizeRolls } from "../../../shared/Size"
+import { defaultWealthRolls } from "../../../shared/Wealth"
+import { defaultExpertiseRolls } from "../../../shared/Expertise"
+import { defaultCleanlinessRolls } from "../../../shared/Cleanliness"
+
 import { rt } from "../tools/randomTemplate"
 import { flora } from "../dictionary/flora"
+import { allColours } from "../misc/colours"
+import { randomValue } from "../rolls"
 
 export const generalStore = {
   crud: [
@@ -145,51 +149,11 @@ export const generalStore = {
     `signing off on a fresh delivery of goods`,
   ],
   rollData: {
-    wealth: [
-      [95, `kingly`],
-      [80, `aristocratic`],
-      [70, `wealthy`],
-      [60, `comfortable`],
-      [50, `modest`],
-      [25, `poor`],
-      [15, `squalid`],
-      [0, `destitute`],
-    ],
-    size: [
-      [95, `cavernous`],
-      [80, `huge`],
-      [70, `quite large`],
-      [60, `large`],
-      [50, `spacious`],
-      [40, `average sized`],
-      [30, `somewhat cramped`],
-      [20, `small`],
-      [10, `tiny`],
-      [0, `extremely cramped`],
-    ],
-    cleanliness: [
-      [80, `fastidious`],
-      [70, `very tidy`],
-      [60, `tidy`],
-      [50, `reasonably tidy`],
-      [40, `somewhat messy`],
-      [30, `rather messy`],
-      [20, `very messy`],
-      [10, `extremely messy`],
-      [0, `dangerously messy`],
-    ],
-    expertise: [
-      [80, `masterful`],
-      [70, `exceptional`],
-      [60, `superior quality`],
-      [50, `finely crafted`],
-      [40, `well crafted`],
-      [30, `sloppily made`],
-      [20, `somewhat amateur`],
-      [10, `amateur`],
-      [0, `blatantly amateur`],
-    ],
-  } as RollData,
+    size: defaultSizeRolls,
+    wealth: defaultWealthRolls,
+    expertise: defaultExpertiseRolls,
+    cleanliness: defaultCleanlinessRolls,
+  },
   get: {
     say({ shopkeep }) {
       const goods = randomValue([

@@ -10,10 +10,15 @@ import { Town } from "../town/town"
 import { NPC } from "../npc-generation/npc"
 import { roleplayQuestions } from "../world/roleplayQuestions"
 
+enum PlothookType {
+  Event = `event`,
+  Paper = `paper`,
+}
+
 interface Plothook {
   probability?: number
   questGiver?: object
-  type: string[]
+  type: PlothookType[]
   exclusions?(town: Town, npc: NPC): boolean
   function(town: Town, npc: NPC): string
 }
@@ -21,27 +26,30 @@ interface Plothook {
 export const plothooks: Record<string, Plothook> = {
   "Roleplay Questions": {
     probability: 50,
-    type: [`event`],
+    type: [PlothookType.Event],
     function() {
-      return (
-        `${randomValue([
-          `Nothing much ${randomValue([`happens`, `seems to be going on`, `is happening`])}`,
-          `Nothing of note ${randomValue([`happens`, `seems to be going on`, `is happening`])}`,
-          `No items of interest occurs`,
-          `Nothing happens`,
-          `Nothing really happens`,
-        ])}. <blockquote>${randomValue([
-          `Perhaps now is a good time to ask a player a question, such as `,
-          `Now would be a good time to give a player a chance to roleplay something from their past. Ask a question, such as `,
-          `This is a great opportunity to get players to roleplay. Ask them questions like `,
-          `This would be a good chance to build on player backstory. Ask them questions such as `,
-        ])}'${roleplayQuestions.create()}'` +
-        `<<button "Create another question!">><<set _question to misc.roleplayQuestions.create()>><<replace "#question">><<print _question.toUpperFirst()>><</replace>><</button>><div id="question"></div></blockquote>`
-      )
+      const happens = randomValue([`happens`, `seems to be going on`, `is happening`])
+
+      const result = randomValue([
+        `Nothing much ${happens}`,
+        `Nothing of note ${happens}`,
+        `No items of interest occurs`,
+        `Nothing happens`,
+        `Nothing really happens`,
+      ])
+
+      const cue = randomValue([
+        `Perhaps now is a good time to ask a player a question, such as`,
+        `Now would be a good time to give a player a chance to roleplay something from their past. Ask a question, such as`,
+        `This is a great opportunity to get players to roleplay. Ask them questions like`,
+        `This would be a good chance to build on player backstory. Ask them questions such as`,
+      ])
+
+      return `${result}. (${cue} "${roleplayQuestions.create()}")`
     },
   },
   "The Magic Duel": {
-    type: [`event`],
+    type: [PlothookType.Event],
     exclusions() {
       return true
     },
@@ -55,7 +63,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Falling Woman": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         dndClass: `rogue`,
@@ -66,7 +74,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Godfather": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         background: `criminal`,
@@ -76,7 +84,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Cage": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
@@ -86,7 +94,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Metal Dog": {
-    type: [`event`],
+    type: [PlothookType.Event],
     questGiver: {
       object: `building`,
       type: `tavern`,
@@ -102,7 +110,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Pregnant Woman": {
-    type: [`event`],
+    type: [PlothookType.Event],
     questGiver: {
       object: `building`,
       type: `market`,
@@ -121,7 +129,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Carriage Caretakers": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
@@ -132,7 +140,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Zoo": {
-    type: [`event`],
+    type: [PlothookType.Event],
     exclusions(town) {
       return town.population > 4000 && town.wealth > 50
     },
@@ -141,13 +149,13 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Plague": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       return `The sector of the city lies under quarantine after an outbreak of a mysterious fever. The party is being kept inside, and one of its members is starting to show symptoms of the illness. Do they try to escape, risking further contagion, or do they try to find a cure from the inside?`
     },
   },
   "Indie": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
@@ -160,7 +168,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Tourist": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
@@ -173,7 +181,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Blacksmith Competition": {
-    type: [`event`],
+    type: [PlothookType.Event],
     questGiver: {
       object: `building`,
       type: `smithy`,
@@ -192,7 +200,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Kindergarten Magic": {
-    type: [`event`],
+    type: [PlothookType.Event],
     questGiver: {
       object: `faction`,
       type: `wizards`,
@@ -213,7 +221,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Crystal Ball": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         background: `merchant`,
@@ -225,7 +233,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Coach Crash": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
@@ -241,13 +249,13 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The One True God": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function() {
       return `There is but one accepted religion in town. What about the party cleric who serves what is here deemed a false god?`
     },
   },
   "The Siege Ship": {
-    type: [`event`],
+    type: [PlothookType.Event],
     questGiver: {
       object: `building`,
       type: `docks`,
@@ -257,7 +265,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Werewolf Maiden": {
-    type: [`event`],
+    type: [PlothookType.Event],
     exclusions() {
       return true
     },
@@ -272,7 +280,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Disturbed Cemetary": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         dndClass: `wizard`,
@@ -283,7 +291,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Convalescent": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
@@ -294,7 +302,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Thieves Fun": {
-    type: [`event`],
+    type: [PlothookType.Event],
     questGiver: {
       object: `faction`,
       type: [`thieves`, `assassins`],
@@ -306,7 +314,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Spoiled Kid": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
@@ -318,13 +326,13 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Bad Architect": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function() {
       return `A string of building construction accidents has occurred lately throughout the city. Fortunately, no one's been seriously hurt, but the accidents are increasing in size and damage. The local guild has put up flyers asking for help in solving their problem.`
     },
   },
   "Pooh Sticks": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         gender: `man`,
@@ -335,7 +343,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Corrupt Guards": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         background: `soldier`,
@@ -347,7 +355,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Umber Hulk": {
-    type: [`event`],
+    type: [PlothookType.Event],
     exclusions(town) {
       return town.population > 3500
     },
@@ -356,7 +364,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Double Gunshot Suicide": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
@@ -367,7 +375,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Generous Mark": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
@@ -378,19 +386,19 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Doppelganger Dead Or Alive": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function() {
       return `The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own...`
     },
   },
   "Eggs": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function() {
       return `The paper has the headline 'HENS STOPPED LAYING, EGGS COST 2 SILVER! Apparently, all hens in the area have stopped laying eggs, and has driven the price of eggs sky high.`
     },
   },
   "Orc Captain": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         race: `orc`,
@@ -403,7 +411,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Hubert": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions(town) {
       return town.population > 3000 || town.roll.magic > 70
     },
@@ -416,7 +424,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Big Chickens": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions() {
       return true
     },
@@ -431,7 +439,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Guard The Garlic": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions(town) {
       return town.population > 500
     },
@@ -446,7 +454,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Books": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         background: `scholar`,
@@ -457,7 +465,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Rat Exterminator": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town)
       const npcProfile = profile(npc, `I've`)
@@ -465,13 +473,13 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Sunk Ore": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function() {
       return `Strong Swimmer Needed! My simpleton apprentice left my ore cart unattended on the bridge and the blasted thing tumbled into the river! Hopefully the ore is still in there somewhere, I’ll pay gold to anyone who can get me my ore!`
     },
   },
   "Sick Granny": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         ageStage: `elderly`,
@@ -483,7 +491,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Squirrel Hunting": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions() {
       return true
     },
@@ -492,7 +500,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Stolen Earrings": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         gender: `woman`,
@@ -502,7 +510,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Magic Bakery": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         profession: `baker`,
@@ -513,7 +521,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Trophy Arrow": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         profession: `alchemist`,
@@ -524,20 +532,20 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Goblin Encampment": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const goblins = misc.goblins.create()
       return `Goblin encampment: A ${goblins.tippy}<b>goblin encampment</b></span> has appeared in the Southern part of town across the ravine. They’ve been there for days and don’t seem to be aggressive, but we can’t be so sure. Find out what they’re doing — if they’re a threat, please dispatch with them.`
     },
   },
   "Wandering Skeleton": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       return `Wandering Skeleton: Wandering Skeleton seen on the outskirts of town. It appears armed with a sword, shield and horned helmet. Dispatch this skeleton and we’ll offer you 10% off anything in town.`
     },
   },
   "Kobold Flour": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         profession: `alchemist`,
@@ -548,7 +556,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Bard Wanted": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const building = objectArrayFetcher(town.buildings.tavern)
       const buildingProfile = profile(building, ``, `town.buildings.tavern`)
@@ -556,7 +564,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Armed Escort Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         profession: `merchant`,
@@ -567,13 +575,13 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Mushroom Forager": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       return `Our beloved mushroom forager, has not returned from the forest. He was last seen four days ago. Need help finding him(her?)!`
     },
   },
   "Lost Mail": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
@@ -584,7 +592,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Sporting Match": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions() {
       return true
     },
@@ -597,7 +605,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Tarot Cards": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         profession: `seer`,
@@ -611,7 +619,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Koboliam Ore": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const blacksmithPool = town.buildings.smithy
       const smithy = objectArrayFetcher(blacksmithPool)
@@ -622,7 +630,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Burial Escort Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -633,7 +641,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Bandit Kidnappers": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -648,7 +656,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Family Bandits": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: true,
@@ -663,7 +671,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Flying Monkeys": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -675,14 +683,14 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Magnificent Seven": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const bandits = misc.bandits.create(town)
       return `Magnificent Seven: Our villagers overheard ${bandits.tippyWord} who plan on raiding our town in one week’s town. We seek seven or more strong warriors who will help defend us.`
     },
   },
   "Traveling Bards": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: true,
@@ -694,7 +702,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Door to Door": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -707,7 +715,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Library Guards": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: true,
@@ -719,7 +727,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Destroy The Bell": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions(town) {
       return town.population > 5000
     },
@@ -733,14 +741,14 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Bucket Festival": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const house = misc.cabin.create()
       return `Come join us for the first annual bucket festival! Bring a bucket and you favourite drinks to join in the festivities. Meet out back the delapited ${house.tippyWord} on the edge of town at any time. You know the one, you’ve seen it in your dreams.`
     },
   },
   "Need Bartender": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const building = objectArrayFetcher(town.buildings.tavern)
       const buildingProfile = profile(building, ``, `town.buildings.tavern`)
@@ -748,13 +756,13 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Weird Well Water": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       return `The well water has started tasting funny, someone should look into that.`
     },
   },
   "Lost Boy": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -766,7 +774,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Lab Assistant": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions() {
       return true
     },
@@ -782,7 +790,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Mole Dispatch": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions() {
       return true
     },
@@ -797,7 +805,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Sheep Disappearing": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions() {
       return true
     },
@@ -813,7 +821,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Mines Hiring": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions() {
       return true
     },
@@ -822,7 +830,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Deal of a Lifetime": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions() {
       return true
     },
@@ -836,7 +844,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Daughter Dying": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions() {
       return true
     },
@@ -852,7 +860,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Kobold Ate It": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions(town, npc) {
       return true
     },
@@ -866,7 +874,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Linguist Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions(town, npc) {
       return true
     },
@@ -886,7 +894,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Taste Tester": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions(town, npc) {
       return true
     },
@@ -905,7 +913,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "A Muse-ment": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions() {
       return true
     },
@@ -922,7 +930,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Strange Doll": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions() {
       return true
     },
@@ -937,7 +945,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Lost Shorts": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions() {
       return true
     },
@@ -952,7 +960,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Who Am I": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions(town, npc) {
       return true
     },
@@ -971,7 +979,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Bouncers Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions(town, npc) {
       return true
     },
@@ -986,7 +994,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Bard for Hire": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions(town, npc) {
       return true
     },
@@ -1004,7 +1012,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "First Class Male": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions(town, npc) {
       return true
     },
@@ -1023,7 +1031,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Poor Pirate": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     exclusions(town, npc) {
       return true
     },
@@ -1038,13 +1046,13 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Barghests Trap": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function() {
       return `BIG AWARD MONEY!! Near forest there is cave. In cave small monster. Need help with monster. WILL AWARD BIG MONEY!! (A barghest’s trap, prepared by goblins to lure adventurers in and devour them alive)`
     },
   },
   "The Golden Goose": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1054,7 +1062,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Secret About To Be Revealed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1066,7 +1074,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Bridge Collapsed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1078,7 +1086,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Nothing Sexual": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1091,7 +1099,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Missing Pet": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1102,7 +1110,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Basilisk Eggs Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: true,
@@ -1112,7 +1120,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Missing Skeletons": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: true,
@@ -1123,7 +1131,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Nice Guy": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1134,7 +1142,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Be Your Own Boss": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1145,7 +1153,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Work From Home": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1156,7 +1164,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Discrete Healer Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1168,7 +1176,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Incredible Opportunity": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1180,7 +1188,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Horsebreaker Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1193,7 +1201,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Jeweler Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1207,7 +1215,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Music Tutor Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1219,7 +1227,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Just No MIL": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1232,7 +1240,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Lost Hat": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: true,
@@ -1245,7 +1253,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Birthday Party": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1258,7 +1266,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Berate Me": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const building = objectArrayFetcher(town.buildings.tavern)
       const npc = createNPC(town, {
@@ -1272,7 +1280,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Pirates Lost Stuff": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1284,7 +1292,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Furniture Movers": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: true,
@@ -1298,7 +1306,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Huckleberry": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const building = objectArrayFetcher(town.buildings.tavern)
       const npc = createNPC(town, {
@@ -1311,7 +1319,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Teddy Wanted": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1324,7 +1332,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Durable Idiot": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: true,
@@ -1335,7 +1343,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Candy Wanted": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1347,7 +1355,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Book Stacking": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1360,13 +1368,13 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Thieves Cant Thieve Here": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function() {
       return `A set of seemingly innocuous symbols is carved into the side of a barrel underneath the board, all in Thieves’ Cant. The symbols are being used for a purpose they’re very much not meant for, and the message is patchy and uncertain. ‘Dangerous Area.’ ‘Owner not home.’ ‘Owner is Vigilant.’ Meaning: One for the rogues! The local thieves’ guild has found that their missions in the area have ended… poorly. Their new recruits are raving about some kind of spirit, and the veterans insist that something just isn’t right.`
     },
   },
   "Demolition Help Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1378,7 +1386,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Mimic Hunt": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1389,7 +1397,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Crawling Claws": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1400,7 +1408,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "More Rats": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1411,7 +1419,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Lost Cat": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const cat = misc.cat.create()
       const npc = createNPC(town, {
@@ -1424,7 +1432,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Bakery Delivery": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1436,13 +1444,13 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Riddle Maker Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function() {
       return `Looking for riddle maker. You make riddles, we buy ’em! For more information contact your local Wizards Association.`
     },
   },
   "Internship Wanted": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1456,7 +1464,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Thieves Guild Movers Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1468,7 +1476,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Trapped": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: true,
@@ -1485,7 +1493,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Bardic Inspiration Needed": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: true,
@@ -1497,7 +1505,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Old Mill": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1509,7 +1517,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Domain Lines": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1529,7 +1537,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Cock-Fight": {
-    type: [`event`],
+    type: [PlothookType.Event],
     exclusions(town) {
       return town.population < 500 && town.wealth < 10
     },
@@ -1550,7 +1558,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Painted Devil": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
         hasClass: `false`,
@@ -1562,7 +1570,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Crack": {
-    type: [`event`],
+    type: [PlothookType.Event],
     function(town) {
       const faction = factionsForType(town, `type`, `mercenaries`)
       const factionProfile = profile(faction, ``, `town.factions`)
@@ -1570,7 +1578,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Press Gang": {
-    type: [`event`],
+    type: [PlothookType.Event],
     questGiver: {
       object: `building`,
       type: `tavern`,
@@ -1580,7 +1588,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "The Merchant Ship": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: false,
@@ -1592,7 +1600,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "A Lost Bunny": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const bunny = misc.bunny.create()
       const npc = createNPC(town, {
@@ -1604,7 +1612,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Dead or Alive": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: true,
@@ -1616,7 +1624,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Brimstone!": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const faction = factionsForType(town, `type`, `clergy`)
       const factionProfile = profile(faction, ``, `town.factions`)
@@ -1624,7 +1632,7 @@ export const plothooks: Record<string, Plothook> = {
     },
   },
   "Experiment Subjects": {
-    type: [`paper`],
+    type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
         hasClass: true,
