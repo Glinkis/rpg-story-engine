@@ -44,7 +44,7 @@ export function findParentRaces(npc: NPC) {
         fatherRace = Orc
       }
       break
-    case `half-elf`:
+    case HalfElf:
       if (parentalLineageRoll === 8) {
         lineage = `Both parents were half-elves`
         motherRace = HalfElf
