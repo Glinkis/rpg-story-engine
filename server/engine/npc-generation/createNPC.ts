@@ -248,7 +248,7 @@ export function lifestyleStandard(town: Town, npc: NPC) {
   }
   // lifestyleStandard returns the unmodified array of [100, 'modest', 30]
   // various bits use all three, so it was easier to specify which than create three virtually identical functions.
-  return lifestyleStandard[3]
+  return lifestyleStandards[3]
 }
 
 export function grossIncome(town: Town, npc: NPC) {
