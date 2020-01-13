@@ -265,7 +265,7 @@ export const gnomeTraits: RaceTrait = {
     racePlural: `gnomes`,
     raceSingular: `gnome`,
     raceAdjective: `gnomish`,
-    raceLanguage: `Gnomish`,
+    raceLanguage: StandardLanguage.Gnomish,
   },
   knownLanguages: [StandardLanguage.Common, StandardLanguage.Gnomish],
   beard: [

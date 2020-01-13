@@ -268,7 +268,7 @@ export const dragonbornTraits: RaceTrait = {
     racePlural: `drakes`,
     raceSingular: `dragonborn`,
     raceAdjective: `draconian`,
-    raceLanguage: `Draconic`,
+    raceLanguage: ExoticLanguage.Draconic,
   },
   knownLanguages: [StandardLanguage.Common, ExoticLanguage.Draconic],
   beard: [

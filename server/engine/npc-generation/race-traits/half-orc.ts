@@ -228,7 +228,7 @@ export const halfOrcTraits: RaceTrait = {
     racePlural: `half-orcs`,
     raceSingular: `half-orc`,
     raceAdjective: `orcish`,
-    raceLanguage: `Orcish`,
+    raceLanguage: StandardLanguage.Orc,
   },
   knownLanguages: [StandardLanguage.Common, StandardLanguage.Orc],
   beard: [

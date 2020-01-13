@@ -237,7 +237,7 @@ export const tieflingTraits: RaceTrait = {
     racePlural: `tieflings`,
     raceSingular: `tiefling`,
     raceAdjective: `devilish`,
-    raceLanguage: `Infernal`,
+    raceLanguage: ExoticLanguage.Infernal,
   },
   knownLanguages: [StandardLanguage.Common, ExoticLanguage.Infernal],
   beard: [

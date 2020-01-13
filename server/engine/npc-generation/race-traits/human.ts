@@ -644,7 +644,7 @@ export const humanTraits: RaceTrait = {
     racePlural: `humans`,
     raceSingular: `person`,
     raceAdjective: `human`,
-    raceLanguage: `Common`,
+    raceLanguage: StandardLanguage.Common,
   },
   knownLanguages: [StandardLanguage.Common],
   beard: [

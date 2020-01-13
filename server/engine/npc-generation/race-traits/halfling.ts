@@ -265,7 +265,7 @@ export const halflingTraits: RaceTrait = {
     racePlural: `hobbits`,
     raceSingular: `halfling`,
     raceAdjective: `halfling`,
-    raceLanguage: `Halfling`,
+    raceLanguage: StandardLanguage.Halfling,
   },
   knownLanguages: [StandardLanguage.Common, StandardLanguage.Halfling],
   beard: [

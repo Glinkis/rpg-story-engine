@@ -25,3 +25,5 @@ export enum ExoticLanguage {
   Sylvan = `Sylvan`,
   Undercommon = `Undercommon`,
 }
+
+export type Language = StandardLanguage | ExoticLanguage

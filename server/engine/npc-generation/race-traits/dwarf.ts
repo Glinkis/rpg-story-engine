@@ -266,7 +266,7 @@ export const dwarfTraits: RaceTrait = {
     racePlural: `dwarves`,
     raceSingular: `dwarf`,
     raceAdjective: `dwarven`,
-    raceLanguage: `Dwarven`,
+    raceLanguage: StandardLanguage.Dwarvish,
   },
   knownLanguages: [StandardLanguage.Common, StandardLanguage.Dwarvish],
   beard: [

@@ -418,7 +418,7 @@ export const halfElfTraits: RaceTrait = {
     racePlural: `half-elves`,
     raceSingular: `half-elf`,
     raceAdjective: `elfish`,
-    raceLanguage: `Elven`,
+    raceLanguage: StandardLanguage.Elvish,
   },
   knownLanguages: [StandardLanguage.Common, StandardLanguage.Elvish],
   beard: [

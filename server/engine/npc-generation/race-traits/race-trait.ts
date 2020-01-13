@@ -1,4 +1,5 @@
 import { AgeStage } from "../../../../shared/AgeStage"
+import { Language } from "../../../../shared/Language"
 
 interface AgeTrait {
   baseAge: number
@@ -32,7 +33,7 @@ interface RaceWords {
   racePlural: string
   raceSingular: string
   raceAdjective: string
-  raceLanguage: string
+  raceLanguage: Language
 }
 
 export interface RaceTrait {
