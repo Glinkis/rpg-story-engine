@@ -58,59 +58,35 @@ export const encounters: Record<string, Encounter> = {
   },
   "a disciplined military company"(town) {
     const mercenaries = createMercenaries(town)
-    return `a military company, armed to the teeth with ${mercenaries.weapon}, wearing ${
-      mercenaries.colours
-    } livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${
-      mercenaries.attitude
-    } towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${
-      mercenaries.commanderTrait
-    }. They specialise in ${mercenaries.specializes}, and are notorious for ${
-      mercenaries.notorious
-    }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
+    const commander = profile(mercenaries.captain, `commander`)
+
+    return `a military company, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their ${commander}, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
   "a rowdy mercenary troop"(town) {
     const mercenaries = createMercenaries(town)
-    return `a mercenary troop, armed to the teeth with ${mercenaries.weapon}, wearing ${
-      mercenaries.colours
-    } livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${
-      mercenaries.attitude
-    } towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${
-      mercenaries.commanderTrait
-    }. They specialise in ${mercenaries.specializes}, and are notorious for ${
-      mercenaries.notorious
-    }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
+    const commander = profile(mercenaries.captain, `commander`)
+
+    return `a mercenary troop, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their ${commander}, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
   "a band of mercenaries"(town) {
     const mercenaries = createMercenaries(town)
-    return `a mercenary troop, armed to the teeth with ${mercenaries.weapon}, wearing ${
-      mercenaries.colours
-    } livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${
-      mercenaries.attitude
-    } towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${
-      mercenaries.commanderTrait
-    }. They specialise in ${mercenaries.specializes}, and are notorious for ${
-      mercenaries.notorious
-    }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
+    const commander = profile(mercenaries.captain, `commander`)
+
+    return `a mercenary troop, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their ${commander}, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
-  "a marching army": town => {
+  "a marching army"(town) {
     const mercenaries = createMercenaries(town)
-    return `a small army, armed to the teeth with ${mercenaries.weapon}, wearing ${
-      mercenaries.colours
-    } livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${
-      mercenaries.attitude
-    } towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${
-      mercenaries.commanderTrait
-    }. They specialise in ${mercenaries.specializes}, and are notorious for ${
-      mercenaries.notorious
-    }. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
+    const commander = profile(mercenaries.captain, `commander`)
+
+    return `a small army, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their ${commander}, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
   },
-  "a small merchant caravan": town => {
+  "a small merchant caravan"(town) {
     return `a small merchant caravan. ${caravan.readout(caravan.create(town))}`
   },
-  "a merchant caravan": town => {
+  "a merchant caravan"(town) {
     return `a merchant caravan. ${caravan.readout(caravan.create(town))}`
   },
-  "a clan of orcs": town => {
+  "a clan of orcs"(town) {
     return `a clan of orcs. ${orcs.readout(orcs.create())}`
   },
   "several orc raiders"() {
@@ -131,10 +107,12 @@ export const encounters: Record<string, Encounter> = {
   "an ogre's lair"() {
     return `a lair belonging to an ogre`
   },
-  "some goblins' hideout": town => {
+  "some goblins' hideout"(town) {
     return `a goblin hideout. ${goblins.readout(goblins.create())}`
   },
-  "a pair of goblin scouts": () => `a pair of goblin scouts`,
+  "a pair of goblin scouts"() {
+    return `a pair of goblin scouts`
+  },
   "a lone goblin"() {
     return `a lone goblin ${randomValue([
       `trying to hide from you.`,
@@ -216,8 +194,12 @@ export const encounters: Record<string, Encounter> = {
     })
     return `a solitary ${profile(npc, `hunter`)}`
   },
-  "a diseased animal corpse": () => `a diseased animal corpse`,
-  "a dead body": () => `a dead body`,
+  "a diseased animal corpse"() {
+    return `a diseased animal corpse`
+  },
+  "a dead body"() {
+    return `a dead body`
+  },
   "a group of dwarves": () => `a group of dwarves`,
   "a handful of farmers": () => `a handful of farmers`,
   "the border patrol": () => `the border patrol`,
@@ -239,7 +221,7 @@ export const encounters: Record<string, Encounter> = {
     })
     return `a traveling ${profile(npc, `peddler`)}`
   },
-  "a solitary troubador": town => {
+  "a solitary troubador"(town) {
     const npc = createNPC(town, {
       hasClass: false,
       background: `entertainer`,
@@ -248,7 +230,7 @@ export const encounters: Record<string, Encounter> = {
     })
     return `a solitary ${profile(npc, `troubador`)}`
   },
-  "an adventurer on a horse": town => {
+  "an adventurer on a horse"(town) {
     const horse = misc.horse.create()
     const npc = createNPC(town, {
       dndClass: randomValue([`fighter`, `fighter`, `paladin`]),
