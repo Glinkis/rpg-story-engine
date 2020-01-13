@@ -1,5 +1,7 @@
+/**
+ * The most notable physical trait of an NPC.
+ */
 export const bodyParts = {
-  // The most notable physical trait of $currentNPC.firstName is that $currentNPC.heshe has ______
   head: {
     hair: [
       `thick, long hair down to their hips`,
@@ -52,7 +54,9 @@ export const bodyParts = {
       `thick, tangled hair`,
       `neatly combed hair`,
     ],
-    // covers eyes, eyelids, and eyebrows
+    /**
+     * Covers eyes, eyelids, and eyebrows.
+     */
     eyes: [
       `eyes like a hawk`,
       `quick-witted eyes`,
@@ -220,7 +224,9 @@ export const bodyParts = {
       `an underbite`,
       `an overbite`,
     ],
-    // covers chin, jaw, and neck
+    /**
+     * Covers chin, jaw, and neck.
+     */
     chin: [
       `a strong, jutting chin`,
       `an angular chin`,
