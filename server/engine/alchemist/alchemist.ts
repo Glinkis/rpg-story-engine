@@ -8,7 +8,6 @@ export interface Alchemist extends Building {
   wordNoun: string
   buildingType: string
   notableFeature: string
-  material: string
   activity: Activity
   priceModifier: number
   size: string
