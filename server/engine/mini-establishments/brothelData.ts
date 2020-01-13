@@ -7,6 +7,7 @@ import { defaultCleanlinessRolls } from "../../../shared/Cleanliness"
 import { createRelationship } from "../npc-generation/createRelationship"
 import { createParentage } from "../npc-generation/createFamilyMembers"
 import { createFamily } from "../npc-generation/createFamily"
+import { Profession } from "../npc-generation/professions"
 import { createNPC } from "../npc-generation/createNPC"
 import { randomValue } from "../rolls"
 import { variables } from "../global"
@@ -591,49 +592,49 @@ export const brothelData = {
       gender: `woman`,
       altTitle: `Mistress`,
       relaxedTrait: `mean`,
-      profession: `pimp`,
+      profession: Profession.Pimp,
     },
     "a large madam with a no-nonsense attitude": {
       gender: `woman`,
       altTitle: `Mistress`,
       weight: `plump`,
       relaxedTrait: `sensible`,
-      profession: `pimp`,
+      profession: Profession.Pimp,
     },
     "a warm motherly figure": {
       gender: `woman`,
       altTitle: `Mistress`,
       weight: `plump`,
       relaxedTrait: `kind`,
-      profession: `pimp`,
+      profession: Profession.Pimp,
     },
     "a surly brute": {
       gender: `man`,
       altTitle: `Master`,
       weight: `muscular`,
       relaxedTrait: `mean`,
-      profession: `pimp`,
+      profession: Profession.Pimp,
     },
     "a tyrannical and cruel fellow": {
       gender: `man`,
       altTitle: `Master`,
       age: `middle-aged`,
       relaxedTrait: `mean`,
-      profession: `pimp`,
+      profession: Profession.Pimp,
     },
     "a sultry seductress": {
       gender: `woman`,
       altTitle: `Mistress`,
       age: `relatively young`,
       relaxedTrait: `flirtatious`,
-      profession: `pimp`,
+      profession: Profession.Pimp,
     },
     "a charming witch": {
       gender: `woman`,
       altTitle: `Mistress`,
       age: `relatively young`,
       dndClass: `sorcerer`,
-      profession: `pimp`,
+      profession: Profession.Pimp,
     },
     "an incredibly well endowed woman": {
       gender: `woman`,
@@ -641,13 +642,13 @@ export const brothelData = {
       weight: `plump`,
       age: `relatively young`,
       relaxedTrait: `flirtatious`,
-      profession: `pimp`,
+      profession: Profession.Pimp,
     },
     "a rugged and grizzled rogue": {
       gender: `man`,
       altTitle: `Master`,
       relaxedTrait: `mean`,
-      profession: `pimp`,
+      profession: Profession.Pimp,
     },
   },
   // this creates a new NPC with specific traits for readout in the BrothelOutput
