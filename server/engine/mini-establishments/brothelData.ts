@@ -1,4 +1,5 @@
 import { Roll } from "../../../shared/types"
+import { Gender } from "../../../shared/Gender"
 import { AgeStage } from "../../../shared/AgeStage"
 import { defaultSizeRolls } from "../../../shared/Size"
 import { defaultWealthRolls } from "../../../shared/Wealth"
@@ -589,55 +590,55 @@ export const brothelData = {
   pimp: {
     "a mean old madam": {
       age: `venerable`,
-      gender: `woman`,
+      gender: Gender.Woman,
       altTitle: `Mistress`,
       relaxedTrait: `mean`,
       profession: Profession.Pimp,
     },
     "a large madam with a no-nonsense attitude": {
-      gender: `woman`,
+      gender: Gender.Woman,
       altTitle: `Mistress`,
       weight: `plump`,
       relaxedTrait: `sensible`,
       profession: Profession.Pimp,
     },
     "a warm motherly figure": {
-      gender: `woman`,
+      gender: Gender.Woman,
       altTitle: `Mistress`,
       weight: `plump`,
       relaxedTrait: `kind`,
       profession: Profession.Pimp,
     },
     "a surly brute": {
-      gender: `man`,
+      gender: Gender.Man,
       altTitle: `Master`,
       weight: `muscular`,
       relaxedTrait: `mean`,
       profession: Profession.Pimp,
     },
     "a tyrannical and cruel fellow": {
-      gender: `man`,
+      gender: Gender.Man,
       altTitle: `Master`,
       age: `middle-aged`,
       relaxedTrait: `mean`,
       profession: Profession.Pimp,
     },
     "a sultry seductress": {
-      gender: `woman`,
+      gender: Gender.Woman,
       altTitle: `Mistress`,
       age: `relatively young`,
       relaxedTrait: `flirtatious`,
       profession: Profession.Pimp,
     },
     "a charming witch": {
-      gender: `woman`,
+      gender: Gender.Woman,
       altTitle: `Mistress`,
       age: `relatively young`,
       dndClass: `sorcerer`,
       profession: Profession.Pimp,
     },
     "an incredibly well endowed woman": {
-      gender: `woman`,
+      gender: Gender.Woman,
       altTitle: `Mistress`,
       weight: `plump`,
       age: `relatively young`,
@@ -645,7 +646,7 @@ export const brothelData = {
       profession: Profession.Pimp,
     },
     "a rugged and grizzled rogue": {
-      gender: `man`,
+      gender: Gender.Man,
       altTitle: `Master`,
       relaxedTrait: `mean`,
       profession: Profession.Pimp,
@@ -658,7 +659,7 @@ export const brothelData = {
 
       const harlot = createNPC(town, {
         physicalTrait: randomValue(brothelData.harlot.physicalTrait),
-        gender: `woman`,
+        gender: Gender.Woman,
         isShallow: true,
         flawSeverity: randomValue(brothelData.harlot.flawSeverity),
         feature: randomValue(brothelData.harlot.feature),
@@ -680,27 +681,27 @@ export const brothelData = {
     },
     type: {
       "a veteran who may have been beautiful": {
-        gender: `woman`,
+        gender: Gender.Woman,
         note: `A seasoned hand at the world's oldest trade.`,
       },
       "a passionate young woman": {
-        gender: `woman`,
+        gender: Gender.Woman,
         ageStage: AgeStage.YoungAdult,
         calmTrait: `passionate`,
       },
       "a homely young lady": {
-        gender: `woman`,
+        gender: Gender.Woman,
         ageStage: AgeStage.YoungAdult,
         calmTrait: `kind`,
       },
       "a friendly and plump woman": {
         weight: `plump`,
-        gender: `woman`,
+        gender: Gender.Woman,
         calmTrait: `friendly`,
       },
       "the bastard daughter of a noble house": {
         background: `noble`,
-        gender: `woman`,
+        gender: Gender.Woman,
         note: `The bastard daughter of a noble house.`,
         callbackFunction(town, npc) {
           if (!npc.family) createFamily(town, npc)
@@ -709,30 +710,30 @@ export const brothelData = {
       },
       "a young foreigner": {
         background: `outlander`,
-        gender: `woman`,
+        gender: Gender.Woman,
         ageStage: AgeStage.YoungAdult,
         vocalPattern: `has an interesting accent`,
         note: `From a far away land.`,
       },
       "the boss’s favorite": {
-        gender: `woman`,
+        gender: Gender.Woman,
         ageStage: AgeStage.YoungAdult,
         calmTrait: `passionate`,
       },
       "an exotic beauty": {
         background: `noble`,
         ageStage: AgeStage.YoungAdult,
-        gender: `woman`,
+        gender: Gender.Woman,
         vocalPattern: `an interesting accent`,
         note: `From a far away land.`,
       },
       "new to the place and always in trouble": {
-        gender: `woman`,
+        gender: Gender.Woman,
         ageStage: AgeStage.YoungAdult,
         calmTrait: `mischievous`,
       },
       "new to the place and eager to please": {
-        gender: `woman`,
+        gender: Gender.Woman,
         ageStage: AgeStage.YoungAdult,
         calmTrait: `eager to please`,
       },
