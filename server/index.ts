@@ -1,7 +1,6 @@
 import compression from "compression"
 import express from "express"
 import chalk from "chalk"
-import { initSentry } from "./sentry"
 import { initReactSSR } from "./react"
 import { initEndpoints } from "./endpoints"
 
@@ -10,7 +9,6 @@ export const app = express()
 // Compress responses.
 app.use(compression({ threshold: 8 }))
 
-initSentry(app)
 initReactSSR(app)
 initEndpoints(app)
 
