@@ -1,13 +1,14 @@
 import { randomValue } from "../rolls"
+import { Gender } from "../../../shared/Gender"
 import { misc } from "../world/miscData"
 import { profile } from "../npc-generation/profile"
 import { createNPC } from "../npc-generation/createNPC"
-import { objectArrayFetcher } from "../tools/objectArrayFetcher"
+import { NPC } from "../npc-generation/npc"
 import { createRelationship } from "../npc-generation/createRelationship"
+import { objectArrayFetcher } from "../tools/objectArrayFetcher"
 import { createTownName } from "../town/createTownName"
 import { factionsForType } from "../tools/factionsForType"
 import { Town } from "../town/town"
-import { NPC } from "../npc-generation/npc"
 import { roleplayQuestions } from "../world/roleplayQuestions"
 
 enum PlothookType {
@@ -56,7 +57,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         dndClass: randomValue([`sorcerer`, `wizard`, `warlock`]),
-        gender: `man`,
+        gender: Gender.Man,
       })
       const npcProfile = profile(npc, `real culprit`)
       return `<<guard ${town.guard}>> think the party's mage is responsible for a magical duel fought atop the cathedral roof last night. Can the party find the ${npcProfile} before they are hunted down themselves? Do they dare, knowing that the criminal dispatched his last opponent with a frighteningly high level spell?`
@@ -67,7 +68,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         dndClass: `rogue`,
-        gender: `man`,
+        gender: Gender.Man,
       })
       const npcProfile = profile(npc, `hooded figure`)
       return `A woman falls into the street from the second story window in front of the party and dies on impact. Soon after, a PC notices a ${npcProfile} skillfully dropping, uninjured, from another second story window facing into the alley. The figure quickly disappears into a maze of side streets.`
@@ -101,7 +102,7 @@ export const plothooks: Record<string, Plothook> = {
     },
     function(town) {
       const npc = createNPC(town, {
-        gender: `woman`,
+        gender: Gender.Woman,
         ageStage: `child`,
         background: `orphan`,
       })
@@ -120,7 +121,7 @@ export const plothooks: Record<string, Plothook> = {
     },
     function(town) {
       const npc = createNPC(town, {
-        gender: `woman`,
+        gender: Gender.Woman,
         background: `commoner`,
         note: `Is currently pregnant.`,
       })
@@ -133,7 +134,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
-        gender: `man`,
+        gender: Gender.Man,
       })
       const npcProfile = profile(npc, `wealthy man`)
       return `The party is mistaken by a ${npcProfile} as carriage caretakers in a shantytown neighborhood. He hands them money to protect his vehicle. The legitimate caretakers challenge the PCs and try to steal the wealthy wagon. Does the party protect the rich man's vehicle or do they leave the locals to do as they please, risking later persecution by the noble client?`
@@ -159,7 +160,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
-        gender: `man`,
+        gender: Gender.Man,
         profession: `museum curator`,
         lastName: `Jones`,
       })
@@ -172,7 +173,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
-        gender: `man`,
+        gender: Gender.Man,
         weight: `obese`,
         profession: `tourist`,
       })
@@ -189,7 +190,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const smithy = objectArrayFetcher(town.buildings.smithy)
       const npc = createNPC(town, {
-        gender: `man`,
+        gender: Gender.Man,
         profession: `blacksmith`,
         background: `blacksmith`,
       })
@@ -213,7 +214,7 @@ export const plothooks: Record<string, Plothook> = {
       const npc = createNPC(town, {
         background: `scholar`,
         dndClass: `wizard`,
-        gender: `man`,
+        gender: Gender.Man,
       })
       const npcProfile = profile(npc, `representative`)
       const factionProfile = profile(faction, ``, `town.factions`)
@@ -225,7 +226,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         background: `merchant`,
-        gender: `man`,
+        gender: Gender.Man,
         profession: `merchant`,
       })
       const npcProfile = profile(npc, `shady character`)
@@ -237,14 +238,14 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
-        gender: `man`,
+        gender: Gender.Man,
       })
       const secondNpc = createNPC(town, {
         background: `noble`,
-        gender: `man`,
+        gender: Gender.Man,
       })
-      const npcProfile = profile(npc, `man`)
-      const secondNpcProfile = profile(secondNpc, `man`)
+      const npcProfile = profile(npc, Gender.Man)
+      const secondNpcProfile = profile(secondNpc, Gender.Man)
       return `Two speeding coaches collide, leaving a bloody scene and angry families. The road is blocked, and the <<guard $town.guard>> seem disinterested in assisting with either clearing the road or arbitrating between a ${npcProfile} and ${secondNpcProfile} from the other coach.`
     },
   },
@@ -272,7 +273,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         background: `commoner`,
-        gender: `woman`,
+        gender: Gender.Woman,
         note: `Is a werewolf.`,
       })
       const npcProfile = profile(npc, `young woman`)
@@ -284,7 +285,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         dndClass: `wizard`,
-        gender: `man`,
+        gender: Gender.Man,
       })
       const npcProfile = profile(npc, `necromancer`)
       return `There have long been rumours of the cemetery being desecrated by someone stealing the corpses. One night the PCs chance upon the ${npcProfile} walking home with newly animated undead.`
@@ -295,7 +296,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
-        gender: `woman`,
+        gender: Gender.Woman,
       })
       const npcProfile = profile(npc)
       return `${npcProfile} seeks the protection of the PCs. To grant it makes her enemies the PCs' enemies, and gives them the responsibility to protect a high-profile, fragile person who can't or won't leave town.`
@@ -318,7 +319,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
-        gender: `man`,
+        gender: Gender.Man,
         ageStage: `child`,
       })
       const npcProfile = profile(npc, `spoiled child`)
@@ -335,7 +336,7 @@ export const plothooks: Record<string, Plothook> = {
     type: [PlothookType.Event],
     function(town) {
       const npc = createNPC(town, {
-        gender: `man`,
+        gender: Gender.Man,
         ageStage: `child`,
       })
       const npcProfile = profile(npc, `one of the boys`)
@@ -347,7 +348,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         background: `soldier`,
-        gender: `man`,
+        gender: Gender.Man,
         profession: `guard`,
       })
       const npcProfile = profile(npc, `One`)
@@ -368,7 +369,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
-        gender: `man`,
+        gender: Gender.Man,
       })
       const npcProfile = profile(npc, `Someone`)
       return `${npcProfile} falls out the window of a high building. It wasn't suicide as he had his hands and feet bound together and three large sacks of gold tied around his neck. What will be more important, the murder or the money?`
@@ -379,7 +380,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         background: `noble`,
-        gender: `man`,
+        gender: Gender.Man,
       })
       const npcProfile = profile(npc, `rich man`)
       return `A ${npcProfile} walks through a bad part of town with obvious riches and money. If mugged, he gives it willingly. He has been doing this for the last three days.`
@@ -430,7 +431,7 @@ export const plothooks: Record<string, Plothook> = {
     },
     function(town) {
       const npc = createNPC(town, {
-        gender: `woman`,
+        gender: Gender.Woman,
         dndClass: `sorcerer`,
       })
       const cabin = misc.cabin.create()
@@ -483,7 +484,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         ageStage: `elderly`,
-        gender: `woman`,
+        gender: Gender.Woman,
         hasClass: false,
       })
       const npcProfile = profile(npc, `grandmother`)
@@ -503,7 +504,7 @@ export const plothooks: Record<string, Plothook> = {
     type: [PlothookType.Paper],
     function(town) {
       const npc = createNPC(town, {
-        gender: `woman`,
+        gender: Gender.Woman,
       })
       const npcProfile = profile(npc, `My`)
       return `Earrings Stolen: ${npcProfile} wagon was robbed by bandits in the eastern forest. Among the items taken where heirloom earrings that were given to me by my mother. Please find them. Reward available.`
@@ -609,7 +610,7 @@ export const plothooks: Record<string, Plothook> = {
     function(town) {
       const npc = createNPC(town, {
         profession: `seer`,
-        gender: `woman`,
+        gender: Gender.Woman,
         hasClass: false,
       })
       return `Lady ${profile(
@@ -646,7 +647,7 @@ export const plothooks: Record<string, Plothook> = {
       const npc = createNPC(town, {
         hasClass: false,
         background: `noble`,
-        gender: `woman`,
+        gender: Gender.Woman,
         ageStage: randomValue([`child`, `young adult`]),
       })
       return `Bandit Kidnappers! Our ${profile(
@@ -662,7 +663,7 @@ export const plothooks: Record<string, Plothook> = {
         hasClass: true,
         dndClass: `fighter`,
         ageStage: randomValue([`child`, `young adult`]),
-        gender: `man`,
+        gender: Gender.Man,
       })
       return `Family Bandits! My ${profile(
         npc,
@@ -767,7 +768,7 @@ export const plothooks: Record<string, Plothook> = {
       const npc = createNPC(town, {
         hasClass: false,
         ageStage: `child`,
-        gender: `man`,
+        gender: Gender.Man,
       })
       const npcProfile = profile(npc, npc.firstName)
       return `LOST! Young boy named ${npcProfile}, he has been missing for over a week and was last seen going of to play by the river. Reward if found.`
@@ -1002,7 +1003,7 @@ export const plothooks: Record<string, Plothook> = {
       const npc = createNPC(town, {
         hasClass: true,
         dndClass: `bard`,
-        gender: `man`,
+        gender: Gender.Man,
       })
       return `BARD EXTRAORDINARE: Art is the purest expression of the soul, and no-one expresses themselves more eloquently than ${profile(
         npc
@@ -1020,7 +1021,7 @@ export const plothooks: Record<string, Plothook> = {
       const npc = createNPC(town, {
         hasClass: false,
         background: `commoner`,
-        gender: `man`,
+        gender: Gender.Man,
         note: `Is very handsome.`,
         profession: `courier`,
       })
@@ -1091,7 +1092,7 @@ export const plothooks: Record<string, Plothook> = {
       const npc = createNPC(town, {
         hasClass: false,
         background: `noble`,
-        gender: `man`,
+        gender: Gender.Man,
       })
       return `What up? We’re three cool guys who are looking for other cool guys who want to hang out in our party mansion. Nothing sexual. Dudes in good shape encouraged. If you’re fat, you should be able to find humor in the little things. Again, nothing sexual. Please contact ${profile(
         npc
@@ -1297,7 +1298,7 @@ export const plothooks: Record<string, Plothook> = {
       const npc = createNPC(town, {
         hasClass: true,
         ageStage: `elderly`,
-        gender: `woman`,
+        gender: Gender.Woman,
         dndClass: randomValue([`sorcerer`, `warlock`, `warlock`]),
         note: `Is not a very nice witch.`,
       })
@@ -1324,7 +1325,7 @@ export const plothooks: Record<string, Plothook> = {
       const npc = createNPC(town, {
         hasClass: false,
         background: `commoner`,
-        gender: `woman`,
+        gender: Gender.Woman,
         race: `half-orc`,
       })
       const npcProfile = profile(npc, `orc`)
@@ -1361,7 +1362,7 @@ export const plothooks: Record<string, Plothook> = {
         hasClass: false,
         background: `librarian`,
         ageStage: `elderly`,
-        gender: `woman`,
+        gender: Gender.Woman,
       })
       const npcProfile = profile(npc, `small old woman`)
       return `Having trouble stocking all these books! Will pay for some big and strong people to help me! (This was posted by a ${npcProfile} who owns the local library.)`
@@ -1484,7 +1485,7 @@ export const plothooks: Record<string, Plothook> = {
       })
       const secondNpc = createNPC(town, {
         hasClass: true,
-        gender: `man`,
+        gender: Gender.Man,
       })
       createRelationship(town, npc, secondNpc, `friend`, `friend`)
       const npcProfile = profile(npc, npc.firstName)

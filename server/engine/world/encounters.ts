@@ -7,6 +7,7 @@ import { orcs } from "./orcs"
 import { caravan } from "./caravan"
 import { goblins } from "./goblins"
 import { AgeStage } from "../../../shared/AgeStage"
+import { Gender } from "../../../shared/Gender"
 
 type Encounter = (town: any) => string
 
@@ -630,7 +631,7 @@ export const encounters: Record<string, Encounter> = {
   "a sleeping dragon": town => `a sleeping dragon`,
   "a mad witch": town => {
     const npc = createNPC(town, {
-      gender: `woman`,
+      gender: Gender.Woman,
       dndClass: `sorcerer`,
       background: `hermit`,
       profession: `witch`,
@@ -691,7 +692,7 @@ export const encounters: Record<string, Encounter> = {
 
   "an eccentric witch": town => {
     const npc = createNPC(town, {
-      gender: `woman`,
+      gender: Gender.Woman,
       dndClass: `sorcerer`,
       background: `hermit`,
       profession: `witch`,
@@ -736,7 +737,7 @@ export const encounters: Record<string, Encounter> = {
   "an old witch": town => {
     const npc = createNPC(town, {
       dndClass: `sorcerer`,
-      gender: `woman`,
+      gender: Gender.Woman,
       background: `acolyte`,
       ageStage: AgeStage.Elderly,
       isThrowaway: true,
@@ -762,7 +763,7 @@ export const encounters: Record<string, Encounter> = {
   "a woodcutter busy with the day’s work": town => {
     const npc = createNPC(town, {
       hasClass: false,
-      gender: `man`,
+      gender: Gender.Man,
       profession: `woodcutter`,
       isThrowaway: true,
     })
@@ -798,18 +799,18 @@ export const encounters: Record<string, Encounter> = {
   "hungry zombies": () => `hungry zombies`,
   "a lonely old woman": town => {
     const npc = createNPC(town, {
-      gender: `woman`,
+      gender: Gender.Woman,
       background: `hermit`,
       ageStage: AgeStage.Elderly,
       calmTrait: `quiet`,
       isThrowaway: true,
     })
-    return `a lonely old ${profile(npc, `woman`)}`
+    return `a lonely old ${profile(npc, Gender.Woman)}`
   },
   "a beautiful witch": town => {
     const npc = createNPC(town, {
       dndClass: `sorcerer`,
-      gender: `woman`,
+      gender: Gender.Woman,
       background: `acolyte`,
       note: `This witch is very beautiful.`,
       isThrowaway: true,
@@ -819,7 +820,7 @@ export const encounters: Record<string, Encounter> = {
   "a horrible witch": town => {
     const npc = createNPC(town, {
       dndClass: `sorcerer`,
-      gender: `woman`,
+      gender: Gender.Woman,
       background: `acolyte`,
       calmTrait: `mean`,
       stressTrait: `cruel`,

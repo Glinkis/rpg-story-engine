@@ -1,3 +1,4 @@
+import { Gender } from "../../../shared/Gender"
 import { AgeStage } from "../../../shared/AgeStage"
 import { createRelationship } from "../npc-generation/createRelationship"
 import { createNPC } from "../npc-generation/createNPC"
@@ -87,7 +88,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.parentNoun,
       },
-      gender: `man`,
+      gender: Gender.Man,
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: AgeStage.YoungAdult,
@@ -102,7 +103,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.parentNoun,
       },
-      gender: `woman`,
+      gender: Gender.Woman,
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: AgeStage.YoungAdult,
@@ -117,7 +118,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.siblingNoun,
       },
-      gender: `man`,
+      gender: Gender.Man,
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: smithy.blacksmith.ageStage,
@@ -132,7 +133,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.siblingNoun,
       },
-      gender: `woman`,
+      gender: Gender.Woman,
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: smithy.blacksmith.ageStage,
@@ -147,7 +148,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.niblingNoun,
       },
-      gender: `man`,
+      gender: Gender.Man,
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: AgeStage.SettledAdult,
@@ -162,7 +163,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.niblingNoun,
       },
-      gender: `woman`,
+      gender: Gender.Woman,
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: AgeStage.SettledAdult,
@@ -177,7 +178,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       relationships: {
         [smithy.blacksmith.key]: smithy.blacksmith.childNoun,
       },
-      gender: `man`,
+      gender: Gender.Man,
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: AgeStage.SettledAdult,
@@ -218,7 +219,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       relationships: {
         [smithy.blacksmith.key]: `employer`,
       },
-      gender: `man`,
+      gender: Gender.Man,
       profession: randomValue([
         `blacksmith`,
         `blacksmith's assistant`,

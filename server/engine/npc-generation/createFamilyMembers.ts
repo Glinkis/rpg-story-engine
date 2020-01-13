@@ -1,4 +1,5 @@
 import { MajorRace, Race } from "../../../shared/Race"
+import { Gender } from "../../../shared/Gender"
 import { randomRange, randomValue } from "../rolls"
 import { createNPC } from "./createNPC"
 import { relativeSocialClass, familySocialClass } from "./createSocialClass"
@@ -68,7 +69,7 @@ export function createParentage(town, family, npc, forceFather = false, forceMot
 
       const fatherBase = {
         ...familyData.relativeBase(npc),
-        gender: `man`,
+        gender: Gender.Man,
         ageYears: familyData.parentAge(npc),
         race: fatherRace,
         lastName: fatherSurname,
@@ -77,7 +78,7 @@ export function createParentage(town, family, npc, forceFather = false, forceMot
 
       const motherBase = {
         ...familyData.relativeBase(npc),
-        gender: `woman`,
+        gender: Gender.Woman,
         ageYears: familyData.parentAge(npc),
         race: motherRace,
         lastName: motherSurname,
@@ -128,7 +129,7 @@ export function createChildren(
   for (let k = 0; k < amount; k++) {
     const siblingBase = {
       race: findChildRace(town, motherRace, fatherRace),
-      gender: randomValue([`man`, `woman`]),
+      gender: randomValue([Gender.Man, Gender.Woman]),
       ageYears: familyData.childAge(marriage),
       lastName: surname,
       socialClass: siblingClass,
