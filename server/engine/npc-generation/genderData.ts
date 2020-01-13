@@ -1,5 +1,7 @@
+import { Gender } from "../../../shared/Gender"
+
 export const genderData = {
-  man: {
+  [Gender.Man]: {
     title: `Mr`,
     altTitle: `Master`,
     heshe: `he`,
@@ -20,7 +22,7 @@ export const genderData = {
     niblingNoun: `nephew`,
     oppositeGender: `woman`,
   },
-  woman: {
+  [Gender.Woman]: {
     title: `Ms`,
     altTitle: `Mistress`,
     heshe: `she`,
