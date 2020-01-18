@@ -363,17 +363,7 @@ export const factionData = {
       ],
       alliesList: [`priests`, `urchins`, `urchins`, `nobles`, `nobles`, `nobles`],
       rivalsList: [`bandits`, `bandits`, `bandits`, `bandits`],
-      joiningRequirement: [
-        `a display of skill`,
-        `a display of skill`,
-        `a display of skill`,
-        `some social status`,
-        `some social status`,
-        `some social status`,
-        `an excellent reputation`,
-        `an excellent reputation`,
-        `an excellent reputation`,
-      ],
+      joiningRequirement: [`a display of skill`, `some social status`, `an excellent reputation`],
       joiningInitiation: [
         `a simple form to be filled`,
         `a simple form to be filled`,
