@@ -11,25 +11,43 @@ enum BookCategory {
   TalesAndLegends = `tales and legends`,
 }
 
+interface Book {
+  title: string
+  cover: string
+  condition: string
+}
+
+interface DetailedBook extends Book {
+  contents: string
+  category: BookCategory
+}
+
+interface Details {
+  title: string
+  contents: string
+  category: BookCategory
+}
+
 export const books = {
-  create(town: Town) {
+  create(town: Town): Book | DetailedBook {
     const bookType = randomValue([`detailedTitles`, `titles`, `titles`, `puns`])
 
+    const details = randomValue(books[bookType]) as string | Details
+
     const book = {
-      ...randomValue(books[bookType] as any[]),
       condition: randomValue(books.condition),
       cover: randomValue(books.cover),
+      ...(typeof details === `string` ? { title: details } : details),
     }
 
-    if (bookType === `detailedTitles`) {
-      book.readout = `'${book.title}' is ${book.condition} The cover is ${book.cover}${book.contents}`
+    return book
+  },
+  readout(book: Book | DetailedBook) {
+    if (`contents` in book) {
+      return `'${book.title}' is ${book.condition} The cover is ${book.cover} ${book.contents}`
     } else {
-      book.readout = `'${book.title}' is ${book.condition} The cover is ${book.cover}`
+      return `'${book.title}' is ${book.condition} The cover is ${book.cover}`
     }
-
-    book.tippy = `<span class=tip title=${JSON.stringify(book.readout)}><<run setup.tippy("span")>>`
-    book.tippyWord = `"${book.tippy}${book.title}"</span>`
-    return `a book titled "${book.tippy}${book.title}"</span>`
   },
   condition: [
     // the book is...
