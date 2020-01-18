@@ -7,6 +7,7 @@ import { genderData } from "./genderData"
 export interface NPC {
   key: string
   name: string
+  firstName: string
   lastName: string
   race: MajorRace
   family: any
