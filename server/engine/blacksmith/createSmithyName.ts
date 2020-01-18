@@ -8,6 +8,8 @@ import { Smithy } from "./smithy"
 import { Town } from "../town/town"
 
 export function createSmithyName(town: Town, smithy: Smithy) {
+  const { blacksmith } = smithy
+
   const smithyNameRoll = randomRange(1, 5)
 
   const adjective = randomValue([
@@ -86,93 +88,93 @@ export function createSmithyName(town: Town, smithy: Smithy) {
   const fam = {
     son: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.parentNoun,
+        [blacksmith.key]: blacksmith.parentNoun,
       },
       gender: Gender.Man,
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
+      race: blacksmith.race,
+      lastName: blacksmith.lastName,
       ageStage: AgeStage.YoungAdult,
       profession: getProfession(),
     },
     daughter: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.parentNoun,
+        [blacksmith.key]: blacksmith.parentNoun,
       },
       gender: Gender.Woman,
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
+      race: blacksmith.race,
+      lastName: blacksmith.lastName,
       ageStage: AgeStage.YoungAdult,
       profession: getProfession(),
     },
     brother: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.siblingNoun,
+        [blacksmith.key]: blacksmith.siblingNoun,
       },
       gender: Gender.Man,
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
-      ageStage: smithy.blacksmith.ageStage,
+      race: blacksmith.race,
+      lastName: blacksmith.lastName,
+      ageStage: blacksmith.ageStage,
       profession: getProfession(),
     },
     sister: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.siblingNoun,
+        [blacksmith.key]: blacksmith.siblingNoun,
       },
       gender: Gender.Woman,
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
-      ageStage: smithy.blacksmith.ageStage,
+      race: blacksmith.race,
+      lastName: blacksmith.lastName,
+      ageStage: blacksmith.ageStage,
       profession: getProfession(),
     },
     uncle: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.niblingNoun,
+        [blacksmith.key]: blacksmith.niblingNoun,
       },
       gender: Gender.Man,
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
+      race: blacksmith.race,
+      lastName: blacksmith.lastName,
       ageStage: AgeStage.SettledAdult,
       profession: getProfession(),
     },
     aunt: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.niblingNoun,
+        [blacksmith.key]: blacksmith.niblingNoun,
       },
       gender: Gender.Woman,
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
+      race: blacksmith.race,
+      lastName: blacksmith.lastName,
       ageStage: AgeStage.SettledAdult,
       profession: getProfession(),
     },
     father: {
       relationships: {
-        [smithy.blacksmith.key]: smithy.blacksmith.childNoun,
+        [blacksmith.key]: blacksmith.childNoun,
       },
       gender: Gender.Man,
-      race: smithy.blacksmith.race,
-      lastName: smithy.blacksmith.lastName,
+      race: blacksmith.race,
+      lastName: blacksmith.lastName,
       ageStage: AgeStage.SettledAdult,
       profession: getProfession(),
     },
     friend: {
       relationships: {
-        [smithy.blacksmith.key]: `friend`,
+        [blacksmith.key]: `friend`,
       },
       ageStage: AgeStage.SettledAdult,
       profession: getProfession(),
     },
     family: {
       relationships: {
-        [smithy.blacksmith.key]: `relative`,
+        [blacksmith.key]: `relative`,
       },
-      lastName: smithy.blacksmith.lastName,
-      race: smithy.blacksmith.race,
+      lastName: blacksmith.lastName,
+      race: blacksmith.race,
       ageStage: AgeStage.SettledAdult,
       profession: getProfession(),
     },
     employee: {
       relationships: {
-        [smithy.blacksmith.key]: `employer`,
+        [blacksmith.key]: `employer`,
       },
       gender: Gender.Man,
       profession: getProfession(),
@@ -184,26 +186,14 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       smithy.name = `The ${adjective} ${noun}`
       break
     case 2:
-      smithy.name = `${smithy.blacksmith.firstName} and ${toUpperFirst(family)}`
+      smithy.name = `${blacksmith.firstName} and ${toUpperFirst(family)}`
       smithy.assistant = createNPC(town, fam[family])
-      createRelationship(
-        town,
-        smithy.blacksmith,
-        smithy.assistant,
-        family,
-        smithy.assistant.relationships[smithy.blacksmith.key]
-      )
+      createRelationship(town, blacksmith, smithy.assistant, family, smithy.assistant.relationships[blacksmith.key])
       break
     case 3:
       smithy.name = `The ${noun} and ${toUpperFirst(family)}`
       smithy.assistant = createNPC(town, fam[family])
-      createRelationship(
-        town,
-        smithy.blacksmith,
-        smithy.assistant,
-        family,
-        smithy.assistant.relationships[smithy.blacksmith.key]
-      )
+      createRelationship(town, blacksmith, smithy.assistant, family, smithy.assistant.relationships[blacksmith.key])
       break
     case 4:
       smithy.name = `The ${adjective} ${rider}`
