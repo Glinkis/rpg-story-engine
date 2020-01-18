@@ -92,12 +92,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: AgeStage.YoungAdult,
-      profession: randomValue([
-        `blacksmith`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-      ]),
+      profession: getProfession(),
     },
     daughter: {
       relationships: {
@@ -107,12 +102,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: AgeStage.YoungAdult,
-      profession: randomValue([
-        `blacksmith`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-      ]),
+      profession: getProfession(),
     },
     brother: {
       relationships: {
@@ -122,12 +112,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: smithy.blacksmith.ageStage,
-      profession: randomValue([
-        `blacksmith`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-      ]),
+      profession: getProfession(),
     },
     sister: {
       relationships: {
@@ -137,12 +122,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: smithy.blacksmith.ageStage,
-      profession: randomValue([
-        `blacksmith`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-      ]),
+      profession: getProfession(),
     },
     uncle: {
       relationships: {
@@ -152,12 +132,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: AgeStage.SettledAdult,
-      profession: randomValue([
-        `blacksmith`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-      ]),
+      profession: getProfession(),
     },
     aunt: {
       relationships: {
@@ -167,12 +142,7 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: AgeStage.SettledAdult,
-      profession: randomValue([
-        `blacksmith`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-      ]),
+      profession: getProfession(),
     },
     father: {
       relationships: {
@@ -182,24 +152,14 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       race: smithy.blacksmith.race,
       lastName: smithy.blacksmith.lastName,
       ageStage: AgeStage.SettledAdult,
-      profession: randomValue([
-        `blacksmith`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-      ]),
+      profession: getProfession(),
     },
     friend: {
       relationships: {
         [smithy.blacksmith.key]: `friend`,
       },
       ageStage: AgeStage.SettledAdult,
-      profession: randomValue([
-        `blacksmith`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-      ]),
+      profession: getProfession(),
     },
     family: {
       relationships: {
@@ -208,24 +168,14 @@ export function createSmithyName(town: Town, smithy: Smithy) {
       lastName: smithy.blacksmith.lastName,
       race: smithy.blacksmith.race,
       ageStage: AgeStage.SettledAdult,
-      profession: randomValue([
-        `blacksmith`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-      ]),
+      profession: getProfession(),
     },
     employee: {
       relationships: {
         [smithy.blacksmith.key]: `employer`,
       },
       gender: Gender.Man,
-      profession: randomValue([
-        `blacksmith`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-        `blacksmith's assistant`,
-      ]),
+      profession: getProfession(),
     },
   }
 
@@ -266,4 +216,8 @@ export function createSmithyName(town: Town, smithy: Smithy) {
   }
 
   return smithy
+}
+
+function getProfession() {
+  return randomValue([`blacksmith`, `blacksmith's assistant`, `blacksmith's assistant`, `blacksmith's assistant`])
 }
