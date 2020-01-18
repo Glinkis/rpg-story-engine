@@ -6,9 +6,9 @@ enum BookCategory {
   History = `history`,
   ArcaneStudies = `arcane studies`,
   Anatomy = `anatomy`,
-  Botany = `Botany`,
-  CollectedTales = `CollectedTales`,
-  TalesAndLegends = `TalesAndLegends`,
+  Botany = `botany`,
+  CollectedTales = `collected tales`,
+  TalesAndLegends = `tales and legends`,
 }
 
 export const books = {
