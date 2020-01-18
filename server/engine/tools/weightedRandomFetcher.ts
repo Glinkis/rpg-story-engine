@@ -36,8 +36,9 @@ export function weightedRandomFetcher(
   exclusionFunction = exclusionFunction || true
 
   for (const arg in args) {
-    let isValid
-    let fnValid
+    let isValid: boolean
+    let fnValid: boolean
+
     if (args[arg].exclusions && typeof args[arg].exclusions === `function`) {
       isValid = args[arg].exclusions(town, obj)
     } else {
