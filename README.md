@@ -6,8 +6,6 @@ This is a rewrite of [Eigengrau's EssentialEstablishment Generator](https://gith
 
 The aim is to provide a flexible and full API, as well as a client side app.
 
-[Link to App](https://rpg-story-engine.herokuapp.com/)
-
 ## Prerequisites
 
 Somewhat recent versions of:
